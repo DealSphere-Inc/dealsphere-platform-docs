@@ -25,7 +25,7 @@ nav:
   - Home: README.md
 
   - Architecture Decision Records (ADRs):
-      - ADR Overview: adr/README.md
+      - ADR Master Index: adr/README.md
       - ADR-0000 Template: adr/ADR-0000-template.md
       - ADR-0001 Java 17 Runtime: adr/ADR-0001-java-17-runtime.md
       - ADR-0002 Microservices Architecture: adr/ADR-0002-microservices-architecture.md
@@ -53,9 +53,11 @@ nav:
       - ADR-0024 Multi-Tenant Baseline: adr/ADR-0024-multi-tenant-baseline-strategy.md
       - ADR-0025 Event Streaming Platform: adr/ADR-0025-event-streaming-platform.md
 
-  - Planning & Product:
+  - Planning: 
       - Phase 1 Development Plan: planning/platform-development-phase1.md
-      - Phase 1 Product Requirements (PRD): product/Phase1_PRD.md
+
+  - Product: 
+      - Phase 1 PRD: product/Phase1_PRD.md
 
   - QA & Compliance:
       - QA Suite Overview: qa/README.md
@@ -70,7 +72,7 @@ nav:
       - Release Process: tech/release-process.md
       - Sprint Demo Checklists: tech/sprint-demo-checklists.md
       - Sprint Plan (Phase 1): tech/sprint-plan-phase-1.md
-      - Technology Landscape: tech/technology-landscape.md                    # Optional
+      - Technology Landscape: tech/technology-landscape.md
 
 markdown_extensions:
   - admonition
