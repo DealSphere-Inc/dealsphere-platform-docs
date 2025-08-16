@@ -22,36 +22,55 @@ theme:
     - toc.integrate
 
 nav:
-  - Home: index.md
-  - Release Process: release-process.md
-  - Getting Started: getting-started.md
-  - Architecture Decisions:
-      - ADR Index: adr/README.md
-      - ADR-0001: adr/ADR-0001.md
-      - ADR-0002: adr/ADR-0002.md
-      # Add more ADRs as needed
-  - Technical Documentation:
-      - Overview: tech/README.md
-      - Phase 1 Technical Plan: tech/phase-1-technical-plan.md
-      - Sprint Plan: tech/sprint-plan-phase-1.md
-      - Demo Checklists: tech/sprint-demo-checklists.md
-      - Stakeholder Summary: tech/phase-1-stakeholder-summary.md
-      - Technology Landscape: tech/technology-landscape.md
+  - Home: README.md
+
+  - Architecture Decision Records (ADRs):
+      - ADR Overview: adr/README.md
+      - ADR-0000 Template: adr/ADR-0000-template.md
+      - ADR-0001 Java 17 Runtime: adr/ADR-0001-java-17-runtime.md
+      - ADR-0002 Microservices Architecture: adr/ADR-0002-microservices-architecture.md
+      - ADR-0003 HTTP Inter-Service Communication: adr/ADR-0003-http-inter-service-communication.md
+      - ADR-0004 GraphQL Apollo Gateway: adr/ADR-0004-graphql-apollo-gateway-external-api.md
+      - ADR-0005 R3 Corda 5 DLT Platform: adr/ADR-0005-r3-corda-5-dlt-platform.md
+      - ADR-0006 Docker Compose Orchestration: adr/ADR-0006-docker-compose-phase1-orchestration.md
+      - ADR-0007 Service Framework Defaults: adr/ADR-0007-service-framework-defaults.md
+      - ADR-0008 Database Selection: adr/ADR-0008-database-selection.md
+      - ADR-0009 Schema Migration Strategy: adr/ADR-0009-schema-migration-strategy.md
+      - ADR-0010 Identity Provider & Claims: adr/ADR-0010-identity-provider-and-claims-strategy.md
+      - ADR-0011 Authorization Strategy: adr/ADR-0011-authorization-strategy.md
+      - ADR-0012 Secrets Management: adr/ADR-0012-secrets-management.md
+      - ADR-0013 Observability Stack: adr/ADR-0013-observability-stack.md
+      - ADR-0014 Rate Limiting Strategy: adr/ADR-0014-rate-limiting-strategy.md
+      - ADR-0015 Feature Flags System: adr/ADR-0015-feature-flags-system.md
+      - ADR-0016 Caching Strategy: adr/ADR-0016-caching-strategy.md
+      - ADR-0017 Search Implementation: adr/ADR-0017-search-implementation.md
+      - ADR-0018 On-Ledger DLT Details: adr/ADR-0018-on-ledger-dlt-implementation-details.md
+      - ADR-0019 DLT Access Patterns: adr/ADR-0019-dlt-access-patterns.md
+      - ADR-0020 GraphQL Federation Conventions: adr/ADR-0020-graphql-federation-conventions.md
+      - ADR-0021 Protobuf IDL Versioning: adr/ADR-0021-protobuf-idl-versioning-strategy.md
+      - ADR-0022 Connection Pool Management: adr/ADR-0022-connection-pool-budget-management.md
+      - ADR-0023 Persisted Queries & Batching: adr/ADR-0023-persisted-queries-and-batching.md
+      - ADR-0024 Multi-Tenant Baseline: adr/ADR-0024-multi-tenant-baseline-strategy.md
+      - ADR-0025 Event Streaming Platform: adr/ADR-0025-event-streaming-platform.md
+
   - Planning & Product:
-      - Product Requirements (PRD): product/Phase1_PRD.md
-      - Planning Doc: planning/platform-development-phase1.md
+      - Phase 1 Development Plan: planning/platform-development-phase1.md
+      - Phase 1 Product Requirements (PRD): product/Phase1_PRD.md
+
   - QA & Compliance:
-      - QA Overview: qa/README.md
+      - QA Suite Overview: qa/README.md
+      - Acceptance Criteria Validation: qa/acceptance-criteria-validation.md
       - Functional Test Cases: qa/phase1-functional-test-cases.md
-      - Acceptance Criteria Mapping: qa/acceptance-criteria-validation.md
-      - Traceability Matrix: qa/prd-traceability-phase1.md
+      - PRD Traceability Matrix: qa/prd-traceability-phase1.md
       - Sprint Functional Test Mapping: qa/sprint-functional-test-mapping-phase-1.md
-  - Contributing & Processes:
-      - Contributing Guidelines: contributing.md
-      - ADR Process: adr/template.md
-  - API Reference: api/README.md   # Path if you add API docs (optional)
-  - Changelog: changelog.md        # Optional
-  - FAQ: faq.md                    # Optional
+
+  - Technical Documentation:
+      - Phase 1 Stakeholder Summary: tech/phase-1-stakeholder-summary.md
+      - Phase 1 Technical Plan: tech/phase-1-technical-plan.md
+      - Release Process: tech/release-process.md
+      - Sprint Demo Checklists: tech/sprint-demo-checklists.md
+      - Sprint Plan (Phase 1): tech/sprint-plan-phase-1.md
+      - Technology Landscape: tech/technology-landscape.md                    # Optional
 
 markdown_extensions:
   - admonition
