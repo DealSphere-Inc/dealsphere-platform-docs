@@ -1,11 +1,11 @@
 # ADR-0006: Docker Compose for Phase 1 Orchestration
 
-**Author:** @MysterTech 
-**Status:** Accepted  
-**Date:** 2025-08-13  
-**Deciders:** @MysterTech 
-**Technical Story:**  
-**Tags:** orchestration, docker, compose
+**Author:** @MysterTech     
+**Status:** Accepted      
+**Date:** 2025-08-13      
+**Deciders:** @MysterTech    
+**Technical Story:**      
+**Tags:** orchestration, docker, compose    
 
 ## Context
 
