@@ -1,0 +1,11 @@
+site_name: DealSphere Docs
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Release Process: release-process.md
+  - ADRs:
+      - ADR-0001: adr/ADR-0001.md
+  - Technical:
+      - Technical Plan: tech/phase-1-technical-plan.md
+repo_url: https://github.com/DealSphere-Inc/dealsphere-docs
