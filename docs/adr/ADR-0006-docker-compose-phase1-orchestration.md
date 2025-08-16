@@ -22,46 +22,55 @@ Adopt Docker Compose as the container orchestration platform for DealSphere Phas
 
 ### Why Docker Compose for Phase 1 Orchestration?
 
-- **Development Environment Consistency**
+**Development Environment Consistency**
     - Standardized service configuration across all developer workstations.
     - Reproducible dependency management for databases, message brokers, and external service mocks.
     - Version-controlled environment definitions ensuring team alignment.
     - Simple service lifecycle management (start/stop/restart) for rapid iteration.
-- **Integration Testing Support**
+
+**Integration Testing Support**
     - Multi-container test suites with predictable service startup ordering.
     - Network isolation and service-to-service communication testing.
     - Database and external service state management for test scenarios.
     - CI/CD pipeline integration with consistent environment provisioning.
-- **Operational Simplicity**
+
+**Operational Simplicity**
     - Single-file service definitions (`docker-compose.yml`) for easy maintenance.
     - Built-in service discovery and DNS resolution between containers.
     - Volume mounting for development hot-reloading and persistent data.
     - Log aggregation and debugging tools compatible with Docker ecosystem.
-- **Resource Management**
+
+**Resource Management**
     - Efficient resource utilization on developer machines compared to VM-based alternatives.
     - Fine-grained resource allocation per service (CPU/memory limits).
     - Automatic cleanup and container lifecycle management.
     - Minimal infrastructure overhead for local development workflows.
-- **Technology Stack Alignment**
+
+**Technology Stack Alignment**
     - Native Docker image support for Java 17 services and Spring Boot applications.
     - PostgreSQL, Redis, and other backing service containers readily available.
     - Corda node containerization patterns established in community.
     - GraphQL and gRPC service containerization well-documented.
-- **CI/CD Integration**
+
+**CI/CD Integration**
     - GitHub Actions and other CI systems provide built-in Docker Compose support.
     - Consistent environment definitions between local development and automated testing.
     - Parallel service builds and testing capabilities.
     - Easy integration with container registries for artifact management.
 
-### Alternatives Considered
+### Deferred Alternatives
 
-- **Kubernetes (Minikube/Kind)**
+**Kubernetes (Minikube/Kind)**
     - Pros: Production-like orchestration capabilities and advanced networking features.
     - Cons: Significantly higher complexity for Phase 1 scope; resource overhead; learning curve.
-- **VM-based Development**
+
+### Rejected Alternatives
+
+**VM-based Development**
     - Pros: Complete isolation and familiar virtualization patterns.
     - Cons: Higher resource consumption; slower startup; complex dependency management.
-- **Manual Service Management**
+
+**Manual Service Management**
     - Pros: Direct control over configuration and debugging.
     - Cons: Inconsistent environments; complex coordination; difficult integration testing.
 
