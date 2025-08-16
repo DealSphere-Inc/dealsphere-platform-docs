@@ -1,0 +1,743 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>DealSphere Phase 1 — Functional Test Cases (PRD-Aligned) - DealSphere Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dealsphere-phase-1-functional-test-cases-prd-aligned" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DealSphere Docs" class="md-header__button md-logo" aria-label="DealSphere Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DealSphere Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DealSphere Phase 1 — Functional Test Cases (PRD-Aligned)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/DealSphere-Inc/dealsphere-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DealSphere Docs" class="md-nav__button md-logo" aria-label="DealSphere Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DealSphere Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/DealSphere-Inc/dealsphere-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-process.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Release Process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ADRs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ADRs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-0001.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR-0001
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Technical
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Technical
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/phase-1-technical-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Technical Plan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conventions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-41-platform-security-rbac-class-segregation-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4.1 Platform &amp; Security (RBAC, class segregation, audit)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-42-document-management-versioning-integrity-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4.2 Document Management (versioning, integrity, logs)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-43-capital-calls-class-rules-notices-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4.3 Capital Calls (class rules, notices, tracking)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-44-waterfall-calculations-euus-priority-determinism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4.4 Waterfall Calculations (EU/US, priority, determinism)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-45-workflow-automation-approvals-reminders-ai-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4.5 Workflow Automation (approvals, reminders, AI routing)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-46-basic-analytics-class-filters-exports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4.6 Basic Analytics (class filters, exports)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-47-ai-integration-initial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4.7 AI Integration (initial)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-48-architecture-design-enforcement-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4.8 Architecture Design (enforcement checks)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-49-fund-accounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4.9 Fund Accounting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-410-portfolio-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4.10 Portfolio Tracking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-cutting-apigraphql-functional-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-cutting API/GraphQL functional checks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-sample-test-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendix: Sample test data
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="dealsphere-phase-1-functional-test-cases-prd-aligned">DealSphere Phase 1 — Functional Test Cases (PRD-Aligned)</h1>
+<h2 id="conventions">Conventions</h2>
+<ul>
+<li>Roles: Admin, GP, LP(A), LP(B), Auditor, AI Assistant (virtual)</li>
+<li>Classes: A and B configured with distinct rules</li>
+<li>PRD references use "PRD x.y" matching docs/product/Phase1_PRD.md</li>
+</ul>
+<h2 id="section-41-platform-security-rbac-class-segregation-audit">Section 4.1 Platform &amp; Security (RBAC, class segregation, audit)</h2>
+<ul>
+<li><strong>TC-SEC-001: Role matrix enforcement (PRD 4.1)</strong></li>
+<li>Preconditions: Users exist for each role; classes A/B configured</li>
+<li>Steps: Attempt read/write actions per role across classes</li>
+<li>Expected: Admin full; GP per-fund; LP only own class; Auditor read-only; AI restricted to caller's scope</li>
+<li>Negative: LP(B) reading Class A docs or capital calls returns 403</li>
+<li><strong>TC-SEC-002: Class isolation in GraphQL/REST (PRD 4.1)</strong></li>
+<li>Steps: Query lists and nested relations</li>
+<li>Expected: Results filtered to user's class, totals reflect filtered set</li>
+<li><strong>TC-SEC-003: Token/session authorization (PRD 4.1)</strong></li>
+<li>Steps: Use valid token with mismatched class scope</li>
+<li>Expected: 403, audit log with actor/class/resource</li>
+<li><strong>TC-SEC-004: On-ledger access metadata reflection (PRD 4.1, 4.8)</strong></li>
+<li>Steps: Change class membership/permissions; call API</li>
+<li>Expected: Authorization decisions reflect updated on-ledger state within expected delay</li>
+<li><strong>TC-SEC-005: Audit trail completeness (PRD 4.1)</strong></li>
+<li>Steps: Perform read/write/denied attempts</li>
+<li>Expected: Logs include actor, class, resource, action, timestamp; immutable reference on-ledger</li>
+</ul>
+<h2 id="section-42-document-management-versioning-integrity-logs">Section 4.2 Document Management (versioning, integrity, logs)</h2>
+<ul>
+<li><strong>TC-DOC-001: Upload with on-ledger metadata (PRD 4.2)</strong></li>
+<li>Steps: Upload v1; verify metadata on-ledger, binary encrypted off-ledger</li>
+<li><strong>TC-DOC-002: Versioning workflow v1→v2 (PRD 4.2)</strong></li>
+<li>Steps: Upload v2 of same document</li>
+<li>Expected: Version increments; history lists v1/v2 with authors and timestamps; v1 remains accessible read-only</li>
+<li><strong>TC-DOC-003: Version access control by class/role (PRD 4.1, 4.2)</strong></li>
+<li>Steps: LP(A) accesses A doc; LP(B) attempts access</li>
+<li>Expected: LP(B) denied; GP/Admin allowed; Auditor read-only</li>
+<li><strong>TC-DOC-004: Content hash verification (PRD 4.2)</strong></li>
+<li>Steps: Compute client hash after upload; compare to stored hash; simulate tamper</li>
+<li>Expected: Hash match normally; tamper detected; alert/audit logged</li>
+<li><strong>TC-DOC-005: Access logs for view/download/version (PRD 4.2, 6)</strong></li>
+<li>Expected: Accurate entries for each action</li>
+<li><strong>TC-DOC-006: Smart search and OCR classification (initial) (PRD 4.2, 4.7)</strong></li>
+<li>Steps: Upload scanned PDF; search text; check class label</li>
+<li>Expected: Results only within user's class; OCR assigns correct class; misclassification never leaks across classes</li>
+</ul>
+<h2 id="section-43-capital-calls-class-rules-notices-tracking">Section 4.3 Capital Calls (class rules, notices, tracking)</h2>
+<ul>
+<li><strong>TC-CALL-001: Configure class rules (PRD 4.3)</strong></li>
+<li>Steps: Set Class A 10%, Class B 5%</li>
+<li>Expected: Rules persist; reflected in issuance</li>
+<li><strong>TC-CALL-002: Issue capital call per class (PRD 4.3)</strong></li>
+<li>Steps: Issue; verify per-LP obligations and notices by class</li>
+<li><strong>TC-CALL-003: Payment status lifecycle (PRD 4.3, 6)</strong></li>
+<li>Steps: Mark Paid/Partial; simulate overdue</li>
+<li>Expected: Per-LP statuses correct; class rollups update</li>
+<li><strong>TC-CALL-004: Reminders/escalations (PRD 4.3, 4.5)</strong></li>
+<li>Steps: Trigger reminder schedule; verify escalation to GP on breach</li>
+<li><strong>TC-CALL-005: Guardrails and audit (PRD 4.3, 4.1)</strong></li>
+<li>Steps: Attempt wrong-class payment/overpay</li>
+<li>Expected: Rejected with audit trail</li>
+</ul>
+<h2 id="section-44-waterfall-calculations-euus-priority-determinism">Section 4.4 Waterfall Calculations (EU/US, priority, determinism)</h2>
+<ul>
+<li><strong>TC-WF-001: European model per class (PRD 4.4, 6)</strong></li>
+<li>Steps: Run with provided inputs; compare outputs to vectors</li>
+<li>Expected: Pref, catch-up, carry applied per class; matches vectors</li>
+<li><strong>TC-WF-002: American model with clawback (PRD 4.4)</strong></li>
+<li>Steps: Over-distribute then realize; verify clawback</li>
+<li><strong>TC-WF-003: Inter-class priority switching (PRD 4.4)</strong></li>
+<li>Steps: Toggle priority; recompute</li>
+<li>Expected: Ordering and outputs change as expected</li>
+<li><strong>TC-WF-004: Determinism (PRD 4.4)</strong></li>
+<li>Steps: Run multiple times with same inputs</li>
+<li>Expected: Identical outputs or flagged divergence</li>
+</ul>
+<h2 id="section-45-workflow-automation-approvals-reminders-ai-routing">Section 4.5 Workflow Automation (approvals, reminders, AI routing)</h2>
+<ul>
+<li><strong>TC-WFLO-001: Class-specific approval chains (PRD 4.5)</strong></li>
+<li>Steps: Require approvers for Class A/B capital calls</li>
+<li>Expected: Cannot proceed without required sign-offs</li>
+<li><strong>TC-WFLO-002: Reminders/escalations (PRD 4.5)</strong></li>
+<li>Steps: Validate reminders at intervals; escalation on breach</li>
+<li><strong>TC-WFLO-003: Concurrent class workflows isolation (PRD 4.5, 6)</strong></li>
+<li>Steps: Run Class A and B workflows in parallel</li>
+<li>Expected: No cross-impact; independent statuses</li>
+<li><strong>TC-WFLO-004: AI-assisted routing within class (PRD 4.5, 4.7)</strong></li>
+<li>Steps: Suggested approvers list</li>
+<li>Expected: Only approvers for that class; accepted suggestions produce valid routing</li>
+</ul>
+<h2 id="section-46-basic-analytics-class-filters-exports">Section 4.6 Basic Analytics (class filters, exports)</h2>
+<ul>
+<li><strong>TC-ANL-001: Class-filtered committed vs deployed (PRD 4.6)</strong></li>
+<li>Steps: Switch class filters; validate numbers</li>
+<li><strong>TC-ANL-002: Portfolio breakdown by class (PRD 4.6, 4.10)</strong></li>
+<li><strong>TC-ANL-003: Export PDF/Excel scoped to role/class (PRD 4.6)</strong></li>
+<li>Expected: Exports match on-screen and contain only authorized data</li>
+</ul>
+<h2 id="section-47-ai-integration-initial">Section 4.7 AI Integration (initial)</h2>
+<ul>
+<li><strong>TC-AI-001: Class-filtered queries (PRD 4.7)</strong></li>
+<li><strong>TC-AI-002: Draft capital call with class parameters (PRD 4.7)</strong></li>
+<li>Expected: Draft requires manual approval via workflows</li>
+<li><strong>TC-AI-003: OCR + class assignment constraints (PRD 4.2, 4.7)</strong></li>
+</ul>
+<h2 id="section-48-architecture-design-enforcement-checks">Section 4.8 Architecture Design (enforcement checks)</h2>
+<ul>
+<li><strong>TC-ARCH-001: API gateway enforces auth and class segregation (PRD 4.8)</strong></li>
+<li><strong>TC-ARCH-002: No cross-tenant/class leakage in GraphQL/REST (PRD 4.8)</strong></li>
+</ul>
+<h2 id="section-49-fund-accounting">Section 4.9 Fund Accounting</h2>
+<ul>
+<li><strong>TC-ACCT-001: Class-attributed GL entries (PRD 4.9)</strong></li>
+<li><strong>TC-ACCT-002: NAV per class and combined; date-based recompute (PRD 4.9, 6)</strong></li>
+<li><strong>TC-ACCT-003: Role-based visibility (LP class-only; GP/Admin all) (PRD 4.9)</strong></li>
+</ul>
+<h2 id="section-410-portfolio-tracking">Section 4.10 Portfolio Tracking</h2>
+<ul>
+<li><strong>TC-PORT-001: Company profiles with class-split contributions/distributions (PRD 4.10)</strong></li>
+<li><strong>TC-PORT-002: IRR/MOIC per class and consolidated; date filters (PRD 4.10)</strong></li>
+<li><strong>TC-PORT-003: Role-based visibility (PRD 4.10)</strong></li>
+</ul>
+<h2 id="cross-cutting-apigraphql-functional-checks">Cross-cutting API/GraphQL functional checks</h2>
+<ul>
+<li><strong>TC-API-001: Pagination/sorting within class scope (4.1, 4.8)</strong></li>
+<li><strong>TC-API-002: Mutations blocked across classes (4.1)</strong></li>
+<li><strong>TC-API-003: Error messages are user-friendly, non-revealing (4.1)</strong></li>
+</ul>
+<h2 id="appendix-sample-test-data">Appendix: Sample test data</h2>
+<ul>
+<li>Classes: A (10% call), B (5% call)</li>
+<li>LPs: 2 per class with different commitments</li>
+<li>Deals: 2–3 investments with staged cashflows</li>
+<li>Waterfall vectors: Place under docs/qa/data/waterfalls.json</li>
+<li>Documents: 3 per class including a scanned PDF for OCR</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

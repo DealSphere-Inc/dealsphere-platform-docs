@@ -1,0 +1,862 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>DealSphere Phase 1 (MVP) — Product Requirements Document - DealSphere Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dealsphere-phase-1-mvp-product-requirements-document" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DealSphere Docs" class="md-header__button md-logo" aria-label="DealSphere Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DealSphere Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DealSphere Phase 1 (MVP) — Product Requirements Document
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/DealSphere-Inc/dealsphere-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DealSphere Docs" class="md-nav__button md-logo" aria-label="DealSphere Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DealSphere Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/DealSphere-Inc/dealsphere-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-process.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Release Process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ADRs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ADRs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-0001.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR-0001
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Technical
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Technical
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/phase-1-technical-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Technical Plan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-product-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Product Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-target-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Target Users
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Core Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-feature-requirements-phase-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Feature Requirements (Phase 1)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Feature Requirements (Phase 1)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-platform-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Platform &amp; Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-document-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Document Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-capital-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Capital Calls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-waterfall-calculations-multi-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Waterfall Calculations (Multi-Class)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-workflow-automation-per-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5 Workflow Automation (Per Class)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-basic-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.6 Basic Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-ai-integration-initial" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.7 AI Integration (Initial)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-architecture-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.8 Architecture Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49-fund-accounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.9 Fund Accounting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#410-portfolio-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.10 Portfolio Tracking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-non-functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Non-Functional Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-acceptance-criteria-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Acceptance Criteria (Key)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-success-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Success Metrics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-risks-mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Risks &amp; Mitigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-timeline-sprint-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Timeline (Sprint Breakdown)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-qa-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. QA Documentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. QA Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verification-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification Links
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="dealsphere-phase-1-mvp-product-requirements-document">DealSphere Phase 1 (MVP) — Product Requirements Document</h1>
+<blockquote>
+<p><strong>Related Documents:</strong>
+- <a href="../../tech/sprint-plan-phase-1/">Sprint Plan Phase 1</a> - Implementation timeline and sprint breakdown
+- <a href="../../qa/phase1-functional-test-cases/">Phase 1 Functional Test Cases</a> - Comprehensive test scenarios
+- <a href="../../qa/sprint-functional-test-mapping-phase-1/">Sprint→Functional Test Mapping</a> - Test coverage mapping</p>
+</blockquote>
+<h2 id="1-product-overview">1. Product Overview</h2>
+<ul>
+<li>Product Name: DealSphere</li>
+<li>Description: Secure, DLT-backed fund management platform for PE/VC with class-specific workflows and automated waterfalls, built on R3 Corda.</li>
+<li>Objective: Deliver an MVP that supports multi-class fund operations (permissions, capital calls, workflows, waterfalls), basic analytics, fund accounting, and portfolio tracking with AI-assisted experiences and a finalized architecture for scale.</li>
+</ul>
+<hr />
+<h2 id="2-target-users">2. Target Users</h2>
+<ul>
+<li>General Partners (GP), Limited Partners (LP) by class (A, B, etc.)</li>
+<li>Fund Managers and Administrators</li>
+<li>Auditors and Compliance users</li>
+<li>Investment/Portfolio Analysts</li>
+<li>Investors (read-only class-specific views)</li>
+<li>AI Assistant (virtual role for automated tasks)</li>
+</ul>
+<hr />
+<h2 id="3-core-use-cases">3. Core Use Cases</h2>
+<ul>
+<li>Role-based, class-segregated access and views</li>
+<li>Document management with on-ledger metadata, versioning, and audit logs</li>
+<li>Capital call lifecycle per class (rules, notices, tracking)</li>
+<li>Multi-class European and American waterfalls with prioritization and clawbacks</li>
+<li>Class-specific workflow automation (approvals, reminders, escalations)</li>
+<li>Basic analytics by class (committed vs. deployed, portfolio breakdown)</li>
+<li>Fund accounting and NAV/P&amp;L at class and combined levels</li>
+<li>Portfolio tracking with class-based contributions and returns</li>
+<li>AI-assisted class-specific queries and drafting</li>
+</ul>
+<hr />
+<h2 id="4-feature-requirements-phase-1">4. Feature Requirements (Phase 1)</h2>
+<h3 id="41-platform-security">4.1 Platform &amp; Security</h3>
+<ul>
+<li>R3 Corda for on-ledger access control and metadata</li>
+<li>Encryption at rest and in transit; content hash verification for documents</li>
+<li>Role-based access with class-level segregation (Admin, GP, LP by class, Auditor, AI Assistant)</li>
+<li>API gateway and secure node topology</li>
+</ul>
+<h3 id="42-document-management">4.2 Document Management</h3>
+<ul>
+<li>On-ledger metadata; encrypted off-ledger storage</li>
+<li>Version control, audit logging, and access logs</li>
+<li>Content hash verification for integrity</li>
+<li>Smart search and OCR-based classification (initial AI)</li>
+</ul>
+<h3 id="43-capital-calls">4.3 Capital Calls</h3>
+<ul>
+<li>Class-specific capital call rules (percentages, schedules)</li>
+<li>Smart contract templates for notices and enforcement</li>
+<li>Automated payment tracking per LP and per class</li>
+<li>Status updates per LP; automated reminders/escalations</li>
+</ul>
+<h3 id="44-waterfall-calculations-multi-class">4.4 Waterfall Calculations (Multi-Class)</h3>
+<ul>
+<li>European: whole-of-fund with class-specific pref returns, catch-up, carry</li>
+<li>American: deal-by-deal with class-specific clawback logic</li>
+<li>Configurable inter-class priority and model switching</li>
+<li>Deterministic outputs per class with expected results validation</li>
+</ul>
+<h3 id="45-workflow-automation-per-class">4.5 Workflow Automation (Per Class)</h3>
+<ul>
+<li>Approvals for capital calls, distributions, and major document approvals</li>
+<li>Class-specific SLAs, reminder schedules, and escalations</li>
+<li>AI-assisted routing to reduce approval latency</li>
+</ul>
+<h3 id="46-basic-analytics">4.6 Basic Analytics</h3>
+<ul>
+<li>Class-level committed vs. deployed capital</li>
+<li>Portfolio breakdown and class contribution/return</li>
+<li>Export to PDF/Excel</li>
+</ul>
+<h3 id="47-ai-integration-initial">4.7 AI Integration (Initial)</h3>
+<ul>
+<li>Class-filtered queries (e.g., "Show returns for Class B LPs")</li>
+<li>AI-assisted capital call drafting with class parameters</li>
+<li>OCR + classification for documents with class awareness</li>
+</ul>
+<h3 id="48-architecture-design">4.8 Architecture Design</h3>
+<ul>
+<li>Corda node topology for scale and security</li>
+<li>API gateway for integrations and external services</li>
+<li>Security model for strict class-based segregation and audit</li>
+</ul>
+<h3 id="49-fund-accounting">4.9 Fund Accounting</h3>
+<ul>
+<li>Multi-class general ledger</li>
+<li>NAV and P&amp;L per class and combined</li>
+</ul>
+<h3 id="410-portfolio-tracking">4.10 Portfolio Tracking</h3>
+<ul>
+<li>Company profiles with investment history split by class</li>
+<li>Performance metrics per class and consolidated views</li>
+</ul>
+<hr />
+<h2 id="5-non-functional-requirements">5. Non-Functional Requirements</h2>
+<ul>
+<li>Mobile-responsive web app</li>
+<li>High security: DLT auditability, encryption, RBAC with class segregation</li>
+<li>GDPR-ready and regional compliance placeholders</li>
+<li>Cloud deployment (AWS/Azure/GCP)</li>
+<li>API-first for integrations and modular scale</li>
+</ul>
+<hr />
+<h2 id="6-acceptance-criteria-key">6. Acceptance Criteria (Key)</h2>
+<ul>
+<li>Permissions: LPs see only their class; adjustable without contract redeploy</li>
+<li>Documents: Versioning works; access logs accurate; hash verification consistent</li>
+<li>Capital Calls: Issued per class rules; LP payment statuses update correctly</li>
+<li>Waterfalls: Distributions per class match test vectors; switching preserves class logic</li>
+<li>Workflows: Class A and B flows run concurrently without conflict; reminders as configured</li>
+<li>Analytics: Reports filterable by class; exports work</li>
+<li>AI: Filters/outputs adhere to class constraints; drafts match class parameters</li>
+<li>Accounting: NAV computed separately by class and combined</li>
+<li>Portfolio: Class-specific contributions and returns displayed</li>
+</ul>
+<hr />
+<h2 id="7-success-metrics">7. Success Metrics</h2>
+<ul>
+<li>Funds onboarded leveraging multi-class features</li>
+<li>Volume of class-specific capital calls and distributions</li>
+<li>Workflow automation throughput and SLA adherence</li>
+<li>Accuracy of waterfall outputs vs. expected vectors</li>
+<li>Frequency of AI-assisted actions</li>
+<li>Analytics/export usage by class</li>
+</ul>
+<hr />
+<h2 id="8-risks-mitigation">8. Risks &amp; Mitigation</h2>
+<ul>
+<li>Multi-class complexity: Test vectors and simulation harnesses</li>
+<li>Security/segregation: Pen testing, rigorous data access validation, on-ledger audit</li>
+<li>Scope creep: Phased deliveries with strict change control</li>
+<li>Compliance variance: Region placeholders and pilot validation</li>
+</ul>
+<hr />
+<h2 id="9-timeline-sprint-breakdown">9. Timeline (Sprint Breakdown)</h2>
+<blockquote>
+<p><strong>📋 For detailed implementation plan, see:</strong> <a href="../../tech/sprint-plan-phase-1/">Sprint Plan Phase 1</a></p>
+</blockquote>
+<ul>
+<li>Sprint 1: Architecture, Corda setup, role-based permissions, document metadata + versioning</li>
+<li>Sprint 2: Capital calls (multi-class rules), basic class workflows, payment tracking</li>
+<li>Sprint 3: Waterfalls (EU/US) with class logic and prioritization; advanced workflows</li>
+<li>Sprint 4: Basic analytics, fund accounting (class NAV/P&amp;L), portfolio tracking</li>
+<li>Sprint 5: AI-assisted workflows (queries, drafting, OCR), integration testing, QA/security, pilot onboarding</li>
+</ul>
+<hr />
+<h2 id="10-qa-documentation">10. QA Documentation</h2>
+<blockquote>
+<p><strong>🧪 For comprehensive testing coverage, see:</strong> <a href="../../qa/sprint-functional-test-mapping-phase-1/">Sprint→Functional Test Mapping</a></p>
+</blockquote>
+<p>For comprehensive quality assurance and testing information, please refer to the following documentation:</p>
+<ul>
+<li><a href="../../qa/">QA Overview</a> - Complete guide to our QA processes and methodologies</li>
+<li><a href="../../qa/phase1-functional-test-cases/">Phase 1 Functional Test Cases</a> - Detailed test scenarios for all Phase 1 features</li>
+<li><a href="../../qa/prd-traceability-phase1/">PRD Traceability Matrix</a> - Mapping of requirements to test cases and validation criteria</li>
+<li><a href="../../qa/acceptance-criteria-validation/">Acceptance Criteria Validation</a> - Framework for validating acceptance criteria and sign-off procedures</li>
+</ul>
+<h3 id="verification-links">Verification Links</h3>
+<ul>
+<li><a href="../../tech/sprint-plan-phase-1/">Sprint Plan Phase 1</a> - Detailed sprint planning and timeline for Phase 1 implementation</li>
+<li><a href="../../qa/sprint-functional-test-mapping-phase-1/">Sprint→Functional Test Mapping</a> - Mapping of sprint deliverables to functional test coverage</li>
+</ul>
+<hr />
+<p><strong>Summary:</strong> Phase 1 delivers a secure, multi-class MVP across permissions, documents, capital calls, waterfalls, workflows, analytics, fund accounting, and portfolio tracking, with AI assist and an architecture ready for scale.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

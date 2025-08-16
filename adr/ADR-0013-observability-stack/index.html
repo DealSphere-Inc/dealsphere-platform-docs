@@ -1,0 +1,886 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>ADR-0013: Observability Stack - DealSphere Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#adr-0013-observability-stack" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DealSphere Docs" class="md-header__button md-logo" aria-label="DealSphere Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DealSphere Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ADR-0013: Observability Stack
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/DealSphere-Inc/dealsphere-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DealSphere Docs" class="md-nav__button md-logo" aria-label="DealSphere Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DealSphere Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/DealSphere-Inc/dealsphere-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-process.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Release Process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ADRs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ADRs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ADR-0001.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR-0001
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Technical
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Technical
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/phase-1-technical-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Technical Plan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rationale
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rationale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale-pillars" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rationale Pillars
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rationale Pillars">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-grafana-ecosystem-observability-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Grafana Ecosystem (Observability Stack)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deferred-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deferred Alternatives
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deferred Alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rejected-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rejected Alternatives
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consequences
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revisit-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revisit Triggers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#target-sprint-for-formal-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Target Sprint for Formal Decision
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guardrails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Guardrails
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Guardrails">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#must" class="md-nav__link">
+    <span class="md-ellipsis">
+      Must
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#should" class="md-nav__link">
+    <span class="md-ellipsis">
+      Should
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wont" class="md-nav__link">
+    <span class="md-ellipsis">
+      Won't
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approvals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Approvals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Links">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#review-before-deciding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Review Before Deciding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technology-landscape" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technology Landscape
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#productprd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product/PRD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint Plan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-adrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related ADRs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="adr-0013-observability-stack">ADR-0013: Observability Stack</h1>
+<p>• <strong>Permalink:</strong> https://github.com/DealSphere-Inc/dealsphere-platform/blob/main/docs/adr/ADR-0013-observability-stack.md
+• <strong>Author:</strong> @MysterTech
+• <strong>Status:</strong> Open
+• <strong>Date:</strong> 2025-08-13
+• <strong>Deciders:</strong> @MysterTech, @team
+• <strong>Technical Story:</strong> <a href="https://github.com/DealSphere-Inc/dealsphere-platform/blob/main/docs/tech/sprint-1-core-platform.md">Sprint 1 observability requirements</a>
+• <strong>Tags:</strong> observability, monitoring, logging</p>
+<h2 id="context">Context</h2>
+<p>What is the issue that we're seeing that is motivating this decision or change?</p>
+<p>The DealSphere platform requires comprehensive observability capabilities to support our microservices architecture across development, staging, and production environments. As outlined in Sprint 1 requirements, we need metrics, logging, and distributed tracing to ensure operational visibility, debugging capabilities, and performance monitoring.</p>
+<p>Key drivers include:
+- Microservices architecture creating distributed system complexity requiring end-to-end visibility
+- Team needs for rapid debugging and incident response in production
+- Compliance requirements for audit trails and performance monitoring
+- Cost-effective solution that scales with our service growth from 5 to 20+ services
+- Integration with existing Docker Compose development workflow and future Kubernetes deployment</p>
+<p>The team has mixed experience with observability tools, requiring a balance between powerful features and operational simplicity. Current constraints include limited DevOps resources and preference for open-source solutions to maintain cost control during early platform phases.</p>
+<p>Environment scope covers development (Docker Compose), staging, and production environments. Platform dependencies include integration with existing Java 17 microservices, gRPC inter-service communication, and PostgreSQL databases.</p>
+<h2 id="decision">Decision</h2>
+<p>What is the change that we're proposing and/or doing?</p>
+<p>We adopt a unified observability stack based on the Grafana ecosystem (Prometheus, Loki, Tempo, Grafana) for metrics, logs, and distributed tracing across all DealSphere platform services.</p>
+<p><strong>For now:</strong>
+• Metrics: Prometheus + Grafana for metrics collection, storage, and visualization
+• Logs: Loki + Promtail for log aggregation and querying
+• Traces: Tempo for distributed tracing
+• Structured Logging: Standardized JSON logs across all services
+• Metrics Endpoints: Basic /metrics endpoint required on all services as per Sprint 1 alignment
+• Implementation scope limited to core platform services (5-8 services) for Sprint 1-3</p>
+<h2 id="rationale">Rationale</h2>
+<p>Why is this the right decision given our architectural pillars?</p>
+<h3 id="rationale-pillars"><strong>Rationale Pillars</strong></h3>
+<h4 id="why-grafana-ecosystem-observability-stack"><strong>Why Grafana Ecosystem (Observability Stack)</strong></h4>
+<p>• <strong>Pillar 1: Cost Control</strong>
+  ◦ Open-source stack minimizes licensing costs during platform growth phase
+  ◦ Self-hosted deployment avoids per-metric or per-GB pricing models of SaaS solutions
+  ◦ Horizontal scaling capabilities support cost-effective growth from 5 to 20+ services</p>
+<p>• <strong>Pillar 2: Operational Simplicity</strong>
+  ◦ Unified Grafana ecosystem reduces tooling complexity and learning curve
+  ◦ Common query language (LogQL/PromQL) across metrics and logs
+  ◦ Single pane of glass for all observability data</p>
+<p>• <strong>Pillar 3: Team Proficiency and Velocity</strong>
+  ◦ Prometheus metrics widely adopted in Java/Spring ecosystem
+  ◦ Rich integration with existing microservices patterns
+  ◦ Extensive community documentation and examples</p>
+<p>• <strong>Pillar 4: Modern Features without migration burden</strong>
+  ◦ Native support for distributed tracing with correlation IDs
+  ◦ Advanced querying capabilities for complex debugging scenarios
+  ◦ Built-in alerting and notification capabilities</p>
+<p>• <strong>Pillar 5: Risk Management</strong>
+  ◦ Mature ecosystem with proven scalability patterns
+  ◦ Active community support and regular security updates
+  ◦ Clear migration path to managed solutions if needed</p>
+<p>• <strong>Pillar 6: Upgrade Path Considerations</strong>
+  ◦ Native Kubernetes support ensures smooth transition from Docker Compose
+  ◦ Federation capabilities support future multi-cluster deployments
+  ◦ Compatible with cloud-native monitoring standards (OpenTelemetry)</p>
+<h2 id="deferred-alternatives">Deferred Alternatives</h2>
+<p>What alternatives are we deferring for future consideration?</p>
+<p><strong>Alternative:</strong> SaaS Observability Platforms (e.g., Datadog, New Relic)
+• <strong>Trigger:</strong> Monthly data ingestion costs exceed $500/month baseline or team scales beyond 10 engineers
+• <strong>Timeline:</strong> Sprint 6+ when operational costs and team size justify managed solutions
+• <strong>Reason for deferral:</strong> Cost concerns during early platform phases and preference for operational control</p>
+<p><strong>Alternative:</strong> Managed Cloud Services (e.g., AWS CloudWatch, Azure Monitor)
+• <strong>Trigger:</strong> Cloud vendor strategy locked in or multi-cloud requirements eliminated
+• <strong>Timeline:</strong> Architecture review in Sprint 8+ when deployment patterns are established
+• <strong>Reason for deferral:</strong> Maintain cloud vendor neutrality and avoid lock-in during platform development</p>
+<p><strong>Alternative:</strong> Commercial APM Solutions (e.g., AppDynamics, Dynatrace)
+• <strong>Trigger:</strong> Enterprise requirements or advanced application performance insights needed
+• <strong>Timeline:</strong> When advanced analytics requirements exceed open-source capabilities
+• <strong>Reason for deferral:</strong> Licensing costs and operational complexity not justified for current needs</p>
+<h4 id="rejected-alternatives"><strong>Rejected Alternatives</strong></h4>
+<p>• <strong>ELK Stack:</strong> Rejected due to Elasticsearch resource requirements and operational complexity for small team
+• <strong>Jaeger Standalone:</strong> Rejected in favor of unified Tempo integration with Grafana ecosystem</p>
+<h2 id="consequences">Consequences</h2>
+<p>What becomes easier or more difficult to do because of this change?</p>
+<p><strong>Positive:</strong>
+• Comprehensive observability across all platform services
+• Standardized metrics and logging patterns enable consistent debugging approach
+• Cost-effective scaling from development to production environments
+• Rich alerting and dashboard capabilities support proactive monitoring
+• Integration with existing CI/CD and deployment workflows</p>
+<p><strong>Negative:</strong>
+• Initial setup complexity requiring DevOps investment in Sprint 1-2
+• Self-managed infrastructure overhead for maintenance and updates
+• Limited advanced analytics compared to commercial APM solutions
+• Learning curve for team members unfamiliar with Prometheus/Grafana ecosystem</p>
+<p><strong>Mitigation Strategies:</strong>
+• Create runbooks and automation for common operational tasks
+• Plan for dedicated DevOps capacity allocation in Sprint 2-3
+• Implement sampling strategies for distributed tracing to manage overhead</p>
+<h2 id="revisit-triggers">Revisit Triggers</h2>
+<p>• Monthly data ingestion costs exceed $500/month baseline
+• Query performance degradation impacting developer productivity (&gt;30s dashboard load times)
+• Storage requirements exceed 100GB/month for logs and metrics combined
+• Incident response times average &gt;15 minutes due to tooling limitations
+• Team velocity decreases due to observability stack operational overhead
+• Production service count reaches 15+ services requiring advanced federation features
+• Team size exceeds 10 engineers requiring advanced collaboration features
+• Compliance requirements demand enterprise-grade audit and retention capabilities</p>
+<h2 id="target-sprint-for-formal-decision">Target Sprint for Formal Decision</h2>
+<p>Sprint 6 (when production monitoring and alerting are fully established and we have 3 months of operational data)</p>
+<h2 id="guardrails">Guardrails</h2>
+<h3 id="must"><strong>Must</strong></h3>
+<p>• All services MUST expose /metrics endpoint in Prometheus format
+• All logs MUST be structured JSON with standardized field names
+• No secrets or PII MUST appear in logs or metrics
+• Critical service health metrics MUST be available with &lt;5 minute SLA
+• All distributed traces MUST include correlation IDs for request tracking</p>
+<h3 id="should"><strong>Should</strong></h3>
+<p>• Services SHOULD implement custom business metrics relevant to their domain
+• Log retention SHOULD follow data classification policies (30 days development, 90 days production)
+• Dashboards SHOULD follow standardized naming and tagging conventions
+• Alerting rules SHOULD include runbook links and escalation procedures
+• Distributed tracing SHOULD cover end-to-end request flows across service boundaries</p>
+<h3 id="wont"><strong>Won't</strong></h3>
+<p>• System will NOT collect or store personally identifiable information in observability data
+• Observability stack will NOT be used for application data storage or business logic
+• Real-time alerting will NOT replace proper error handling and circuit breaker patterns</p>
+<h2 id="approvals">Approvals</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Review</strong></th>
+<th><strong>Reviewer</strong></th>
+<th><strong>Date (YYYY-MM-DD)</strong></th>
+<th><strong>Status</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Architectural Review</td>
+<td></td>
+<td></td>
+<td>Pending</td>
+<td></td>
+</tr>
+<tr>
+<td>Security Review</td>
+<td></td>
+<td></td>
+<td>Pending</td>
+<td></td>
+</tr>
+<tr>
+<td>SRE Review</td>
+<td></td>
+<td></td>
+<td>Pending</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="links">Links</h2>
+<h3 id="review-before-deciding"><strong>Review Before Deciding</strong></h3>
+<p>• Performance benchmarks: /docs/benchmarks/api-performance.md
+• Security guidelines: /docs/security/security-guidelines.md
+• Architecture principles: /docs/architecture/principles.md
+• Technology radar: /docs/tech-radar/technology-radar.md
+• Cost analysis framework: /docs/cost-analysis/framework.md
+• Scalability patterns: /docs/patterns/scalability-patterns.md
+• Monitoring standards: /docs/monitoring/standards.md
+• Compliance requirements: /docs/compliance/requirements.md</p>
+<h3 id="technology-landscape"><strong>Technology Landscape</strong></h3>
+<p>• <a href="https://github.com/DealSphere-Inc/dealsphere-platform/blob/main/docs/tech/technology-landscape.md#observability">Technology Landscape - Observability Tools</a></p>
+<h3 id="productprd"><strong>Product/PRD</strong></h3>
+<p>• <a href="https://github.com/DealSphere-Inc/dealsphere-platform/blob/main/docs/product/prd-observability.md">PRD - Platform Observability Requirements</a>
+• <a href="https://github.com/DealSphere-Inc/dealsphere-platform/blob/main/docs/product/nfr-monitoring.md">Non-Functional Requirements - Monitoring</a></p>
+<h3 id="sprint-plan"><strong>Sprint Plan</strong></h3>
+<p>• <a href="https://github.com/DealSphere-Inc/dealsphere-platform/blob/main/docs/tech/sprint-1-core-platform.md">Sprint 1 – Core Platform Foundation</a>
+• <a href="https://github.com/DealSphere-Inc/dealsphere-platform/blob/main/docs/tech/sprint-2-observability.md">Sprint 2 – Observability Implementation</a></p>
+<h3 id="related-adrs"><strong>Related ADRs</strong></h3>
+<p>• <a href="https://github.com/DealSphere-Inc/dealsphere-platform/blob/main/docs/adr/ADR-0002-microservices-architecture.md">ADR-0002: Microservices Architecture</a>
+• <a href="https://github.com/DealSphere-Inc/dealsphere-platform/blob/main/docs/adr/ADR-0006-docker-compose-phase1-orchestration.md">ADR-0006: Docker Compose Phase1 Orchestration</a>
+• <a href="https://github.com/DealSphere-Inc/dealsphere-platform/blob/main/docs/adr/ADR-0007-service-framework-defaults.md">ADR-0007: Service Framework Defaults</a>
+• <a href="https://github.com/DealSphere-Inc/dealsphere-platform/blob/main/docs/adr/ADR-0012-secrets-management.md">ADR-0012: Secrets Management</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
