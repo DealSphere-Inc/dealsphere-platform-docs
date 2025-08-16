@@ -98,18 +98,32 @@ Adopt Docker Compose as the container orchestration platform for DealSphere Phas
 
 ## Guardrails
 
-- Maintain environment parity between Docker Compose configurations and production deployment.
+### Must
+
+- Maintain environment parity between Docker Compose configurations and production deployments.
 - Document service interdependencies and startup ordering in compose files.
 - Set resource limits and health checks for all services.
 - Keep configurations version-controlled and synchronized.
 
+### Should
+
+- Review Docker Compose and service dependency documentation quarterly.
+- Automate health checks and resource limit validation in CI workflows.
+- Peer-review all configuration changes before merging to main branch.
+
+### Won't
+
+- Allow undocumented ad-hoc configuration changes.
+- Permit divergence between development and production orchestration files without explicit architectural review.
+- Support container versions/services that lack defined health checks or resource limits.
+
 ## Approvals
 
-| Review                  | Reviewer  | Date       | Status    | Notes  |
-|-------------------------|-----------|------------|-----------|--------|
-| Architectural Review    |           |            |           |        |
-| Security Review         |           |            |           |        |
-| SRE Review              |           |            |           |        |
+| Review | Reviewer | Date (YYYY-MM-DD) | Status | Notes |
+|--------|----------|-------------------|--------|---------|
+| Architectural Review | @MysterTech | 2025-08-14 | Approved | |
+| Security Review | @MysterTech | 2025-08-14 | Approved | |
+| SRE Review | @MysterTech | 2025-08-14 | Approved | |
 
 ## Links
 
