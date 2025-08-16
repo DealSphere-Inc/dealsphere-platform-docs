@@ -1,11 +1,74 @@
-site_name: DealSphere Docs
+site_name: DealSphere Documentation
+site_description: Complete Documentation for the DealSphere Platform (APIs, architecture, compliance, process)
+site_author: DealSphere Team
+repo_url: https://github.com/DealSphere-Inc/dealsphere-docs
 theme:
   name: material
+  logo: images/logo.png          # Place your logo in docs/images/
+  favicon: images/favicon.ico    # Optional
+  palette:
+    - scheme: default
+      primary: blue
+      accent: cyan
+    - scheme: slate
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.top
+    - toc.integrate
+
 nav:
   - Home: index.md
   - Release Process: release-process.md
-  - ADRs:
+  - Getting Started: getting-started.md
+  - Architecture Decisions:
+      - ADR Index: adr/README.md
       - ADR-0001: adr/ADR-0001.md
-  - Technical:
-      - Technical Plan: tech/phase-1-technical-plan.md
-repo_url: https://github.com/DealSphere-Inc/dealsphere-docs
+      - ADR-0002: adr/ADR-0002.md
+      # Add more ADRs as needed
+  - Technical Documentation:
+      - Overview: tech/README.md
+      - Phase 1 Technical Plan: tech/phase-1-technical-plan.md
+      - Sprint Plan: tech/sprint-plan-phase-1.md
+      - Demo Checklists: tech/sprint-demo-checklists.md
+      - Stakeholder Summary: tech/phase-1-stakeholder-summary.md
+      - Technology Landscape: tech/technology-landscape.md
+  - Planning & Product:
+      - Product Requirements (PRD): product/Phase1_PRD.md
+      - Planning Doc: planning/platform-development-phase1.md
+  - QA & Compliance:
+      - QA Overview: qa/README.md
+      - Functional Test Cases: qa/phase1-functional-test-cases.md
+      - Acceptance Criteria Mapping: qa/acceptance-criteria-validation.md
+      - Traceability Matrix: qa/prd-traceability-phase1.md
+      - Sprint Functional Test Mapping: qa/sprint-functional-test-mapping-phase-1.md
+  - Contributing & Processes:
+      - Contributing Guidelines: contributing.md
+      - ADR Process: adr/template.md
+  - API Reference: api/README.md   # Path if you add API docs (optional)
+  - Changelog: changelog.md        # Optional
+  - FAQ: faq.md                    # Optional
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - codehilite
+  - toc:
+      permalink: true
+  - tables
+  - def_list
+  - attr_list
+
+plugins:
+  - search
+  # - mkdocs-git-revision-date-localized-plugin  # Optional: show page last updated info
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/DealSphere-Inc
+    # Add more icons as needed
