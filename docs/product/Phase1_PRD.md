@@ -123,13 +123,7 @@
 
 ---
 ## 9. Timeline (Sprint Breakdown)
-> **📋 For detailed implementation plan, see:** [Sprint Plan Phase 1](../tech/sprint-plan-phase-1.md)
 
-- Sprint 1: Architecture, Corda setup, role-based permissions, document metadata + versioning
-- Sprint 2: Capital calls (multi-class rules), basic class workflows, payment tracking
-- Sprint 3: Waterfalls (EU/US) with class logic and prioritization; advanced workflows
-- Sprint 4: Basic analytics, fund accounting (class NAV/P&L), portfolio tracking
-- Sprint 5: AI-assisted workflows (queries, drafting, OCR), integration testing, QA/security, pilot onboarding
 
 ---
 ## 10. QA Documentation
