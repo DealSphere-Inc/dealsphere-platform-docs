@@ -1,167 +1,136 @@
-# DealSphere Technology Landscape (Phase 1)
+# DealSphere Phase 1 – Technical Landscape Document
 
-**This document applies only to Phase 1 implementation as defined in PRD 4.1–4.10 and Acceptance Criteria §6.**
+## 1. Introduction
 
-## Agreed Technology Decisions (Phase 1, per PRD 4.1–4.10 and AC §6)
-
-- **R3 Corda 5** (as blockchain/DLT)
-- **Java 17** (backend runtime)
-- **React + TypeScript** (frontend)
-- **Open source only** (no proprietary dependencies)
-- **Microservices from the start** (no monolith allowed)
-- **gRPC** for service-to-service communication
-- **GraphQL** for external API, implemented using Apollo Router/Gateway
-- **DevOps orchestration**: Docker Compose for all environments now; Kubernetes is explicitly deferred/out-of-scope
-
-## Phase 1 Feature Mapping (PRD 4.1–4.10)
-
-- **4.1 Platform & Security** (RBAC, class segregation, DLT audit)
-- **4.2 User & Company Management** (profile creation, authentication)
-- **4.3 Deal Creation & Lifecycle** (create, update, status management)
-- **4.4 Deal Discovery & Search** (search, filters, recommendations)
-- **4.5 Deal Details & Viewing** (detailed views, documentation)
-- **4.6 Notifications & Alerts** (system notifications, user preferences)
-- **4.7 User Dashboard** (personal deal overview, activity)
-- **4.8 Company Dashboard** (company-level analytics, management)
-- **4.9 Administrative Functions** (system admin, user management)
-- **4.10 System Configuration** (settings, integrations, maintenance)
-
-## PRD ↔ Tech Crosswalk (Phase 1)
-
-- **[4.1 Platform & Security](../../product/Phase1_PRD.md#41-platform--security)**
-  - Responsible Service(s): Security Service, Audit Service
-  - Key Tech: Corda 5 (DLT audit trail), Java 17 services, gRPC inter-service auth, GraphQL via Apollo Router (gateway security), Postgres (RBAC data)
-  - Acceptance Criteria: [§6.1 Security Requirements](../../product/Phase1_PRD.md#61-security-requirements)
-
-- **[4.2 User & Company Management](../../product/Phase1_PRD.md#42-user--company-management)**
-  - Responsible Service(s): User Management Service, Company Service
-  - Key Tech: Java 17 services, gRPC (service communication), GraphQL via Apollo Router (API), Postgres (user/company data)
-  - Acceptance Criteria: [§6.2 User Management Requirements](../../product/Phase1_PRD.md#62-user-management-requirements)
-
-- **[4.3 Deal Creation & Lifecycle](../../product/Phase1_PRD.md#43-deal-creation--lifecycle)**
-  - Responsible Service(s): Deal Service, Workflow Service
-  - Key Tech: Corda 5 (deal state management), Java 17 services, gRPC, GraphQL via Apollo Router, Postgres (deal metadata), MinIO (deal documents)
-  - Acceptance Criteria: [§6.3 Deal Management Requirements](../../product/Phase1_PRD.md#63-deal-management-requirements)
-
-- **[4.4 Deal Discovery & Search](../../product/Phase1_PRD.md#44-deal-discovery--search)**
-  - Responsible Service(s): Search Service, Recommendation Service
-  - Key Tech: Java 17 services, gRPC, GraphQL via Apollo Router, Postgres (search indices)
-  - Acceptance Criteria: [§6.4 Search & Discovery Requirements](../../product/Phase1_PRD.md#64-search--discovery-requirements)
-
-- **[4.5 Deal Details & Viewing](../../product/Phase1_PRD.md#45-deal-details--viewing)**
-  - Responsible Service(s): Deal Service, Document Service
-  - Key Tech: Java 17 services, gRPC, GraphQL via Apollo Router, Postgres (deal data), MinIO (document storage)
-  - Acceptance Criteria: [§6.5 Deal Viewing Requirements](../../product/Phase1_PRD.md#65-deal-viewing-requirements)
-
-- **[4.6 Notifications & Alerts](../../product/Phase1_PRD.md#46-notifications--alerts)**
-  - Responsible Service(s): Notification Service, Event Service
-  - Key Tech: Java 17 services, gRPC (event distribution), GraphQL via Apollo Router, Postgres (notification preferences)
-  - Acceptance Criteria: [§6.6 Notification Requirements](../../product/Phase1_PRD.md#66-notification-requirements)
-
-- **[4.7 User Dashboard](../../product/Phase1_PRD.md#47-user-dashboard)**
-  - Responsible Service(s): Dashboard Service, Analytics Service
-  - Key Tech: Java 17 services, gRPC, GraphQL via Apollo Router, Postgres (dashboard data)
-  - Acceptance Criteria: [§6.7 User Dashboard Requirements](../../product/Phase1_PRD.md#67-user-dashboard-requirements)
-
-- **[4.8 Company Dashboard](../../product/Phase1_PRD.md#48-company-dashboard)**
-  - Responsible Service(s): Dashboard Service, Analytics Service, Company Service
-  - Key Tech: Java 17 services, gRPC, GraphQL via Apollo Router, Postgres (company analytics)
-  - Acceptance Criteria: [§6.8 Company Dashboard Requirements](../../product/Phase1_PRD.md#68-company-dashboard-requirements)
-
-- **[4.9 Administrative Functions](../../product/Phase1_PRD.md#49-administrative-functions)**
-  - Responsible Service(s): Admin Service, User Management Service
-  - Key Tech: Java 17 services, gRPC, GraphQL via Apollo Router, Postgres (admin data)
-  - Acceptance Criteria: [§6.9 Administrative Requirements](../../product/Phase1_PRD.md#69-administrative-requirements)
-
-- **[4.10 System Configuration](../../product/Phase1_PRD.md#410-system-configuration)**
-  - Responsible Service(s): Configuration Service, Integration Service
-  - Key Tech: Java 17 services, gRPC, GraphQL via Apollo Router, Postgres (config data)
-  - Acceptance Criteria: [§6.10 Configuration Requirements](../../product/Phase1_PRD.md#610-configuration-requirements)
-
-## Architecture Implementation
-
-### Service Architecture
-
-- Microservices pattern with domain-driven boundaries
-- gRPC for internal service-to-service communication
-- GraphQL API gateway using Apollo Router for external clients
-- Database per service pattern with PostgreSQL
-- R3 Corda 5 for blockchain/DLT functionality
-
-### Frontend Architecture
-
-- Component-based React application with TypeScript
-- GraphQL client integration for API consumption
-- Responsive design for cross-device compatibility
-- Open source UI libraries and components only
-
-### Development & Operations
-
-- **Local Development**: Docker Compose environment setup
-- **Runtime**: Java 17 for backend services
-- **Database**: PostgreSQL with service-specific schemas
-- **Version Control**: Git-based workflow with feature branching
-- **Testing**: Unit and integration testing frameworks
-- **Documentation**: API documentation, setup guides, ADRs
-
-## Acceptance Criteria Alignment (PRD Section 6)
-
-All technical implementations must satisfy the acceptance criteria defined in PRD Section 6, ensuring:
-
-- Functional requirements are met for each feature (4.1–4.10)
-- Non-functional requirements (performance, security, usability) are addressed
-- User experience standards are maintained
-- System reliability and availability targets are achieved
-- Open source compliance and microservices architecture maintained
-
-## Decide-as-you-build (Phase 1 operating model)
-
-- Technology decisions are made incrementally during implementation
-- Each feature team has autonomy within agreed architectural boundaries
-- Decision points are documented as Architecture Decision Records (ADRs)
-- Regular architecture reviews ensure consistency across services
-- Rapid prototyping and proof-of-concepts inform technology choices
-- Cross-team collaboration on shared infrastructure and patterns
-- Emphasis on pragmatic solutions that deliver Phase 1 requirements
-
-## Open Decisions (Phase 1)
-
-### Database Schema Migration Strategy
-
-- **Current choice**: Flyway migration scripts
-- **Deferred alternative(s)**: Liquibase, custom migration tooling
-- **Revisit trigger**: Integration complexity with microservices architecture
-
-### Frontend State Management
-
-- **Current choice**: React Context API + useReducer
-- **Deferred alternative(s)**: Redux Toolkit, Zustand, Jotai
-- **Revisit trigger**: State complexity exceeds Context API capabilities
-
-### API Rate Limiting & Throttling
-
-- **Current choice**: Application-level rate limiting in Apollo Router
-- **Deferred alternative(s)**: Redis-based distributed rate limiting, API gateway solutions
-- **Revisit trigger**: Performance bottlenecks or security requirements
-
-### Container Orchestration
-
-- **Current choice**: Docker Compose (explicitly deferred: Kubernetes)
-- **Deferred alternative(s)**: Kubernetes, Docker Swarm, cloud-native services
-- **Revisit trigger**: Scaling beyond single-node deployments
-
-### Logging & Monitoring Strategy
-
-- **Current choice**: Structured logging with JSON format, basic metrics collection
-- **Deferred alternative(s)**: ELK stack, Prometheus/Grafana, cloud monitoring solutions
-- **Revisit trigger**: Production deployment readiness requirements
-
-### Authentication & Authorization Implementation
-
-- **Current choice**: JWT tokens with role-based access control
-- **Deferred alternative(s)**: OAuth 2.0 integration, SAML, external identity providers
-- **Revisit trigger**: Enterprise customer requirements or security audit findings
+This document defines the technology landscape for DealSphere Phase 1 MVP, mapping core product requirements to recommended technologies for each platform layer. Updates reflect the team’s decision to use **HTTPS with Protocol Buffers (protobuf)** for service-to-service communication, not gRPC.
 
 ---
 
-*This document is a living specification focused on Phase 1 implementation. All architectural decisions should be documented as ADRs in the `docs/adr/` directory.*
+## 2. Technical Landscape Overview
+
+| Domain/Layer                | Primary Technology Choices                                                         | Alternatives/Notes                      |
+|-----------------------------|------------------------------------------------------------------------------------|-----------------------------------------|
+| **Distributed Ledger (DLT)**| R3 Corda, Kotlin (contract logic)                                                  | Hyperledger Fabric, Quorum              |
+| **Backend / API Layer**     | Spring Boot (Java/Kotlin), Corda SDK, REST, **HTTPS + Protobuf (service-to-service)** | Micronaut, Node.js (non-ledger APIs)    |
+| **Frontend / Client Layer** | ReactJS, Redux, Material-UI                                                        | Angular, Ant Design                     |
+| **Security & Identity**     | AES-256/TLS, OAuth2.0, OpenID Connect, AWS KMS/Azure Key Vault, Corda ACL          | Okta, Auth0, HashiCorp Vault            |
+| **Document Management**     | Corda ledger (hash/meta), Encrypted AWS S3, Apache Tika/ElasticSearch              | Google Cloud/Azure Blob, MinIO          |
+| **Payments Integration**    | Corda smart contracts (logic), Stripe/Plaid APIs (reminders/fiat movement)         | Direct bank APIs, PayPal                |
+| **Analytics & Reporting**   | Apache Kafka, PostgreSQL/Redshift/BigQuery, Apache Superset, Metabase              | Snowflake, Tableau                      |
+| **AI/ML & OCR**             | OpenAI API, Tesseract, scikit-learn, ElasticSearch ML plugins                      | AWS Textract, Google Vision             |
+| **Fund Accounting**         | Custom Java/Kotlin logic, stored and verified via Corda                            | Python/NumPy for prototyping            |
+| **Infra & DevOps**          | Docker, Kubernetes, AWS/Azure/GCP, GitHub Actions, Prometheus/Grafana, ELK Stack  | Jenkins, GitLab CI, DataDog             |
+| **Testing & QA**            | JUnit/TestNG, Selenium/Cypress, Pact, Burp Suite                                   | Playwright, Karate                      |
+| **Integration**             | REST APIs, **HTTPS + Protobuf (internal svc comm)**, Webhooks, WebSockets          | GraphQL for special cases               |
+
+---
+
+## 3. Component Technology Breakdown
+
+### 3.1 Distributed Ledger (Blockchain)
+- **R3 Corda** for on-ledger business logic, contract validation, audit, and participant privacy.
+- Smart contracts: **Kotlin**.
+
+### 3.2 Platform Security & Access Control
+- **AES-256** at rest, **TLS 1.2+** in transit.
+- **Key Management:** AWS KMS, Azure Key Vault.
+- **Identity:** OAuth2.0, OpenID Connect, SSO options; Corda ACL for role-based access.
+
+### 3.3 Backend/API Layer
+- **Spring Boot** (Java/Kotlin) for business logic, REST API, Corda integration.
+- **Service-to-Service Communication:**  
+  - **HTTPS protocol** utilizing **Protocol Buffers (protobuf)** for efficient, contract-first serialization/deserialization between services.  
+  - *No gRPC; protobuf messages over raw HTTPS.*
+- **API Gateway:** Kong, AWS API Gateway (as needed).
+- **Workflow Automation:** Camunda/Temporal.
+
+### 3.4 Frontend/Client Layer
+- **ReactJS** + **Redux** for modular UI; **Material-UI** for visuals and theming.
+- Secure authentication with OAuth2/OpenID.
+
+### 3.5 Document Management & Compliance
+- **Off-chain Storage:** Encrypted S3/Blob, metadata/hashes in Corda.
+- **Processing:** Apache Tika, Tesseract OCR, ElasticSearch.
+- **Compliance:** Ledger-based audit trails.
+
+### 3.6 Payments & Automated Capital Calls
+- **Smart contracts** in Corda.
+- **External payment APIs:** Stripe/Plaid.
+
+### 3.7 Analytics & Reporting
+- **Data streaming:** Apache Kafka (if needed).
+- **Analytics DB:** PostgreSQL, Redshift, or BigQuery.
+- **Dashboards:** Superset, Metabase, or custom.
+- **Exports:** jsPDF, server PDF/Excel generator.
+
+### 3.8 AI/ML Integration
+- **OpenAI API** for language tasks.
+- **OCR:** Tesseract, GCP Vision, or AWS Textract.
+- **Search/Classification:** Elastic ML, custom models.
+
+### 3.9 Fund Accounting
+- **Custom JVM services** for ledger operations and compliance.
+- **Prototyping:** Python/NumPy.
+
+### 3.10 Infrastructure & DevOps
+- **Cloud:** AWS, Azure, or GCP.
+- **Containers:** Docker, Kubernetes.
+- **CI/CD:** GitHub Actions.
+- **Monitoring:** Prometheus, Grafana, ELK.
+
+### 3.11 Testing & QA
+- **Selenium**, **Cypress**, **JUnit/TestNG**, **Pact**, **Burp Suite**.
+
+### 3.12 Integration
+- **REST APIs** and **Webhooks** for third-party comms.
+- **HTTPS + protobuf** for **internal microservice communication** (replace gRPC).
+- **WebSockets** for real-time events.
+
+---
+
+## 4. Security, Compliance, and Governance Highlights
+
+- Strong transport security and encryption.
+- Immutable on-ledger audit trails.
+- Role-based access enforced at multiple layers.
+- Automated testing and vulnerability scanning.
+- GDPR-ready and enterprise compliance support.
+
+---
+
+## 5. Extensibility & Future Readiness
+
+- Pluggable AI/ML, multi-cloud deploy-ready.
+- Versioned APIs and protobuf contracts.
+- Incremental scaling via microservices and Kubernetes.
+
+---
+
+## 6. High-Level Architecture Diagram (Text)
+```
++-----------------------------+         +---------------------------+
+| Frontend/UI (React, Redux)  | <-----> | Backend API (Spring Boot) |
++-----------------------------+         +---------------------------+
+                 |                                  |
+                 |                                  |
+                 v                                  v
++-----------------------------+         +---------------------------+
+|   Blockchain (Corda Nodes)  |         |    Data/AI/Analytics      |
++-----------------------------+         +---------------------------+
+                 |                                  |
+                 +---------------+------------------+
+                                 |
+                                 v
+    +-------------------+   +---------------------+   +---------------------------+
+    | Encrypted Storage |   | Integrations        |   | Cloud Infra (Docker, K8s, |
+    |       (S3)        |   | (REST, HTTPS+ PB)   |   | AWS/Azure/GCP, CI/CD, Sec)|
+    +-------------------+   +---------------------+   +---------------------------+
+```
+
+*Note: All internal microservice communication uses HTTPS + protobuf for efficiency and future contract versioning.*
+
+---
+
+## 7. Conclusion
+
+This landscape ensures the platform aligns with latest product and compliance requirements, including the switch to HTTPS + Protocol Buffers for service-to-service calls. It’s secure, adaptable, and ready for ongoing evolution in line with business goals.
