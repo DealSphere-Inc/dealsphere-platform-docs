@@ -1,4 +1,4 @@
-# ADR-XXXX: <title>
+# ADR-XXXX: [title]
 
 - **Author:** @author
 - **Status:** [Draft | Proposed | Accepted | Rejected | Deprecated | Superseded by ADR-XXXX]
