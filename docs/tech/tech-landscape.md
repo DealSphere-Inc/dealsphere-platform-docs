@@ -1,60 +1,64 @@
-# DealSphere MVP: Minimal Technical Landscape
+# Minimal Tech Landscape for DealSphere MVP
 
-## 1. Architecture Overview
-- Monolithic web application
-    - Modular project structure for later extraction/migration
-    - ADR-driven decisions documented ([see ADR-0001-0007])
-- Single cloud environment (e.g., AWS, Azure, GCP) with standard VPC
-- CI/CD pipeline performing automated build, test, and deploy (GitHub Actions or similar)
+## 1. Architectural Pattern
 
-## 2. Core Technology Stack
+**Monolithic Application**
 
-| Layer                  | MVP Choice                          | Rationale                                               |
-|------------------------|-------------------------------------|---------------------------------------------------------|
-| UI/Frontend            | React (TypeScript)                  | Widely supported, fast MVP UI, aligns with ADRs         |
-| Backend/API            | Java (Spring Boot, minimal modules) | Robust, PRD-compliant, supports later modularization    |
-| Database               | PostgreSQL                          | Relational, open-source, easy migration/scaling         |
-| AuthN/AuthZ            | JWT, Role-based Access (RBAC)       | Satisfies security/privacy ADRs and PRD                 |
-| Infrastructure as Code | Terraform or CloudFormation (basic) | Repeatable, tracks config changes (ADR-0005/6 aligned)  |
-| Documentation          | Markdown in repo (docs/), OpenAPI   | Lightweight, supports ADR-0007 (public APIs/comments)   |
+- Fast to develop and deploy for small teams and frequent iteration.
+- Simplifies testing, transactions, and deployments.
+- Ideal when domain boundaries are not fully volatile or discovered.
+- All core modules (UI, business logic, data handling, integrations) live in a single deployable app.
+- Use layered separation (Controller/Service/Repository) for maintainability and future migration to microservices, if needed.
 
-## 3. Key Integrations
-- Document Storage: Cloud object storage (e.g., S3 Bucket)
-- AI Service: External API (OpenAI or Azure OpenAI)
-- Payment/Bank: Mocked or stubbed for MVP, upgradeable
-- Blockchain/Corda: Integrated as a soft adapter or simulation layer (minimal live nodes for demo only, upgrade path clear per ADR)
+## 2. Core Tech Stack Choices
 
-## 4. Testing
-- Unit/integration tests: JUnit (backend), React Testing Library (frontend)
-- Smoke/UI tests: Cypress or Playwright (core flows only)
-- Documentation checks: ADRs tracked and auto-validated (adr-tools)
+| Layer                | Minimal Option (Best-fit)                                                    |
+|----------------------|------------------------------------------------------------------------------|
+| Web Frontend         | React (with Vite/CRA for speed, optional MUI/AntD for quick UI)              |
+| Backend API/Logic    | Spring Boot (Java) **or** Node.js (Express)                                  |
+| Database             | PostgreSQL (transactional & mature; easy migration)                          |
+| File/Blob Storage    | S3-compatible service (e.g., AWS S3, MinIO local for MVP/dev)                |
+| AuthN & AuthZ        | JWT-based auth with Spring Security/Express middleware                       |
+| Document Management  | Local doc store + hash tracking in DB; integrate with S3 for scale           |
+| AI Integration       | API-based calls to OpenAI/Claude (proxy for future custom models)            |
+| R3 Corda             | As separate service; interface via HTTP/REST with mock for MVP               |
+| Infra/CI             | Docker Compose (for local, simple), GitHub Actions for builds/tests          |
 
-## 5. DevOps & Deployment
-- Single environment: Prod and staging from unified codebase, IaC driven
-- Persistence: Automated DB migrations, basic backup
-- Monitoring: App + error logs only for MVP (CloudWatch/Stackdriver)
+## 3. Optional/Pluggable
 
-## 6. Security & Compliance
-- Encryption: TLS in transit, DB encryption at rest
-- Basic audit logging: User activity written to DB log table (searchable)
-- No explicit multi-tenant isolation for MVP
-- Public APIs: Documented and commented inline per ADR-0007
+- Admin UI built into main React app with feature flags.
+- Basic monitoring: logs + health check endpoint.
+- Email: SMTP or 3rd-party service (SendGrid/Mailgun) from backend.
 
-## 7. Documentation
-- ADRs: Markdown files, numbered, in docs/adr/
-- API: OpenAPI spec (docs/api/)
-- PRD Mapping: README and mapping tables in docs/
+## 4. Fit with ADRs
 
----
+- Stack above is aligned with accepted ADRs:
+    - Layered separation (ADR: Modular boundaries)
+    - S3 or compatible (ADR: Object store)
+    - AI as external/sidecar (ADR: Cloud LLM API call)
+    - RBAC as API middleware (ADR: Simple Auth Middleware)
+    - Corda as remote or integrated API (ADR: Corda data plane)
+    - Single DB, pluggable storage (ADR: DB/storage split)
 
-### Open/Deferred for post-MVP
-- Full Kubernetes orchestration
-- End-to-end automated compliance suite
-- Multi-region/cloud active-active deployment
-- Advanced observability, tracing
+## 5. Migration Path
 
----
+- Partition logic/services internally for easy “lift-and-split” to microservices as needed.
+- Wrap integrations/external calls in adapters/interfaces.
 
-*This MVP tech stack and approach:*
-- Ensures all ADR-0001–7 are directly referenced in the repo and visible to developers
-- Delivers all PRD requirements in the simplest, fastest-to-demo way, with all critical upgrade paths and doc tracks established
+## 6. Monolithic Viability
+
+- Monolithic application is strongly recommended for MVP:
+    - PRD scope fits: user management, documents, workflows, analytics, integrations.
+    - Evolve to microservices if required for scale/organization.
+
+## 7. Tech Landscape Diagram (Text)
+
+[ React Frontend ]
+       |
+[Rest API (SpringBoot/Node)]
+       |
+-----------------------------
+|     |     |      |    |    |
+DB  S3/Blob Email  AI  Corda
+(Postgres) (S3)   (SMTP) (API)
+
