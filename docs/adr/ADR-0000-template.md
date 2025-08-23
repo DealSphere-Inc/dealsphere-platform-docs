@@ -1,21 +1,20 @@
 # ADR-XXXX: [title]
 
-- **Author:** @author
-- **Status:** [Draft | Proposed | Accepted | Rejected | Deprecated | Superseded by ADR-XXXX]
-- **Date:** YYYY-MM-DD
-- **Deciders:** @name1, @name2, @name3
-- **Technical Story:** [optional link to ticket/issue]
-- **Tags:** [tag1, tag2, tag3]
+**Author:** @author
+**Status:** [Draft | Proposed | Accepted | Rejected | Deprecated | Superseded by ADR-XXXX]
+**Date:** YYYY-MM-DD
+**Deciders:** @name1, @name2, @name3
+**Technical Story:** [optional link to ticket/issue]
+**Tags:** [tag1, tag2, tag3]
 
 ## Context
-> What is the issue that we're seeing that is motivating this decision or change?
 
-[Description of the problem space and why a decision needs to be made]
+- [Description of the problem space and why a decision needs to be made]
+- [What is the issue that we're seeing that is motivating this decision or change?]
 
 ## Decision
-> What is the change that we're proposing and/or doing?
 
-[Description of the solution/approach being chosen]
+[Description of the solution/approach being chosen or What is the change that we're proposing and/or doing?]
 
 **For now:**
 - [Placeholder for current implementation approach]
@@ -23,11 +22,11 @@
 - [Placeholder for temporary measures]
 
 ## Rationale
-> Why is this the right decision given our architectural pillars?
+[Why is this the right decision given our architectural pillars?]
 
 ### Rationale Pillars
 
-#### Why <title> (**<status>**)
+#### Why [title] (**[status]**)
 
 - **Pillar 1 (e.g., Stability and Support)**
   - Supporting detail 1
@@ -54,7 +53,7 @@
   - Supporting detail 2
 
 ## Deferred Alternatives
-> What alternatives are we deferring for future consideration?
+[What alternatives are we deferring for future consideration?]
 
 **Alternative: [Name]**
 - Trigger: [What condition would make us reconsider this?]
@@ -67,13 +66,13 @@
 - Reason for deferral: [Why not now?]
 
 #### Rejected Alternatives
-> What alternatives are we rejecting?
+[What alternatives are we rejecting?]
 
 - **Alternative X**: Brief description and reason for rejection
 - **Alternative Y**: Brief description and reason for rejection
 
 ## Consequences
-> What becomes easier or more difficult to do because of this change?
+[What becomes easier or more difficult to do because of this change?]
 
 **Positive:**
 - Benefit 1
