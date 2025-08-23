@@ -1,11 +1,11 @@
-# ADR-0004: GraphQL via Apollo Gateway for External API
+# ADR-0002: GraphQL for External API
 
 **Author:** @MysterTech  
 **Status:** Accepted  
 **Date:** 2025-08-13  
 **Deciders:** @MysterTech  
 **Technical Story:** [optional link to ticket/issue]  
-**Tags:** api, graphql, apollo, federation
+**Tags:** api, graphql
 
 ## Context
 
