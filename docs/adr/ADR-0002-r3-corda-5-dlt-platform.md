@@ -1,4 +1,4 @@
-# ADR-0005: R3 Corda 5 as DLT Platform
+# ADR-0002: R3 Corda 5 as DLT Platform
 **Author:** @MysterTech  
 **Status:** Accepted  
 **Date:** 2025-08-13  

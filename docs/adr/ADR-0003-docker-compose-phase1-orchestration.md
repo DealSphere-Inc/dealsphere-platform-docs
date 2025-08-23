@@ -1,4 +1,4 @@
-# ADR-0006: Docker Compose for Phase 1 Orchestration
+# ADR-0003: Docker Compose for Phase 1 Orchestration
 
 **Author:** @MysterTech     
 **Status:** Accepted      
