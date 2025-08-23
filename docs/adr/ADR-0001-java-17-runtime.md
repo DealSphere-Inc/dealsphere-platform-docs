@@ -134,11 +134,4 @@ Adopt Java 17 as the standard language/runtime for all backend services in Phase
 
 ## Links
 
-- **Technology Landscape:** [Language/Runtime](docs/tech/technology-landscape.md#language-runtime)
-- **Sprint Plan:** [Sprint 1 – Core Platform Foundation](docs/tech/sprint-plan-phase-1.md#sprint-1-core-platform-foundation)
-- **Related ADRs**
-  - [ADR-0002: Microservices Architecture](ADR-0002-microservices-architecture.md)
-  - [ADR-0003: HTTP for Inter-Service Communication](ADR-0003-http-inter-service-communication.md)
-  - [ADR-0007: Service Framework Default Selection](ADR-0007-service-framework-defaults.md)
-  - [ADR-0008: Database Selection](ADR-0008-database-selection.md)
-  - [ADR-0012: Secrets Management](ADR-0012-secrets-management.md)
+- 
