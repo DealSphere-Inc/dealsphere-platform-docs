@@ -1,9 +1,7 @@
 # DealSphere Phase 1 (MVP) — Product Requirements Document
 
 > **Related Documents:**
-> - [Sprint Plan Phase 1](../tech/sprint-plan-phase-1.md) - Implementation timeline and sprint breakdown
-> - [Phase 1 Functional Test Cases](../qa/phase1-functional-test-cases.md) - Comprehensive test scenarios
-> - [Sprint→Functional Test Mapping](../qa/sprint-functional-test-mapping-phase-1.md) - Test coverage mapping
+
 
 ## 1. Product Overview
 - Product Name: DealSphere
@@ -124,21 +122,8 @@
 ---
 ## 9. Timeline (Sprint Breakdown)
 
-
 ---
 ## 10. QA Documentation
-> **🧪 For comprehensive testing coverage, see:** [Sprint→Functional Test Mapping](../qa/sprint-functional-test-mapping-phase-1.md)
-
-For comprehensive quality assurance and testing information, please refer to the following documentation:
-
-- [QA Overview](../qa/README.md) - Complete guide to our QA processes and methodologies
-- [Phase 1 Functional Test Cases](../qa/phase1-functional-test-cases.md) - Detailed test scenarios for all Phase 1 features
-- [PRD Traceability Matrix](../qa/prd-traceability-phase1.md) - Mapping of requirements to test cases and validation criteria
-- [Acceptance Criteria Validation](../qa/acceptance-criteria-validation.md) - Framework for validating acceptance criteria and sign-off procedures
-
-### Verification Links
-- [Sprint Plan Phase 1](../tech/sprint-plan-phase-1.md) - Detailed sprint planning and timeline for Phase 1 implementation
-- [Sprint→Functional Test Mapping](../qa/sprint-functional-test-mapping-phase-1.md) - Mapping of sprint deliverables to functional test coverage
 
 ---
 **Summary:** Phase 1 delivers a secure, multi-class MVP across permissions, documents, capital calls, waterfalls, workflows, analytics, fund accounting, and portfolio tracking, with AI assist and an architecture ready for scale.
