@@ -8,7 +8,7 @@ This artifact ensures traceability from every **Product Requirement** in the Pha
 
 | PRD Feature/Requirement (Section) | Mapped Functional Test Case(s) |
 |-----------------------------------|-------------------------------|
-| [Platform & Security](../product/Phase1_PRD.md#41-platform--security) | [Platform & Security](../Phase1_Functional_Test_Cases.md#platform--security) |
+| [Platform & Security](../product/Phase1_PRD.md#41-platform--security) | [Platform & Security](../Phase1_Functional_Test_Cases.md#1-platform--security) |
 | [Document Management](../product/Phase1_PRD.md#42-document-management) | [Document Management](../Phase1_Functional_Test_Cases.md#document-management) |
 | [Capital Calls](../product/Phase1_PRD.md#43-capital-calls---multi-class) | [Capital Calls](../Phase1_Functional_Test_Cases.md#capital-calls) |
 | [Waterfall Calculations](../product/Phase1_PRD.md#44-waterfall-calculations---multi-class) | [Waterfall Calculations (Multi-Class)](../Phase1_Functional_Test_Cases.md#waterfall-calculations-multi-class) |
