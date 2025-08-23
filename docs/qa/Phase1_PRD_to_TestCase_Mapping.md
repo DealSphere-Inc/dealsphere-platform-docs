@@ -25,19 +25,19 @@ This artifact ensures traceability from every **Product Requirement** in the Pha
 
 ### [Platform & Security](../product/Phase1_PRD.md#41-platform--security)
 Covers: R3 Corda access, encryption, API enforcement, dynamic access rights  
-→ [Platform & Security Tests](../Phase1_Functional_Test_Cases.md#1-platform--security)
+→ [Platform & Security Tests](./Phase1_Functional_Test_Cases.md#1-platform--security)
 
 ### [Document Management](../product/Phase1_PRD.md#42-document-management)
 Covers: Metadata, off-ledger storage, versioning, hash checking, searchable OCR  
-→ [Document Management Tests](../Phase1_Functional_Test_Cases.md#2-document-management)
+→ [Document Management Tests](./Phase1_Functional_Test_Cases.md#2-document-management)
 
-### [Capital Calls](../product/Phase1_PRD.md#capital-calls---multi-class)
+### [Capital Calls](../product/Phase1_PRD.md#43-capital-calls---multi-class)
 Covers: Notice generation, LP/class-specific logic, payment tracking, reminders/escalations  
-→ [Capital Calls Tests](../Phase1_Functional_Test_Cases.md#capital-calls)
+→ [Capital Calls Tests](./Phase1_Functional_Test_Cases.md#3-capital-calls)
 
-### [Waterfall Calculations (Multi-Class)](../product/Phase1_PRD.md#waterfall-calculations---multi-class)
+### [Waterfall Calculations (Multi-Class)](../product/Phase1_PRD.md#44-waterfall-calculations---multi-class)
 Covers: European/American models, class priorities, deterministic tests  
-→ [Waterfall Calculations Tests](../Phase1_Functional_Test_Cases.md#waterfall-calculations-multi-class)
+→ [Waterfall Calculations Tests](./Phase1_Functional_Test_Cases.md#4-waterfall-calculations-multi-class)
 
 ### [Workflow Automation (Per Class)](../product/Phase1_PRD.md#workflow-automation---per-class)
 Covers: Approvals, escalations, SLAs, AI latency reduction  
