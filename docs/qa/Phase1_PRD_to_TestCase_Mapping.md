@@ -9,15 +9,15 @@ This artifact ensures traceability from every **Product Requirement** in the Pha
 | PRD Feature/Requirement (Section) | Mapped Functional Test Case(s) |
 |-----------------------------------|-------------------------------|
 | [Platform & Security](../product/Phase1_PRD.md#41-platform--security) | [Platform & Security](./Phase1_Functional_Test_Cases.md#1-platform--security) |
-| [Document Management](../product/Phase1_PRD.md#42-document-management) | [Document Management](../Phase1_Functional_Test_Cases.md#document-management) |
-| [Capital Calls](../product/Phase1_PRD.md#43-capital-calls---multi-class) | [Capital Calls](../Phase1_Functional_Test_Cases.md#capital-calls) |
-| [Waterfall Calculations](../product/Phase1_PRD.md#44-waterfall-calculations---multi-class) | [Waterfall Calculations (Multi-Class)](../Phase1_Functional_Test_Cases.md#waterfall-calculations-multi-class) |
-| [Workflow Automation](../product/Phase1_PRD.md#45-workflow-automation---per-class) | [Workflow Automation (Per Class)](../Phase1_Functional_Test_Cases.md#workflow-automation-per-class) |
-| [Basic Analytics](../product/Phase1_PRD.md#46-basic-analytics) | [Basic Analytics](../Phase1_Functional_Test_Cases.md#basic-analytics) |
-| [AI Integration](../product/Phase1_PRD.md#47-ai-integration-initial) | [AI Integration (Initial)](../Phase1_Functional_Test_Cases.md#ai-integration-initial) |
-| [Architecture Design](../product/Phase1_PRD.md#48-architecture-design) | [Architecture Design](../Phase1_Functional_Test_Cases.md#architecture-design) |
-| [Fund Accounting](../product/Phase1_PRD.md#49-fund-accounting) | [Fund Accounting](../Phase1_Functional_Test_Cases.md#fund-accounting) |
-| [Portfolio Tracking](../product/Phase1_PRD.md#410-portfolio-tracking) | [Portfolio Tracking](../Phase1_Functional_Test_Cases.md#portfolio-tracking) |
+| [Document Management](../product/Phase1_PRD.md#42-document-management) | [Document Management](./Phase1_Functional_Test_Cases.md#2-document-management) |
+| [Capital Calls](../product/Phase1_PRD.md#43-capital-calls---multi-class) | [Capital Calls](./Phase1_Functional_Test_Cases.md#3-capital-calls) |
+| [Waterfall Calculations](../product/Phase1_PRD.md#44-waterfall-calculations---multi-class) | [Waterfall Calculations (Multi-Class)](./Phase1_Functional_Test_Cases.md#4-waterfall-calculations-multi-class) |
+| [Workflow Automation](../product/Phase1_PRD.md#45-workflow-automation---per-class) | [Workflow Automation (Per Class)](./Phase1_Functional_Test_Cases.md#5-workflow-automation-per-class) |
+| [Basic Analytics](../product/Phase1_PRD.md#46-basic-analytics) | [Basic Analytics](./Phase1_Functional_Test_Cases.md#6-basic-analytics) |
+| [AI Integration](../product/Phase1_PRD.md#47-ai-integration-initial) | [AI Integration (Initial)](./Phase1_Functional_Test_Cases.md#7-ai-integration-initial) |
+| [Architecture Design](../product/Phase1_PRD.md#48-architecture-design) | [Architecture Design](./Phase1_Functional_Test_Cases.md#8-architecture-design) |
+| [Fund Accounting](../product/Phase1_PRD.md#49-fund-accounting) | [Fund Accounting](./Phase1_Functional_Test_Cases.md#9-fund-accounting) |
+| [Portfolio Tracking](../product/Phase1_PRD.md#410-portfolio-tracking) | [Portfolio Tracking](./Phase1_Functional_Test_Cases.md#10-portfolio-tracking) |
 
 ---
 
