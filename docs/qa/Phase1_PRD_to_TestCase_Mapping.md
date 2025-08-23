@@ -23,13 +23,13 @@ This artifact ensures traceability from every **Product Requirement** in the Pha
 
 ## Detailed Bidirectional Mapping
 
-### [Platform & Security](../product/Phase1_PRD.md#platform--security)
+### [Platform & Security](../product/Phase1_PRD.md#41-platform--security)
 Covers: R3 Corda access, encryption, API enforcement, dynamic access rights  
-→ [Platform & Security Tests](../Phase1_Functional_Test_Cases.md#platform--security)
+→ [Platform & Security Tests](../Phase1_Functional_Test_Cases.md#1-platform--security)
 
-### [Document Management](../product/Phase1_PRD.md#document-management)
+### [Document Management](../product/Phase1_PRD.md#42-document-management)
 Covers: Metadata, off-ledger storage, versioning, hash checking, searchable OCR  
-→ [Document Management Tests](../Phase1_Functional_Test_Cases.md#document-management)
+→ [Document Management Tests](../Phase1_Functional_Test_Cases.md#2-document-management)
 
 ### [Capital Calls](../product/Phase1_PRD.md#capital-calls---multi-class)
 Covers: Notice generation, LP/class-specific logic, payment tracking, reminders/escalations  
