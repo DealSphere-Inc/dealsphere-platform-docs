@@ -51,14 +51,14 @@
     - PRD scope fits: user management, documents, workflows, analytics, integrations.
     - Evolve to microservices if required for scale/organization.
 
-## 7. Tech Landscape Diagram (Text)
+## 7. Tech Landscape Diagram (Text)        
 
-[ React Frontend ]
-       |
-[Rest API (SpringBoot/Node)]
-       |
------------------------------
-|     |     |      |    |    |
-DB  S3/Blob Email  AI  Corda
+[React Frontend]    
+       |    
+[Rest API (SpringBoot/Node)]    
+       |    
+-----------------------------    
+|     |     |      |    |    |    
+DB  S3/Blob Email  AI  Corda            
 (Postgres) (S3)   (SMTP) (API)
 
