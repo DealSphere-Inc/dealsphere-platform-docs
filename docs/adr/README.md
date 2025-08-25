@@ -1,51 +1,62 @@
 # Architecture Decision Records (ADRs)
 
-This directory contains Architecture Decision Records for the DealSphere platform. ADRs document important architectural decisions made during platform development.
+This directory contains Architecture Decision Records for the DealSphere platform.  
+ADRs document important architectural decisions made during platform development.  
+Each ADR should be updated in this index with its number, title, status, tags, and date.
 
-## Index
+---
 
-| ADR | Title | Status | Tags | Date |
-|---|---|---|---|---|
+## ADR Index
 
+| ADR           | Title                                 | Status    | Tags                       | Date       |
+|---------------|---------------------------------------|-----------|----------------------------|------------|
+| ADR-0001      | Java 17 Runtime                       | Accepted  | runtime, java, backend     | 2025-XX-XX |
+| ADR-0002      | R3 Corda 5 DLT Platform               | Accepted  | blockchain, dlt, backend   | 2025-XX-XX |
+| ADR-0003      | Docker Compose Phase 1 Orchestration  | Accepted  | deployment, orchestration  | 2025-XX-XX |
+| ADR-0004      | Service Framework Defaults            | Accepted  | architecture, tech-stack   | 2025-XX-XX |
+| ADR-000-template | ADR Authoring Template             | -         | meta, template             | 2025-XX-XX |
+
+*Replace XX-XX in Date with actual decision dates.*
+
+---
+
+## Status Definitions
+
+- **Accepted:** Decision finalized and in production use.
+- **Open:** Still under discussion/trial; current choice and alternatives listed.
+- **Deprecated:** No longer applies (historical only).
+- **Superseded:** Explicitly replaced by a newer ADR.
+
+---
 
 ## ADR Process
 
-### Status Definitions
+To create a new ADR:
+1. Copy `ADR-000-template.md` to a new file with next sequential number and short title, e.g. `ADR-0005-storage-choice.md`
+2. Fill all required sections using bolded headings.
+3. Reference related ADRs by number and brief title (e.g. `[0001](ADR-0001-java-17-runtime.md) Java 17`)
+4. Update this index table with the new ADR.
+5. Submit a pull request for review by the core team.
 
-- **Accepted**: Decision has been finalized and is in actual use
-- **Open**: Decision is under consideration or deferred; current choice documented with alternatives and revisit triggers
-- **Deprecated**: Decision is no longer applicable
-- **Superseded**: Decision has been replaced by a newer ADR
+**General Guidelines**
+- Chronological numbering (ADR-XXXX).
+- Use descriptive tags (architecture, api, security, performance, etc).
+- For "Open" ADRs, document deferred alternatives and triggers for revisit.
+- Keep this README as the authoritative ADR directory for the repo.
 
-### Creating ADRs
+---
 
-#### Step-by-Step Procedure
+## Common Tags
 
-1. **Copy template**: Copy `docs/adr/ADR-0000-template.md` to new file `ADR-XXXX-<kebab-short-title>.md`
-2. **Fill required sections**: Complete all required sections, maintaining **bolding conventions** from template
-3. **Format Related ADRs**: Use number-only link text followed by short title (e.g., `[0001](ADR-0001-java-17-runtime.md) Java 17 Runtime`)
-4. **Add to ADR index**: Update this README.md index table if applicable
-5. **Open PR**: Submit pull request with completed ADR for review
+- `architecture` – Platform/system architecture patterns
+- `database` – Persistence and storage
+- `api` – API design/standards
+- `security` – Auth, privacy, encryption
+- `performance` – Optimization, scalability
+- `monitoring` – Logging, metrics, alerting
+- `deployment` – CI/CD, infra, containerization
+- `integration` – External/partner interfaces
 
-#### General Guidelines
+---
 
-1. Use chronological numbering (ADR-XXXX)
-2. Include relevant tags for easy lookup
-3. For Open ADRs, document:
-   - Current choice ("for now" selection)
-   - Deferred alternative(s)
-   - Revisit trigger conditions
-   - Target sprint for formal decision
-   - Guardrails for keeping choices reversible
-
-### Tags
-
-Common tags for categorization:
-- `architecture`: Overall system architecture decisions
-- `database`: Data storage and persistence
-- `api`: API design and protocols
-- `security`: Security-related decisions
-- `performance`: Performance optimization
-- `monitoring`: Observability and monitoring
-- `deployment`: Deployment and infrastructure
-- `integration`: System integration patterns
+_Last updated: August 2025 – update table and tags as new decisions are finalized._
