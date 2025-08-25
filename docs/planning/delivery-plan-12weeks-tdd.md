@@ -88,6 +88,120 @@
 
 ---
 
+## Detailed Sprint Plan
+
+# 12-Week Sprint Plan: Epics, Stories, and Deliverables
+
+---
+
+## **Sprint 1 (Weeks 1–2)**
+**Epic:** Core Framework & Auth  
+**Stories:**
+- Repo, CI pipeline, Docker Compose baseline setup
+- Code style rules, linting, and testing framework initialization
+- User authentication (Login/Logout)
+- Role/permission model setup and TDD (unit/integration) tests
+- Negative/abuse authentication and permission tests
+- Dev/staging environment and build artifact validation
+
+**Deliverables:**  
+- Working codebase with basic CI pipeline
+- Docker Compose environment working for local/dev
+- Unit/integration tests passing for auth flows
+- Demo: User log in/log out from UI and backend
+- "Green" check for RBAC path in test suite
+
+---
+
+## **Sprint 2 (Weeks 3–4)**
+**Epic:** User Mgmt & Documents  
+**Stories:**
+- User CRUD (create/edit/delete) via API & UI, full RBAC enforcement
+- Document upload/download flow, S3/MinIO storage integration
+- Metadata, file versioning, and audit log features for documents
+- Document access restriction (class/role/ownership)
+- Negative/edge document scenario tests
+- Doc AI/categorization initial test/prototype
+
+**Deliverables:**  
+- User management UI/API fully functional
+- Documents can be uploaded, downloaded, and versioned
+- Document access strictly enforced by RBAC
+- Unit/integration tests passing for user and document features
+- Demo: Document workflow and audit log in UI
+- Doc AI/categorization prototype working in dev
+
+---
+
+## **Sprint 3 (Weeks 5–6)**
+**Epic:** Capital Call & Waterfall  
+**Stories:**
+- Capital call create/view/update UI and API
+- Notification integration (at least email, in-app as stretch)
+- Waterfall model scaffolding (core algorithms, database modeling)
+- Waterfall calculation/unit allocation features
+- Negative/corner capital call and waterfall tests
+
+**Deliverables:**  
+- Capital call create/view/update flows demoable
+- Notifications for capital call events working (at least via email)
+- End-to-end positive/negative test suite for capital call and waterfall logic
+- Core waterfall calculation passes PRD scenarios
+
+---
+
+## **Sprint 4 (Weeks 7–8)**
+**Epic:** Workflow Automation & Integrations  
+**Stories:**
+- Approval, reminder, SLA scheduler implementation
+- Workflow state transitions (approval → notification → escalation)
+- AI-assisted capital call, doc query iteration (first productionized flow)
+- R3 Corda stub/mock integration—full mock flows, basic error handling
+- Integration and edge tests (AI, Corda, bank API)
+
+**Deliverables:**  
+- Automated workflow with SLAs/triggers can be demoed
+- Integration API stubs fully mocked and tested for main paths
+- End-to-end workflow tested with passing artefacts and error handling
+- Demo: Approval/escalation and AI flow in test/stage
+
+---
+
+## **Sprint 5 (Weeks 9–10)**
+**Epic:** Accounting, Analytics, Portfolio  
+**Stories:**
+- Fund ledger design, NAV calculations, core reporting UI
+- Analytics dashboards, role-based reporting, CSV export
+- Portfolio view and company/investment tracking screens
+- Data integrity, reporting edge tests, cross-role analytic validation
+
+**Deliverables:**  
+- Reports/dashboards generate correct results on real data
+- Portfolio and accounting features pass acceptance/unit/integration tests
+- CSV export works for all major grids/views
+- Demo: Analytics and portfolio screens in UI
+
+---
+
+## **Sprint 6 (Weeks 11–12)**
+**Epic:** E2E, Security, Launch-Ready  
+**Stories:**
+- Full end-to-end UI flow automation (Cypress/Playwright, etc.)
+- Security, RBAC bypass, abuse/edge case tests
+- Load/smoke/restore test scripts (including backup-restore drill)
+- Final non-functional coverage: performance, basic failover
+- Bug fix round, polishing, go-live checks
+- Documentation freeze: architecture, release, deployment
+
+**Deliverables:**  
+- All functional, integration, and security test suites are “green”
+- Load/smoke/failover/restore tests pass
+- Launch checklist complete (prod/deployment readiness)
+- Final demo: full user persona workflow E2E
+- Documentation published and up to date
+
+---
+
 **Tips:**
 - Each week: deliver 1-2 demo-able user flows.
 - Retros and plan adjust weekly; track test coverage and build status in CI.
