@@ -1,55 +1,47 @@
 # DealSphere Platform Documentation
 
-Welcome to the official documentation for the DealSphere platform. This repository is the single source for all project architecture decisions, technical implementation details, product requirements, quality assurance artifacts, and release process documentation.
-
----
+Welcome to the official docs for the DealSphere platform. This documentation is the single source of truth for all architecture decisions, technical implementation details, product requirements, QA/test coverage, and delivery planning.
 
 ## 📚 Documentation Structure
 
-- **[Architecture Decision Records (ADRs)](adr/)**  
-  All critical technology and architecture choices, with a complete ADR index and single-decision ADR files.
+- **[Architecture Decision Records (ADRs)](./adr)**
+    - Trace all critical technology and architecture decisions.
+    - Find each ADR and the ADR Master Index for rationale/history.
 
-- **[Planning](planning/)**  
-  Project planning documents, including phase plans and key milestone roadmaps.
+- **[Planning](./planning)**
+    - Contains weekly epics table ([phase1-epics.md](./planning/phase1-epics.md)), delivery plans, phase breakdowns, and milestone maps.
 
-- **[Product](product/)**  
-  Product requirements and versioned PRDs.
+- **[Product](./product)**
+    - Contains Product Requirements Documents (PRDs) and feature specs, versioned per release.
 
-- **[QA & Compliance](qa/)**  
-  Functional test cases, acceptance/traceability matrices, and quality documentation.
+- **[QA & Compliance](./qa)**
+    - End-to-end acceptance criteria, functional test cases, traceability matrix, and compliance documentation.
 
-- **[Technical Documentation](tech/)**  
-  Implementation plans, demo guides, stakeholder summaries, technology landscape, and the comprehensive release process.
-
----
+- **[Technical Documentation](./tech)**
+    - Implementation plans, technology landscape overviews, demo/release guides, and the release process.
 
 ## 🔗 Quick Navigation
 
-- **[ADR Master Index](adr/README.md)**
-- **[Phase 1 Development Plan](planning/platform-development-phase1.md)**
-- **[Phase 1 PRD (Product Requirements)](product/Phase1_PRD.md)**
-- **[QA Suite Overview](qa/README.md)**
-- **[Release Process](tech/release-process.md)**
-- **[Technical Plan](tech/phase-1-technical-plan.md)**
+- [ADR Master Index](./adr/README.md)
+- [Phase 1 Epics and Delivery Plan](./planning/phase1-epics.md)
+- [Phase 1 Product Requirements (PRD)](./product/Phase1_PRD.md)
+- [Functional Test Cases](./qa/Phase1_Functional_Test_Cases.md)
+- [Tech Landscape (MVP)](./tech/tech-landscape.md)
+- [Release Process](./tech/release-process.md)
+- [Phase 1 Technical Plan](./tech/phase-1-technical-plan.md)
 
-See more in each section directory above.
-
----
+See each subdirectory for additional documentation, internal guides, and implementation notes.  
+When in doubt, start with the README in that folder.
 
 ## 🚦 Contributing
 
-- To propose a process change, add an ADR or update the relevant doc and submit a Pull Request.
-- Please use concise language and cross-link related docs.
-- Follow the [ADR Template](adr/ADR-0000-template.md) and directory naming standards.
-
----
+- Propose process/architecture changes by adding an ADR or PR and cross-linking related documentation.
+- Follow [ADR-0000-template](./adr/ADR-0000-template.md) for major decisions, and respect doc/file naming conventions.
+- Keep language concise and always map changes to existing PRD, planning, and QA docs.
 
 ## 💡 Getting Help
 
-- Review the relevant ADRs and technical plans first.
-- Use directory README files for subtopics (e.g., QA or ADRs).
-- Contact the core platform team as listed in our internal systems for architectural questions.
+- If unsure, review ADRs and planning/technical docs for context.
+- For process/feature/test traceability, follow the links above or contact the core platform team listed internally.
 
----
-
-_Last updated: August 16, 2025_
+_Last updated: August 2025 – All core tech, planning, and QA documentation is actively maintained during MVP delivery._
