@@ -1,0 +1,1713 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete Documentation for the DealSphere Platform (APIs, architecture, planning, QA, product, tech)">
+      
+      
+        <meta name="author" content="DealSphere Team">
+      
+      
+      
+        <link rel="prev" href="../../product/Phase1_PRD/">
+      
+      
+        <link rel="next" href="../../tech/tech-landscape/">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Functional Test Cases - DealSphere Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#phase-1-functional-test-cases" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DealSphere Documentation" class="md-header__button md-logo" aria-label="DealSphere Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DealSphere Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Functional Test Cases
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/DealSphere-Inc/dealsphere-platform-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../adr/" class="md-tabs__link">
+          
+  
+  
+  Architecture Decision Records (ADRs)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../planning/phase1-epics/" class="md-tabs__link">
+          
+  
+  
+  Planning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../product/Phase1_PRD/" class="md-tabs__link">
+          
+  
+  
+  Product
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  QA & Compliance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tech/tech-landscape/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DealSphere Documentation" class="md-nav__button md-logo" aria-label="DealSphere Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    DealSphere Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/DealSphere-Inc/dealsphere-platform-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture Decision Records (ADRs)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture Decision Records (ADRs)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR Master Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-000-template.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR-000-template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-0001-java-17-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java 17 Runtime
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-0002-r3-corda-5-dlt-platform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    R3 Corda 5 DLT Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-0003-docker-compose-phase1-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Compose Phase 1 Orchestration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-0004-service-framework-defaults/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Service Framework Defaults
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Planning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Planning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/phase1-epics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 1 Epics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/delivery-plan-12weeks-tdd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Delivery Plan (12 Weeks)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Product
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Product
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/Phase1_PRD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 1 PRD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    QA & Compliance
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            QA & Compliance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Functional Test Cases
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functional Test Cases
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-platform-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Platform &amp; Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Platform &amp; Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-role-based-access-control-rbac" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Role-Based Access Control (RBAC)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-security-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Security &amp; Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-r3-corda-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 R3 Corda Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-document-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Document Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Document Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-document-storage-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Document Storage &amp; Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-version-control-audit-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Version Control &amp; Audit Logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-ai-enhanced-document-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 AI-Enhanced Document Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-capital-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Capital Calls
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Capital Calls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-class-specific-capital-call-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Class-Specific Capital Call Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-payment-tracking-status-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Payment Tracking &amp; Status Updates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-capital-call-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Capital Call Lifecycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-waterfall-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Waterfall Calculations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Waterfall Calculations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-multi-class-european-waterfall" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Multi-Class European Waterfall
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-multi-class-american-waterfall" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Multi-Class American Waterfall
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-waterfall-configuration-switching" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Waterfall Configuration &amp; Switching
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-workflow-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Workflow Automation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Workflow Automation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-class-specific-approval-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Class-Specific Approval Workflows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-slas-reminders-escalations" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 SLAs, Reminders &amp; Escalations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-ai-assisted-workflow-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 AI-Assisted Workflow Routing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-basic-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Basic Analytics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Basic Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-class-level-capital-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Class-Level Capital Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-portfolio-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Portfolio Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-reporting-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Reporting &amp; Export
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-ai-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. AI Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. AI Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-class-filtered-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Class-Filtered Queries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-ai-assisted-drafting" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 AI-Assisted Drafting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-ai-document-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 AI Document Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-architecture-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Architecture Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Architecture Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-scalability-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Scalability &amp; Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-integration-security-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Integration &amp; Security Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-fund-accounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Fund Accounting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Fund Accounting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-multi-class-general-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Multi-Class General Ledger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-nav-and-pl-calculations" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 NAV and P&amp;L Calculations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-portfolio-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Portfolio Tracking
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Portfolio Tracking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-class-based-investment-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 Class-Based Investment Tracking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-performance-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2 Performance Metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-execution-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Execution Notes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Execution Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Success Criteria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-data-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Data Requirements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Technical Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Technical Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/tech-landscape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tech Landscape (MVP)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="phase-1-functional-test-cases">Phase 1 Functional Test Cases<a class="headerlink" href="#phase-1-functional-test-cases" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This document outlines the functional test cases for DealSphere Phase 1 (MVP) based on the requirements defined in Phase1_PRD.md. These test cases cover all core functional areas with class-specific multi-tenant functionality.</p>
+<p><strong>Related Documents:</strong>
+- <a href="product/Phase1_PRD.md">Phase1_PRD.md</a></p>
+<hr />
+<h2 id="1-platform-security">1. Platform &amp; Security<a class="headerlink" href="#1-platform-security" title="Permanent link">&para;</a></h2>
+<h3 id="11-role-based-access-control-rbac">1.1 Role-Based Access Control (RBAC)<a class="headerlink" href="#11-role-based-access-control-rbac" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 1.1.1</strong>: Verify Admin users can access all fund classes and system configurations</li>
+<li><strong>Test Case 1.1.2</strong>: Verify GP users can access all fund operations within their assigned funds</li>
+<li><strong>Test Case 1.1.3</strong>: Verify LP Class A users can only access Class A-specific data and documents</li>
+<li><strong>Test Case 1.1.4</strong>: Verify LP Class B users can only access Class B-specific data and documents</li>
+<li><strong>Test Case 1.1.5</strong>: Verify Auditor users can access read-only views across all classes for audit purposes</li>
+<li><strong>Test Case 1.1.6</strong>: Verify AI Assistant can access data according to class-specific permissions for automated tasks</li>
+<li><strong>Test Case 1.1.7</strong>: Verify permission changes are enforced without contract redeployment</li>
+</ul>
+<h3 id="12-security-encryption">1.2 Security &amp; Encryption<a class="headerlink" href="#12-security-encryption" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 1.2.1</strong>: Verify all data is encrypted at rest using approved encryption standards</li>
+<li><strong>Test Case 1.2.2</strong>: Verify all data transmission is encrypted in transit</li>
+<li><strong>Test Case 1.2.3</strong>: Verify content hash verification works for document integrity</li>
+<li><strong>Test Case 1.2.4</strong>: Verify secure node topology prevents unauthorized access</li>
+<li><strong>Test Case 1.2.5</strong>: Verify API gateway enforces authentication and authorization</li>
+</ul>
+<h3 id="13-r3-corda-integration">1.3 R3 Corda Integration<a class="headerlink" href="#13-r3-corda-integration" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 1.3.1</strong>: Verify on-ledger access control metadata is properly maintained</li>
+<li><strong>Test Case 1.3.2</strong>: Verify Corda node handles multi-class transactions correctly</li>
+<li><strong>Test Case 1.3.3</strong>: Verify ledger integrity and audit trail functionality</li>
+</ul>
+<hr />
+<h2 id="2-document-management">2. Document Management<a class="headerlink" href="#2-document-management" title="Permanent link">&para;</a></h2>
+<h3 id="21-document-storage-metadata">2.1 Document Storage &amp; Metadata<a class="headerlink" href="#21-document-storage-metadata" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 2.1.1</strong>: Verify documents are stored with encrypted off-ledger storage</li>
+<li><strong>Test Case 2.1.2</strong>: Verify on-ledger metadata is correctly maintained for all documents</li>
+<li><strong>Test Case 2.1.3</strong>: Verify content hash verification detects document tampering</li>
+<li><strong>Test Case 2.1.4</strong>: Verify class-specific document access restrictions</li>
+</ul>
+<h3 id="22-version-control-audit-logging">2.2 Version Control &amp; Audit Logging<a class="headerlink" href="#22-version-control-audit-logging" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 2.2.1</strong>: Verify document version control tracks all changes with timestamps</li>
+<li><strong>Test Case 2.2.2</strong>: Verify audit logging captures all document access events</li>
+<li><strong>Test Case 2.2.3</strong>: Verify access logs show user identity, timestamp, and action performed</li>
+<li><strong>Test Case 2.2.4</strong>: Verify version history is maintained across document updates</li>
+</ul>
+<h3 id="23-ai-enhanced-document-features">2.3 AI-Enhanced Document Features<a class="headerlink" href="#23-ai-enhanced-document-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 2.3.1</strong>: Verify smart search returns relevant documents based on class permissions</li>
+<li><strong>Test Case 2.3.2</strong>: Verify OCR-based document classification works accurately</li>
+<li><strong>Test Case 2.3.3</strong>: Verify AI classification respects class-based document segregation</li>
+</ul>
+<hr />
+<h2 id="3-capital-calls">3. Capital Calls<a class="headerlink" href="#3-capital-calls" title="Permanent link">&para;</a></h2>
+<h3 id="31-class-specific-capital-call-rules">3.1 Class-Specific Capital Call Rules<a class="headerlink" href="#31-class-specific-capital-call-rules" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 3.1.1</strong>: Verify capital call rules can be configured separately for each class</li>
+<li><strong>Test Case 3.1.2</strong>: Verify capital call percentages are applied correctly per class</li>
+<li><strong>Test Case 3.1.3</strong>: Verify capital call schedules work independently for different classes</li>
+<li><strong>Test Case 3.1.4</strong>: Verify smart contract templates generate class-appropriate notices</li>
+</ul>
+<h3 id="32-payment-tracking-status-updates">3.2 Payment Tracking &amp; Status Updates<a class="headerlink" href="#32-payment-tracking-status-updates" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 3.2.1</strong>: Verify automated payment tracking works per LP and per class</li>
+<li><strong>Test Case 3.2.2</strong>: Verify LP payment status updates are accurate and timely</li>
+<li><strong>Test Case 3.2.3</strong>: Verify payment status is only visible to authorized class members</li>
+<li><strong>Test Case 3.2.4</strong>: Verify automated reminders are sent according to class-specific schedules</li>
+</ul>
+<h3 id="33-capital-call-lifecycle">3.3 Capital Call Lifecycle<a class="headerlink" href="#33-capital-call-lifecycle" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 3.3.1</strong>: Verify capital call notices are generated with correct class parameters</li>
+<li><strong>Test Case 3.3.2</strong>: Verify enforcement mechanisms work per class rules</li>
+<li><strong>Test Case 3.3.3</strong>: Verify escalation procedures follow class-specific SLAs</li>
+</ul>
+<hr />
+<h2 id="4-waterfall-calculations">4. Waterfall Calculations<a class="headerlink" href="#4-waterfall-calculations" title="Permanent link">&para;</a></h2>
+<h3 id="41-multi-class-european-waterfall">4.1 Multi-Class European Waterfall<a class="headerlink" href="#41-multi-class-european-waterfall" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 4.1.1</strong>: Verify European waterfall calculates whole-of-fund distributions correctly</li>
+<li><strong>Test Case 4.1.2</strong>: Verify class-specific preferred returns are applied accurately</li>
+<li><strong>Test Case 4.1.3</strong>: Verify catch-up calculations work correctly for each class</li>
+<li><strong>Test Case 4.1.4</strong>: Verify carry calculations are applied per class parameters</li>
+<li><strong>Test Case 4.1.5</strong>: Verify inter-class priority is respected in distribution calculations</li>
+</ul>
+<h3 id="42-multi-class-american-waterfall">4.2 Multi-Class American Waterfall<a class="headerlink" href="#42-multi-class-american-waterfall" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 4.2.1</strong>: Verify American waterfall processes deal-by-deal distributions correctly</li>
+<li><strong>Test Case 4.2.2</strong>: Verify class-specific clawback logic is applied appropriately</li>
+<li><strong>Test Case 4.2.3</strong>: Verify deal-level distributions respect class-specific parameters</li>
+<li><strong>Test Case 4.2.4</strong>: Verify clawback calculations are accurate per class rules</li>
+</ul>
+<h3 id="43-waterfall-configuration-switching">4.3 Waterfall Configuration &amp; Switching<a class="headerlink" href="#43-waterfall-configuration-switching" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 4.3.1</strong>: Verify waterfall model switching preserves class-specific logic</li>
+<li><strong>Test Case 4.3.2</strong>: Verify configurable inter-class priority settings work correctly</li>
+<li><strong>Test Case 4.3.3</strong>: Verify deterministic outputs match expected results for each class</li>
+<li><strong>Test Case 4.3.4</strong>: Verify waterfall calculations can be validated against test vectors</li>
+</ul>
+<hr />
+<h2 id="5-workflow-automation">5. Workflow Automation<a class="headerlink" href="#5-workflow-automation" title="Permanent link">&para;</a></h2>
+<h3 id="51-class-specific-approval-workflows">5.1 Class-Specific Approval Workflows<a class="headerlink" href="#51-class-specific-approval-workflows" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 5.1.1</strong>: Verify approval workflows for capital calls work per class</li>
+<li><strong>Test Case 5.1.2</strong>: Verify distribution approval workflows respect class boundaries</li>
+<li><strong>Test Case 5.1.3</strong>: Verify document approval workflows are class-segregated</li>
+<li><strong>Test Case 5.1.4</strong>: Verify Class A and Class B workflows run concurrently without conflict</li>
+</ul>
+<h3 id="52-slas-reminders-escalations">5.2 SLAs, Reminders &amp; Escalations<a class="headerlink" href="#52-slas-reminders-escalations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 5.2.1</strong>: Verify class-specific SLAs are enforced correctly</li>
+<li><strong>Test Case 5.2.2</strong>: Verify reminder schedules work according to class configuration</li>
+<li><strong>Test Case 5.2.3</strong>: Verify escalation procedures follow class-specific rules</li>
+<li><strong>Test Case 5.2.4</strong>: Verify reminders are sent as configured for each class</li>
+</ul>
+<h3 id="53-ai-assisted-workflow-routing">5.3 AI-Assisted Workflow Routing<a class="headerlink" href="#53-ai-assisted-workflow-routing" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 5.3.1</strong>: Verify AI-assisted routing reduces approval latency</li>
+<li><strong>Test Case 5.3.2</strong>: Verify AI routing respects class-based permissions</li>
+<li><strong>Test Case 5.3.3</strong>: Verify intelligent workflow optimization works across classes</li>
+</ul>
+<hr />
+<h2 id="6-basic-analytics">6. Basic Analytics<a class="headerlink" href="#6-basic-analytics" title="Permanent link">&para;</a></h2>
+<h3 id="61-class-level-capital-analytics">6.1 Class-Level Capital Analytics<a class="headerlink" href="#61-class-level-capital-analytics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 6.1.1</strong>: Verify committed vs. deployed capital is tracked separately by class</li>
+<li><strong>Test Case 6.1.2</strong>: Verify capital utilization reports are class-specific</li>
+<li><strong>Test Case 6.1.3</strong>: Verify analytics data is only accessible to authorized class members</li>
+</ul>
+<h3 id="62-portfolio-analytics">6.2 Portfolio Analytics<a class="headerlink" href="#62-portfolio-analytics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 6.2.1</strong>: Verify portfolio breakdown shows class-specific contributions</li>
+<li><strong>Test Case 6.2.2</strong>: Verify class-specific return calculations are accurate</li>
+<li><strong>Test Case 6.2.3</strong>: Verify consolidated portfolio views work for authorized users</li>
+</ul>
+<h3 id="63-reporting-export">6.3 Reporting &amp; Export<a class="headerlink" href="#63-reporting-export" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 6.3.1</strong>: Verify reports are filterable by class</li>
+<li><strong>Test Case 6.3.2</strong>: Verify PDF export functionality works for class-specific reports</li>
+<li><strong>Test Case 6.3.3</strong>: Verify Excel export functionality works for class-specific data</li>
+<li><strong>Test Case 6.3.4</strong>: Verify exported data maintains class-based security restrictions</li>
+</ul>
+<hr />
+<h2 id="7-ai-integration">7. AI Integration<a class="headerlink" href="#7-ai-integration" title="Permanent link">&para;</a></h2>
+<h3 id="71-class-filtered-queries">7.1 Class-Filtered Queries<a class="headerlink" href="#71-class-filtered-queries" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 7.1.1</strong>: Verify AI queries respect class-based data access restrictions</li>
+<li><strong>Test Case 7.1.2</strong>: Verify class-specific queries return accurate filtered results (e.g., "Show returns for Class B LPs")</li>
+<li><strong>Test Case 7.1.3</strong>: Verify AI responses maintain class data segregation</li>
+</ul>
+<h3 id="72-ai-assisted-drafting">7.2 AI-Assisted Drafting<a class="headerlink" href="#72-ai-assisted-drafting" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 7.2.1</strong>: Verify AI-assisted capital call drafting uses correct class parameters</li>
+<li><strong>Test Case 7.2.2</strong>: Verify AI-generated documents respect class-specific requirements</li>
+<li><strong>Test Case 7.2.3</strong>: Verify AI drafts match class-specific formatting and content rules</li>
+</ul>
+<h3 id="73-ai-document-processing">7.3 AI Document Processing<a class="headerlink" href="#73-ai-document-processing" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 7.3.1</strong>: Verify OCR + classification works with class awareness</li>
+<li><strong>Test Case 7.3.2</strong>: Verify AI document processing respects class-based access controls</li>
+<li><strong>Test Case 7.3.3</strong>: Verify automated classification assigns appropriate class tags</li>
+</ul>
+<hr />
+<h2 id="8-architecture-design">8. Architecture Design<a class="headerlink" href="#8-architecture-design" title="Permanent link">&para;</a></h2>
+<h3 id="81-scalability-performance">8.1 Scalability &amp; Performance<a class="headerlink" href="#81-scalability-performance" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 8.1.1</strong>: Verify Corda node topology supports expected transaction volume</li>
+<li><strong>Test Case 8.1.2</strong>: Verify API gateway handles concurrent multi-class requests</li>
+<li><strong>Test Case 8.1.3</strong>: Verify system performance under multi-class load scenarios</li>
+</ul>
+<h3 id="82-integration-security-model">8.2 Integration &amp; Security Model<a class="headerlink" href="#82-integration-security-model" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 8.2.1</strong>: Verify API gateway integrations work with external services</li>
+<li><strong>Test Case 8.2.2</strong>: Verify strict class-based segregation is maintained across all components</li>
+<li><strong>Test Case 8.2.3</strong>: Verify audit capabilities work across the distributed architecture</li>
+</ul>
+<hr />
+<h2 id="9-fund-accounting">9. Fund Accounting<a class="headerlink" href="#9-fund-accounting" title="Permanent link">&para;</a></h2>
+<h3 id="91-multi-class-general-ledger">9.1 Multi-Class General Ledger<a class="headerlink" href="#91-multi-class-general-ledger" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 9.1.1</strong>: Verify general ledger maintains separate accounting for each class</li>
+<li><strong>Test Case 9.1.2</strong>: Verify cross-class transactions are properly recorded</li>
+<li><strong>Test Case 9.1.3</strong>: Verify accounting entries are auditable and traceable by class</li>
+</ul>
+<h3 id="92-nav-and-pl-calculations">9.2 NAV and P&amp;L Calculations<a class="headerlink" href="#92-nav-and-pl-calculations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 9.2.1</strong>: Verify NAV is calculated separately for each class</li>
+<li><strong>Test Case 9.2.2</strong>: Verify combined NAV calculations are accurate</li>
+<li><strong>Test Case 9.2.3</strong>: Verify P&amp;L calculations work correctly per class</li>
+<li><strong>Test Case 9.2.4</strong>: Verify consolidated P&amp;L reports are accurate</li>
+</ul>
+<hr />
+<h2 id="10-portfolio-tracking">10. Portfolio Tracking<a class="headerlink" href="#10-portfolio-tracking" title="Permanent link">&para;</a></h2>
+<h3 id="101-class-based-investment-tracking">10.1 Class-Based Investment Tracking<a class="headerlink" href="#101-class-based-investment-tracking" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 10.1.1</strong>: Verify company profiles show investment history split by class</li>
+<li><strong>Test Case 10.1.2</strong>: Verify class-specific contributions are tracked accurately</li>
+<li><strong>Test Case 10.1.3</strong>: Verify class-based returns are calculated correctly</li>
+</ul>
+<h3 id="102-performance-metrics">10.2 Performance Metrics<a class="headerlink" href="#102-performance-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Test Case 10.2.1</strong>: Verify performance metrics are calculated separately per class</li>
+<li><strong>Test Case 10.2.2</strong>: Verify consolidated portfolio views work for authorized users</li>
+<li><strong>Test Case 10.2.3</strong>: Verify class-specific performance reports are accurate</li>
+<li><strong>Test Case 10.2.4</strong>: Verify portfolio tracking data respects class-based access controls</li>
+</ul>
+<hr />
+<h2 id="test-execution-notes">Test Execution Notes<a class="headerlink" href="#test-execution-notes" title="Permanent link">&para;</a></h2>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Multi-class test fund setup with Class A and Class B LPs</li>
+<li>Test users configured for each role (Admin, GP, LP Class A, LP Class B, Auditor, AI Assistant)</li>
+<li>Sample documents and transactions for each class</li>
+<li>Test vectors for waterfall calculations</li>
+</ul>
+<h3 id="success-criteria">Success Criteria<a class="headerlink" href="#success-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>All functional areas maintain strict class-based segregation</li>
+<li>No cross-class data leakage in any scenario</li>
+<li>All automated processes respect class-specific configurations</li>
+<li>Performance meets specified requirements under multi-class load</li>
+<li>All audit trails and logging function correctly</li>
+</ul>
+<h3 id="test-data-requirements">Test Data Requirements<a class="headerlink" href="#test-data-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Multi-class fund structures</li>
+<li>Class-specific user permissions</li>
+<li>Sample capital calls for each class</li>
+<li>Test waterfall scenarios with expected outputs</li>
+<li>Sample documents with class-specific access requirements</li>
+</ul>
+<hr />
+<p><em>Last Updated: August 23, 2025</em>
+<em>Version: 1.0</em>
+<em>Related: Phase1_PRD.md</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/DealSphere-Inc" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

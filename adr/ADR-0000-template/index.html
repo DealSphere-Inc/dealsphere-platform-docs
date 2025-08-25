@@ -6,25 +6,21 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Complete Documentation for the DealSphere Platform (APIs, architecture, compliance, process)">
+        <meta name="description" content="Complete Documentation for the DealSphere Platform (APIs, architecture, planning, QA, product, tech)">
       
       
         <meta name="author" content="DealSphere Team">
       
       
       
-        <link rel="prev" href="../">
-      
-      
-        <link rel="next" href="../ADR-0001-java-17-runtime/">
       
       
       <link rel="icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
-        <title>ADR-0000 Template - DealSphere Documentation</title>
+        <title>ADR-XXXX: [title] - DealSphere Documentation</title>
       
     
     
@@ -76,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#adr-xxxx" class="md-skip">
+        <a href="#adr-xxxx-title" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ADR-0000 Template
+              ADR-XXXX: [title]
             
           </span>
         </div>
@@ -128,11 +124,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
-      </label>
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
     
   
 </form>
@@ -185,7 +177,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/DealSphere-Inc/dealsphere-docs" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/DealSphere-Inc/dealsphere-platform-docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -233,12 +225,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../" class="md-tabs__link">
           
   
@@ -259,7 +249,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../planning/platform-development-phase1/" class="md-tabs__link">
+        <a href="../../planning/phase1-epics/" class="md-tabs__link">
           
   
   
@@ -299,7 +289,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../qa/" class="md-tabs__link">
+        <a href="../../qa/Phase1_Functional_Test_Cases/" class="md-tabs__link">
           
   
   
@@ -319,7 +309,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../tech/phase-1-stakeholder-summary/" class="md-tabs__link">
+        <a href="../../tech/tech-landscape/" class="md-tabs__link">
           
   
   
@@ -364,7 +354,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/DealSphere-Inc/dealsphere-docs" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/DealSphere-Inc/dealsphere-platform-docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -403,29 +393,24 @@
       
   
   
-    
   
   
-  
     
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -438,7 +423,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Architecture Decision Records (ADRs)
@@ -472,230 +457,20 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    ADR-0000 Template
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ADR-000-template.md" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    ADR-0000 Template
+    ADR-000-template
     
   </span>
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#context" class="md-nav__link">
-    <span class="md-ellipsis">
-      Context
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#decision" class="md-nav__link">
-    <span class="md-ellipsis">
-      Decision
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rationale" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rationale
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Rationale">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rationale-pillars" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rationale Pillars
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Rationale Pillars">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why ()
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deferred-alternatives" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deferred Alternatives
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Deferred Alternatives">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rejected-alternatives" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rejected Alternatives
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#consequences" class="md-nav__link">
-    <span class="md-ellipsis">
-      Consequences
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#revisit-triggers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Revisit Triggers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#target-sprint-for-formal-decision" class="md-nav__link">
-    <span class="md-ellipsis">
-      Target Sprint for Formal Decision
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#guardrails" class="md-nav__link">
-    <span class="md-ellipsis">
-      Guardrails
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Guardrails">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#must" class="md-nav__link">
-    <span class="md-ellipsis">
-      Must
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#should" class="md-nav__link">
-    <span class="md-ellipsis">
-      Should
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wont" class="md-nav__link">
-    <span class="md-ellipsis">
-      Won't
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#approvals" class="md-nav__link">
-    <span class="md-ellipsis">
-      Approvals
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    <span class="md-ellipsis">
-      Links
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -713,7 +488,7 @@
   
   
   <span class="md-ellipsis">
-    ADR-0001 Java 17 Runtime
+    Java 17 Runtime
     
   </span>
   
@@ -731,12 +506,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADR-0002-microservices-architecture/" class="md-nav__link">
+      <a href="../ADR-0002-r3-corda-5-dlt-platform/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    ADR-0002 Microservices Architecture
+    R3 Corda 5 DLT Platform
     
   </span>
   
@@ -754,12 +529,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADR-0003-http-inter-service-communication/" class="md-nav__link">
+      <a href="../ADR-0003-docker-compose-phase1-orchestration/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    ADR-0003 HTTP Inter-Service Communication
+    Docker Compose Phase 1 Orchestration
     
   </span>
   
@@ -777,495 +552,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADR-0004-graphql-apollo-gateway-external-api/" class="md-nav__link">
+      <a href="../ADR-0004-service-framework-defaults/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    ADR-0004 GraphQL Apollo Gateway
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0005-r3-corda-5-dlt-platform/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0005 R3 Corda 5 DLT Platform
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0006-docker-compose-phase1-orchestration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0006 Docker Compose Orchestration
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0007-service-framework-defaults/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0007 Service Framework Defaults
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0008-database-selection/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0008 Database Selection
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0009-schema-migration-strategy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0009 Schema Migration Strategy
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0010-identity-provider-and-claims-strategy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0010 Identity Provider & Claims
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0011-authorization-strategy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0011 Authorization Strategy
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0012-secrets-management/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0012 Secrets Management
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0013-observability-stack/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0013 Observability Stack
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0014-rate-limiting-strategy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0014 Rate Limiting Strategy
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0015-feature-flags-system/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0015 Feature Flags System
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0016-caching-strategy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0016 Caching Strategy
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0017-search-implementation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0017 Search Implementation
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0018-on-ledger-dlt-implementation-details/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0018 On-Ledger DLT Details
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0019-dlt-access-patterns/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0019 DLT Access Patterns
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0020-graphql-federation-conventions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0020 GraphQL Federation Conventions
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0021-protobuf-idl-versioning-strategy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0021 Protobuf IDL Versioning
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0022-connection-pool-budget-management/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0022 Connection Pool Management
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0023-persisted-queries-and-batching/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0023 Persisted Queries & Batching
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0024-multi-tenant-baseline-strategy/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0024 Multi-Tenant Baseline
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ADR-0025-event-streaming-platform/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    ADR-0025 Event Streaming Platform
+    Service Framework Defaults
     
   </span>
   
@@ -1331,12 +623,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../planning/platform-development-phase1/" class="md-nav__link">
+      <a href="../../planning/phase1-epics/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Phase 1 Development Plan
+    Phase 1 Epics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/delivery-plan-12weeks-tdd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Delivery Plan (12 Weeks)
     
   </span>
   
@@ -1473,104 +788,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../qa/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    QA Suite Overview
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../qa/acceptance-criteria-validation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Acceptance Criteria Validation
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../qa/phase1-functional-test-cases/" class="md-nav__link">
+      <a href="../../qa/Phase1_Functional_Test_Cases/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Functional Test Cases
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../qa/prd-traceability-phase1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    PRD Traceability Matrix
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../qa/sprint-functional-test-mapping-phase-1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Sprint Functional Test Mapping
     
   </span>
   
@@ -1636,127 +859,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tech/phase-1-stakeholder-summary/" class="md-nav__link">
+      <a href="../../tech/tech-landscape/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Phase 1 Stakeholder Summary
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tech/phase-1-technical-plan/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Phase 1 Technical Plan
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tech/release-process/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Release Process
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tech/sprint-demo-checklists/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Sprint Demo Checklists
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tech/sprint-plan-phase-1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Sprint Plan (Phase 1)
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tech/technology-landscape/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Technology Landscape
+    Tech Landscape (MVP)
     
   </span>
   
@@ -1793,35 +901,28 @@
   
 
 
-<h1 id="adr-xxxx">ADR-XXXX: <title><a class="headerlink" href="#adr-xxxx" title="Permanent link">&para;</a></h1>
-<ul>
-<li><strong>Author:</strong> @author</li>
-<li><strong>Status:</strong> [Draft | Proposed | Accepted | Rejected | Deprecated | Superseded by ADR-XXXX]</li>
-<li><strong>Date:</strong> YYYY-MM-DD</li>
-<li><strong>Deciders:</strong> @name1, @name2, @name3</li>
-<li><strong>Technical Story:</strong> [optional link to ticket/issue]</li>
-<li><strong>Tags:</strong> [tag1, tag2, tag3]</li>
-</ul>
+<h1 id="adr-xxxx-title">ADR-XXXX: [title]<a class="headerlink" href="#adr-xxxx-title" title="Permanent link">&para;</a></h1>
+<p><strong>Author:</strong> @author
+<strong>Status:</strong> [Draft | Proposed | Accepted | Rejected | Deprecated | Superseded by ADR-XXXX]
+<strong>Date:</strong> YYYY-MM-DD
+<strong>Deciders:</strong> @name1, @name2, @name3
+<strong>Technical Story:</strong> [optional link to ticket/issue]
+<strong>Tags:</strong> [tag1, tag2, tag3]</p>
 <h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>What is the issue that we're seeing that is motivating this decision or change?</p>
-</blockquote>
-<p>[Description of the problem space and why a decision needs to be made]</p>
+<ul>
+<li>[Description of the problem space and why a decision needs to be made]</li>
+<li>[What is the issue that we're seeing that is motivating this decision or change?]</li>
+</ul>
 <h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>What is the change that we're proposing and/or doing?</p>
-</blockquote>
-<p>[Description of the solution/approach being chosen]</p>
+<p>[Description of the solution/approach being chosen or What is the change that we're proposing and/or doing?]</p>
 <p><strong>For now:</strong>
 - [Placeholder for current implementation approach]
 - [Placeholder for immediate next steps]
 - [Placeholder for temporary measures]</p>
 <h2 id="rationale">Rationale<a class="headerlink" href="#rationale" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>Why is this the right decision given our architectural pillars?</p>
-</blockquote>
+<p>[Why is this the right decision given our architectural pillars?]</p>
 <h3 id="rationale-pillars">Rationale Pillars<a class="headerlink" href="#rationale-pillars" title="Permanent link">&para;</a></h3>
-<h4 id="why">Why <title> (<strong><status></strong>)<a class="headerlink" href="#why" title="Permanent link">&para;</a></h4>
+<h4 id="why-title-status">Why [title] (<strong>[status]</strong>)<a class="headerlink" href="#why-title-status" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Pillar 1 (e.g., Stability and Support)</strong></li>
 <li>Supporting detail 1</li>
@@ -1863,9 +964,7 @@
 <li>Supporting detail 2</li>
 </ul>
 <h2 id="deferred-alternatives">Deferred Alternatives<a class="headerlink" href="#deferred-alternatives" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>What alternatives are we deferring for future consideration?</p>
-</blockquote>
+<p>[What alternatives are we deferring for future consideration?]</p>
 <p><strong>Alternative: [Name]</strong>
 - Trigger: [What condition would make us reconsider this?]
 - Timeline: [When should we revisit this?]
@@ -1875,17 +974,13 @@
 - Timeline: [When should we revisit this?]
 - Reason for deferral: [Why not now?]</p>
 <h4 id="rejected-alternatives">Rejected Alternatives<a class="headerlink" href="#rejected-alternatives" title="Permanent link">&para;</a></h4>
-<blockquote>
-<p>What alternatives are we rejecting?</p>
-</blockquote>
+<p>[What alternatives are we rejecting?]</p>
 <ul>
 <li><strong>Alternative X</strong>: Brief description and reason for rejection</li>
 <li><strong>Alternative Y</strong>: Brief description and reason for rejection</li>
 </ul>
 <h2 id="consequences">Consequences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>What becomes easier or more difficult to do because of this change?</p>
-</blockquote>
+<p>[What becomes easier or more difficult to do because of this change?]</p>
 <p><strong>Positive:</strong>
 - Benefit 1
 - Benefit 2
@@ -2015,7 +1110,8 @@
   
 </div>
       
-        <div class="md-social">
+        
+<div class="md-social">
   
     
     
