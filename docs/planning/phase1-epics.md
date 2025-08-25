@@ -33,6 +33,7 @@ Use this guide as the master reference for sprint planning, tracking, and accept
 |                                  | Security/negative tests (abuse, failover, RBAC)        | 1.2.4, 1.3.3, 8.1.1–8.1.3                  |
 |                                  | Load/smoke/restore tests, backup-restore               | 8.3.1, 8.3.2, 8.3.3, 8.3.4                 |
 |                                  | Final non-functional and regression suite              | ALL                                        |
+
 ---
 
 **How to use this document:**
@@ -43,4 +44,3 @@ Use this guide as the master reference for sprint planning, tracking, and accept
 - **Traceability:** If new features/test cases are added, extend the table and epics so the plan always aligns with current project reality.
 
 **For questions, proposed changes, or refinement, update this doc and communicate with the DealSphere tech and QA teams.**
-
