@@ -1,4 +1,4 @@
-# ADR-0005: R3 Corda 5 as DLT Platform
+# ADR-0002: R3 Corda 5 as DLT Platform
 **Author:** @MysterTech  
 **Status:** Accepted  
 **Date:** 2025-08-13  
@@ -128,12 +128,9 @@ Adopt R3 Corda 5 as the distributed ledger technology platform for DealSphere Ph
 
 ## Links
 
-**Technology Landscape:** [DLT Platform](../tech/technology-landscape.md#dlt-platform)  
-**Sprint Plan:** [Sprint 1 – Core Platform Foundation](../tech/sprint-plan.md#sprint-1-core-platform-foundation)  
+**Technology Landscape:** [DLT Platform]
+**Sprint Plan:** [Sprint 1 – Core Platform Foundation]  
 **PRD:** [Security requirements](../product/Phase1_PRD.md#security-requirements) and [regulatory compliance](../product/Phase1_PRD.md#regulatory-compliance)  
 
 **Related ADRs:**
-- [ADR-0001: Java 17 as Language/Runtime](ADR-0001-java-17-runtime.md)
-- [ADR-0002: Microservices Architecture](ADR-0002-microservices-architecture.md)
-- [ADR-0006: Docker Compose for Phase 1 Orchestration](ADR-0006-docker-compose-phase1-orchestration.md)
-- [ADR-0012: Secrets Management](ADR-0012-secrets-management.md)
+- [ADR-0001: Java 17 as Language/Runtime](ADR-0001-java-17-runtime.md)  

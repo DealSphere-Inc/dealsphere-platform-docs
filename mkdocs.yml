@@ -1,11 +1,12 @@
 site_name: DealSphere Documentation
-site_description: Complete Documentation for the DealSphere Platform (APIs, architecture, compliance, process)
+site_description: Complete Documentation for the DealSphere Platform (APIs, architecture, planning, QA, product, tech)
 site_author: DealSphere Team
-repo_url: https://github.com/DealSphere-Inc/dealsphere-docs
+repo_url: https://github.com/DealSphere-Inc/dealsphere-platform-docs
+
 theme:
   name: material
-  logo: images/logo.png          # Place your logo in docs/images/
-  favicon: images/favicon.ico    # Optional
+  logo: images/logo.png
+  favicon: images/favicon.ico  
   palette:
     - scheme: default
       primary: blue
@@ -13,9 +14,9 @@ theme:
     - scheme: slate
       primary: blue
       accent: cyan
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
+  toggle:
+    icon: material/weather-night
+    name: Switch to dark mode
   features:
     - navigation.tabs
     - navigation.top
@@ -26,53 +27,27 @@ nav:
 
   - Architecture Decision Records (ADRs):
       - ADR Master Index: adr/README.md
-      - ADR-0000 Template: adr/ADR-0000-template.md
-      - ADR-0001 Java 17 Runtime: adr/ADR-0001-java-17-runtime.md
-      - ADR-0002 Microservices Architecture: adr/ADR-0002-microservices-architecture.md
-      - ADR-0003 HTTP Inter-Service Communication: adr/ADR-0003-http-inter-service-communication.md
-      - ADR-0004 GraphQL Apollo Gateway: adr/ADR-0004-graphql-apollo-gateway-external-api.md
-      - ADR-0005 R3 Corda 5 DLT Platform: adr/ADR-0005-r3-corda-5-dlt-platform.md
-      - ADR-0006 Docker Compose Orchestration: adr/ADR-0006-docker-compose-phase1-orchestration.md
-      - ADR-0007 Service Framework Defaults: adr/ADR-0007-service-framework-defaults.md
-      - ADR-0008 Database Selection: adr/ADR-0008-database-selection.md
-      - ADR-0009 Schema Migration Strategy: adr/ADR-0009-schema-migration-strategy.md
-      - ADR-0010 Identity Provider & Claims: adr/ADR-0010-identity-provider-and-claims-strategy.md
-      - ADR-0011 Authorization Strategy: adr/ADR-0011-authorization-strategy.md
-      - ADR-0012 Secrets Management: adr/ADR-0012-secrets-management.md
-      - ADR-0013 Observability Stack: adr/ADR-0013-observability-stack.md
-      - ADR-0014 Rate Limiting Strategy: adr/ADR-0014-rate-limiting-strategy.md
-      - ADR-0015 Feature Flags System: adr/ADR-0015-feature-flags-system.md
-      - ADR-0016 Caching Strategy: adr/ADR-0016-caching-strategy.md
-      - ADR-0017 Search Implementation: adr/ADR-0017-search-implementation.md
-      - ADR-0018 On-Ledger DLT Details: adr/ADR-0018-on-ledger-dlt-implementation-details.md
-      - ADR-0019 DLT Access Patterns: adr/ADR-0019-dlt-access-patterns.md
-      - ADR-0020 GraphQL Federation Conventions: adr/ADR-0020-graphql-federation-conventions.md
-      - ADR-0021 Protobuf IDL Versioning: adr/ADR-0021-protobuf-idl-versioning-strategy.md
-      - ADR-0022 Connection Pool Management: adr/ADR-0022-connection-pool-budget-management.md
-      - ADR-0023 Persisted Queries & Batching: adr/ADR-0023-persisted-queries-and-batching.md
-      - ADR-0024 Multi-Tenant Baseline: adr/ADR-0024-multi-tenant-baseline-strategy.md
-      - ADR-0025 Event Streaming Platform: adr/ADR-0025-event-streaming-platform.md
+      - ADR-000-template: adr/ADR-000-template.md
+      - Java 17 Runtime: adr/ADR-0001-java-17-runtime.md
+      - R3 Corda 5 DLT Platform: adr/ADR-0002-r3-corda-5-dlt-platform.md
+      - Docker Compose Phase 1 Orchestration: adr/ADR-0003-docker-compose-phase1-orchestration.md
+      - Service Framework Defaults: adr/ADR-0004-service-framework-defaults.md
 
-  - Planning: 
-      - Phase 1 Development Plan: planning/platform-development-phase1.md
+  - Planning:
+      - Phase 1 Epics: planning/phase1-epics.md
+      - Delivery Plan (12 Weeks): planning/delivery-plan-12weeks-tdd.md
 
-  - Product: 
+  - Product:
       - Phase 1 PRD: product/Phase1_PRD.md
+      # Add more as needed after confirming filenames
 
   - QA & Compliance:
-      - QA Suite Overview: qa/README.md
-      - Acceptance Criteria Validation: qa/acceptance-criteria-validation.md
-      - Functional Test Cases: qa/phase1-functional-test-cases.md
-      - PRD Traceability Matrix: qa/prd-traceability-phase1.md
-      - Sprint Functional Test Mapping: qa/sprint-functional-test-mapping-phase-1.md
+      - Functional Test Cases: qa/Phase1_Functional_Test_Cases.md
+      # Add more as needed after confirming filenames
 
   - Technical Documentation:
-      - Phase 1 Stakeholder Summary: tech/phase-1-stakeholder-summary.md
-      - Phase 1 Technical Plan: tech/phase-1-technical-plan.md
-      - Release Process: tech/release-process.md
-      - Sprint Demo Checklists: tech/sprint-demo-checklists.md
-      - Sprint Plan (Phase 1): tech/sprint-plan-phase-1.md
-      - Technology Landscape: tech/technology-landscape.md
+      - Tech Landscape (MVP): tech/tech-landscape.md
+      # Add more as needed after confirming filenames
 
 markdown_extensions:
   - admonition
@@ -86,10 +61,8 @@ markdown_extensions:
 
 plugins:
   - search
-  # - mkdocs-git-revision-date-localized-plugin  # Optional: show page last updated info
 
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/DealSphere-Inc
-    # Add more icons as needed

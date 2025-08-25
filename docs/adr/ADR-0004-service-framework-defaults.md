@@ -1,4 +1,4 @@
-# ADR-0007: Service Framework Default Selection
+# ADR-0004: Service Framework Default Selection
 
 **Author:** @MysterTech  
 **Status:** Accepted  
@@ -156,7 +156,7 @@ Target Sprint: Sprint 1
 **Review Before Deciding:**
 - Netflix DGS Documentation: [Developer docs](https://netflix.github.io/dgs/)
 
-**Technology Landscape:** [Tech Landscape Document](../tech/tech-landscape.md)
+**Technology Landscape:** [Tech Landscape Document]
 
 **Product/PRD:** [Phase 1 PRD - Service Framework](../product/Phase1_PRD.md#service-framework)
 
@@ -164,16 +164,3 @@ Target Sprint: Sprint 1
 
 **Related ADRs:**
 - [ADR-0001: Microservices Architecture](ADR-0001-microservices-architecture.md) - Establishes distributed system foundation
-- [ADR-0002: API-First Design](ADR-0002-api-first-design.md) - Defines contract-driven development approach
-- [ADR-0003: Technology Selection Criteria](ADR-0003-technology-selection-criteria.md) - Framework evaluation principles
-- [ADR-0004: Data Layer Strategy](ADR-0004-data-layer-strategy.md) - Database and persistence patterns
-- [ADR-0005: Service Templates](ADR-0005-service-templates.md) - Standardized service scaffolding
-- [ADR-0006: Deployment Patterns](ADR-0006-deployment-patterns.md) - Container and orchestration standards
-- [ADR-0008: Authentication Strategy](ADR-0008-authentication-strategy.md) - Identity and access management
-- [ADR-0009: Monitoring and Observability](ADR-0009-monitoring-observability.md) - System visibility patterns
-- [ADR-0010: Data Synchronization](ADR-0010-data-synchronization.md) - Inter-service data consistency
-- [ADR-0011: Error Handling](ADR-0011-error-handling.md) - Exception and failure management
-- [ADR-0012: Performance Requirements](ADR-0012-performance-requirements.md) - SLA and benchmark definitions
-- [ADR-0013: Security Framework](ADR-0013-security-framework.md) - Comprehensive security approach
-- [ADR-0000-template](ADR-0000-template.md) - ADR template structure
-- [Microservices Architecture Guidelines](../architecture/microservices-guidelines.md)

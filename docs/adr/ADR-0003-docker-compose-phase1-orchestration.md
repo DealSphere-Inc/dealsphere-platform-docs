@@ -1,4 +1,4 @@
-# ADR-0006: Docker Compose for Phase 1 Orchestration
+# ADR-0003: Docker Compose for Phase 1 Orchestration
 
 **Author:** @MysterTech     
 **Status:** Accepted      
@@ -127,16 +127,8 @@ Adopt Docker Compose as the container orchestration platform for DealSphere Phas
 
 ## Links
 
-- **Technology Landscape:** [Orchestration Platform](https://github.com/DealSphere-Inc/dealsphere-platform-docs/blob/main/docs/tech/technology-landscape.md#orchestration-platform)
-- **Sprint Plan:** [Sprint 1 – Development Environment Setup](https://github.com/DealSphere-Inc/dealsphere-platform-docs/blob/main/docs/tech/sprint-plan-phase-1.md#sprint-1-development-environment-setup)
+- **Technology Landscape:** [Orchestration Platform]
+- **Sprint Plan:** [Sprint 1 – Development Environment Setup]
 - **Related ADRs:**
     - [ADR-0001: Java 17 as Language/Runtime](https://github.com/DealSphere-Inc/dealsphere-platform-docs/blob/main/docs/adr/ADR-0001-java-17-runtime.md)
-    - [ADR-0002: Microservices Architecture](https://github.com/DealSphere-Inc/dealsphere-platform-docs/blob/main/docs/adr/ADR-0002-microservices-architecture.md)
-    - [ADR-0007: Service Framework Default Selection](https://github.com/DealSphere-Inc/dealsphere-platform-docs/blob/main/docs/adr/ADR-0007-service-framework-defaults.md)
-    - [ADR-0008: Database Selection](https://github.com/DealSphere-Inc/dealsphere-platform-docs/blob/main/docs/adr/ADR-0008-database-selection.md)
-    - [ADR-0009: Schema Migration Strategy](https://github.com/DealSphere-Inc/dealsphere-platform-docs/blob/main/docs/adr/ADR-0009-schema-migration-strategy.md)
-    - [ADR-0013: Observability Stack](https://github.com/DealSphere-Inc/dealsphere-platform-docs/blob/main/docs/adr/ADR-0013-observability-stack.md)
-    - [ADR-0015: Feature Flags System](https://github.com/DealSphere-Inc/dealsphere-platform-docs/blob/main/docs/adr/ADR-0015-feature-flags-system.md)
-    - [ADR-0016: Caching Strategy](https://github.com/DealSphere-Inc/dealsphere-platform-docs/blob/main/docs/adr/ADR-0016-caching-strategy.md)
-    - [ADR-0017: Search Implementation](https://github.com/DealSphere-Inc/dealsphere-platform-docs/blob/main/docs/adr/ADR-0017-search-implementation.md)
-    - [ADR-0025: Event Streaming Platform](https://github.com/DealSphere-Inc/dealsphere-platform-docs/blob/main/docs/adr/ADR-0025-event-streaming-platform.md)
+    
