@@ -140,3 +140,5 @@ vite.config.ts.timestamp-*
 
 # site-cache directory
 site
+
+venv
