@@ -88,4 +88,32 @@ The purpose of this initiative is to lay the technical foundation for the DealSp
 - All tasks and acceptance criteria are met and validated through QA.
 - 100% functional and security test coverage on authentication and RBAC components.
 - Successful deployment to development and staging, with use case test completion.
-- No critical security findings in initial
+- No critical security findings in initial scans.
+- Complete project documentation is delivered and reviewed.
+
+---
+
+### 7. Dependencies & Risks
+
+- Database schema must be finalized for proper implementation of RBAC and authentication.
+- Choice and configuration of JWT tokens will influence all future user/session management features.
+- Delays or misconfigurations in environment setup may block the onboarding of parallel teams.
+- Security approach taken will set the precedent for all future features—must be carefully validated.
+
+---
+
+### 8. Out of Scope & Exclusions
+
+- User interfaces beyond login/auth and basic RBAC display for the initial phase.
+- Business workflows unrelated to core authentication, permissions, or deployment pipeline.
+
+---
+
+### 9. Stakeholder Sign-Off
+
+Stakeholders must review and sign off on:
+- Acceptance criteria alignment
+- Security control approach
+- Deployment and test automation readiness
+
+---
