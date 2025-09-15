@@ -1,0 +1,2766 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete Documentation for the DealSphere Platform (APIs, architecture, planning, QA, product, tech)">
+      
+      
+        <meta name="author" content="DealSphere Team">
+      
+      
+      
+        <link rel="prev" href="../observability-monitoring/">
+      
+      
+        <link rel="next" href="../../tech/tech-landscape/">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Security & Secrets - DealSphere Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#security-and-secrets-management" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DealSphere Documentation" class="md-header__button md-logo" aria-label="DealSphere Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DealSphere Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Security & Secrets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/DealSphere-Inc/dealsphere-platform-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../adr/" class="md-tabs__link">
+          
+  
+  
+  Architecture Decision Records (ADRs)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../planning/phase1-epics/" class="md-tabs__link">
+          
+  
+  
+  Planning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../product/Phase1_PRD/" class="md-tabs__link">
+          
+  
+  
+  Product
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../qa/Phase1_Functional_Test_Cases/" class="md-tabs__link">
+          
+  
+  
+  QA & Compliance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/local-cicd-setup/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tech/tech-landscape/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DealSphere Documentation" class="md-nav__button md-logo" aria-label="DealSphere Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    DealSphere Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/DealSphere-Inc/dealsphere-platform-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture Decision Records (ADRs)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture Decision Records (ADRs)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR Master Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-000-template.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR-000-template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-0001-java-17-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java 17 Runtime
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-0002-r3-corda-5-dlt-platform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    R3 Corda 5 DLT Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-0003-docker-compose-phase1-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Compose Phase 1 Orchestration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-0004-service-framework-defaults/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Service Framework Defaults
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Planning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Planning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/phase1-epics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 1 Epics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/delivery-plan-12weeks-tdd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Delivery Plan (12 Weeks)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Product
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Product
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/Phase1_PRD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 1 PRD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    QA & Compliance
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            QA & Compliance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qa/Phase1_Functional_Test_Cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functional Test Cases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/local-cicd-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Local CI/CD Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/github-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitHub Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cypress-e2e-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cypress E2E Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../production-deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Production Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud Infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Environment Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observability-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Observability & Monitoring
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Security & Secrets
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security & Secrets
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-at-rest-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data at Rest Encryption
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data at Rest Encryption">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-storage-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Storage Encryption
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-in-transit-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data in Transit Encryption
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data in Transit Encryption">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tlsssl-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLS/SSL Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-connection-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Connection Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secrets Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-secrets-manager-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Secrets Manager Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS Secrets Manager Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secrets-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets Storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets Rotation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-secrets-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Secrets Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-secrets-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kubernetes Secrets Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Secrets Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#external-secrets-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Secrets Operator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-control-and-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Control and Authentication
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Control and Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jwt-security-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      JWT Security Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-factor-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Factor Authentication
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpc-and-network-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      VPC and Network Segmentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-application-firewall-waf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Web Application Firewall (WAF)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-monitoring-and-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Monitoring and Compliance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Monitoring and Compliance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-event-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Event Logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compliance-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compliance Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Technical Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Technical Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/tech-landscape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tech Landscape (MVP)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="security-and-secrets-management">Security and Secrets Management<a class="headerlink" href="#security-and-secrets-management" title="Permanent link">&para;</a></h1>
+<p>This guide covers comprehensive security practices for DealSphere, including data encryption, secrets management, access controls, and security monitoring for both data at rest and in transit.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>DealSphere implements defense-in-depth security principles with multiple layers of protection:</p>
+<ul>
+<li><strong>Data Encryption</strong>: End-to-end encryption for data at rest and in transit</li>
+<li><strong>Secrets Management</strong>: Centralized and secure handling of sensitive configuration</li>
+<li><strong>Access Controls</strong>: Role-based authentication and authorization</li>
+<li><strong>Network Security</strong>: TLS/SSL, VPNs, and network segmentation</li>
+<li><strong>Security Monitoring</strong>: Real-time threat detection and audit logging</li>
+<li><strong>Compliance</strong>: GDPR, SOC 2, and industry best practices</li>
+</ul>
+<h2 id="data-security">Data Security<a class="headerlink" href="#data-security" title="Permanent link">&para;</a></h2>
+<h3 id="data-at-rest-encryption">Data at Rest Encryption<a class="headerlink" href="#data-at-rest-encryption" title="Permanent link">&para;</a></h3>
+<h4 id="database-encryption">Database Encryption<a class="headerlink" href="#database-encryption" title="Permanent link">&para;</a></h4>
+<p><strong>PostgreSQL Transparent Data Encryption (TDE)</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- Enable encryption at database level</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">dealsphere_prod</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">ENCRYPTION</span><span class="p">;</span>
+
+<span class="c1">-- Column-level encryption for sensitive data</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">user_credentials</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">password_hash</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">-- Encrypted sensitive fields</span>
+<span class="w">    </span><span class="n">ssn_encrypted</span><span class="w"> </span><span class="n">BYTEA</span><span class="p">,</span><span class="w">  </span><span class="c1">-- Encrypted SSN</span>
+<span class="w">    </span><span class="n">payment_info_encrypted</span><span class="w"> </span><span class="n">BYTEA</span><span class="p">,</span><span class="w">  </span><span class="c1">-- Encrypted payment info</span>
+<span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">NOW</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">updated_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">NOW</span><span class="p">()</span>
+<span class="p">);</span>
+
+<span class="c1">-- Application-level encryption functions</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">encrypt_sensitive_data</span><span class="p">(</span><span class="n">plain_text</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span><span class="w"> </span><span class="n">encryption_key</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">)</span>
+<span class="k">RETURNS</span><span class="w"> </span><span class="n">BYTEA</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">$$</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="n">pgp_sym_encrypt</span><span class="p">(</span><span class="n">plain_text</span><span class="p">,</span><span class="w"> </span><span class="n">encryption_key</span><span class="p">);</span>
+<span class="k">END</span><span class="p">;</span>
+<span class="err">$$</span><span class="w"> </span><span class="k">LANGUAGE</span><span class="w"> </span><span class="n">plpgsql</span><span class="p">;</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">decrypt_sensitive_data</span><span class="p">(</span><span class="n">encrypted_data</span><span class="w"> </span><span class="n">BYTEA</span><span class="p">,</span><span class="w"> </span><span class="n">encryption_key</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">)</span>
+<span class="k">RETURNS</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="err">$$</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="n">pgp_sym_decrypt</span><span class="p">(</span><span class="n">encrypted_data</span><span class="p">,</span><span class="w"> </span><span class="n">encryption_key</span><span class="p">);</span>
+<span class="k">END</span><span class="p">;</span>
+<span class="err">$$</span><span class="w"> </span><span class="k">LANGUAGE</span><span class="w"> </span><span class="n">plpgsql</span><span class="p">;</span>
+</code></pre></div>
+
+<p><strong>AWS RDS Encryption</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># terraform/rds.tf</span>
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_db_instance&quot; &quot;dealsphere_prod&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">identifier = &quot;dealsphere-prod-db&quot;</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain"># Encryption configuration</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">storage_encrypted = true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">kms_key_id       = aws_kms_key.database_key.arn</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain"># Backup encryption</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">backup_retention_period = 30</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">backup_window          = &quot;03:00-04:00&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">copy_tags_to_snapshot  = true</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain"># Performance Insights encryption</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">performance_insights_enabled = true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">performance_insights_kms_key_id = aws_kms_key.database_key.arn</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain"># Additional security settings</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">deletion_protection = true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">skip_final_snapshot = false</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">final_snapshot_identifier = &quot;dealsphere-prod-final-snapshot&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_kms_key&quot; &quot;database_key&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">description = &quot;KMS key for DealSphere database encryption&quot;</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">policy = jsonencode({</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Version = &quot;2012-10-17&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Statement = [</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">{</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">Effect = &quot;Allow&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">Principal = {</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">AWS = &quot;arn:aws:iam::${data.aws_caller_identity.current.account_id}:root&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">Action = &quot;kms:*&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">Resource = &quot;*&quot;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">]</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">})</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">tags = {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Name = &quot;dealsphere-database-key&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Environment = &quot;production&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+</code></pre></div>
+
+<h4 id="file-storage-encryption">File Storage Encryption<a class="headerlink" href="#file-storage-encryption" title="Permanent link">&para;</a></h4>
+<p><strong>AWS S3 Server-Side Encryption</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># terraform/s3.tf</span>
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_s3_bucket&quot; &quot;dealsphere_storage&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">bucket = &quot;dealsphere-files-prod&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_s3_bucket_server_side_encryption_configuration&quot; &quot;dealsphere_storage&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">bucket = aws_s3_bucket.dealsphere_storage.id</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">rule {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">apply_server_side_encryption_by_default {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">sse_algorithm     = &quot;aws:kms&quot;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">kms_master_key_id = aws_kms_key.s3_key.arn</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">bucket_key_enabled = true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_s3_bucket_public_access_block&quot; &quot;dealsphere_storage&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">bucket = aws_s3_bucket.dealsphere_storage.id</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">block_public_acls       = true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">block_public_policy     = true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ignore_public_acls      = true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">restrict_public_buckets = true</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_kms_key&quot; &quot;s3_key&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">description = &quot;KMS key for DealSphere S3 encryption&quot;</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">policy = jsonencode({</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Version = &quot;2012-10-17&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Statement = [</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">{</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">Effect = &quot;Allow&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">Principal = {</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">AWS = &quot;arn:aws:iam::${data.aws_caller_identity.current.account_id}:root&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">Action = &quot;kms:*&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">Resource = &quot;*&quot;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">]</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">})</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+</code></pre></div>
+
+<p><strong>Application-Level File Encryption</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// File encryption service</span>
+<span class="nd">@Service</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FileEncryptionService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">KmsClient</span><span class="w"> </span><span class="n">kmsClient</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">dataKeyId</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">FileEncryptionService</span><span class="p">(</span><span class="n">KmsClient</span><span class="w"> </span><span class="n">kmsClient</span><span class="p">,</span>
+<span class="w">                               </span><span class="nd">@Value</span><span class="p">(</span><span class="s">&quot;${aws.kms.data-key-id}&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">dataKeyId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">kmsClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kmsClient</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">dataKeyId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataKeyId</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="nf">encryptFile</span><span class="p">(</span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">fileData</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Generate data key</span>
+<span class="w">        </span><span class="n">GenerateDataKeyRequest</span><span class="w"> </span><span class="n">keyRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerateDataKeyRequest</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">keyId</span><span class="p">(</span><span class="n">dataKeyId</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">keySpec</span><span class="p">(</span><span class="n">DataKeySpec</span><span class="p">.</span><span class="na">AES_256</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">GenerateDataKeyResponse</span><span class="w"> </span><span class="n">keyResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kmsClient</span><span class="p">.</span><span class="na">generateDataKey</span><span class="p">(</span><span class="n">keyRequest</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">plaintextKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">keyResponse</span><span class="p">.</span><span class="na">plaintext</span><span class="p">().</span><span class="na">asByteArray</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">encryptedKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">keyResponse</span><span class="p">.</span><span class="na">ciphertextBlob</span><span class="p">().</span><span class="na">asByteArray</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Encrypt file with data key</span>
+<span class="w">        </span><span class="n">Cipher</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cipher</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;AES/GCM/NoPadding&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">SecretKeySpec</span><span class="w"> </span><span class="n">keySpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SecretKeySpec</span><span class="p">(</span><span class="n">plaintextKey</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AES&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">cipher</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="n">Cipher</span><span class="p">.</span><span class="na">ENCRYPT_MODE</span><span class="p">,</span><span class="w"> </span><span class="n">keySpec</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">encryptedData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cipher</span><span class="p">.</span><span class="na">doFinal</span><span class="p">(</span><span class="n">fileData</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">iv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cipher</span><span class="p">.</span><span class="na">getIV</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Combine encrypted key, IV, and encrypted data</span>
+<span class="w">        </span><span class="n">ByteArrayOutputStream</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ByteArrayOutputStream</span><span class="p">();</span>
+<span class="w">        </span><span class="n">output</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">encryptedKey</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
+<span class="w">        </span><span class="n">output</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">encryptedKey</span><span class="p">);</span>
+<span class="w">        </span><span class="n">output</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">iv</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
+<span class="w">        </span><span class="n">output</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">iv</span><span class="p">);</span>
+<span class="w">        </span><span class="n">output</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">encryptedData</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">output</span><span class="p">.</span><span class="na">toByteArray</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="nf">decryptFile</span><span class="p">(</span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">encryptedFileData</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ByteArrayInputStream</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ByteArrayInputStream</span><span class="p">(</span><span class="n">encryptedFileData</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Extract encrypted key</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">keyLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">read</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">encryptedKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="o">[</span><span class="n">keyLength</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">input</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">encryptedKey</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Extract IV</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ivLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">read</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">iv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="o">[</span><span class="n">ivLength</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">input</span><span class="p">.</span><span class="na">read</span><span class="p">(</span><span class="n">iv</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Extract encrypted data</span>
+<span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">encryptedData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">readAllBytes</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Decrypt data key</span>
+<span class="w">        </span><span class="n">DecryptRequest</span><span class="w"> </span><span class="n">decryptRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DecryptRequest</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">ciphertextBlob</span><span class="p">(</span><span class="n">SdkBytes</span><span class="p">.</span><span class="na">fromByteArray</span><span class="p">(</span><span class="n">encryptedKey</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">DecryptResponse</span><span class="w"> </span><span class="n">decryptResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kmsClient</span><span class="p">.</span><span class="na">decrypt</span><span class="p">(</span><span class="n">decryptRequest</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">plaintextKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decryptResponse</span><span class="p">.</span><span class="na">plaintext</span><span class="p">().</span><span class="na">asByteArray</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Decrypt file data</span>
+<span class="w">        </span><span class="n">Cipher</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cipher</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;AES/GCM/NoPadding&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">SecretKeySpec</span><span class="w"> </span><span class="n">keySpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SecretKeySpec</span><span class="p">(</span><span class="n">plaintextKey</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AES&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">GCMParameterSpec</span><span class="w"> </span><span class="n">gcmSpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GCMParameterSpec</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="n">iv</span><span class="p">);</span>
+<span class="w">        </span><span class="n">cipher</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="n">Cipher</span><span class="p">.</span><span class="na">DECRYPT_MODE</span><span class="p">,</span><span class="w"> </span><span class="n">keySpec</span><span class="p">,</span><span class="w"> </span><span class="n">gcmSpec</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">cipher</span><span class="p">.</span><span class="na">doFinal</span><span class="p">(</span><span class="n">encryptedData</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="data-in-transit-encryption">Data in Transit Encryption<a class="headerlink" href="#data-in-transit-encryption" title="Permanent link">&para;</a></h3>
+<h4 id="tlsssl-configuration">TLS/SSL Configuration<a class="headerlink" href="#tlsssl-configuration" title="Permanent link">&para;</a></h4>
+<p><strong>Application TLS Configuration</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># application-security.yml</span>
+<span class="nt">server</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ssl</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">key-store</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">classpath:keystore.p12</span>
+<span class="w">    </span><span class="nt">key-store-password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SSL_KEYSTORE_PASSWORD}</span>
+<span class="w">    </span><span class="nt">key-store-type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PKCS12</span>
+<span class="w">    </span><span class="nt">key-alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere</span>
+
+<span class="w">    </span><span class="c1"># TLS version and cipher configuration</span>
+<span class="w">    </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLS</span>
+<span class="w">    </span><span class="nt">enabled-protocols</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLSv1.2,TLSv1.3</span>
+<span class="w">    </span><span class="nt">ciphers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLS_AES_256_GCM_SHA384</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLS_CHACHA20_POLY1305_SHA256</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLS_AES_128_GCM_SHA256</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</span>
+
+<span class="w">    </span><span class="c1"># Client certificate authentication (optional)</span>
+<span class="w">    </span><span class="nt">client-auth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">want</span>
+<span class="w">    </span><span class="nt">trust-store</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">classpath:truststore.p12</span>
+<span class="w">    </span><span class="nt">trust-store-password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SSL_TRUSTSTORE_PASSWORD}</span>
+
+<span class="nt">management</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">server</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ssl</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">key-store</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">classpath:keystore.p12</span>
+<span class="w">      </span><span class="nt">key-store-password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SSL_KEYSTORE_PASSWORD}</span>
+</code></pre></div>
+
+<p><strong>Nginx TLS Termination</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># nginx/ssl.conf</span>
+<span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">dealsphere.com</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1"># SSL Certificate configuration</span>
+<span class="w">    </span><span class="kn">ssl_certificate</span><span class="w"> </span><span class="s">/etc/ssl/certs/dealsphere.crt</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">/etc/ssl/private/dealsphere.key</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1"># SSL Security configuration</span>
+<span class="w">    </span><span class="kn">ssl_protocols</span><span class="w"> </span><span class="s">TLSv1.2</span><span class="w"> </span><span class="s">TLSv1.3</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_ciphers</span><span class="w"> </span><span class="s">ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_prefer_server_ciphers</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_session_cache</span><span class="w"> </span><span class="s">shared:SSL:10m</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_session_timeout</span><span class="w"> </span><span class="mi">10m</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1"># HSTS (HTTP Strict Transport Security)</span>
+<span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Strict-Transport-Security</span><span class="w"> </span><span class="s">&quot;max-age=31536000</span><span class="p">;</span><span class="w"> </span><span class="kn">includeSubDomains</span><span class="p">;</span><span class="w"> </span><span class="kn">preload&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1"># Security headers</span>
+<span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-Frame-Options</span><span class="w"> </span><span class="s">&quot;SAMEORIGIN&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-Content-Type-Options</span><span class="w"> </span><span class="s">&quot;nosniff&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-XSS-Protection</span><span class="w"> </span><span class="s">&quot;1</span><span class="p">;</span><span class="w"> </span><span class="kn">mode=block&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Referrer-Policy</span><span class="w"> </span><span class="s">&quot;strict-origin-when-cross-origin&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Content-Security-Policy</span><span class="w"> </span><span class="s">&quot;default-src</span><span class="w"> </span><span class="s">&#39;self&#39;</span><span class="p">;</span><span class="w"> </span><span class="kn">script-src</span><span class="w"> </span><span class="s">&#39;self&#39;</span><span class="w"> </span><span class="s">&#39;unsafe-inline&#39;</span><span class="p">;</span><span class="w"> </span><span class="kn">style-src</span><span class="w"> </span><span class="s">&#39;self&#39;</span><span class="w"> </span><span class="s">&#39;unsafe-inline&#39;</span><span class="p">;</span><span class="w"> </span><span class="kn">img-src</span><span class="w"> </span><span class="s">&#39;self&#39;</span><span class="w"> </span><span class="s">data:</span><span class="w"> </span><span class="s">https:</span><span class="p">;</span><span class="w"> </span><span class="kn">font-src</span><span class="w"> </span><span class="s">&#39;self&#39;</span><span class="w"> </span><span class="s">https:</span><span class="p">;</span><span class="w"> </span><span class="kn">connect-src</span><span class="w"> </span><span class="s">&#39;self&#39;</span><span class="w"> </span><span class="s">https:</span><span class="p">;</span><span class="w"> </span><span class="kn">frame-ancestors</span><span class="w"> </span><span class="s">&#39;self&#39;</span><span class="p">;</span><span class="kn">&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1"># OCSP Stapling</span>
+<span class="w">    </span><span class="kn">ssl_stapling</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_stapling_verify</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_trusted_certificate</span><span class="w"> </span><span class="s">/etc/ssl/certs/chain.crt</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://backend:8080</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Port</span><span class="w"> </span><span class="nv">$server_port</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Redirect HTTP to HTTPS</span>
+<span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">dealsphere.com</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">return</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="s">https://</span><span class="nv">$server_name$request_uri</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="database-connection-security">Database Connection Security<a class="headerlink" href="#database-connection-security" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Database SSL configuration</span>
+<span class="nt">spring</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">datasource</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=require&amp;sslcert=/etc/ssl/certs/client-cert.pem&amp;sslkey=/etc/ssl/private/client-key.pem&amp;sslrootcert=/etc/ssl/certs/ca-cert.pem</span>
+<span class="w">    </span><span class="nt">hikari</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">connection-test-query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SELECT 1</span>
+<span class="w">      </span><span class="nt">connection-timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30000</span>
+<span class="w">      </span><span class="nt">validation-timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5000</span>
+<span class="w">      </span><span class="nt">leak-detection-threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60000</span>
+</code></pre></div>
+
+<h2 id="secrets-management">Secrets Management<a class="headerlink" href="#secrets-management" title="Permanent link">&para;</a></h2>
+<h3 id="aws-secrets-manager-integration">AWS Secrets Manager Integration<a class="headerlink" href="#aws-secrets-manager-integration" title="Permanent link">&para;</a></h3>
+<h4 id="secrets-storage">Secrets Storage<a class="headerlink" href="#secrets-storage" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Store database credentials</span>
+aws<span class="w"> </span>secretsmanager<span class="w"> </span>create-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="w"> </span><span class="s2">&quot;dealsphere/prod/database&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--description<span class="w"> </span><span class="s2">&quot;Production database credentials&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--secret-string<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">        &quot;username&quot;: &quot;dealsphere_user&quot;,</span>
+<span class="s1">        &quot;password&quot;: &quot;super-secure-db-password-123!&quot;,</span>
+<span class="s1">        &quot;host&quot;: &quot;dealsphere-prod-cluster.cluster-abc123.us-west-2.rds.amazonaws.com&quot;,</span>
+<span class="s1">        &quot;port&quot;: 5432,</span>
+<span class="s1">        &quot;database&quot;: &quot;dealsphere_prod&quot;,</span>
+<span class="s1">        &quot;ssl_mode&quot;: &quot;require&quot;</span>
+<span class="s1">    }&#39;</span>
+
+<span class="c1"># Store JWT secrets</span>
+aws<span class="w"> </span>secretsmanager<span class="w"> </span>create-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="w"> </span><span class="s2">&quot;dealsphere/prod/jwt&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--description<span class="w"> </span><span class="s2">&quot;JWT signing and encryption keys&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--secret-string<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">        &quot;signing_key&quot;: &quot;jwt-signing-key-256-bit-random-string&quot;,</span>
+<span class="s1">        &quot;encryption_key&quot;: &quot;jwt-encryption-key-256-bit-random&quot;,</span>
+<span class="s1">        &quot;refresh_key&quot;: &quot;jwt-refresh-key-256-bit-random-string&quot;</span>
+<span class="s1">    }&#39;</span>
+
+<span class="c1"># Store third-party API keys</span>
+aws<span class="w"> </span>secretsmanager<span class="w"> </span>create-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="w"> </span><span class="s2">&quot;dealsphere/prod/external-apis&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--description<span class="w"> </span><span class="s2">&quot;External API credentials&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--secret-string<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">        &quot;stripe_secret_key&quot;: &quot;sk_live_...&quot;,</span>
+<span class="s1">        &quot;sendgrid_api_key&quot;: &quot;SG.abc123...&quot;,</span>
+<span class="s1">        &quot;aws_access_key&quot;: &quot;AKIA...&quot;,</span>
+<span class="s1">        &quot;aws_secret_key&quot;: &quot;abc123...&quot;</span>
+<span class="s1">    }&#39;</span>
+
+<span class="c1"># Store encryption keys</span>
+aws<span class="w"> </span>secretsmanager<span class="w"> </span>create-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="w"> </span><span class="s2">&quot;dealsphere/prod/encryption&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--description<span class="w"> </span><span class="s2">&quot;Application encryption keys&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--secret-string<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">        &quot;data_encryption_key&quot;: &quot;32-byte-random-encryption-key-here&quot;,</span>
+<span class="s1">        &quot;file_encryption_key&quot;: &quot;32-byte-file-encryption-key-here&quot;,</span>
+<span class="s1">        &quot;field_encryption_key&quot;: &quot;32-byte-field-encryption-key&quot;</span>
+<span class="s1">    }&#39;</span>
+</code></pre></div>
+
+<h4 id="secrets-rotation">Secrets Rotation<a class="headerlink" href="#secrets-rotation" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="c1"># terraform/secrets-rotation.tf</span>
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_secretsmanager_secret&quot; &quot;database_credentials&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">name = &quot;dealsphere/prod/database&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">description = &quot;Production database credentials&quot;</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">replica {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">region = &quot;us-east-1&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_secretsmanager_secret_rotation&quot; &quot;database_rotation&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">secret_id           = aws_secretsmanager_secret.database_credentials.id</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">rotation_lambda_arn = aws_lambda_function.rotation_lambda.arn</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">rotation_rules {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">automatically_after_days = 30</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_lambda_function&quot; &quot;rotation_lambda&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">filename         = &quot;rotation-lambda.zip&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">function_name    = &quot;dealsphere-secret-rotation&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">role            = aws_iam_role.rotation_lambda_role.arn</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">handler         = &quot;lambda_function.lambda_handler&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">runtime         = &quot;python3.9&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">timeout         = 30</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">environment {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">variables = {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">SECRETS_MANAGER_ENDPOINT = &quot;https://secretsmanager.us-west-2.amazonaws.com&quot;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">EXCLUDE_CHARACTERS       = &quot; %+~`#$&amp;*()|[]{}:;&lt;&gt;?!&#39;/\\\&quot;@&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+</code></pre></div>
+
+<h3 id="application-secrets-integration">Application Secrets Integration<a class="headerlink" href="#application-secrets-integration" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Secrets manager integration</span>
+<span class="nd">@Configuration</span>
+<span class="nd">@EnableConfigurationProperties</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SecretsConfiguration</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">SecretsManagerClient</span><span class="w"> </span><span class="nf">secretsManagerClient</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">SecretsManagerClient</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">region</span><span class="p">(</span><span class="n">Region</span><span class="p">.</span><span class="na">US_WEST_2</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;app.secrets&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">SecretsProperties</span><span class="w"> </span><span class="nf">secretsProperties</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SecretsProperties</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@Service</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SecretsService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">SecretsManagerClient</span><span class="w"> </span><span class="n">secretsClient</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ObjectMapper</span><span class="w"> </span><span class="n">objectMapper</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">secretsCache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConcurrentHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">SecretsService</span><span class="p">(</span><span class="n">SecretsManagerClient</span><span class="w"> </span><span class="n">secretsClient</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">secretsClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">secretsClient</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">objectMapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ObjectMapper</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Cacheable</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;secrets&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;#secretName&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">getSecret</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">secretName</span><span class="p">,</span><span class="w"> </span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">GetSecretValueRequest</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetSecretValueRequest</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">secretId</span><span class="p">(</span><span class="n">secretName</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="w">            </span><span class="n">GetSecretValueResponse</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">secretsClient</span><span class="p">.</span><span class="na">getSecretValue</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">secretValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">secretString</span><span class="p">();</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">type</span><span class="p">.</span><span class="na">cast</span><span class="p">(</span><span class="n">secretValue</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">objectMapper</span><span class="p">.</span><span class="na">readValue</span><span class="p">(</span><span class="n">secretValue</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SecretRetrievalException</span><span class="p">(</span><span class="s">&quot;Failed to retrieve secret: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">secretName</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">DatabaseCredentials</span><span class="w"> </span><span class="nf">getDatabaseCredentials</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">getSecret</span><span class="p">(</span><span class="s">&quot;dealsphere/prod/database&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">DatabaseCredentials</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">JwtSecrets</span><span class="w"> </span><span class="nf">getJwtSecrets</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">getSecret</span><span class="p">(</span><span class="s">&quot;dealsphere/prod/jwt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">JwtSecrets</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getApiKey</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">serviceName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ExternalApiSecrets</span><span class="w"> </span><span class="n">secrets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSecret</span><span class="p">(</span><span class="s">&quot;dealsphere/prod/external-apis&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ExternalApiSecrets</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">secrets</span><span class="p">.</span><span class="na">getApiKey</span><span class="p">(</span><span class="n">serviceName</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@EventListener</span><span class="p">(</span><span class="n">ContextRefreshedEvent</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">warmUpSecrets</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Pre-load critical secrets at startup</span>
+<span class="w">        </span><span class="n">getDatabaseCredentials</span><span class="p">();</span>
+<span class="w">        </span><span class="n">getJwtSecrets</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Data classes for secrets</span>
+<span class="nd">@Data</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DatabaseCredentials</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">username</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">host</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">port</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">database</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">sslMode</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nd">@Data</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JwtSecrets</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">signingKey</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">encryptionKey</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">refreshKey</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="kubernetes-secrets-management">Kubernetes Secrets Management<a class="headerlink" href="#kubernetes-secrets-management" title="Permanent link">&para;</a></h3>
+<h4 id="external-secrets-operator">External Secrets Operator<a class="headerlink" href="#external-secrets-operator" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="c1"># external-secrets/secret-store.yml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SecretStore</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws-secrets-manager</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-prod</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">aws</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SecretsManager</span>
+<span class="w">      </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-west-2</span>
+<span class="w">      </span><span class="nt">auth</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">jwt</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">serviceAccountRef</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets-sa</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ExternalSecret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database-credentials</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-prod</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">refreshInterval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1h</span>
+<span class="w">  </span><span class="nt">secretStoreRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws-secrets-manager</span>
+<span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SecretStore</span>
+<span class="w">  </span><span class="nt">target</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database-credentials</span>
+<span class="w">    </span><span class="nt">creationPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Owner</span>
+<span class="w">  </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">username</span>
+<span class="w">    </span><span class="nt">remoteRef</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere/prod/database</span>
+<span class="w">      </span><span class="nt">property</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">username</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">    </span><span class="nt">remoteRef</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere/prod/database</span>
+<span class="w">      </span><span class="nt">property</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
+<span class="w">    </span><span class="nt">remoteRef</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere/prod/database</span>
+<span class="w">      </span><span class="nt">property</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ServiceAccount</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-secrets-sa</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-prod</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">eks.amazonaws.com/role-arn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">arn:aws:iam::ACCOUNT:role/external-secrets-role</span>
+</code></pre></div>
+
+<h2 id="access-control-and-authentication">Access Control and Authentication<a class="headerlink" href="#access-control-and-authentication" title="Permanent link">&para;</a></h2>
+<h3 id="jwt-security-implementation">JWT Security Implementation<a class="headerlink" href="#jwt-security-implementation" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Enhanced JWT service with encryption</span>
+<span class="nd">@Service</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JwtService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">JwtSecrets</span><span class="w"> </span><span class="n">jwtSecrets</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Algorithm</span><span class="w"> </span><span class="n">signingAlgorithm</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">JWEAlgorithm</span><span class="w"> </span><span class="n">encryptionAlgorithm</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">JwtService</span><span class="p">(</span><span class="n">SecretsService</span><span class="w"> </span><span class="n">secretsService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">jwtSecrets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">secretsService</span><span class="p">.</span><span class="na">getJwtSecrets</span><span class="p">();</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">signingAlgorithm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Algorithm</span><span class="p">.</span><span class="na">HMAC256</span><span class="p">(</span><span class="n">jwtSecrets</span><span class="p">.</span><span class="na">getSigningKey</span><span class="p">());</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">encryptionAlgorithm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JWEAlgorithm</span><span class="p">.</span><span class="na">A256KW</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">generateAccessToken</span><span class="p">(</span><span class="n">UserPrincipal</span><span class="w"> </span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Create JWT claims</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JWT</span><span class="p">.</span><span class="na">create</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withIssuer</span><span class="p">(</span><span class="s">&quot;dealsphere&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withSubject</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">getId</span><span class="p">().</span><span class="na">toString</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withClaim</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">getEmail</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withClaim</span><span class="p">(</span><span class="s">&quot;roles&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">getRoles</span><span class="p">().</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">                    </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Role</span><span class="p">::</span><span class="n">getName</span><span class="p">)</span>
+<span class="w">                    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">()))</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withClaim</span><span class="p">(</span><span class="s">&quot;organizationId&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">getOrganizationId</span><span class="p">().</span><span class="na">toString</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withIssuedAt</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withExpiresAt</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">JWT_EXPIRATION</span><span class="p">))</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withJWTId</span><span class="p">(</span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">().</span><span class="na">toString</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">sign</span><span class="p">(</span><span class="n">signingAlgorithm</span><span class="p">);</span>
+
+<span class="w">            </span><span class="c1">// Encrypt the JWT</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">encryptJWT</span><span class="p">(</span><span class="n">token</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TokenGenerationException</span><span class="p">(</span><span class="s">&quot;Failed to generate access token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">generateRefreshToken</span><span class="p">(</span><span class="n">UserPrincipal</span><span class="w"> </span><span class="n">user</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JWT</span><span class="p">.</span><span class="na">create</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withIssuer</span><span class="p">(</span><span class="s">&quot;dealsphere&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withSubject</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">getId</span><span class="p">().</span><span class="na">toString</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withClaim</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;refresh&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withIssuedAt</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withExpiresAt</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">REFRESH_EXPIRATION</span><span class="p">))</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withJWTId</span><span class="p">(</span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">().</span><span class="na">toString</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">sign</span><span class="p">(</span><span class="n">Algorithm</span><span class="p">.</span><span class="na">HMAC256</span><span class="p">(</span><span class="n">jwtSecrets</span><span class="p">.</span><span class="na">getRefreshKey</span><span class="p">()));</span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">encryptJWT</span><span class="p">(</span><span class="n">token</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TokenGenerationException</span><span class="p">(</span><span class="s">&quot;Failed to generate refresh token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">DecodedJWT</span><span class="w"> </span><span class="nf">validateAndDecodeToken</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">encryptedToken</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Decrypt the JWT</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decryptJWT</span><span class="p">(</span><span class="n">encryptedToken</span><span class="p">);</span>
+
+<span class="w">            </span><span class="c1">// Verify signature and decode</span>
+<span class="w">            </span><span class="n">JWTVerifier</span><span class="w"> </span><span class="n">verifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JWT</span><span class="p">.</span><span class="na">require</span><span class="p">(</span><span class="n">signingAlgorithm</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">withIssuer</span><span class="p">(</span><span class="s">&quot;dealsphere&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">verifier</span><span class="p">.</span><span class="na">verify</span><span class="p">(</span><span class="n">token</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TokenValidationException</span><span class="p">(</span><span class="s">&quot;Invalid token&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">encryptJWT</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">jwt</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Use JWE with A256KW algorithm</span>
+<span class="w">        </span><span class="n">JWEHeader</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JWEHeader</span><span class="p">(</span><span class="n">encryptionAlgorithm</span><span class="p">,</span><span class="w"> </span><span class="n">EncryptionMethod</span><span class="p">.</span><span class="na">A256GCM</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Payload</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Payload</span><span class="p">(</span><span class="n">jwt</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">JWEObject</span><span class="w"> </span><span class="n">jweObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JWEObject</span><span class="p">(</span><span class="n">header</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">);</span>
+<span class="w">        </span><span class="n">jweObject</span><span class="p">.</span><span class="na">encrypt</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AESEncrypter</span><span class="p">(</span><span class="n">jwtSecrets</span><span class="p">.</span><span class="na">getEncryptionKey</span><span class="p">().</span><span class="na">getBytes</span><span class="p">()));</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">jweObject</span><span class="p">.</span><span class="na">serialize</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">decryptJWT</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">encryptedJWT</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">JWEObject</span><span class="w"> </span><span class="n">jweObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JWEObject</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">encryptedJWT</span><span class="p">);</span>
+<span class="w">        </span><span class="n">jweObject</span><span class="p">.</span><span class="na">decrypt</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AESDecrypter</span><span class="p">(</span><span class="n">jwtSecrets</span><span class="p">.</span><span class="na">getEncryptionKey</span><span class="p">().</span><span class="na">getBytes</span><span class="p">()));</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">jweObject</span><span class="p">.</span><span class="na">getPayload</span><span class="p">().</span><span class="na">toString</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="multi-factor-authentication">Multi-Factor Authentication<a class="headerlink" href="#multi-factor-authentication" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1">// TOTP-based MFA implementation</span>
+<span class="nd">@Service</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MfaService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">UserRepository</span><span class="w"> </span><span class="n">userRepository</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">SecretGenerator</span><span class="w"> </span><span class="n">secretGenerator</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">MfaSetupResponse</span><span class="w"> </span><span class="nf">setupMfa</span><span class="p">(</span><span class="n">UUID</span><span class="w"> </span><span class="n">userId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">userId</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserNotFoundException</span><span class="p">(</span><span class="s">&quot;User not found&quot;</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// Generate secret key</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">secretKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">secretGenerator</span><span class="p">.</span><span class="na">generate</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Store encrypted secret</span>
+<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">setMfaSecret</span><span class="p">(</span><span class="n">encryptSecret</span><span class="p">(</span><span class="n">secretKey</span><span class="p">));</span>
+<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">setMfaEnabled</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span><span class="w"> </span><span class="c1">// Enable after verification</span>
+<span class="w">        </span><span class="n">userRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Generate QR code</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">qrCodeUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generateQrCodeUrl</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">getEmail</span><span class="p">(),</span><span class="w"> </span><span class="n">secretKey</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">MfaSetupResponse</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">secretKey</span><span class="p">(</span><span class="n">secretKey</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">qrCodeUrl</span><span class="p">(</span><span class="n">qrCodeUrl</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">backupCodes</span><span class="p">(</span><span class="n">generateBackupCodes</span><span class="p">(</span><span class="n">userId</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">verifyMfaToken</span><span class="p">(</span><span class="n">UUID</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">token</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">userId</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserNotFoundException</span><span class="p">(</span><span class="s">&quot;User not found&quot;</span><span class="p">));</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">user</span><span class="p">.</span><span class="na">isMfaEnabled</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MfaNotEnabledException</span><span class="p">(</span><span class="s">&quot;MFA not enabled for user&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">secretKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decryptSecret</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">getMfaSecret</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// Verify TOTP token (allow for time skew)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">long</span><span class="w"> </span><span class="n">timeWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">30000</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">expectedToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generateTotp</span><span class="p">(</span><span class="n">secretKey</span><span class="p">,</span><span class="w"> </span><span class="n">timeWindow</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">token</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">expectedToken</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// Check backup codes</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">verifyBackupCode</span><span class="p">(</span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">generateTotp</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">secretKey</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">timeWindow</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ByteBuffer</span><span class="p">.</span><span class="na">allocate</span><span class="p">(</span><span class="mi">8</span><span class="p">).</span><span class="na">putLong</span><span class="p">(</span><span class="n">timeWindow</span><span class="p">).</span><span class="na">array</span><span class="p">();</span>
+<span class="w">            </span><span class="n">Mac</span><span class="w"> </span><span class="n">mac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mac</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;HmacSHA1&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="n">mac</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">SecretKeySpec</span><span class="p">(</span><span class="n">Base32</span><span class="p">.</span><span class="na">decode</span><span class="p">(</span><span class="n">secretKey</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;HmacSHA1&quot;</span><span class="p">));</span>
+<span class="w">            </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mac</span><span class="p">.</span><span class="na">doFinal</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="o">[</span><span class="n">hash</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xF</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">hash</span><span class="o">[</span><span class="n">offset</span><span class="o">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x7F</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">24</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="w">                      </span><span class="p">((</span><span class="n">hash</span><span class="o">[</span><span class="n">offset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xFF</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="w">                      </span><span class="p">((</span><span class="n">hash</span><span class="o">[</span><span class="n">offset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xFF</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">|</span>
+<span class="w">                      </span><span class="p">(</span><span class="n">hash</span><span class="o">[</span><span class="n">offset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="o">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xFF</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%06d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">1000000</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MfaException</span><span class="p">(</span><span class="s">&quot;Failed to generate TOTP&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="network-security">Network Security<a class="headerlink" href="#network-security" title="Permanent link">&para;</a></h2>
+<h3 id="vpc-and-network-segmentation">VPC and Network Segmentation<a class="headerlink" href="#vpc-and-network-segmentation" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># terraform/vpc.tf</span>
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_vpc&quot; &quot;dealsphere_vpc&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">cidr_block           = &quot;10.0.0.0/16&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">enable_dns_hostnames = true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">enable_dns_support   = true</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">tags = {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Name = &quot;dealsphere-vpc&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Environment = &quot;production&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain"># Public subnets for load balancers</span>
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_subnet&quot; &quot;public_subnets&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">count = 3</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">vpc_id            = aws_vpc.dealsphere_vpc.id</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">cidr_block        = &quot;10.0.${count.index + 1}.0/24&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">availability_zone = data.aws_availability_zones.available.names[count.index]</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">map_public_ip_on_launch = true</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">tags = {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Name = &quot;dealsphere-public-${count.index + 1}&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Type = &quot;public&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain"># Private subnets for application servers</span>
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_subnet&quot; &quot;private_subnets&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">count = 3</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">vpc_id            = aws_vpc.dealsphere_vpc.id</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">cidr_block        = &quot;10.0.${count.index + 10}.0/24&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">availability_zone = data.aws_availability_zones.available.names[count.index]</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">tags = {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Name = &quot;dealsphere-private-${count.index + 1}&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Type = &quot;private&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain"># Database subnets (isolated)</span>
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_subnet&quot; &quot;database_subnets&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">count = 3</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">vpc_id            = aws_vpc.dealsphere_vpc.id</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">cidr_block        = &quot;10.0.${count.index + 20}.0/24&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">availability_zone = data.aws_availability_zones.available.names[count.index]</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">tags = {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Name = &quot;dealsphere-database-${count.index + 1}&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Type = &quot;database&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain"># Security groups</span>
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_security_group&quot; &quot;alb_sg&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">name_prefix = &quot;dealsphere-alb-&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">vpc_id      = aws_vpc.dealsphere_vpc.id</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ingress {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">from_port   = 80</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">to_port     = 80</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">protocol    = &quot;tcp&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">cidr_blocks = [&quot;0.0.0.0/0&quot;]</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ingress {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">from_port   = 443</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">to_port     = 443</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">protocol    = &quot;tcp&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">cidr_blocks = [&quot;0.0.0.0/0&quot;]</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">egress {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">from_port   = 0</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">to_port     = 0</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">protocol    = &quot;-1&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">cidr_blocks = [&quot;0.0.0.0/0&quot;]</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_security_group&quot; &quot;app_sg&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">name_prefix = &quot;dealsphere-app-&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">vpc_id      = aws_vpc.dealsphere_vpc.id</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ingress {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">from_port       = 8080</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">to_port         = 8080</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">protocol        = &quot;tcp&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">security_groups = [aws_security_group.alb_sg.id]</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ingress {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">from_port   = 22</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">to_port     = 22</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">protocol    = &quot;tcp&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">cidr_blocks = [&quot;10.0.0.0/16&quot;]</span><span class="w">  </span><span class="c1"># VPC only</span>
+<span class="w">  </span><span class="err">}</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">egress {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">from_port   = 0</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">to_port     = 0</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">protocol    = &quot;-1&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">cidr_blocks = [&quot;0.0.0.0/0&quot;]</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_security_group&quot; &quot;database_sg&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">name_prefix = &quot;dealsphere-db-&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">vpc_id      = aws_vpc.dealsphere_vpc.id</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ingress {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">from_port       = 5432</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">to_port         = 5432</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">protocol        = &quot;tcp&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">security_groups = [aws_security_group.app_sg.id]</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">tags = {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">Name = &quot;dealsphere-database-sg&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+</code></pre></div>
+
+<h3 id="web-application-firewall-waf">Web Application Firewall (WAF)<a class="headerlink" href="#web-application-firewall-waf" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># terraform/waf.tf</span>
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_wafv2_web_acl&quot; &quot;dealsphere_waf&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">name  = &quot;dealsphere-waf&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">scope = &quot;REGIONAL&quot;</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">default_action {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">allow {}</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain"># Rate limiting rule</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">rule {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">name     = &quot;RateLimitRule&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">priority = 1</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">action {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">block {}</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">statement {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">rate_based_statement {</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">limit              = 2000</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">aggregate_key_type = &quot;IP&quot;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">visibility_config {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">cloudwatch_metrics_enabled = true</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">metric_name                = &quot;RateLimitRule&quot;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">sampled_requests_enabled   = true</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain"># SQL injection protection</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">rule {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">name     = &quot;SQLInjectionRule&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">priority = 2</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">action {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">block {}</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">statement {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">sqli_match_statement {</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">field_to_match {</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">body {}</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">text_transformation {</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">priority = 0</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">type     = &quot;URL_DECODE&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">text_transformation {</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">priority = 1</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">type     = &quot;HTML_ENTITY_DECODE&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">visibility_config {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">cloudwatch_metrics_enabled = true</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">metric_name                = &quot;SQLInjectionRule&quot;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">sampled_requests_enabled   = true</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain"># XSS protection</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">rule {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">name     = &quot;XSSRule&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">priority = 3</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">action {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">block {}</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">statement {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">xss_match_statement {</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">field_to_match {</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">body {}</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">text_transformation {</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">priority = 0</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">type     = &quot;URL_DECODE&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">text_transformation {</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">priority = 1</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">type     = &quot;HTML_ENTITY_DECODE&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">visibility_config {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">cloudwatch_metrics_enabled = true</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">metric_name                = &quot;XSSRule&quot;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">sampled_requests_enabled   = true</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain"># IP whitelist rule</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">rule {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">name     = &quot;IPWhitelistRule&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">priority = 4</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">action {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">allow {}</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">statement {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">ip_set_reference_statement {</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">arn = aws_wafv2_ip_set.allowed_ips.arn</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">visibility_config {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">cloudwatch_metrics_enabled = true</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">metric_name                = &quot;IPWhitelistRule&quot;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">sampled_requests_enabled   = true</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">visibility_config {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">cloudwatch_metrics_enabled = true</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">metric_name                = &quot;dealsphere-waf&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">sampled_requests_enabled   = true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_wafv2_ip_set&quot; &quot;allowed_ips&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">name  = &quot;allowed-ips&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">scope = &quot;REGIONAL&quot;</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">ip_address_version = &quot;IPV4&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">addresses = [</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">&quot;203.0.113.0/24&quot;,</span><span class="w">  </span><span class="c1"># Office IP range</span>
+<span class="w">    </span><span class="s">&quot;198.51.100.0/24&quot;</span><span class="w">  </span><span class="c1"># Additional trusted IPs</span>
+<span class="w">  </span><span class="err">]</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<h2 id="security-monitoring-and-compliance">Security Monitoring and Compliance<a class="headerlink" href="#security-monitoring-and-compliance" title="Permanent link">&para;</a></h2>
+<h3 id="security-event-logging">Security Event Logging<a class="headerlink" href="#security-event-logging" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Security audit logger</span>
+<span class="nd">@Component</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SecurityAuditLogger</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">securityLogger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="s">&quot;SECURITY&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ObjectMapper</span><span class="w"> </span><span class="n">objectMapper</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">logLoginAttempt</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ipAddress</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">success</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">reason</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">SecurityEvent</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SecurityEvent</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">eventType</span><span class="p">(</span><span class="s">&quot;LOGIN_ATTEMPT&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">timestamp</span><span class="p">(</span><span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">userId</span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">ipAddress</span><span class="p">(</span><span class="n">ipAddress</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">success</span><span class="p">(</span><span class="n">success</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">reason</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">userAgent</span><span class="p">(</span><span class="n">getCurrentUserAgent</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">sessionId</span><span class="p">(</span><span class="n">getCurrentSessionId</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">logSecurityEvent</span><span class="p">(</span><span class="n">event</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">logAccessViolation</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">reason</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">SecurityEvent</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SecurityEvent</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">eventType</span><span class="p">(</span><span class="s">&quot;ACCESS_VIOLATION&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">timestamp</span><span class="p">(</span><span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">userId</span><span class="p">(</span><span class="n">userId</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">resource</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">action</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">success</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">reason</span><span class="p">(</span><span class="n">reason</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">ipAddress</span><span class="p">(</span><span class="n">getCurrentIpAddress</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">logSecurityEvent</span><span class="p">(</span><span class="n">event</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">logDataAccess</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">dataType</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">operation</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">recordCount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">SecurityEvent</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SecurityEvent</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">eventType</span><span class="p">(</span><span class="s">&quot;DATA_ACCESS&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">timestamp</span><span class="p">(</span><span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">userId</span><span class="p">(</span><span class="n">userId</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">dataType</span><span class="p">(</span><span class="n">dataType</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">operation</span><span class="p">(</span><span class="n">operation</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">recordCount</span><span class="p">(</span><span class="n">recordCount</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">success</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">ipAddress</span><span class="p">(</span><span class="n">getCurrentIpAddress</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">logSecurityEvent</span><span class="p">(</span><span class="n">event</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">logSecurityEvent</span><span class="p">(</span><span class="n">SecurityEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">jsonEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">objectMapper</span><span class="p">.</span><span class="na">writeValueAsString</span><span class="p">(</span><span class="n">event</span><span class="p">);</span>
+<span class="w">            </span><span class="n">securityLogger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="n">jsonEvent</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">securityLogger</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;Failed to log security event&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@Data</span>
+<span class="nd">@Builder</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SecurityEvent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">eventType</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Instant</span><span class="w"> </span><span class="n">timestamp</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">userId</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">ipAddress</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">userAgent</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">sessionId</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">resource</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">action</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">dataType</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">operation</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">recordCount</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">success</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">reason</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="compliance-monitoring">Compliance Monitoring<a class="headerlink" href="#compliance-monitoring" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># CloudTrail for API audit logging</span>
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_cloudtrail&quot; &quot;dealsphere_audit&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">name                         = &quot;dealsphere-audit-trail&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">s3_bucket_name              = aws_s3_bucket.audit_logs.bucket</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">include_global_service_events = true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">is_multi_region_trail       = true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">enable_logging              = true</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">event_selector {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">read_write_type           = &quot;All&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">include_management_events = true</span>
+
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">data_resource {</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">type   = &quot;AWS::S3::Object&quot;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">values = [&quot;${aws_s3_bucket.dealsphere_storage.arn}/*&quot;]</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">insight_selector {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">insight_type = &quot;ApiCallRateInsight&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain"># Config for compliance monitoring</span>
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_config_configuration_recorder&quot; &quot;dealsphere_config&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">name     = &quot;dealsphere-config-recorder&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">role_arn = aws_iam_role.config_role.arn</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">recording_group {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">all_supported                 = true</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">include_global_resource_types = true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_config_config_rule&quot; &quot;s3_bucket_public_read_prohibited&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">name = &quot;s3-bucket-public-read-prohibited&quot;</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">source {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">owner             = &quot;AWS&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">source_identifier = &quot;S3_BUCKET_PUBLIC_READ_PROHIBITED&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">depends_on = [aws_config_configuration_recorder.dealsphere_config]</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="l l-Scalar l-Scalar-Plain">resource &quot;aws_config_config_rule&quot; &quot;encrypted_volumes&quot; {</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">name = &quot;encrypted-volumes&quot;</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">source {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">owner             = &quot;AWS&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">source_identifier = &quot;ENCRYPTED_VOLUMES&quot;</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">depends_on = [aws_config_configuration_recorder.dealsphere_config]</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+</code></pre></div>
+
+<p>This comprehensive security guide ensures data protection at rest and in transit, secure secrets management, and compliance with industry security standards for the DealSphere platform.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/DealSphere-Inc" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
