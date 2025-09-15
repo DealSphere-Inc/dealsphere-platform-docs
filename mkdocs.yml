@@ -45,6 +45,11 @@ nav:
       - Functional Test Cases: qa/Phase1_Functional_Test_Cases.md
       # Add more as needed after confirming filenames
 
+  - Development:
+      - Local CI/CD Setup: development/local-cicd-setup.md
+      - GitHub Actions: development/github-actions.md
+      - Cypress E2E Testing: development/cypress-e2e-testing.md
+
   - Technical Documentation:
       - Tech Landscape (MVP): tech/tech-landscape.md
       # Add more as needed after confirming filenames
