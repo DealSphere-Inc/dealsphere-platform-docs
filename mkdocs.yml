@@ -50,6 +50,14 @@ nav:
       - GitHub Actions: development/github-actions.md
       - Cypress E2E Testing: development/cypress-e2e-testing.md
 
+  - Deployment:
+      - Overview: deployment/README.md
+      - Production Deployment: deployment/production-deployment.md
+      - Cloud Infrastructure: deployment/cloud-infrastructure.md
+      - Environment Management: deployment/environment-management.md
+      - Observability & Monitoring: deployment/observability-monitoring.md
+      - Security & Secrets: deployment/security-secrets.md
+
   - Technical Documentation:
       - Tech Landscape (MVP): tech/tech-landscape.md
       # Add more as needed after confirming filenames
