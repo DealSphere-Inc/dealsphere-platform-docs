@@ -49,10 +49,14 @@ nav:
       - Local CI/CD Setup: development/local-cicd-setup.md
       - GitHub Actions: development/github-actions.md
       - Cypress E2E Testing: development/cypress-e2e-testing.md
+      - Authentication System: development/authentication-system.md
+      - Security Best Practices: development/security-best-practices.md
+      - Testing Strategy: development/testing-strategy.md
 
   - Deployment:
       - Overview: deployment/README.md
       - Production Deployment: deployment/production-deployment.md
+      - Authentication Deployment: deployment/authentication-deployment.md
       - Cloud Infrastructure: deployment/cloud-infrastructure.md
       - Environment Management: deployment/environment-management.md
       - Observability & Monitoring: deployment/observability-monitoring.md
