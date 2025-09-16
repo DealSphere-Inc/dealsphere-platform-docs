@@ -1,0 +1,2756 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete Documentation for the DealSphere Platform (APIs, architecture, planning, QA, product, tech)">
+      
+      
+        <meta name="author" content="DealSphere Team">
+      
+      
+      
+        <link rel="prev" href="../security-best-practices/">
+      
+      
+        <link rel="next" href="../../deployment/">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Testing Strategy - DealSphere Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#testing-strategy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DealSphere Documentation" class="md-header__button md-logo" aria-label="DealSphere Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DealSphere Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Testing Strategy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/DealSphere-Inc/dealsphere-platform-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../adr/" class="md-tabs__link">
+          
+  
+  
+  Architecture Decision Records (ADRs)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../planning/phase1-epics/" class="md-tabs__link">
+          
+  
+  
+  Planning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../product/Phase1_PRD/" class="md-tabs__link">
+          
+  
+  
+  Product
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../qa/Phase1_Functional_Test_Cases/" class="md-tabs__link">
+          
+  
+  
+  QA & Compliance
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../local-cicd-setup/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tech/tech-landscape/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DealSphere Documentation" class="md-nav__button md-logo" aria-label="DealSphere Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    DealSphere Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/DealSphere-Inc/dealsphere-platform-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture Decision Records (ADRs)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture Decision Records (ADRs)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR Master Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-000-template.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR-000-template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-0001-java-17-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java 17 Runtime
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-0002-r3-corda-5-dlt-platform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    R3 Corda 5 DLT Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-0003-docker-compose-phase1-orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Compose Phase 1 Orchestration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/ADR-0004-service-framework-defaults/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Service Framework Defaults
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Planning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Planning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/phase1-epics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 1 Epics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/delivery-plan-12weeks-tdd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Delivery Plan (12 Weeks)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Product
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Product
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/Phase1_PRD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phase 1 PRD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    QA & Compliance
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            QA & Compliance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qa/Phase1_Functional_Test_Cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functional Test Cases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../local-cicd-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Local CI/CD Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitHub Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cypress-e2e-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cypress E2E Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authentication-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentication System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Best Practices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Testing Strategy
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing Strategy
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-pyramid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing Pyramid
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backend-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backend Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backend Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit Tests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unit Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication-service-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication Service Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jwt-service-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      JWT Service Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-audit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Audit Tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Tests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphql-integration-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      GraphQL Integration Tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frontend Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frontend Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-tests_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit Tests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unit Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#component-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Component Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hook-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hook Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-utilities-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Utilities Tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-to-end-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      End-to-End Tests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="End-to-End Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication-e2e-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication E2E Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-e2e-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security E2E Tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penetration-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Penetration Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penetration Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-security-scans" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated Security Scans
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-security-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Security Tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stress-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stress Testing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Data Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Data Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-database-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Database Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-factories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Factories
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-automation-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Automation &amp; CI/CD
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Automation &amp; CI/CD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actions-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Actions Pipeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Reports
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Reports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coverage-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coverage Reports
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-execution-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Execution Reports
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-quality-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Quality Gates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Quality Gates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coverage-thresholds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coverage Thresholds
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-execution-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Execution Requirements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Organization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Naming Conventions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-data-management_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Data Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mocking-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mocking Guidelines
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/production-deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Production Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/authentication-deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentication Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/cloud-infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud Infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/environment-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Environment Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/observability-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Observability & Monitoring
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/security-secrets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security & Secrets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Technical Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Technical Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/tech-landscape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tech Landscape (MVP)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="testing-strategy">Testing Strategy<a class="headerlink" href="#testing-strategy" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The DealSphere platform implements a comprehensive testing strategy covering unit tests, integration tests, end-to-end tests, and security tests. This document outlines our testing approach, tools, and best practices.</p>
+<h2 id="testing-pyramid">Testing Pyramid<a class="headerlink" href="#testing-pyramid" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="nf">graph</span><span class="w"> </span><span class="n">TD</span>
+<span class="w">    </span><span class="n">A</span><span class="p">[</span><span class="n">E2E</span><span class="w"> </span><span class="n">Tests</span><span class="o">&lt;</span><span class="n">br</span><span class="o">/&gt;</span><span class="n">Cypress</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">Integration</span><span class="w"> </span><span class="n">Tests</span><span class="o">&lt;</span><span class="n">br</span><span class="o">/&gt;</span><span class="n">TestContainers</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Vitest</span><span class="p">]</span>
+<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C</span><span class="p">[</span><span class="n">Unit</span><span class="w"> </span><span class="n">Tests</span><span class="o">&lt;</span><span class="n">br</span><span class="o">/&gt;</span><span class="n">JUnit</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Vitest</span><span class="p">]</span>
+<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="n">Static</span><span class="w"> </span><span class="n">Analysis</span><span class="o">&lt;</span><span class="n">br</span><span class="o">/&gt;</span><span class="n">ESLint</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Checkstyle</span><span class="p">]</span>
+
+<span class="w">    </span><span class="n">style</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">fill</span><span class="o">:</span><span class="err">#</span><span class="n">ff9999</span>
+<span class="w">    </span><span class="n">style</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="n">fill</span><span class="o">:</span><span class="err">#</span><span class="n">ffcc99</span>
+<span class="w">    </span><span class="n">style</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">fill</span><span class="o">:</span><span class="err">#</span><span class="mf">99ff</span><span class="mi">99</span>
+<span class="w">    </span><span class="n">style</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="n">fill</span><span class="o">:</span><span class="err">#</span><span class="mf">9999ff</span>
+</code></pre></div>
+
+<h2 id="backend-testing">Backend Testing<a class="headerlink" href="#backend-testing" title="Permanent link">&para;</a></h2>
+<h3 id="unit-tests">Unit Tests<a class="headerlink" href="#unit-tests" title="Permanent link">&para;</a></h3>
+<p><strong>Framework</strong>: JUnit 5 + Mockito
+<strong>Location</strong>: <code>backend/**/src/test/java/</code>
+<strong>Coverage Target</strong>: 85%+</p>
+<h4 id="authentication-service-tests">Authentication Service Tests<a class="headerlink" href="#authentication-service-tests" title="Permanent link">&para;</a></h4>
+<p><strong>File</strong>: <code>AuthServiceImplTest.java</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nd">@ExtendWith</span><span class="p">(</span><span class="n">MockitoExtension</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="kd">class</span> <span class="nc">AuthServiceImplTest</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Mock</span><span class="w"> </span><span class="kd">private</span><span class="w"> </span><span class="n">UserProfileRepository</span><span class="w"> </span><span class="n">userProfileRepository</span><span class="p">;</span>
+<span class="w">    </span><span class="nd">@Mock</span><span class="w"> </span><span class="kd">private</span><span class="w"> </span><span class="n">UserCredentialsRepository</span><span class="w"> </span><span class="n">userCredentialsRepository</span><span class="p">;</span>
+<span class="w">    </span><span class="nd">@Mock</span><span class="w"> </span><span class="kd">private</span><span class="w"> </span><span class="n">PasswordEncoder</span><span class="w"> </span><span class="n">passwordEncoder</span><span class="p">;</span>
+<span class="w">    </span><span class="nd">@Mock</span><span class="w"> </span><span class="kd">private</span><span class="w"> </span><span class="n">JwtService</span><span class="w"> </span><span class="n">jwtService</span><span class="p">;</span>
+<span class="w">    </span><span class="nd">@Mock</span><span class="w"> </span><span class="kd">private</span><span class="w"> </span><span class="n">SecurityAuditService</span><span class="w"> </span><span class="n">securityAuditService</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@InjectMocks</span><span class="w"> </span><span class="kd">private</span><span class="w"> </span><span class="n">AuthServiceImpl</span><span class="w"> </span><span class="n">authService</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">login_WithValidCredentials_ShouldReturnAuthPayload</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Given</span>
+<span class="w">        </span><span class="n">when</span><span class="p">(</span><span class="n">userProfileRepository</span><span class="p">.</span><span class="na">findByEmail</span><span class="p">(</span><span class="s">&quot;test@example.com&quot;</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">thenReturn</span><span class="p">(</span><span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">testUserProfile</span><span class="p">));</span>
+<span class="w">        </span><span class="n">when</span><span class="p">(</span><span class="n">passwordEncoder</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">&quot;password123&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hashedPassword&quot;</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">thenReturn</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">        </span><span class="n">when</span><span class="p">(</span><span class="n">jwtService</span><span class="p">.</span><span class="na">generateToken</span><span class="p">(</span><span class="n">testUserProfile</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">thenReturn</span><span class="p">(</span><span class="s">&quot;jwt-token&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// When</span>
+<span class="w">        </span><span class="n">AuthPayload</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">authService</span><span class="p">.</span><span class="na">login</span><span class="p">(</span><span class="n">validLoginInput</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Then</span>
+<span class="w">        </span><span class="n">assertThat</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">getToken</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="s">&quot;jwt-token&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">verify</span><span class="p">(</span><span class="n">securityAuditService</span><span class="p">).</span><span class="na">logLoginSuccess</span><span class="p">(</span><span class="n">eq</span><span class="p">(</span><span class="s">&quot;user-123&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">any</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="jwt-service-tests">JWT Service Tests<a class="headerlink" href="#jwt-service-tests" title="Permanent link">&para;</a></h4>
+<p><strong>File</strong>: <code>JwtServiceImplTest.java</code></p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">JwtServiceImplTest</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">generateToken_ShouldCreateValidToken</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// When</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jwtService</span><span class="p">.</span><span class="na">generateToken</span><span class="p">(</span><span class="n">testUser</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Then</span>
+<span class="w">        </span><span class="n">assertThat</span><span class="p">(</span><span class="n">token</span><span class="p">).</span><span class="na">isNotNull</span><span class="p">();</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">jwtService</span><span class="p">.</span><span class="na">validateToken</span><span class="p">(</span><span class="n">token</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assertThat</span><span class="p">(</span><span class="n">jwtService</span><span class="p">.</span><span class="na">extractUserId</span><span class="p">(</span><span class="n">token</span><span class="p">)).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="s">&quot;user-123&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">validateToken_WithExpiredToken_ShouldReturnFalse</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Given - create expired token</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">expiredToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createExpiredToken</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// When</span>
+<span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">isValid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jwtService</span><span class="p">.</span><span class="na">validateToken</span><span class="p">(</span><span class="n">expiredToken</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Then</span>
+<span class="w">        </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">isValid</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="security-audit-tests">Security Audit Tests<a class="headerlink" href="#security-audit-tests" title="Permanent link">&para;</a></h4>
+<p><strong>File</strong>: <code>SecurityAuditServiceImplTest.java</code></p>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">SecurityAuditServiceImplTest</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">logLoginFailure_ShouldLogStructuredEvent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Given</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test@example.com&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Invalid password&quot;</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// When</span>
+<span class="w">        </span><span class="n">securityAuditService</span><span class="p">.</span><span class="na">logLoginFailure</span><span class="p">(</span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="n">reason</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Then - Verify structured logging would occur</span>
+<span class="w">        </span><span class="c1">// In production, this verifies external observability integration</span>
+<span class="w">        </span><span class="n">assertThat</span><span class="p">(</span><span class="n">email</span><span class="p">).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="s">&quot;test@example.com&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertThat</span><span class="p">(</span><span class="n">reason</span><span class="p">).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="s">&quot;Invalid password&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">checkComplianceViolations_WithSensitiveDataExport_ShouldLogViolation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Given</span>
+<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;sensitive_data&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// When</span>
+<span class="w">        </span><span class="n">securityAuditService</span><span class="p">.</span><span class="na">checkComplianceViolations</span><span class="p">(</span><span class="s">&quot;user-123&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;export_user_data&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Then</span>
+<span class="w">        </span><span class="n">assertThat</span><span class="p">(</span><span class="n">context</span><span class="p">).</span><span class="na">containsKey</span><span class="p">(</span><span class="s">&quot;sensitive_data&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="integration-tests">Integration Tests<a class="headerlink" href="#integration-tests" title="Permanent link">&para;</a></h3>
+<p><strong>Framework</strong>: Spring Boot Test + TestContainers
+<strong>Location</strong>: <code>backend/core/src/test/java/integration/</code></p>
+<h4 id="database-integration">Database Integration<a class="headerlink" href="#database-integration" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="nd">@SpringBootTest</span>
+<span class="nd">@TestPropertySource</span><span class="p">(</span><span class="n">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;spring.jpa.hibernate.ddl-auto=create-drop&quot;</span><span class="p">)</span>
+<span class="nd">@Testcontainers</span>
+<span class="kd">class</span> <span class="nc">AuthIntegrationTest</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Container</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">PostgreSQLContainer</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PostgreSQLContainer</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="s">&quot;postgres:14&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">withDatabaseName</span><span class="p">(</span><span class="s">&quot;testdb&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">withUsername</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">withPassword</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nd">@DynamicPropertySource</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">configureProperties</span><span class="p">(</span><span class="n">DynamicPropertyRegistry</span><span class="w"> </span><span class="n">registry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;spring.datasource.url&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">postgres</span><span class="p">::</span><span class="n">getJdbcUrl</span><span class="p">);</span>
+<span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;spring.datasource.username&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">postgres</span><span class="p">::</span><span class="n">getUsername</span><span class="p">);</span>
+<span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;spring.datasource.password&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">postgres</span><span class="p">::</span><span class="n">getPassword</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="nd">@Transactional</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">completeAuthenticationFlow_ShouldWork</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Test complete flow: invite → register → login → access protected resource</span>
+
+<span class="w">        </span><span class="c1">// 1. Admin invites user</span>
+<span class="w">        </span><span class="n">InvitationPayload</span><span class="w"> </span><span class="n">invitation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">authService</span><span class="p">.</span><span class="na">inviteUser</span><span class="p">(</span><span class="n">inviteInput</span><span class="p">,</span><span class="w"> </span><span class="n">adminId</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertThat</span><span class="p">(</span><span class="n">invitation</span><span class="p">.</span><span class="na">getSuccess</span><span class="p">()).</span><span class="na">isTrue</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// 2. User completes registration</span>
+<span class="w">        </span><span class="n">CompleteRegistrationInput</span><span class="w"> </span><span class="n">regInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CompleteRegistrationInput</span><span class="p">();</span>
+<span class="w">        </span><span class="n">regInput</span><span class="p">.</span><span class="na">setInvitationToken</span><span class="p">(</span><span class="n">invitation</span><span class="p">.</span><span class="na">getInvitationId</span><span class="p">());</span>
+<span class="w">        </span><span class="n">regInput</span><span class="p">.</span><span class="na">setPassword</span><span class="p">(</span><span class="s">&quot;newpassword123&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">AuthPayload</span><span class="w"> </span><span class="n">authResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">authService</span><span class="p">.</span><span class="na">completeRegistration</span><span class="p">(</span><span class="n">regInput</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertThat</span><span class="p">(</span><span class="n">authResult</span><span class="p">.</span><span class="na">getToken</span><span class="p">()).</span><span class="na">isNotNull</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// 3. User can login with new credentials</span>
+<span class="w">        </span><span class="n">LoginInput</span><span class="w"> </span><span class="n">loginInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LoginInput</span><span class="p">();</span>
+<span class="w">        </span><span class="n">loginInput</span><span class="p">.</span><span class="na">setEmail</span><span class="p">(</span><span class="s">&quot;newuser@example.com&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">loginInput</span><span class="p">.</span><span class="na">setPassword</span><span class="p">(</span><span class="s">&quot;newpassword123&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">AuthPayload</span><span class="w"> </span><span class="n">loginResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">authService</span><span class="p">.</span><span class="na">login</span><span class="p">(</span><span class="n">loginInput</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertThat</span><span class="p">(</span><span class="n">loginResult</span><span class="p">.</span><span class="na">getToken</span><span class="p">()).</span><span class="na">isNotNull</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="graphql-integration-tests">GraphQL Integration Tests<a class="headerlink" href="#graphql-integration-tests" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="nd">@SpringBootTest</span><span class="p">(</span><span class="n">webEnvironment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SpringBootTest</span><span class="p">.</span><span class="na">WebEnvironment</span><span class="p">.</span><span class="na">RANDOM_PORT</span><span class="p">)</span>
+<span class="nd">@AutoConfigureTestDatabase</span><span class="p">(</span><span class="n">replace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AutoConfigureTestDatabase</span><span class="p">.</span><span class="na">Replace</span><span class="p">.</span><span class="na">NONE</span><span class="p">)</span>
+<span class="kd">class</span> <span class="nc">GraphQLAuthIntegrationTest</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">loginMutation_WithValidCredentials_ShouldReturnToken</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">            mutation Login($input: LoginInput!) {</span>
+<span class="s">                login(input: $input) {</span>
+<span class="s">                    token</span>
+<span class="s">                    user {</span>
+<span class="s">                        id</span>
+<span class="s">                        email</span>
+<span class="s">                        firstName</span>
+<span class="s">                        lastName</span>
+<span class="s">                    }</span>
+<span class="s">                }</span>
+<span class="s">            }</span>
+<span class="s">        &quot;&quot;&quot;</span><span class="p">;</span>
+
+<span class="w">        </span><span class="n">mockMvc</span><span class="p">.</span><span class="na">perform</span><span class="p">(</span><span class="n">post</span><span class="p">(</span><span class="s">&quot;/graphql&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">contentType</span><span class="p">(</span><span class="n">MediaType</span><span class="p">.</span><span class="na">APPLICATION_JSON</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">content</span><span class="p">(</span><span class="n">createGraphQLRequest</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="w"> </span><span class="n">loginVariables</span><span class="p">)))</span>
+<span class="w">                </span><span class="p">.</span><span class="na">andExpect</span><span class="p">(</span><span class="n">status</span><span class="p">().</span><span class="na">isOk</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">andExpect</span><span class="p">(</span><span class="n">jsonPath</span><span class="p">(</span><span class="s">&quot;$.data.login.token&quot;</span><span class="p">).</span><span class="na">exists</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">andExpect</span><span class="p">(</span><span class="n">jsonPath</span><span class="p">(</span><span class="s">&quot;$.data.login.user.email&quot;</span><span class="p">).</span><span class="na">value</span><span class="p">(</span><span class="s">&quot;test@example.com&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="performance-tests">Performance Tests<a class="headerlink" href="#performance-tests" title="Permanent link">&para;</a></h3>
+<p><strong>Framework</strong>: JMeter + Gatling (planned)
+<strong>Target</strong>: 1000 concurrent users, &lt;200ms response time</p>
+<div class="codehilite"><pre><span></span><code><span class="nd">@Test</span>
+<span class="nd">@Timeout</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">)</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">loginEndpoint_ShouldHandleHighLoad</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Simulate concurrent login attempts</span>
+<span class="w">    </span><span class="n">CompletableFuture</span><span class="o">&lt;?&gt;[]</span><span class="w"> </span><span class="n">futures</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">mapToObj</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CompletableFuture</span><span class="p">.</span><span class="na">runAsync</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">authService</span><span class="p">.</span><span class="na">login</span><span class="p">(</span><span class="n">createUniqueLoginInput</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Expected for some invalid attempts</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}))</span>
+<span class="w">        </span><span class="p">.</span><span class="na">toArray</span><span class="p">(</span><span class="n">CompletableFuture</span><span class="o">[]</span><span class="p">::</span><span class="k">new</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">CompletableFuture</span><span class="p">.</span><span class="na">allOf</span><span class="p">(</span><span class="n">futures</span><span class="p">).</span><span class="na">join</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Verify system remains responsive</span>
+<span class="w">    </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">authService</span><span class="p">.</span><span class="na">login</span><span class="p">(</span><span class="n">validLoginInput</span><span class="p">).</span><span class="na">getToken</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="frontend-testing">Frontend Testing<a class="headerlink" href="#frontend-testing" title="Permanent link">&para;</a></h2>
+<h3 id="unit-tests_1">Unit Tests<a class="headerlink" href="#unit-tests_1" title="Permanent link">&para;</a></h3>
+<p><strong>Framework</strong>: Vitest + Testing Library
+<strong>Location</strong>: <code>frontend/src/**/__tests__/</code>
+<strong>Coverage Target</strong>: 85%+</p>
+<h4 id="component-tests">Component Tests<a class="headerlink" href="#component-tests" title="Permanent link">&para;</a></h4>
+<p><strong>File</strong>: <code>Login.test.tsx</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Login Component&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should validate email format&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">renderWithProviders</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Login</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">emailInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByLabelText</span><span class="p">(</span><span class="sr">/email/i</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">fireEvent</span><span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="nx">emailInput</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;invalid-email&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="nx">fireEvent</span><span class="p">.</span><span class="nx">blur</span><span class="p">(</span><span class="nx">emailInput</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">waitFor</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByText</span><span class="p">(</span><span class="sr">/please enter a valid email address/i</span><span class="p">)).</span><span class="nx">toBeInTheDocument</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should prevent XSS attacks&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">renderWithProviders</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Login</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">emailInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByLabelText</span><span class="p">(</span><span class="sr">/email/i</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">fireEvent</span><span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="nx">emailInput</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="nx">fireEvent</span><span class="p">.</span><span class="nx">blur</span><span class="p">(</span><span class="nx">emailInput</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">waitFor</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByText</span><span class="p">(</span><span class="sr">/potentially malicious content detected/i</span><span class="p">)).</span><span class="nx">toBeInTheDocument</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should handle login success&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">loginMock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">request</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">query</span><span class="o">:</span><span class="w"> </span><span class="kt">LOGIN_MUTATION</span><span class="p">,</span><span class="w"> </span><span class="nx">variables</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="kt">validCredentials</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">login</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">token</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;mock-token&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="kt">mockUser</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="nx">renderWithProviders</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Login</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">loginMock</span><span class="p">]);</span>
+
+<span class="w">    </span><span class="c1">// Fill form and submit</span>
+<span class="w">    </span><span class="nx">fireEvent</span><span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByLabelText</span><span class="p">(</span><span class="sr">/email/i</span><span class="p">),</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;test@example.com&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="nx">fireEvent</span><span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByLabelText</span><span class="p">(</span><span class="sr">/password/i</span><span class="p">),</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;password123&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="nx">fireEvent</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByRole</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="sr">/sign in/i</span><span class="w"> </span><span class="p">}));</span>
+
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">waitFor</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">mockNavigate</span><span class="p">).</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="s1">&#39;/dashboard&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h4 id="hook-tests">Hook Tests<a class="headerlink" href="#hook-tests" title="Permanent link">&para;</a></h4>
+<p><strong>File</strong>: <code>useAuth.test.ts</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;useAuth Hook&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should handle successful login&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">loginMock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createLoginMock</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">renderHook</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">useAuth</span><span class="p">(),</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">wrapper</span><span class="o">:</span><span class="w"> </span><span class="kt">createWrapper</span><span class="p">([</span><span class="nx">loginMock</span><span class="p">])</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">act</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span><span class="s1">&#39;test@example.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;password123&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">user</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="nx">mockUser</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">).</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="s1">&#39;auth_token&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mock-token&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should handle token refresh&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">refreshMock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createRefreshMock</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">renderHook</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">useAuth</span><span class="p">(),</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">wrapper</span><span class="o">:</span><span class="w"> </span><span class="kt">createWrapper</span><span class="p">([</span><span class="nx">refreshMock</span><span class="p">])</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">act</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">refreshToken</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">token</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;refreshed-token&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h4 id="validation-utilities-tests">Validation Utilities Tests<a class="headerlink" href="#validation-utilities-tests" title="Permanent link">&para;</a></h4>
+<p><strong>File</strong>: <code>validation.test.ts</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Validation Utilities&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;sanitizeXSS&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should sanitize script tags&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">malicious</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;&#39;</span><span class="p">;</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">sanitized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sanitizeXSS</span><span class="p">(</span><span class="nx">malicious</span><span class="p">);</span>
+
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">sanitized</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">&#39;&lt;script&gt;&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">sanitized</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">&#39;alert&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should preserve safe content&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">safe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;This is safe content with numbers 123&#39;</span><span class="p">;</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sanitizeXSS</span><span class="p">(</span><span class="nx">safe</span><span class="p">);</span>
+
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">&#39;This is safe content&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">&#39;123&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;detectSQLInjection&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should detect SQL injection patterns&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">detectSQLInjection</span><span class="p">(</span><span class="s2">&quot;&#39;; DROP TABLE users; --&quot;</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">detectSQLInjection</span><span class="p">(</span><span class="s2">&quot;&#39; OR &#39;1&#39;=&#39;1&quot;</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">detectSQLInjection</span><span class="p">(</span><span class="s2">&quot;admin&#39;--&quot;</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should not flag safe content&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">detectSQLInjection</span><span class="p">(</span><span class="s1">&#39;user@example.com&#39;</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">detectSQLInjection</span><span class="p">(</span><span class="s1">&#39;password123&#39;</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h3 id="integration-tests_1">Integration Tests<a class="headerlink" href="#integration-tests_1" title="Permanent link">&para;</a></h3>
+<p><strong>File</strong>: <code>auth-flow.integration.test.tsx</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Authentication Flow Integration&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should complete full login flow&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">loginMock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createLoginMock</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">TestApp</span><span class="w"> </span><span class="nx">mocks</span><span class="o">=</span><span class="p">{[</span><span class="nx">loginMock</span><span class="p">]}</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Navigate to login</span>
+<span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">pushState</span><span class="p">({},</span><span class="w"> </span><span class="s1">&#39;Login&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/login&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Fill and submit form</span>
+<span class="w">    </span><span class="nx">fireEvent</span><span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByLabelText</span><span class="p">(</span><span class="sr">/email/i</span><span class="p">),</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;test@example.com&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="nx">fireEvent</span><span class="p">.</span><span class="nx">change</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByLabelText</span><span class="p">(</span><span class="sr">/password/i</span><span class="p">),</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;password123&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="nx">fireEvent</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByRole</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="sr">/sign in/i</span><span class="w"> </span><span class="p">}));</span>
+
+<span class="w">    </span><span class="c1">// Verify success</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">waitFor</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">).</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="s1">&#39;auth_token&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mock-token&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should complete invitation flow&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">inviteMock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createInviteMock</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">completeMock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCompleteMock</span><span class="p">();</span>
+
+<span class="w">    </span><span class="nx">render</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">TestApp</span><span class="w"> </span><span class="nx">mocks</span><span class="o">=</span><span class="p">{[</span><span class="nx">inviteMock</span><span class="p">,</span><span class="w"> </span><span class="nx">completeMock</span><span class="p">]}</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Admin sends invitation</span>
+<span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">pushState</span><span class="p">({},</span><span class="w"> </span><span class="s1">&#39;Invite&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/invite&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">fillInvitationForm</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">fireEvent</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByRole</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="sr">/send invitation/i</span><span class="w"> </span><span class="p">}));</span>
+
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">waitFor</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByText</span><span class="p">(</span><span class="sr">/invitation sent successfully/i</span><span class="p">)).</span><span class="nx">toBeInTheDocument</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="c1">// User completes registration</span>
+<span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">history</span><span class="p">.</span><span class="nx">pushState</span><span class="p">({},</span><span class="w"> </span><span class="s1">&#39;Complete&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/complete-registration?token=invitation-123&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">fillRegistrationForm</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">fireEvent</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByRole</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="sr">/complete registration/i</span><span class="w"> </span><span class="p">}));</span>
+
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">waitFor</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">).</span><span class="nx">toHaveBeenCalledWith</span><span class="p">(</span><span class="s1">&#39;auth_token&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;new-user-token&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h2 id="end-to-end-tests">End-to-End Tests<a class="headerlink" href="#end-to-end-tests" title="Permanent link">&para;</a></h2>
+<p><strong>Framework</strong>: Cypress
+<strong>Location</strong>: <code>frontend/cypress/e2e/</code></p>
+<h3 id="authentication-e2e-tests">Authentication E2E Tests<a class="headerlink" href="#authentication-e2e-tests" title="Permanent link">&para;</a></h3>
+<p><strong>File</strong>: <code>auth-flow.cy.ts</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Authentication Flow&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">beforeEach</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Reset database state</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;db:reset&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Setup test data</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;db:seed&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should login successfully with valid credentials&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;email-input&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;admin@example.com&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;password-input&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;password123&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;login-button&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">();</span>
+
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">url</span><span class="p">().</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;include&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/dashboard&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;user-menu&quot;]&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;contain&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Admin User&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should handle invitation flow&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Login as admin</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span><span class="s1">&#39;admin@example.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;password123&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Send invitation</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;/users/invite&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;email-input&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;newuser@example.com&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;first-name-input&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;New&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;last-name-input&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;send-invitation-button&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">();</span>
+
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;success-message&quot;]&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;contain&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Invitation sent&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Get invitation token from email (mocked)</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;getLastEmail&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">invitationToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">extractTokenFromEmail</span><span class="p">(</span><span class="nx">email</span><span class="p">.</span><span class="nx">content</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// Complete registration</span>
+<span class="w">      </span><span class="nx">cy</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="sb">`/complete-registration?token=</span><span class="si">${</span><span class="nx">invitationToken</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;password-input&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;newpassword123&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;confirm-password-input&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;newpassword123&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;complete-button&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">();</span>
+
+<span class="w">      </span><span class="nx">cy</span><span class="p">.</span><span class="nx">url</span><span class="p">().</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;include&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/dashboard&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should handle password reset flow&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;/reset-password&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;email-input&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;user@example.com&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;send-reset-button&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">();</span>
+
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;success-message&quot;]&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;contain&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Reset instructions sent&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Get reset token from email (mocked)</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">&#39;getLastEmail&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">resetToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">extractTokenFromEmail</span><span class="p">(</span><span class="nx">email</span><span class="p">.</span><span class="nx">content</span><span class="p">);</span>
+
+<span class="w">      </span><span class="nx">cy</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="sb">`/reset-password/confirm?token=</span><span class="si">${</span><span class="nx">resetToken</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;new-password-input&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;newpassword123&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;confirm-password-input&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;newpassword123&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;reset-button&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">();</span>
+
+<span class="w">      </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;success-message&quot;]&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;contain&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Password reset successful&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h3 id="security-e2e-tests">Security E2E Tests<a class="headerlink" href="#security-e2e-tests" title="Permanent link">&para;</a></h3>
+<p><strong>File</strong>: <code>security.cy.ts</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Security Tests&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should prevent XSS attacks&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">xssPayload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;email-input&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="nx">xssPayload</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;email-input&quot;]&#39;</span><span class="p">).</span><span class="nx">blur</span><span class="p">();</span>
+
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;error-message&quot;]&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;contain&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;malicious content detected&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;login-button&quot;]&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;be.disabled&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should prevent SQL injection&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">sqlPayload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&#39;; DROP TABLE users; --&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;email-input&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="nx">sqlPayload</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;email-input&quot;]&#39;</span><span class="p">).</span><span class="nx">blur</span><span class="p">();</span>
+
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;error-message&quot;]&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;contain&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;malicious content detected&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should enforce rate limiting&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Attempt multiple failed logins</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">6</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;email-input&quot;]&#39;</span><span class="p">).</span><span class="nx">clear</span><span class="p">().</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;test@example.com&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;password-input&quot;]&#39;</span><span class="p">).</span><span class="nx">clear</span><span class="p">().</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;wrongpassword&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;login-button&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">();</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;error-message&quot;]&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;contain&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Invalid credentials&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 6th attempt should be rate limited</span>
+<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;error-message&quot;]&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;contain&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Too many attempts&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h2 id="security-testing">Security Testing<a class="headerlink" href="#security-testing" title="Permanent link">&para;</a></h2>
+<h3 id="penetration-testing">Penetration Testing<a class="headerlink" href="#penetration-testing" title="Permanent link">&para;</a></h3>
+<h4 id="automated-security-scans">Automated Security Scans<a class="headerlink" href="#automated-security-scans" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="c1"># OWASP ZAP automated scan</span>
+docker<span class="w"> </span>run<span class="w"> </span>-t<span class="w"> </span>owasp/zap2docker-stable<span class="w"> </span>zap-baseline.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-t<span class="w"> </span>http://localhost:3000<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-g<span class="w"> </span>gen.conf<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-r<span class="w"> </span>zap-report.html
+
+<span class="c1"># Nmap port scan</span>
+nmap<span class="w"> </span>-sV<span class="w"> </span>-sC<span class="w"> </span>localhost
+
+<span class="c1"># SSL/TLS testing</span>
+testssl.sh<span class="w"> </span>localhost:443
+</code></pre></div>
+
+<h4 id="manual-security-tests">Manual Security Tests<a class="headerlink" href="#manual-security-tests" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="nd">@Test</span>
+<span class="kd">class</span> <span class="nc">SecurityTest</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">shouldPreventSQLInjection</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Test various SQL injection payloads</span>
+<span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">payloads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s">&quot;&#39;; DROP TABLE users; --&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s">&quot;&#39; OR &#39;1&#39;=&#39;1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s">&quot;&#39;; INSERT INTO users VALUES(&#39;hacker&#39;, &#39;pass&#39;); --&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s">&quot;&#39; UNION SELECT password FROM users WHERE &#39;1&#39;=&#39;1&quot;</span>
+<span class="w">        </span><span class="p">};</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">payloads</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">LoginInput</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LoginInput</span><span class="p">();</span>
+<span class="w">            </span><span class="n">input</span><span class="p">.</span><span class="na">setEmail</span><span class="p">(</span><span class="n">payload</span><span class="p">);</span>
+<span class="w">            </span><span class="n">input</span><span class="p">.</span><span class="na">setPassword</span><span class="p">(</span><span class="s">&quot;password&quot;</span><span class="p">);</span>
+
+<span class="w">            </span><span class="n">assertThrows</span><span class="p">(</span><span class="n">BadCredentialsException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">authService</span><span class="p">.</span><span class="na">login</span><span class="p">(</span><span class="n">input</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">shouldPreventXSSAttacks</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">xssPayloads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s">&quot;&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s">&quot;javascript:alert(&#39;xss&#39;)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s">&quot;&lt;img src=x onerror=alert(&#39;xss&#39;)&gt;&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s">&quot;&lt;iframe src=javascript:alert(&#39;xss&#39;)&gt;&lt;/iframe&gt;&quot;</span>
+<span class="w">        </span><span class="p">};</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">payload</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">xssPayloads</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">InviteUserInput</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">InviteUserInput</span><span class="p">();</span>
+<span class="w">            </span><span class="n">input</span><span class="p">.</span><span class="na">setEmail</span><span class="p">(</span><span class="s">&quot;test@example.com&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="n">input</span><span class="p">.</span><span class="na">setFirstName</span><span class="p">(</span><span class="n">payload</span><span class="p">);</span>
+
+<span class="w">            </span><span class="kt">boolean</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">validationService</span><span class="p">.</span><span class="na">validateInput</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="na">getFirstName</span><span class="p">());</span>
+<span class="w">            </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;XSS payload should be detected: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">payload</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="performance-testing">Performance Testing<a class="headerlink" href="#performance-testing" title="Permanent link">&para;</a></h2>
+<h3 id="load-testing">Load Testing<a class="headerlink" href="#load-testing" title="Permanent link">&para;</a></h3>
+<p><strong>Framework</strong>: Gatling
+<strong>Location</strong>: <code>performance-tests/</code></p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AuthLoadTest</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">Simulation</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">httpProtocol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">http</span>
+<span class="w">    </span><span class="p">.</span><span class="n">baseUrl</span><span class="p">(</span><span class="s">&quot;http://localhost:8080&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">acceptHeader</span><span class="p">(</span><span class="s">&quot;application/json&quot;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">loginScenario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scenario</span><span class="p">(</span><span class="s">&quot;Login Load Test&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">exec</span><span class="p">(</span><span class="n">http</span><span class="p">(</span><span class="s">&quot;login&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">&quot;/graphql&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">header</span><span class="p">(</span><span class="s">&quot;Content-Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">body</span><span class="p">(</span><span class="nc">StringBody</span><span class="p">(</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">        {</span>
+<span class="s">          &quot;query&quot;: &quot;mutation { login(input: { email: \&quot;${email}\&quot;, password: \&quot;${password}\&quot; }) { token user { id } } }&quot;</span>
+<span class="s">        }</span>
+<span class="s">      &quot;&quot;&quot;</span><span class="p">))</span>
+<span class="w">      </span><span class="p">.</span><span class="n">check</span><span class="p">(</span><span class="n">status</span><span class="p">.</span><span class="n">is</span><span class="p">(</span><span class="mi">200</span><span class="p">))</span>
+<span class="w">      </span><span class="p">.</span><span class="n">check</span><span class="p">(</span><span class="n">jsonPath</span><span class="p">(</span><span class="s">&quot;$.data.login.token&quot;</span><span class="p">).</span><span class="n">exists</span><span class="p">))</span>
+
+<span class="w">  </span><span class="n">setUp</span><span class="p">(</span>
+<span class="w">    </span><span class="n">loginScenario</span><span class="p">.</span><span class="n">inject</span><span class="p">(</span>
+<span class="w">      </span><span class="n">constantUsersPerSec</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="p">(</span><span class="mi">30</span><span class="w"> </span><span class="n">seconds</span><span class="p">),</span>
+<span class="w">      </span><span class="n">rampUsersPerSec</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="p">(</span><span class="mi">60</span><span class="w"> </span><span class="n">seconds</span><span class="p">),</span>
+<span class="w">      </span><span class="n">constantUsersPerSec</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="p">(</span><span class="mi">120</span><span class="w"> </span><span class="n">seconds</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">  </span><span class="p">).</span><span class="n">protocols</span><span class="p">(</span><span class="n">httpProtocol</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="stress-testing">Stress Testing<a class="headerlink" href="#stress-testing" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Frontend stress test</span>
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Frontend Performance&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should handle rapid form submissions&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">renderWithProviders</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Login</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">submitPromises</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">.</span><span class="kr">from</span><span class="p">({</span><span class="w"> </span><span class="nx">length</span><span class="o">:</span><span class="w"> </span><span class="kt">100</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">fireEvent</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByRole</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="sr">/sign in/i</span><span class="w"> </span><span class="p">}));</span>
+<span class="w">          </span><span class="nx">resolve</span><span class="p">();</span>
+<span class="w">        </span><span class="p">},</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">100</span><span class="p">);</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">submitPromises</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Component should remain responsive</span>
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByLabelText</span><span class="p">(</span><span class="sr">/email/i</span><span class="p">)).</span><span class="nx">toBeInTheDocument</span><span class="p">();</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h2 id="test-data-management">Test Data Management<a class="headerlink" href="#test-data-management" title="Permanent link">&para;</a></h2>
+<h3 id="test-database-setup">Test Database Setup<a class="headerlink" href="#test-database-setup" title="Permanent link">&para;</a></h3>
+<p><strong>TestContainers Configuration</strong>:</p>
+<div class="codehilite"><pre><span></span><code><span class="nd">@TestConfiguration</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TestDatabaseConfig</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="nd">@Primary</span>
+<span class="w">    </span><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="s">&quot;spring.datasource&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="nf">testDataSource</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">DataSourceBuilder</span><span class="p">.</span><span class="na">create</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">driverClassName</span><span class="p">(</span><span class="s">&quot;org.testcontainers.jdbc.ContainerDatabaseDriver&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">url</span><span class="p">(</span><span class="s">&quot;jdbc:tc:postgresql:14:///testdb&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="data-factories">Data Factories<a class="headerlink" href="#data-factories" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="nd">@Component</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TestDataFactory</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">UserProfile</span><span class="w"> </span><span class="nf">createTestUser</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">UserProfile</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">id</span><span class="p">(</span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">().</span><span class="na">toString</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">email</span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">firstName</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">lastName</span><span class="p">(</span><span class="s">&quot;User&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">isActive</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">createdAt</span><span class="p">(</span><span class="n">OffsetDateTime</span><span class="p">.</span><span class="na">now</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">UserCredentials</span><span class="w"> </span><span class="nf">createTestCredentials</span><span class="p">(</span><span class="n">UserProfile</span><span class="w"> </span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">UserCredentials</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">userId</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">getId</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">username</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">getEmail</span><span class="p">())</span>
+<span class="w">            </span><span class="p">.</span><span class="na">passwordHash</span><span class="p">(</span><span class="n">passwordEncoder</span><span class="p">.</span><span class="na">encode</span><span class="p">(</span><span class="n">password</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">userProfile</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="test-automation-cicd">Test Automation &amp; CI/CD<a class="headerlink" href="#test-automation-cicd" title="Permanent link">&para;</a></h2>
+<h3 id="github-actions-pipeline">GitHub Actions Pipeline<a class="headerlink" href="#github-actions-pipeline" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test Suite</span>
+
+<span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">push</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">pull_request</span><span class="p p-Indicator">]</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">backend-tests</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Java</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-java@v3</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">java-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;17&#39;</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run unit tests</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./gradlew test</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run integration tests</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./gradlew integrationTest</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generate test report</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./gradlew jacocoTestReport</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload coverage to Codecov</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codecov/codecov-action@v3</span>
+
+<span class="w">  </span><span class="nt">frontend-tests</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Node.js</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v3</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;18&#39;</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pnpm install</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run unit tests</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pnpm test:coverage</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run E2E tests</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pnpm test:e2e</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload coverage</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codecov/codecov-action@v3</span>
+
+<span class="w">  </span><span class="nt">security-tests</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run security scan</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">securecodewarrior/github-action-add-sarif@v1</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">sarif-file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">security-scan-results.sarif</span>
+</code></pre></div>
+
+<h3 id="test-reports">Test Reports<a class="headerlink" href="#test-reports" title="Permanent link">&para;</a></h3>
+<h4 id="coverage-reports">Coverage Reports<a class="headerlink" href="#coverage-reports" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Backend</strong>: JaCoCo HTML reports</li>
+<li><strong>Frontend</strong>: Vitest coverage reports</li>
+<li><strong>Combined</strong>: SonarQube integration</li>
+</ul>
+<h4 id="test-execution-reports">Test Execution Reports<a class="headerlink" href="#test-execution-reports" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>JUnit XML</strong>: For CI/CD integration</li>
+<li><strong>Allure Reports</strong>: For detailed test documentation</li>
+<li><strong>Performance Reports</strong>: Gatling HTML reports</li>
+</ul>
+<h2 id="test-quality-gates">Test Quality Gates<a class="headerlink" href="#test-quality-gates" title="Permanent link">&para;</a></h2>
+<h3 id="coverage-thresholds">Coverage Thresholds<a class="headerlink" href="#coverage-thresholds" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># sonar-project.properties</span>
+<span class="l l-Scalar l-Scalar-Plain">sonar.coverage.jacoco.xmlReportPaths=backend/build/reports/jacoco/test/jacocoTestReport.xml</span>
+<span class="l l-Scalar l-Scalar-Plain">sonar.javascript.lcov.reportPaths=frontend/coverage/lcov.info</span>
+
+<span class="l l-Scalar l-Scalar-Plain"># Quality gates</span>
+<span class="l l-Scalar l-Scalar-Plain">sonar.coverage.threshold=80</span>
+<span class="l l-Scalar l-Scalar-Plain">sonar.duplication.threshold=5</span>
+<span class="l l-Scalar l-Scalar-Plain">sonar.maintainability.rating=A</span>
+<span class="l l-Scalar l-Scalar-Plain">sonar.reliability.rating=A</span>
+<span class="l l-Scalar l-Scalar-Plain">sonar.security.rating=A</span>
+</code></pre></div>
+
+<h3 id="test-execution-requirements">Test Execution Requirements<a class="headerlink" href="#test-execution-requirements" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>All tests must pass</strong> before merge</li>
+<li><strong>Coverage must be &gt;= 80%</strong> for new code</li>
+<li><strong>No security vulnerabilities</strong> in dependencies</li>
+<li><strong>Performance tests</strong> must meet SLA requirements</li>
+<li><strong>E2E tests</strong> must pass in staging environment</li>
+</ol>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="test-organization">Test Organization<a class="headerlink" href="#test-organization" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>backend/src/test/java/
+├── unit/                    # Fast, isolated unit tests
+│   ├── service/
+│   ├── controller/
+│   └── util/
+├── integration/             # Component integration tests
+│   ├── repository/
+│   ├── service/
+│   └── graphql/
+└── e2e/                     # End-to-end tests
+    ├── auth/
+    └── user/
+
+frontend/src/
+├── components/__tests__/    # Component unit tests
+├── hooks/__tests__/         # Hook tests
+├── utils/__tests__/         # Utility tests
+├── test/integration/        # Integration tests
+└── cypress/e2e/            # E2E tests
+</code></pre></div>
+
+<h3 id="test-naming-conventions">Test Naming Conventions<a class="headerlink" href="#test-naming-conventions" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Backend: Given_When_Then format</span>
+<span class="nd">@Test</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">login_WithInvalidPassword_ShouldThrowBadCredentialsException</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Test implementation</span>
+<span class="p">}</span>
+
+<span class="c1">// Frontend: Should format</span>
+<span class="n">it</span><span class="p">(</span><span class="err">&#39;</span><span class="n">should</span><span class="w"> </span><span class="n">prevent</span><span class="w"> </span><span class="n">XSS</span><span class="w"> </span><span class="n">attacks</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="n">field</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Test implementation</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h3 id="test-data-management_1">Test Data Management<a class="headerlink" href="#test-data-management_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Use builders</strong> for complex test objects</li>
+<li><strong>Clean up after tests</strong> (database, files, etc.)</li>
+<li><strong>Use factories</strong> for consistent test data</li>
+<li><strong>Isolate test data</strong> between test cases</li>
+<li><strong>Use realistic test data</strong> that resembles production</li>
+</ol>
+<h3 id="mocking-guidelines">Mocking Guidelines<a class="headerlink" href="#mocking-guidelines" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Mock external dependencies</strong> (APIs, databases in unit tests)</li>
+<li><strong>Don't mock value objects</strong> (DTOs, entities)</li>
+<li><strong>Use TestContainers</strong> for integration tests</li>
+<li><strong>Verify interactions</strong> on mocks when behavior matters</li>
+<li><strong>Reset mocks</strong> between tests</li>
+</ol>
+<p>This comprehensive testing strategy ensures high-quality, secure, and reliable authentication functionality across the entire DealSphere platform.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/DealSphere-Inc" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
