@@ -9,10 +9,10 @@ theme:
   favicon: images/favicon.ico  
   palette:
     - scheme: default
-      primary: blue
+      primary: 010b26
       accent: cyan
     - scheme: slate
-      primary: blue
+      primary: 010b26
       accent: cyan
   toggle:
     icon: material/weather-night
