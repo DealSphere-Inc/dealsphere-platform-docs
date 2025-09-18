@@ -42,13 +42,16 @@ nav:
       # Add more as needed after confirming filenames
 
   - QA & Compliance:
+      - Overview: qa/README.md
       - Functional Test Cases: qa/Phase1_Functional_Test_Cases.md
-      # Add more as needed after confirming filenames
+      - PRD to Test Case Mapping: qa/Phase1_PRD_to_TestCase_Mapping.md
+      - Phase 1 Functional Test Suite - Technical Specification: qa/phase1-functional-test-suite-tech-spec.md
 
   - Development:
       - Local CI/CD Setup: development/local-cicd-setup.md
       - GitHub Actions: development/github-actions.md
       - Cypress E2E Testing: development/cypress-e2e-testing.md
+      - Functional Test-Driven Development: development/functional-test-driven-development.md
       - Authentication System: development/authentication-system.md
       - Security Best Practices: development/security-best-practices.md
       - Testing Strategy: development/testing-strategy.md
