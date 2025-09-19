@@ -5,18 +5,21 @@ repo_url: https://github.com/DealSphere-Inc/dealsphere-platform-docs
 
 theme:
   name: material
-  logo: images/logo.png
-  favicon: images/favicon.ico  
+  logo: images/logo.svg
+  favicon: images/logo.png
   palette:
     - scheme: default
-      primary: 020a25
-      accent: cyan
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
     - scheme: slate
-      primary: 020a25
-      accent: cyan
-  toggle:
-    icon: material/weather-night
-    name: Switch to dark mode
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
   features:
     - navigation.tabs
     - navigation.top
@@ -72,7 +75,8 @@ nav:
 markdown_extensions:
   - admonition
   - footnotes
-  - codehilite
+  - pymdownx.highlight:
+      
   - toc:
       permalink: true
   - tables
@@ -86,3 +90,6 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/DealSphere-Inc
+
+extra_css:
+  - styles/extras.css
