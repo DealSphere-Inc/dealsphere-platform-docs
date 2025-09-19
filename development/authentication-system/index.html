@@ -67,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -122,7 +122,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
@@ -132,7 +132,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#a9a9a9" data-md-color-accent="gray"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
@@ -1851,33 +1851,32 @@
 <p>The DealSphere platform implements a comprehensive, security-first authentication system using JWT tokens, invitation-based user registration, and external observability for security auditing.</p>
 <h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
 <h3 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">graph</span><span class="w"> </span><span class="n">TB</span>
-<span class="w">    </span><span class="n">A</span><span class="p">[</span><span class="n">Frontend</span><span class="w"> </span><span class="n">React</span><span class="w"> </span><span class="n">App</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">GraphQL</span><span class="w"> </span><span class="n">API</span><span class="p">]</span>
-<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C</span><span class="p">[</span><span class="n">AuthService</span><span class="p">]</span>
-<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="n">JwtService</span><span class="p">]</span>
-<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">E</span><span class="p">[</span><span class="n">InvitationService</span><span class="p">]</span>
-<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">F</span><span class="p">[</span><span class="n">PasswordResetService</span><span class="p">]</span>
-<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">G</span><span class="p">[</span><span class="n">SecurityAuditService</span><span class="p">]</span>
+<pre><code class="language-mermaid">graph TB
+    A[Frontend React App] --&gt; B[GraphQL API]
+    B --&gt; C[AuthService]
+    C --&gt; D[JwtService]
+    C --&gt; E[InvitationService]
+    C --&gt; F[PasswordResetService]
+    C --&gt; G[SecurityAuditService]
 
-<span class="w">    </span><span class="n">H</span><span class="p">[</span><span class="n">Admin</span><span class="w"> </span><span class="n">User</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">I</span><span class="p">[</span><span class="n">InviteUser</span><span class="w"> </span><span class="n">Mutation</span><span class="p">]</span>
-<span class="w">    </span><span class="n">I</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">E</span>
-<span class="w">    </span><span class="n">E</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">J</span><span class="p">[</span><span class="n">Email</span><span class="w"> </span><span class="n">Service</span><span class="p">]</span>
-<span class="w">    </span><span class="n">J</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">K</span><span class="p">[</span><span class="n">SMTP</span><span class="w"> </span><span class="n">Server</span><span class="p">]</span>
+    H[Admin User] --&gt; I[InviteUser Mutation]
+    I --&gt; E
+    E --&gt; J[Email Service]
+    J --&gt; K[SMTP Server]
 
-<span class="w">    </span><span class="n">L</span><span class="p">[</span><span class="n">New</span><span class="w"> </span><span class="n">User</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">M</span><span class="p">[</span><span class="n">CompleteRegistration</span><span class="p">]</span>
-<span class="w">    </span><span class="n">M</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">E</span>
+    L[New User] --&gt; M[CompleteRegistration]
+    M --&gt; E
 
-<span class="w">    </span><span class="n">N</span><span class="p">[</span><span class="n">User</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">O</span><span class="p">[</span><span class="n">Login</span><span class="w"> </span><span class="n">Mutation</span><span class="p">]</span>
-<span class="w">    </span><span class="n">O</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C</span>
+    N[User] --&gt; O[Login Mutation]
+    O --&gt; C
 
-<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">P</span><span class="p">[(</span><span class="n">PostgreSQL</span><span class="p">)]</span>
-<span class="w">    </span><span class="n">G</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">Q</span><span class="p">[</span><span class="n">External</span><span class="w"> </span><span class="n">Observability</span><span class="p">]</span>
+    C --&gt; P[(PostgreSQL)]
+    G --&gt; Q[External Observability]
 
-<span class="w">    </span><span class="n">R</span><span class="p">[</span><span class="n">nginx</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">B</span>
-<span class="w">    </span><span class="n">R</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">Rate</span><span class="w"> </span><span class="n">Limiting</span><span class="p">]</span>
-<span class="w">    </span><span class="n">R</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">T</span><span class="p">[</span><span class="n">Security</span><span class="w"> </span><span class="n">Headers</span><span class="p">]</span>
-</code></pre></div>
-
+    R[nginx] --&gt; B
+    R --&gt; S[Rate Limiting]
+    R --&gt; T[Security Headers]
+</code></pre>
 <h2 id="core-features">Core Features<a class="headerlink" href="#core-features" title="Permanent link">&para;</a></h2>
 <h3 id="1-jwt-based-authentication">1. JWT-Based Authentication<a class="headerlink" href="#1-jwt-based-authentication" title="Permanent link">&para;</a></h3>
 <p><strong>Location</strong>: <code>backend/commons/auth/src/main/java/com/dealsphere/backend/commons/auth/service/JwtServiceImpl.java</code></p>
@@ -1887,21 +1886,20 @@
 <li><strong>Automatic Refresh</strong>: Frontend automatically refreshes tokens before expiration</li>
 <li><strong>Secure Storage</strong>: Tokens stored in localStorage with proper cleanup</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nd">@Service</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JwtServiceImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">JwtService</span><span class="w"> </span><span class="p">{</span>
+<pre><code class="language-java">@Service
+public class JwtServiceImpl implements JwtService {
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">generateToken</span><span class="p">(</span><span class="n">UserProfile</span><span class="w"> </span><span class="n">userProfile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Jwts</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-<span class="w">            </span><span class="p">.</span><span class="na">setSubject</span><span class="p">(</span><span class="n">userProfile</span><span class="p">.</span><span class="na">getEmail</span><span class="p">())</span>
-<span class="w">            </span><span class="p">.</span><span class="na">claim</span><span class="p">(</span><span class="s">&quot;userId&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">userProfile</span><span class="p">.</span><span class="na">getId</span><span class="p">())</span>
-<span class="w">            </span><span class="p">.</span><span class="na">setIssuedAt</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">())</span>
-<span class="w">            </span><span class="p">.</span><span class="na">setExpiration</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Date</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">jwtExpirationMs</span><span class="p">))</span>
-<span class="w">            </span><span class="p">.</span><span class="na">signWith</span><span class="p">(</span><span class="n">getSigningKey</span><span class="p">())</span>
-<span class="w">            </span><span class="p">.</span><span class="na">compact</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+    public String generateToken(UserProfile userProfile) {
+        return Jwts.builder()
+            .setSubject(userProfile.getEmail())
+            .claim(&quot;userId&quot;, userProfile.getId())
+            .setIssuedAt(new Date())
+            .setExpiration(new Date(System.currentTimeMillis() + jwtExpirationMs))
+            .signWith(getSigningKey())
+            .compact();
+    }
+}
+</code></pre>
 <h3 id="2-invitation-based-registration">2. Invitation-Based Registration<a class="headerlink" href="#2-invitation-based-registration" title="Permanent link">&para;</a></h3>
 <p><strong>Flow</strong>:
 1. Admin invites user via email through <code>InviteUserForm</code>
@@ -1927,21 +1925,20 @@
 <h3 id="4-security-auditing">4. Security Auditing<a class="headerlink" href="#4-security-auditing" title="Permanent link">&para;</a></h3>
 <p><strong>Location</strong>: <code>SecurityAuditServiceImpl.java</code></p>
 <p>All security events are logged to external observability systems with structured data:</p>
-<div class="codehilite"><pre><span></span><code><span class="nd">@Override</span>
-<span class="nd">@Async</span>
-<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">logSecurityEvent</span><span class="p">(</span><span class="n">SecurityEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">logFields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createStructuredLogFields</span><span class="p">(</span><span class="n">event</span><span class="p">);</span>
+<pre><code class="language-java">@Override
+@Async
+public void logSecurityEvent(SecurityEvent event) {
+    Map&lt;String, Object&gt; logFields = createStructuredLogFields(event);
 
-<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">getSeverity</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="n">CRITICAL</span><span class="p">:</span>
-<span class="w">            </span><span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;SECURITY_EVENT: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(),</span>
-<span class="w">                </span><span class="n">StructuredArguments</span><span class="p">.</span><span class="na">entries</span><span class="p">(</span><span class="n">logFields</span><span class="p">));</span>
-<span class="w">            </span><span class="k">break</span><span class="p">;</span>
-<span class="w">        </span><span class="c1">// ... other severity levels</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+    switch (event.getSeverity()) {
+        case CRITICAL:
+            log.error(&quot;SECURITY_EVENT: {}&quot;, event.getMessage(),
+                StructuredArguments.entries(logFields));
+            break;
+        // ... other severity levels
+    }
+}
+</code></pre>
 <p><strong>Event Types</strong>:
 - Login success/failure
 - Password changes
@@ -1953,95 +1950,91 @@
 <h2 id="frontend-implementation">Frontend Implementation<a class="headerlink" href="#frontend-implementation" title="Permanent link">&para;</a></h2>
 <h3 id="authentication-hook">Authentication Hook<a class="headerlink" href="#authentication-hook" title="Permanent link">&para;</a></h3>
 <p><strong>Location</strong>: <code>frontend/src/hooks/useAuth.ts</code></p>
-<div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">useAuth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">dispatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useAppDispatch</span><span class="p">();</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">auth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useAppSelector</span><span class="p">(</span><span class="nx">state</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">state</span><span class="p">.</span><span class="nx">auth</span><span class="p">);</span>
+<pre><code class="language-typescript">export const useAuth = () =&gt; {
+  const dispatch = useAppDispatch();
+  const auth = useAppSelector(state =&gt; state.auth);
 
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">login</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useCallback</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">loginStart</span><span class="p">());</span>
-<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">loginMutation</span><span class="p">({</span><span class="w"> </span><span class="nx">variables</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">token</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">login</span><span class="p">;</span>
+  const login = useCallback(async (email: string, password: string) =&gt; {
+    dispatch(loginStart());
+    try {
+      const result = await loginMutation({ variables: { input: { email, password } } });
+      const { token, user } = result.data.login;
 
-<span class="w">      </span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;auth_token&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">token</span><span class="p">);</span>
-<span class="w">      </span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">loginSuccess</span><span class="p">({</span><span class="w"> </span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="p">}));</span>
+      localStorage.setItem('auth_token', token);
+      dispatch(loginSuccess({ user, token }));
 
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="p">};</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">loginFailure</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">));</span>
-<span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="nx">error</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">[</span><span class="nx">dispatch</span><span class="p">,</span><span class="w"> </span><span class="nx">loginMutation</span><span class="p">]);</span>
+      return { user, token };
+    } catch (error) {
+      dispatch(loginFailure(error.message));
+      throw error;
+    }
+  }, [dispatch, loginMutation]);
 
-<span class="w">  </span><span class="c1">// ... other auth methods</span>
-<span class="p">};</span>
-</code></pre></div>
-
+  // ... other auth methods
+};
+</code></pre>
 <h3 id="form-validation-security">Form Validation &amp; Security<a class="headerlink" href="#form-validation-security" title="Permanent link">&para;</a></h3>
 <p><strong>Location</strong>: <code>frontend/src/utils/validation.ts</code></p>
 <p>All forms include comprehensive validation:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">sanitizeXSS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">input</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">input</span><span class="p">;</span>
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">sanitized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">input</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">XSS_PATTERNS</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">pattern</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">sanitized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sanitized</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">pattern</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="p">});</span>
-<span class="w">  </span><span class="c1">// HTML encode special characters</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">sanitized</span>
-<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&amp;amp;&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&amp;lt;&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&gt;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&amp;gt;&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&quot;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&amp;quot;&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&#39;/g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&amp;#x27;&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\//g</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&amp;#x2F;&#39;</span><span class="p">);</span>
-<span class="p">};</span>
+<pre><code class="language-typescript">export const sanitizeXSS = (input: string): string =&gt; {
+  if (!input) return input;
+  let sanitized = input;
+  XSS_PATTERNS.forEach(pattern =&gt; {
+    sanitized = sanitized.replace(pattern, '');
+  });
+  // HTML encode special characters
+  return sanitized
+    .replace(/&amp;/g, '&amp;amp;')
+    .replace(/&lt;/g, '&amp;lt;')
+    .replace(/&gt;/g, '&amp;gt;')
+    .replace(/&quot;/g, '&amp;quot;')
+    .replace(/'/g, '&amp;#x27;')
+    .replace(/\//g, '&amp;#x2F;');
+};
 
-<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">detectSQLInjection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">input</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">sqlPatterns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="sr">/(\b(union|select|insert|update|delete|drop|create|alter|exec|execute)\b)/i</span><span class="p">,</span>
-<span class="w">    </span><span class="sr">/(\bor\b.*\b=\b.*\bor\b)/i</span><span class="p">,</span>
-<span class="w">    </span><span class="sr">/(;|\-\-|\*|\/\*)/</span><span class="p">,</span>
-<span class="w">    </span><span class="c1">// ... more patterns</span>
-<span class="w">  </span><span class="p">];</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">sqlPatterns</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="nx">pattern</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">pattern</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">input</span><span class="p">));</span>
-<span class="p">};</span>
-</code></pre></div>
-
+export const detectSQLInjection = (input: string): boolean =&gt; {
+  if (!input) return false;
+  const sqlPatterns = [
+    /(\b(union|select|insert|update|delete|drop|create|alter|exec|execute)\b)/i,
+    /(\bor\b.*\b=\b.*\bor\b)/i,
+    /(;|\-\-|\*|\/\*)/,
+    // ... more patterns
+  ];
+  return sqlPatterns.some(pattern =&gt; pattern.test(input));
+};
+</code></pre>
 <h2 id="security-features">Security Features<a class="headerlink" href="#security-features" title="Permanent link">&para;</a></h2>
 <h3 id="1-rate-limiting-nginx">1. Rate Limiting (nginx)<a class="headerlink" href="#1-rate-limiting-nginx" title="Permanent link">&para;</a></h3>
 <p><strong>Location</strong>: <code>nginx/nginx.conf</code></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Rate limiting zones</span>
-<span class="k">limit_req_zone</span><span class="w"> </span><span class="nv">$binary_remote_addr</span><span class="w"> </span><span class="s">zone=auth:10m</span><span class="w"> </span><span class="s">rate=5r/m</span><span class="p">;</span>
-<span class="k">limit_req_zone</span><span class="w"> </span><span class="nv">$binary_remote_addr</span><span class="w"> </span><span class="s">zone=api:10m</span><span class="w"> </span><span class="s">rate=10r/m</span><span class="p">;</span>
-<span class="k">limit_req_zone</span><span class="w"> </span><span class="nv">$binary_remote_addr</span><span class="w"> </span><span class="s">zone=reset:10m</span><span class="w"> </span><span class="s">rate=1r/m</span><span class="p">;</span>
+<pre><code class="language-nginx"># Rate limiting zones
+limit_req_zone $binary_remote_addr zone=auth:10m rate=5r/m;
+limit_req_zone $binary_remote_addr zone=api:10m rate=10r/m;
+limit_req_zone $binary_remote_addr zone=reset:10m rate=1r/m;
 
-<span class="k">location</span><span class="w"> </span><span class="s">/api/auth/</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kn">limit_req</span><span class="w"> </span><span class="s">zone=auth</span><span class="w"> </span><span class="s">burst=10</span><span class="w"> </span><span class="s">nodelay</span><span class="p">;</span>
-<span class="w">    </span><span class="kn">limit_req_status</span><span class="w"> </span><span class="mi">429</span><span class="p">;</span>
-<span class="w">    </span><span class="c1"># ... proxy configuration</span>
-<span class="p">}</span>
-</code></pre></div>
-
+location /api/auth/ {
+    limit_req zone=auth burst=10 nodelay;
+    limit_req_status 429;
+    # ... proxy configuration
+}
+</code></pre>
 <h3 id="2-security-headers">2. Security Headers<a class="headerlink" href="#2-security-headers" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Security headers</span>
-<span class="k">add_header</span><span class="w"> </span><span class="s">X-Frame-Options</span><span class="w"> </span><span class="s">&quot;SAMEORIGIN&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
-<span class="k">add_header</span><span class="w"> </span><span class="s">X-Content-Type-Options</span><span class="w"> </span><span class="s">&quot;nosniff&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
-<span class="k">add_header</span><span class="w"> </span><span class="s">X-XSS-Protection</span><span class="w"> </span><span class="s">&quot;1</span><span class="p">;</span><span class="w"> </span><span class="k">mode=block&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
-<span class="k">add_header</span><span class="w"> </span><span class="s">Referrer-Policy</span><span class="w"> </span><span class="s">&quot;strict-origin-when-cross-origin&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
-<span class="k">add_header</span><span class="w"> </span><span class="s">Permissions-Policy</span><span class="w"> </span><span class="s">&quot;geolocation=(),</span><span class="w"> </span><span class="s">microphone=(),</span><span class="w"> </span><span class="s">camera=()&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+<pre><code class="language-nginx"># Security headers
+add_header X-Frame-Options &quot;SAMEORIGIN&quot; always;
+add_header X-Content-Type-Options &quot;nosniff&quot; always;
+add_header X-XSS-Protection &quot;1; mode=block&quot; always;
+add_header Referrer-Policy &quot;strict-origin-when-cross-origin&quot; always;
+add_header Permissions-Policy &quot;geolocation=(), microphone=(), camera=()&quot; always;
 
-<span class="c1"># Content Security Policy</span>
-<span class="k">add_header</span><span class="w"> </span><span class="s">Content-Security-Policy</span><span class="w"> </span><span class="s">&quot;</span>
-<span class="w">    </span><span class="s">default-src</span><span class="w"> </span><span class="s">&#39;self&#39;</span><span class="p">;</span>
-<span class="w">    </span><span class="k">script-src</span><span class="w"> </span><span class="s">&#39;self&#39;</span><span class="w"> </span><span class="s">&#39;unsafe-inline&#39;</span><span class="w"> </span><span class="s">&#39;unsafe-eval&#39;</span><span class="w"> </span><span class="s">https://cdnjs.cloudflare.com</span><span class="p">;</span>
-<span class="w">    </span><span class="k">style-src</span><span class="w"> </span><span class="s">&#39;self&#39;</span><span class="w"> </span><span class="s">&#39;unsafe-inline&#39;</span><span class="w"> </span><span class="s">https://fonts.googleapis.com</span><span class="p">;</span>
-<span class="w">    </span><span class="k">font-src</span><span class="w"> </span><span class="s">&#39;self&#39;</span><span class="w"> </span><span class="s">https://fonts.gstatic.com</span><span class="p">;</span>
-<span class="w">    </span><span class="k">img-src</span><span class="w"> </span><span class="s">&#39;self&#39;</span><span class="w"> </span><span class="s">data:</span><span class="w"> </span><span class="s">https:</span><span class="p">;</span>
-<span class="w">    </span><span class="k">connect-src</span><span class="w"> </span><span class="s">&#39;self&#39;</span><span class="w"> </span><span class="s">ws:</span><span class="w"> </span><span class="s">wss:</span><span class="w"> </span><span class="s">https://api.example.com</span><span class="p">;</span>
-<span class="k">&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
-</code></pre></div>
-
+# Content Security Policy
+add_header Content-Security-Policy &quot;
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https:;
+    connect-src 'self' ws: wss: https://api.example.com;
+&quot; always;
+</code></pre>
 <h3 id="3-input-validation">3. Input Validation<a class="headerlink" href="#3-input-validation" title="Permanent link">&para;</a></h3>
 <p><strong>Backend</strong> (<code>ValidationConfig.java</code>):
 - XSS pattern detection and sanitization
@@ -2054,112 +2047,109 @@
 - Email format validation
 - Password strength requirements</p>
 <h3 id="4-cors-configuration">4. CORS Configuration<a class="headerlink" href="#4-cors-configuration" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># CORS headers</span>
-<span class="k">add_header</span><span class="w"> </span><span class="s">&#39;Access-Control-Allow-Origin&#39;</span><span class="w"> </span><span class="s">&#39;</span><span class="nv">$allowed_origin&#39;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
-<span class="k">add_header</span><span class="w"> </span><span class="s">&#39;Access-Control-Allow-Methods&#39;</span><span class="w"> </span><span class="s">&#39;GET,</span><span class="w"> </span><span class="s">POST,</span><span class="w"> </span><span class="s">PUT,</span><span class="w"> </span><span class="s">DELETE,</span><span class="w"> </span><span class="s">OPTIONS&#39;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
-<span class="k">add_header</span><span class="w"> </span><span class="s">&#39;Access-Control-Allow-Headers&#39;</span><span class="w"> </span><span class="s">&#39;Origin,</span><span class="w"> </span><span class="s">X-Requested-With,</span><span class="w"> </span><span class="s">Content-Type,</span><span class="w"> </span><span class="s">Accept,</span><span class="w"> </span><span class="s">Authorization&#39;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
-<span class="k">add_header</span><span class="w"> </span><span class="s">&#39;Access-Control-Allow-Credentials&#39;</span><span class="w"> </span><span class="s">&#39;true&#39;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
-<span class="k">add_header</span><span class="w"> </span><span class="s">&#39;Access-Control-Max-Age&#39;</span><span class="w"> </span><span class="s">&#39;86400&#39;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
-</code></pre></div>
-
+<pre><code class="language-nginx"># CORS headers
+add_header 'Access-Control-Allow-Origin' '$allowed_origin' always;
+add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS' always;
+add_header 'Access-Control-Allow-Headers' 'Origin, X-Requested-With, Content-Type, Accept, Authorization' always;
+add_header 'Access-Control-Allow-Credentials' 'true' always;
+add_header 'Access-Control-Max-Age' '86400' always;
+</code></pre>
 <h2 id="database-schema">Database Schema<a class="headerlink" href="#database-schema" title="Permanent link">&para;</a></h2>
 <h3 id="core-tables">Core Tables<a class="headerlink" href="#core-tables" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1">-- User profiles</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">user_profiles</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">organization_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">is_active</span><span class="w"> </span><span class="nb">BOOLEAN</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">true</span><span class="p">,</span>
-<span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
-<span class="w">    </span><span class="n">updated_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
-<span class="w">    </span><span class="n">roles</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">[]</span><span class="w"> </span><span class="c1">-- Array of role IDs</span>
-<span class="p">);</span>
+<pre><code class="language-sql">-- User profiles
+CREATE TABLE user_profiles (
+    id VARCHAR(36) PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    organization_id VARCHAR(36) NOT NULL,
+    is_active BOOLEAN DEFAULT true,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    roles TEXT[] -- Array of role IDs
+);
 
-<span class="c1">-- User credentials</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">user_credentials</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">user_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<span class="w">    </span><span class="n">username</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">password_hash</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
-<span class="w">    </span><span class="n">updated_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
-<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">user_profiles</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
-<span class="p">);</span>
+-- User credentials
+CREATE TABLE user_credentials (
+    user_id VARCHAR(36) PRIMARY KEY,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user_profiles(id)
+);
 
-<span class="c1">-- User invitations</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">user_invitations</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">organization_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">invited_by_user_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">invitation_token</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">temporary_password</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">expires_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">is_used</span><span class="w"> </span><span class="nb">BOOLEAN</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">false</span><span class="p">,</span>
-<span class="w">    </span><span class="n">used_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="p">,</span>
-<span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span>
-<span class="p">);</span>
+-- User invitations
+CREATE TABLE user_invitations (
+    id VARCHAR(36) PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    organization_id VARCHAR(36) NOT NULL,
+    invited_by_user_id VARCHAR(36) NOT NULL,
+    invitation_token VARCHAR(255) UNIQUE NOT NULL,
+    temporary_password VARCHAR(255) NOT NULL,
+    expires_at TIMESTAMP NOT NULL,
+    is_used BOOLEAN DEFAULT false,
+    used_at TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
-<span class="c1">-- Password reset tokens</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">password_reset_tokens</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<span class="w">    </span><span class="n">user_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">reset_token</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">expires_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">is_used</span><span class="w"> </span><span class="nb">BOOLEAN</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">false</span><span class="p">,</span>
-<span class="w">    </span><span class="n">used_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="p">,</span>
-<span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
-<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">user_profiles</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
-<span class="p">);</span>
+-- Password reset tokens
+CREATE TABLE password_reset_tokens (
+    id VARCHAR(36) PRIMARY KEY,
+    user_id VARCHAR(36) NOT NULL,
+    reset_token VARCHAR(255) UNIQUE NOT NULL,
+    expires_at TIMESTAMP NOT NULL,
+    is_used BOOLEAN DEFAULT false,
+    used_at TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user_profiles(id)
+);
 
-<span class="c1">-- Security events (for external observability reference)</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">security_events</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<span class="w">    </span><span class="n">event_type</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">severity</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">user_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">),</span>
-<span class="w">    </span><span class="n">session_id</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
-<span class="w">    </span><span class="n">ip_address</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">45</span><span class="p">),</span>
-<span class="w">    </span><span class="n">user_agent</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">500</span><span class="p">),</span>
-<span class="w">    </span><span class="n">endpoint</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span>
-<span class="w">    </span><span class="n">message</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="n">risk_score</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span>
-<span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span>
-<span class="p">);</span>
-</code></pre></div>
-
+-- Security events (for external observability reference)
+CREATE TABLE security_events (
+    id VARCHAR(36) PRIMARY KEY,
+    event_type VARCHAR(50) NOT NULL,
+    severity VARCHAR(20) NOT NULL,
+    user_id VARCHAR(36),
+    session_id VARCHAR(100),
+    ip_address VARCHAR(45),
+    user_agent VARCHAR(500),
+    endpoint VARCHAR(200),
+    message VARCHAR(1000) NOT NULL,
+    risk_score INTEGER,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+</code></pre>
 <h2 id="graphql-api">GraphQL API<a class="headerlink" href="#graphql-api" title="Permanent link">&para;</a></h2>
 <h3 id="mutations">Mutations<a class="headerlink" href="#mutations" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="k">type</span><span class="w"> </span><span class="err">Mutation</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c"># Authentication</span>
-<span class="w">    </span><span class="n">login</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="no">LoginInput</span><span class="err">!</span><span class="p">)</span><span class="err">:</span><span class="w"> </span><span class="n">AuthPayload</span><span class="err">!</span>
-<span class="w">    </span><span class="nl">refreshToken</span><span class="p">:</span><span class="w"> </span><span class="n">AuthPayload</span><span class="err">!</span>
+<pre><code class="language-graphql">type Mutation {
+    # Authentication
+    login(input: LoginInput!): AuthPayload!
+    refreshToken: AuthPayload!
 
-<span class="w">    </span><span class="c"># User Management</span>
-<span class="w">    </span><span class="n">inviteUser</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="no">InviteUserInput</span><span class="err">!</span><span class="p">)</span><span class="err">:</span><span class="w"> </span><span class="n">InvitationPayload</span><span class="err">!</span>
-<span class="w">    </span><span class="n">completeRegistration</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="no">CompleteRegistrationInput</span><span class="err">!</span><span class="p">)</span><span class="err">:</span><span class="w"> </span><span class="n">AuthPayload</span><span class="err">!</span>
+    # User Management
+    inviteUser(input: InviteUserInput!): InvitationPayload!
+    completeRegistration(input: CompleteRegistrationInput!): AuthPayload!
 
-<span class="w">    </span><span class="c"># Password Management</span>
-<span class="w">    </span><span class="n">requestPasswordReset</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="no">PasswordResetRequestInput</span><span class="err">!</span><span class="p">)</span><span class="err">:</span><span class="w"> </span><span class="n">PasswordResetPayload</span><span class="err">!</span>
-<span class="w">    </span><span class="n">confirmPasswordReset</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="no">PasswordResetConfirmInput</span><span class="err">!</span><span class="p">)</span><span class="err">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">    </span><span class="n">validatePasswordResetToken</span><span class="p">(</span><span class="n">resetToken</span><span class="p">:</span><span class="w"> </span><span class="no">String</span><span class="err">!</span><span class="p">)</span><span class="err">:</span><span class="w"> </span><span class="n">Boolean</span><span class="err">!</span>
-<span class="p">}</span>
+    # Password Management
+    requestPasswordReset(input: PasswordResetRequestInput!): PasswordResetPayload!
+    confirmPasswordReset(input: PasswordResetConfirmInput!): String!
+    validatePasswordResetToken(resetToken: String!): Boolean!
+}
 
-<span class="k">type</span><span class="w"> </span><span class="err">AuthPayload</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nl">token</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">    </span><span class="nl">user</span><span class="p">:</span><span class="w"> </span><span class="n">UserProfile</span><span class="err">!</span>
-<span class="p">}</span>
+type AuthPayload {
+    token: String!
+    user: UserProfile!
+}
 
-<span class="k">type</span><span class="w"> </span><span class="err">InvitationPayload</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nl">success</span><span class="p">:</span><span class="w"> </span><span class="n">Boolean</span><span class="err">!</span>
-<span class="w">    </span><span class="nl">message</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">    </span><span class="nl">invitationId</span><span class="p">:</span><span class="w"> </span><span class="n">String</span>
-<span class="p">}</span>
-</code></pre></div>
-
+type InvitationPayload {
+    success: Boolean!
+    message: String!
+    invitationId: String
+}
+</code></pre>
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
 <h3 id="backend-tests">Backend Tests<a class="headerlink" href="#backend-tests" title="Permanent link">&para;</a></h3>
 <p><strong>Coverage</strong>: 90%+</p>
@@ -2180,38 +2170,36 @@
 <li><strong>Integration Tests</strong>: Complete authentication flows</li>
 </ul>
 <h3 id="test-commands">Test Commands<a class="headerlink" href="#test-commands" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Backend tests</span>
-<span class="nb">cd</span><span class="w"> </span>backend
-./gradlew<span class="w"> </span><span class="nb">test</span>
+<pre><code class="language-bash"># Backend tests
+cd backend
+./gradlew test
 
-<span class="c1"># Frontend tests</span>
-<span class="nb">cd</span><span class="w"> </span>frontend
-pnpm<span class="w"> </span><span class="nb">test</span><span class="w">                    </span><span class="c1"># Unit tests</span>
-pnpm<span class="w"> </span>test:coverage<span class="w">          </span><span class="c1"># Coverage report</span>
-pnpm<span class="w"> </span>test:e2e<span class="w">              </span><span class="c1"># End-to-end tests</span>
-</code></pre></div>
-
+# Frontend tests
+cd frontend
+pnpm test                    # Unit tests
+pnpm test:coverage          # Coverage report
+pnpm test:e2e              # End-to-end tests
+</code></pre>
 <h2 id="deployment-considerations">Deployment Considerations<a class="headerlink" href="#deployment-considerations" title="Permanent link">&para;</a></h2>
 <h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># JWT Configuration</span>
-<span class="nv">JWT_SECRET</span><span class="o">=</span>your-super-secure-secret-key-here
-<span class="nv">JWT_EXPIRATION_MS</span><span class="o">=</span><span class="m">86400000</span><span class="w">  </span><span class="c1"># 24 hours</span>
+<pre><code class="language-bash"># JWT Configuration
+JWT_SECRET=your-super-secure-secret-key-here
+JWT_EXPIRATION_MS=86400000  # 24 hours
 
-<span class="c1"># Database</span>
-<span class="nv">DATABASE_URL</span><span class="o">=</span>postgresql://user:pass@host:5432/dealsphere
+# Database
+DATABASE_URL=postgresql://user:pass@host:5432/dealsphere
 
-<span class="c1"># Email Configuration</span>
-<span class="nv">SMTP_HOST</span><span class="o">=</span>smtp.example.com
-<span class="nv">SMTP_PORT</span><span class="o">=</span><span class="m">587</span>
-<span class="nv">SMTP_USER</span><span class="o">=</span>noreply@dealsphere.com
-<span class="nv">SMTP_PASS</span><span class="o">=</span>smtp-password
+# Email Configuration
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=noreply@dealsphere.com
+SMTP_PASS=smtp-password
 
-<span class="c1"># Security</span>
-<span class="nv">BCRYPT_ROUNDS</span><span class="o">=</span><span class="m">12</span>
-<span class="nv">RATE_LIMIT_MAX_ATTEMPTS</span><span class="o">=</span><span class="m">5</span>
-<span class="nv">PASSWORD_RESET_EXPIRY_MINUTES</span><span class="o">=</span><span class="m">15</span>
-</code></pre></div>
-
+# Security
+BCRYPT_ROUNDS=12
+RATE_LIMIT_MAX_ATTEMPTS=5
+PASSWORD_RESET_EXPIRY_MINUTES=15
+</code></pre>
 <h3 id="security-checklist">Security Checklist<a class="headerlink" href="#security-checklist" title="Permanent link">&para;</a></h3>
 <ul>
 <li>[ ] JWT secrets are properly secured</li>
@@ -2228,20 +2216,19 @@ pnpm<span class="w"> </span>test:e2e<span class="w">              </span><span c
 <h2 id="monitoring-observability">Monitoring &amp; Observability<a class="headerlink" href="#monitoring-observability" title="Permanent link">&para;</a></h2>
 <h3 id="security-events">Security Events<a class="headerlink" href="#security-events" title="Permanent link">&para;</a></h3>
 <p>All security events are logged to external observability systems (ELK, Datadog, etc.) with structured data:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY_EVENT: User logged in successfully&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;event_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LOGIN_SUCCESS&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LOW&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user-123&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;ip_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.1.100&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;session_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session-456&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/api/auth/login&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;risk_score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;service&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dealsphere-auth&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-01-16T10:30:00Z&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;message&quot;: &quot;SECURITY_EVENT: User logged in successfully&quot;,
+  &quot;event_type&quot;: &quot;LOGIN_SUCCESS&quot;,
+  &quot;severity&quot;: &quot;LOW&quot;,
+  &quot;user_id&quot;: &quot;user-123&quot;,
+  &quot;ip_address&quot;: &quot;192.168.1.100&quot;,
+  &quot;session_id&quot;: &quot;session-456&quot;,
+  &quot;endpoint&quot;: &quot;/api/auth/login&quot;,
+  &quot;risk_score&quot;: 10,
+  &quot;service&quot;: &quot;dealsphere-auth&quot;,
+  &quot;timestamp&quot;: &quot;2025-01-16T10:30:00Z&quot;
+}
+</code></pre>
 <h3 id="key-metrics-to-monitor">Key Metrics to Monitor<a class="headerlink" href="#key-metrics-to-monitor" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Authentication Metrics</strong>:</li>
@@ -2301,17 +2288,17 @@ pnpm<span class="w"> </span>test:e2e<span class="w">              </span><span c
 <li>Monitor connection timeouts</li>
 </ol>
 <h3 id="debug-commands">Debug Commands<a class="headerlink" href="#debug-commands" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Check JWT token validity</span>
-curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer &lt;token&gt;&quot;</span><span class="w"> </span>http://localhost:8080/api/auth/validate
+<pre><code class="language-bash"># Check JWT token validity
+curl -H &quot;Authorization: Bearer &lt;token&gt;&quot; http://localhost:8080/api/auth/validate
 
-<span class="c1"># Test email configuration</span>
-curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;email&quot;:&quot;test@example.com&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>http://localhost:8080/api/auth/request-password-reset
+# Test email configuration
+curl -X POST -d '{&quot;email&quot;:&quot;test@example.com&quot;}' \
+  -H &quot;Content-Type: application/json&quot; \
+  http://localhost:8080/api/auth/request-password-reset
 
-<span class="c1"># Monitor security events</span>
-tail<span class="w"> </span>-f<span class="w"> </span>/var/log/dealsphere/security.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.severity==&quot;HIGH&quot;&#39;</span>
-</code></pre></div>
+# Monitor security events
+tail -f /var/log/dealsphere/security.log | jq '.severity==&quot;HIGH&quot;'
+</code></pre>
 
 
 

@@ -67,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -122,7 +122,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
@@ -132,7 +132,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#a9a9a9" data-md-color-accent="gray"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
@@ -1851,115 +1851,108 @@
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>Before running the CI/CD setup locally, ensure you have:</p>
 <h3 id="required-software">Required Software<a class="headerlink" href="#required-software" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Package Managers</span>
-✅<span class="w"> </span>Node.js<span class="w"> </span><span class="m">20</span>+
-✅<span class="w"> </span>pnpm<span class="w"> </span><span class="m">8</span>+
-✅<span class="w"> </span>Java<span class="w"> </span><span class="m">17</span>+
-✅<span class="w"> </span>Docker<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>Docker<span class="w"> </span>Compose
+<pre><code class="language-bash"># Package Managers
+✅ Node.js 20+
+✅ pnpm 8+
+✅ Java 17+
+✅ Docker &amp; Docker Compose
 
-<span class="c1"># Development Tools</span>
-✅<span class="w"> </span>Git
-✅<span class="w"> </span>curl<span class="w"> </span><span class="o">(</span><span class="k">for</span><span class="w"> </span>health<span class="w"> </span>checks<span class="o">)</span>
-</code></pre></div>
-
+# Development Tools
+✅ Git
+✅ curl (for health checks)
+</code></pre>
 <h3 id="installation-commands">Installation Commands<a class="headerlink" href="#installation-commands" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Node.js &amp; pnpm</span>
-curl<span class="w"> </span>-fsSL<span class="w"> </span>https://get.pnpm.io/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
-pnpm<span class="w"> </span>env<span class="w"> </span>use<span class="w"> </span>--global<span class="w"> </span><span class="m">20</span>
+<pre><code class="language-bash"># Node.js &amp; pnpm
+curl -fsSL https://get.pnpm.io/install.sh | sh
+pnpm env use --global 20
 
-<span class="c1"># Java 17 (using SDKMAN)</span>
-curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://get.sdkman.io&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
-sdk<span class="w"> </span>install<span class="w"> </span>java<span class="w"> </span><span class="m">17</span>.0.7-tem
+# Java 17 (using SDKMAN)
+curl -s &quot;https://get.sdkman.io&quot; | bash
+sdk install java 17.0.7-tem
 
-<span class="c1"># Docker</span>
-<span class="c1"># Install Docker Desktop from: https://docker.com/products/docker-desktop</span>
-</code></pre></div>
-
+# Docker
+# Install Docker Desktop from: https://docker.com/products/docker-desktop
+</code></pre>
 <h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
 <h3 id="1-clone-and-setup">1. Clone and Setup<a class="headerlink" href="#1-clone-and-setup" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Clone the repository</span>
-git<span class="w"> </span>clone<span class="w"> </span>&lt;repository-url&gt;
-<span class="nb">cd</span><span class="w"> </span>dealsphere-platform
+<pre><code class="language-bash"># Clone the repository
+git clone &lt;repository-url&gt;
+cd dealsphere-platform
 
-<span class="c1"># Copy environment configuration</span>
-cp<span class="w"> </span>.env.development<span class="w"> </span>.env
+# Copy environment configuration
+cp .env.development .env
 
-<span class="c1"># Verify Docker is running</span>
-docker<span class="w"> </span>--version
-docker-compose<span class="w"> </span>--version
-</code></pre></div>
-
+# Verify Docker is running
+docker --version
+docker-compose --version
+</code></pre>
 <h3 id="2-run-full-cicd-pipeline-locally">2. Run Full CI/CD Pipeline Locally<a class="headerlink" href="#2-run-full-cicd-pipeline-locally" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Start the complete application stack</span>
-docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build
+<pre><code class="language-bash"># Start the complete application stack
+docker-compose up -d --build
 
-<span class="c1"># Wait for services to be ready (this mimics CI behavior)</span>
+# Wait for services to be ready (this mimics CI behavior)
 ./scripts/wait-for-services.sh
 
-<span class="c1"># Run all tests in sequence (like CI)</span>
+# Run all tests in sequence (like CI)
 ./scripts/run-local-ci.sh
-</code></pre></div>
-
+</code></pre>
 <h2 id="detailed-cicd-components">Detailed CI/CD Components<a class="headerlink" href="#detailed-cicd-components" title="Permanent link">&para;</a></h2>
 <h3 id="backend-testing">Backend Testing<a class="headerlink" href="#backend-testing" title="Permanent link">&para;</a></h3>
 <p>The backend uses Spring Boot with comprehensive test coverage:</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>backend
+<pre><code class="language-bash">cd backend
 
-<span class="c1"># Run unit tests</span>
-./gradlew<span class="w"> </span><span class="nb">test</span>
+# Run unit tests
+./gradlew test
 
-<span class="c1"># Run with coverage</span>
-./gradlew<span class="w"> </span><span class="nb">test</span><span class="w"> </span>jacocoTestReport
+# Run with coverage
+./gradlew test jacocoTestReport
 
-<span class="c1"># Run integration tests</span>
-./gradlew<span class="w"> </span>integrationTest
+# Run integration tests
+./gradlew integrationTest
 
-<span class="c1"># Test with real database</span>
-./gradlew<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-Dspring.profiles.active<span class="o">=</span><span class="nb">test</span>
-</code></pre></div>
-
+# Test with real database
+./gradlew test -Dspring.profiles.active=test
+</code></pre>
 <p><strong>Test Configuration:</strong>
 - <strong>Unit Tests</strong>: Fast, mocked dependencies
 - <strong>Integration Tests</strong>: Real database, Docker Testcontainers
 - <strong>Test Data</strong>: DataInitializer with service classes only</p>
 <h3 id="frontend-testing">Frontend Testing<a class="headerlink" href="#frontend-testing" title="Permanent link">&para;</a></h3>
 <p>The frontend uses Vitest and Cypress for comprehensive testing:</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>frontend
+<pre><code class="language-bash">cd frontend
 
-<span class="c1"># Install dependencies</span>
-pnpm<span class="w"> </span>install
+# Install dependencies
+pnpm install
 
-<span class="c1"># Run unit tests</span>
-pnpm<span class="w"> </span><span class="nb">test</span>
+# Run unit tests
+pnpm test
 
-<span class="c1"># Run with coverage</span>
-pnpm<span class="w"> </span>test:coverage
+# Run with coverage
+pnpm test:coverage
 
-<span class="c1"># Linting and type checking</span>
-pnpm<span class="w"> </span>lint
-pnpm<span class="w"> </span>type-check
+# Linting and type checking
+pnpm lint
+pnpm type-check
 
-<span class="c1"># Build verification</span>
-pnpm<span class="w"> </span>build
-</code></pre></div>
-
+# Build verification
+pnpm build
+</code></pre>
 <h3 id="e2e-testing-with-cypress">E2E Testing with Cypress<a class="headerlink" href="#e2e-testing-with-cypress" title="Permanent link">&para;</a></h3>
 <p>Cypress tests run against the full application stack:</p>
 <h4 id="local-development-testing">Local Development Testing<a class="headerlink" href="#local-development-testing" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Ensure application is running</span>
-docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+<pre><code class="language-bash"># Ensure application is running
+docker-compose up -d
 
-<span class="c1"># Wait for services (backend health check)</span>
-curl<span class="w"> </span>-f<span class="w"> </span>http://localhost/actuator/health
+# Wait for services (backend health check)
+curl -f http://localhost/actuator/health
 
-<span class="c1"># Run Cypress tests</span>
-<span class="nb">cd</span><span class="w"> </span>frontend
-pnpm<span class="w"> </span>cy:run
+# Run Cypress tests
+cd frontend
+pnpm cy:run
 
-<span class="c1"># Or run interactively</span>
-pnpm<span class="w"> </span>cy:open
-</code></pre></div>
-
+# Or run interactively
+pnpm cy:open
+</code></pre>
 <h4 id="test-configuration">Test Configuration<a class="headerlink" href="#test-configuration" title="Permanent link">&para;</a></h4>
 <p>The E2E tests verify:
 - ✅ <strong>Login Flow</strong> - Complete authentication workflow
@@ -1968,7 +1961,7 @@ pnpm<span class="w"> </span>cy:open
 - ✅ <strong>Navigation</strong> - Dashboard redirects and routing
 - ✅ <strong>Error Handling</strong> - Network failures and invalid credentials</p>
 <p><strong>Test Files:</strong></p>
-<div class="codehilite"><pre><span></span><code>cypress/
+<pre><code>cypress/
 ├── e2e/
 │   └── auth/
 │       ├── login-flow.cy.ts      # Complete login workflow
@@ -1979,214 +1972,200 @@ pnpm<span class="w"> </span>cy:open
 │   └── e2e.ts                   # Global configuration
 └── fixtures/
     └── users.json               # Test user data
-</code></pre></div>
-
+</code></pre>
 <h2 id="environment-configuration">Environment Configuration<a class="headerlink" href="#environment-configuration" title="Permanent link">&para;</a></h2>
 <h3 id="environment-files">Environment Files<a class="headerlink" href="#environment-files" title="Permanent link">&para;</a></h3>
 <p>The project uses environment-specific configuration:</p>
-<div class="codehilite"><pre><span></span><code>.env.development<span class="w">    </span><span class="c1"># Local development (http://localhost)</span>
-.env.staging<span class="w">       </span><span class="c1"># Staging environment</span>
-.env.production<span class="w">    </span><span class="c1"># Production environment</span>
-</code></pre></div>
-
+<pre><code class="language-bash">.env.development    # Local development (http://localhost)
+.env.staging       # Staging environment
+.env.production    # Production environment
+</code></pre>
 <p><strong>Key Variables:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Backend Configuration</span>
-<span class="nv">SPRING_PROFILES_ACTIVE</span><span class="o">=</span>docker
-<span class="nv">POSTGRES_DB</span><span class="o">=</span>dealsphere_dev
-<span class="nv">JWT_SECRET</span><span class="o">=</span>&lt;secure-key&gt;
+<pre><code class="language-bash"># Backend Configuration
+SPRING_PROFILES_ACTIVE=docker
+POSTGRES_DB=dealsphere_dev
+JWT_SECRET=&lt;secure-key&gt;
 
-<span class="c1"># Frontend Configuration</span>
-<span class="nv">VITE_API_URL</span><span class="o">=</span>http://localhost/api
-<span class="nv">VITE_GRAPHQL_URL</span><span class="o">=</span>http://localhost/api/graphql
+# Frontend Configuration
+VITE_API_URL=http://localhost/api
+VITE_GRAPHQL_URL=http://localhost/api/graphql
 
-<span class="c1"># Cypress Testing</span>
-<span class="nv">CYPRESS_BASE_URL</span><span class="o">=</span>http://localhost
-<span class="nv">CYPRESS_VIDEO</span><span class="o">=</span><span class="nb">true</span>
-<span class="nv">CYPRESS_SCREENSHOTS</span><span class="o">=</span><span class="nb">true</span>
-</code></pre></div>
-
+# Cypress Testing
+CYPRESS_BASE_URL=http://localhost
+CYPRESS_VIDEO=true
+CYPRESS_SCREENSHOTS=true
+</code></pre>
 <h3 id="docker-configuration">Docker Configuration<a class="headerlink" href="#docker-configuration" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># docker-compose.yml structure</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">db</span><span class="p">:</span><span class="w">          </span><span class="c1"># PostgreSQL 16 database</span>
-<span class="w">  </span><span class="nt">backend</span><span class="p">:</span><span class="w">     </span><span class="c1"># Spring Boot application</span>
-<span class="w">  </span><span class="nt">frontend</span><span class="p">:</span><span class="w">    </span><span class="c1"># React/Vite development server</span>
-<span class="w">  </span><span class="nt">nginx</span><span class="p">:</span><span class="w">       </span><span class="c1"># Reverse proxy (port 80)</span>
-</code></pre></div>
-
+<pre><code class="language-yaml"># docker-compose.yml structure
+services:
+  db:          # PostgreSQL 16 database
+  backend:     # Spring Boot application
+  frontend:    # React/Vite development server
+  nginx:       # Reverse proxy (port 80)
+</code></pre>
 <h2 id="local-cicd-workflows">Local CI/CD Workflows<a class="headerlink" href="#local-cicd-workflows" title="Permanent link">&para;</a></h2>
 <h3 id="1-full-pipeline-simulation">1. Full Pipeline Simulation<a class="headerlink" href="#1-full-pipeline-simulation" title="Permanent link">&para;</a></h3>
 <p>Create this script to simulate the complete CI/CD pipeline:</p>
-<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1"># scripts/run-local-ci.sh</span>
+<pre><code class="language-bash">#!/bin/bash
+# scripts/run-local-ci.sh
 
-<span class="nb">set</span><span class="w"> </span>-e
+set -e
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🚀 Starting Local CI/CD Pipeline&quot;</span>
+echo &quot;🚀 Starting Local CI/CD Pipeline&quot;
 
-<span class="c1"># 1. Backend Tests</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;📊 Running Backend Tests...&quot;</span>
-<span class="nb">cd</span><span class="w"> </span>backend
-./gradlew<span class="w"> </span>clean<span class="w"> </span><span class="nb">test</span>
-<span class="nb">cd</span><span class="w"> </span>..
+# 1. Backend Tests
+echo &quot;📊 Running Backend Tests...&quot;
+cd backend
+./gradlew clean test
+cd ..
 
-<span class="c1"># 2. Frontend Tests</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⚛️ Running Frontend Tests...&quot;</span>
-<span class="nb">cd</span><span class="w"> </span>frontend
-pnpm<span class="w"> </span>install
-pnpm<span class="w"> </span>lint
-pnpm<span class="w"> </span><span class="nb">test</span>
-pnpm<span class="w"> </span>build
-<span class="nb">cd</span><span class="w"> </span>..
+# 2. Frontend Tests
+echo &quot;⚛️ Running Frontend Tests...&quot;
+cd frontend
+pnpm install
+pnpm lint
+pnpm test
+pnpm build
+cd ..
 
-<span class="c1"># 3. Docker Build Test</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🐳 Testing Docker Build...&quot;</span>
-docker-compose<span class="w"> </span>build<span class="w"> </span>--no-cache
-docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+# 3. Docker Build Test
+echo &quot;🐳 Testing Docker Build...&quot;
+docker-compose build --no-cache
+docker-compose up -d
 
-<span class="c1"># 4. Wait for Services</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⏳ Waiting for services to be ready...&quot;</span>
-timeout<span class="w"> </span><span class="m">120</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;until curl -f http://localhost/actuator/health &gt; /dev/null 2&gt;&amp;1; do sleep 5; done&#39;</span>
+# 4. Wait for Services
+echo &quot;⏳ Waiting for services to be ready...&quot;
+timeout 120 bash -c 'until curl -f http://localhost/actuator/health &gt; /dev/null 2&gt;&amp;1; do sleep 5; done'
 
-<span class="c1"># 5. E2E Tests</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🧪 Running E2E Tests...&quot;</span>
-<span class="nb">cd</span><span class="w"> </span>frontend
-pnpm<span class="w"> </span>cy:run
-<span class="nb">cd</span><span class="w"> </span>..
+# 5. E2E Tests
+echo &quot;🧪 Running E2E Tests...&quot;
+cd frontend
+pnpm cy:run
+cd ..
 
-<span class="c1"># 6. Cleanup</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🧹 Cleaning up...&quot;</span>
-docker-compose<span class="w"> </span>down<span class="w"> </span>-v
+# 6. Cleanup
+echo &quot;🧹 Cleaning up...&quot;
+docker-compose down -v
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Local CI/CD Pipeline Complete!&quot;</span>
-</code></pre></div>
-
+echo &quot;✅ Local CI/CD Pipeline Complete!&quot;
+</code></pre>
 <h3 id="2-service-health-checks">2. Service Health Checks<a class="headerlink" href="#2-service-health-checks" title="Permanent link">&para;</a></h3>
 <p>Create a health check script:</p>
-<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1"># scripts/wait-for-services.sh</span>
+<pre><code class="language-bash">#!/bin/bash
+# scripts/wait-for-services.sh
 
-<span class="nb">set</span><span class="w"> </span>-e
+set -e
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⏳ Waiting for services to be ready...&quot;</span>
+echo &quot;⏳ Waiting for services to be ready...&quot;
 
-<span class="c1"># Check PostgreSQL</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🗄️ Checking PostgreSQL...&quot;</span>
-timeout<span class="w"> </span><span class="m">60</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;until docker-compose exec db pg_isready -U dealsphere_dev &gt; /dev/null 2&gt;&amp;1; do sleep 2; done&#39;</span>
+# Check PostgreSQL
+echo &quot;🗄️ Checking PostgreSQL...&quot;
+timeout 60 bash -c 'until docker-compose exec db pg_isready -U dealsphere_dev &gt; /dev/null 2&gt;&amp;1; do sleep 2; done'
 
-<span class="c1"># Check Backend</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🌐 Checking Backend...&quot;</span>
-timeout<span class="w"> </span><span class="m">120</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;until curl -f http://localhost/actuator/health &gt; /dev/null 2&gt;&amp;1; do sleep 5; done&#39;</span>
+# Check Backend
+echo &quot;🌐 Checking Backend...&quot;
+timeout 120 bash -c 'until curl -f http://localhost/actuator/health &gt; /dev/null 2&gt;&amp;1; do sleep 5; done'
 
-<span class="c1"># Check GraphQL</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;📡 Checking GraphQL...&quot;</span>
-timeout<span class="w"> </span><span class="m">60</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;until curl -f http://localhost/api/graphql -H &quot;Content-Type: application/json&quot; -d &quot;{\&quot;query\&quot;:\&quot;query{__typename}\&quot;}&quot; &gt; /dev/null 2&gt;&amp;1; do sleep 2; done&#39;</span>
+# Check GraphQL
+echo &quot;📡 Checking GraphQL...&quot;
+timeout 60 bash -c 'until curl -f http://localhost/api/graphql -H &quot;Content-Type: application/json&quot; -d &quot;{\&quot;query\&quot;:\&quot;query{__typename}\&quot;}&quot; &gt; /dev/null 2&gt;&amp;1; do sleep 2; done'
 
-<span class="c1"># Check Frontend</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⚛️ Checking Frontend...&quot;</span>
-timeout<span class="w"> </span><span class="m">60</span><span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;until curl -f http://localhost &gt; /dev/null 2&gt;&amp;1; do sleep 2; done&#39;</span>
+# Check Frontend
+echo &quot;⚛️ Checking Frontend...&quot;
+timeout 60 bash -c 'until curl -f http://localhost &gt; /dev/null 2&gt;&amp;1; do sleep 2; done'
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ All services are ready!&quot;</span>
-</code></pre></div>
-
+echo &quot;✅ All services are ready!&quot;
+</code></pre>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
 <h4 id="1-port-conflicts">1. Port Conflicts<a class="headerlink" href="#1-port-conflicts" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Check if ports are in use</span>
-lsof<span class="w"> </span>-i<span class="w"> </span>:80<span class="w">    </span><span class="c1"># Nginx</span>
-lsof<span class="w"> </span>-i<span class="w"> </span>:5432<span class="w">  </span><span class="c1"># PostgreSQL</span>
-lsof<span class="w"> </span>-i<span class="w"> </span>:5173<span class="w">  </span><span class="c1"># Vite dev server</span>
+<pre><code class="language-bash"># Check if ports are in use
+lsof -i :80    # Nginx
+lsof -i :5432  # PostgreSQL
+lsof -i :5173  # Vite dev server
 
-<span class="c1"># Kill processes if needed</span>
-sudo<span class="w"> </span>lsof<span class="w"> </span>-ti:80<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>-9
-</code></pre></div>
-
+# Kill processes if needed
+sudo lsof -ti:80 | xargs kill -9
+</code></pre>
 <h4 id="2-docker-issues">2. Docker Issues<a class="headerlink" href="#2-docker-issues" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Clean Docker state</span>
-docker-compose<span class="w"> </span>down<span class="w"> </span>-v
-docker<span class="w"> </span>system<span class="w"> </span>prune<span class="w"> </span>-f
-docker<span class="w"> </span>volume<span class="w"> </span>prune<span class="w"> </span>-f
+<pre><code class="language-bash"># Clean Docker state
+docker-compose down -v
+docker system prune -f
+docker volume prune -f
 
-<span class="c1"># Rebuild from scratch</span>
-docker-compose<span class="w"> </span>build<span class="w"> </span>--no-cache
-</code></pre></div>
-
+# Rebuild from scratch
+docker-compose build --no-cache
+</code></pre>
 <h4 id="3-database-connection-issues">3. Database Connection Issues<a class="headerlink" href="#3-database-connection-issues" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Check PostgreSQL logs</span>
-docker-compose<span class="w"> </span>logs<span class="w"> </span>db
+<pre><code class="language-bash"># Check PostgreSQL logs
+docker-compose logs db
 
-<span class="c1"># Connect to database manually</span>
-docker-compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>db<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>dealsphere_dev<span class="w"> </span>-d<span class="w"> </span>dealsphere_dev
+# Connect to database manually
+docker-compose exec db psql -U dealsphere_dev -d dealsphere_dev
 
-<span class="c1"># Reset database</span>
-docker-compose<span class="w"> </span>down<span class="w"> </span>-v
-docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>db
-</code></pre></div>
-
+# Reset database
+docker-compose down -v
+docker-compose up -d db
+</code></pre>
 <h4 id="4-cypress-test-failures">4. Cypress Test Failures<a class="headerlink" href="#4-cypress-test-failures" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Run with debug output</span>
-<span class="nb">cd</span><span class="w"> </span>frontend
-<span class="nv">DEBUG</span><span class="o">=</span>cypress:*<span class="w"> </span>pnpm<span class="w"> </span>cy:run
+<pre><code class="language-bash"># Run with debug output
+cd frontend
+DEBUG=cypress:* pnpm cy:run
 
-<span class="c1"># Check video recordings</span>
-open<span class="w"> </span>cypress/videos/
+# Check video recordings
+open cypress/videos/
 
-<span class="c1"># Run specific test</span>
-pnpm<span class="w"> </span>cy:run<span class="w"> </span>--spec<span class="w"> </span><span class="s2">&quot;cypress/e2e/auth/login-flow.cy.ts&quot;</span>
-</code></pre></div>
-
+# Run specific test
+pnpm cy:run --spec &quot;cypress/e2e/auth/login-flow.cy.ts&quot;
+</code></pre>
 <h3 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h3>
 <h4 id="speed-up-local-development">Speed Up Local Development<a class="headerlink" href="#speed-up-local-development" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Use Docker layer caching</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_BUILDKIT</span><span class="o">=</span><span class="m">1</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">COMPOSE_DOCKER_CLI_BUILD</span><span class="o">=</span><span class="m">1</span>
+<pre><code class="language-bash"># Use Docker layer caching
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
 
-<span class="c1"># Pre-pull images</span>
-docker-compose<span class="w"> </span>pull
+# Pre-pull images
+docker-compose pull
 
-<span class="c1"># Use pnpm store for faster installs</span>
-pnpm<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>store-dir<span class="w"> </span>~/.pnpm-store
-</code></pre></div>
-
+# Use pnpm store for faster installs
+pnpm config set store-dir ~/.pnpm-store
+</code></pre>
 <h4 id="parallel-testing">Parallel Testing<a class="headerlink" href="#parallel-testing" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Run tests in parallel (requires multiple environments)</span>
-docker-compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yml<span class="w"> </span>-f<span class="w"> </span>docker-compose.test.yml<span class="w"> </span>up<span class="w"> </span>-d
+<pre><code class="language-bash"># Run tests in parallel (requires multiple environments)
+docker-compose -f docker-compose.yml -f docker-compose.test.yml up -d
 
-<span class="c1"># Run Cypress tests in parallel</span>
-pnpm<span class="w"> </span>cy:run<span class="w"> </span>--record<span class="w"> </span>--parallel<span class="w"> </span>--key<span class="w"> </span>&lt;cypress-record-key&gt;
-</code></pre></div>
-
+# Run Cypress tests in parallel
+pnpm cy:run --record --parallel --key &lt;cypress-record-key&gt;
+</code></pre>
 <h2 id="integration-with-ide">Integration with IDE<a class="headerlink" href="#integration-with-ide" title="Permanent link">&para;</a></h2>
 <h3 id="vs-code-setup">VS Code Setup<a class="headerlink" href="#vs-code-setup" title="Permanent link">&para;</a></h3>
 <p><strong>.vscode/settings.json:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;docker.host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unix:///var/run/docker.sock&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;typescript.preferences.importModuleSpecifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;relative&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;jest.jestCommandLine&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pnpm test&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;cypress.showActionsInCommandPalette&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;docker.host&quot;: &quot;unix:///var/run/docker.sock&quot;,
+  &quot;typescript.preferences.importModuleSpecifier&quot;: &quot;relative&quot;,
+  &quot;jest.jestCommandLine&quot;: &quot;pnpm test&quot;,
+  &quot;cypress.showActionsInCommandPalette&quot;: true
+}
+</code></pre>
 <p><strong>.vscode/tasks.json:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Start Local CI/CD&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./scripts/run-local-ci.sh&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;presentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;echo&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;reveal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;always&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;focus&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;panel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;version&quot;: &quot;2.0.0&quot;,
+  &quot;tasks&quot;: [
+    {
+      &quot;label&quot;: &quot;Start Local CI/CD&quot;,
+      &quot;type&quot;: &quot;shell&quot;,
+      &quot;command&quot;: &quot;./scripts/run-local-ci.sh&quot;,
+      &quot;group&quot;: &quot;test&quot;,
+      &quot;presentation&quot;: {
+        &quot;echo&quot;: true,
+        &quot;reveal&quot;: &quot;always&quot;,
+        &quot;focus&quot;: false,
+        &quot;panel&quot;: &quot;new&quot;
+      }
+    }
+  ]
+}
+</code></pre>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Set up GitHub Actions</strong> - See <a href="../github-actions/">GitHub Actions Guide</a></li>

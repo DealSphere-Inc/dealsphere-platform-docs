@@ -67,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -122,7 +122,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
@@ -132,7 +132,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#a9a9a9" data-md-color-accent="gray"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
@@ -1863,13 +1863,12 @@
 <p>This guide explains how to use the DealSphere Phase 1 Functional Test Suite for <strong>Test-Driven Development (TDD)</strong> at the functional level. The comprehensive test suite was designed upfront to guide development and ensure 100% coverage of business requirements.</p>
 <h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
 <h3 id="1-understanding-the-test-suite-structure">1. Understanding the Test Suite Structure<a class="headerlink" href="#1-understanding-the-test-suite-structure" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>cypress/e2e/
+<pre><code>cypress/e2e/
 ├── epic-1-core-auth/         # Weeks 1-2: Authentication &amp; RBAC
 ├── epic-2-users-documents/   # Weeks 3-4: User Management &amp; Documents
 ├── epic-3-capital-waterfall/ # Weeks 5-6: Capital Calls &amp; Waterfalls
 └── epic-4-workflows-ai/      # Weeks 7-8: Workflows &amp; AI Integration
-</code></pre></div>
-
+</code></pre>
 <h3 id="2-current-development-status">2. Current Development Status<a class="headerlink" href="#2-current-development-status" title="Permanent link">&para;</a></h3>
 <p>All tests are <strong>initially failing</strong> - this is by design! The failing tests serve as your development roadmap and executable specifications.</p>
 <h2 id="using-tests-to-guide-development">Using Tests to Guide Development<a class="headerlink" href="#using-tests-to-guide-development" title="Permanent link">&para;</a></h2>
@@ -1912,48 +1911,46 @@
 </tbody>
 </table>
 <h3 id="step-2-run-epic-specific-tests">Step 2: Run Epic-Specific Tests<a class="headerlink" href="#step-2-run-epic-specific-tests" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Run tests for your current epic</span>
-npx<span class="w"> </span>cypress<span class="w"> </span>run<span class="w"> </span>--spec<span class="w"> </span><span class="s2">&quot;cypress/e2e/epic-1-core-auth/**&quot;</span>
+<pre><code class="language-bash"># Run tests for your current epic
+npx cypress run --spec &quot;cypress/e2e/epic-1-core-auth/**&quot;
 
-<span class="c1"># Run a specific test case</span>
-npx<span class="w"> </span>cypress<span class="w"> </span>run<span class="w"> </span>--spec<span class="w"> </span><span class="s2">&quot;cypress/e2e/epic-1-core-auth/1.1.1-basic-login-authentication.cy.ts&quot;</span>
-</code></pre></div>
-
+# Run a specific test case
+npx cypress run --spec &quot;cypress/e2e/epic-1-core-auth/1.1.1-basic-login-authentication.cy.ts&quot;
+</code></pre>
 <h3 id="step-3-read-the-test-requirements">Step 3: Read the Test Requirements<a class="headerlink" href="#step-3-read-the-test-requirements" title="Permanent link">&para;</a></h3>
 <p>Each test includes detailed requirement information:</p>
-<div class="codehilite"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * Epic: Core Framework &amp; Auth</span>
-<span class="cm"> * Official Test Case: 1.1.1</span>
-<span class="cm"> * Business Requirements: User authentication (Login/Logout)</span>
-<span class="cm"> * Development Timeline: Weeks 1-2</span>
-<span class="cm"> */</span>
-<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Epic 1: Core Auth - Test Case 1.1.1&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">before</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">logEpicRequirement</span><span class="p">(</span>
-<span class="w">      </span><span class="s1">&#39;Core Framework &amp; Auth&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="s1">&#39;1.1.1&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="s1">&#39;User authentication with valid credentials&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="s1">&#39;HIGH&#39;</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="w">  </span><span class="p">})</span>
+<pre><code class="language-typescript">/**
+ * Epic: Core Framework &amp; Auth
+ * Official Test Case: 1.1.1
+ * Business Requirements: User authentication (Login/Logout)
+ * Development Timeline: Weeks 1-2
+ */
+describe('Epic 1: Core Auth - Test Case 1.1.1', () =&gt; {
+  before(() =&gt; {
+    cy.logEpicRequirement(
+      'Core Framework &amp; Auth',
+      '1.1.1',
+      'User authentication with valid credentials',
+      'HIGH'
+    )
+  })
 
-<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should authenticate users with valid credentials&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;🧪 TESTING: Basic login functionality&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;✅ ACCEPTANCE CRITERIA: User can login and access dashboard&#39;</span><span class="p">)</span>
+  it('should authenticate users with valid credentials', () =&gt; {
+    cy.log('🧪 TESTING: Basic login functionality')
+    cy.log('✅ ACCEPTANCE CRITERIA: User can login and access dashboard')
 
-<span class="w">    </span><span class="c1">// Implementation guidance through test expectations</span>
-<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;email-input&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;admin@dealsphere.com&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;password-input&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;password123&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;login-submit&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">()</span>
+    // Implementation guidance through test expectations
+    cy.visit('/login')
+    cy.get('[data-testid=&quot;email-input&quot;]').type('admin@dealsphere.com')
+    cy.get('[data-testid=&quot;password-input&quot;]').type('password123')
+    cy.get('[data-testid=&quot;login-submit&quot;]').click()
 
-<span class="w">    </span><span class="c1">// This will fail until you implement authentication</span>
-<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">url</span><span class="p">().</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;include&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/dashboard&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;user-welcome&quot;]&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;contain&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Welcome&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">})</span>
-<span class="p">})</span>
-</code></pre></div>
-
+    // This will fail until you implement authentication
+    cy.url().should('include', '/dashboard')
+    cy.get('[data-testid=&quot;user-welcome&quot;]').should('contain', 'Welcome')
+  })
+})
+</code></pre>
 <h3 id="step-4-implement-to-make-tests-pass">Step 4: Implement to Make Tests Pass<a class="headerlink" href="#step-4-implement-to-make-tests-pass" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Read the test failure message</strong> - It tells you exactly what's missing</li>
@@ -1962,29 +1959,27 @@ npx<span class="w"> </span>cypress<span class="w"> </span>run<span class="w"> </
 <li><strong>Move to the next test</strong> in the epic</li>
 </ol>
 <h3 id="step-5-verify-epic-completion">Step 5: Verify Epic Completion<a class="headerlink" href="#step-5-verify-epic-completion" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Verify all tests in an epic are passing</span>
-npx<span class="w"> </span>cypress<span class="w"> </span>run<span class="w"> </span>--spec<span class="w"> </span><span class="s2">&quot;cypress/e2e/epic-1-core-auth/**&quot;</span>
+<pre><code class="language-bash"># Verify all tests in an epic are passing
+npx cypress run --spec &quot;cypress/e2e/epic-1-core-auth/**&quot;
 
-<span class="c1"># Check overall progress</span>
-npm<span class="w"> </span>run<span class="w"> </span>test:coverage
-</code></pre></div>
-
+# Check overall progress
+npm run test:coverage
+</code></pre>
 <h2 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h2>
 <h3 id="daily-development-cycle">Daily Development Cycle<a class="headerlink" href="#daily-development-cycle" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">graph</span><span class="w"> </span><span class="n">TD</span>
-<span class="w">    </span><span class="n">A</span><span class="p">[</span><span class="n">Pick</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="n">failing</span><span class="w"> </span><span class="n">test</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">Read</span><span class="w"> </span><span class="n">requirement</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">acceptance</span><span class="w"> </span><span class="n">criteria</span><span class="p">]</span>
-<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C</span><span class="p">[</span><span class="n">Implement</span><span class="w"> </span><span class="n">minimum</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">pass</span><span class="w"> </span><span class="n">test</span><span class="p">]</span>
-<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="n">Run</span><span class="w"> </span><span class="n">test</span><span class="p">]</span>
-<span class="w">    </span><span class="n">D</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">E</span><span class="p">{</span><span class="n">Test</span><span class="w"> </span><span class="n">passing</span><span class="o">?</span><span class="p">}</span>
-<span class="w">    </span><span class="n">E</span><span class="w"> </span><span class="o">--&gt;|</span><span class="n">No</span><span class="o">|</span><span class="w"> </span><span class="n">F</span><span class="p">[</span><span class="n">Debug</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">fix</span><span class="w"> </span><span class="n">implementation</span><span class="p">]</span>
-<span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">D</span>
-<span class="w">    </span><span class="n">E</span><span class="w"> </span><span class="o">--&gt;|</span><span class="n">Yes</span><span class="o">|</span><span class="w"> </span><span class="n">G</span><span class="p">[</span><span class="n">Refactor</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">needed</span><span class="p">]</span>
-<span class="w">    </span><span class="n">G</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">H</span><span class="p">[</span><span class="n">Commit</span><span class="w"> </span><span class="n">changes</span><span class="p">]</span>
-<span class="w">    </span><span class="n">H</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">I</span><span class="p">{</span><span class="n">More</span><span class="w"> </span><span class="n">tests</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">epic</span><span class="o">?</span><span class="p">}</span>
-<span class="w">    </span><span class="n">I</span><span class="w"> </span><span class="o">--&gt;|</span><span class="n">Yes</span><span class="o">|</span><span class="w"> </span><span class="n">A</span>
-<span class="w">    </span><span class="n">I</span><span class="w"> </span><span class="o">--&gt;|</span><span class="n">No</span><span class="o">|</span><span class="w"> </span><span class="n">J</span><span class="p">[</span><span class="n">Epic</span><span class="w"> </span><span class="n">complete</span><span class="o">!</span><span class="p">]</span>
-</code></pre></div>
-
+<pre><code class="language-mermaid">graph TD
+    A[Pick next failing test] --&gt; B[Read requirement &amp; acceptance criteria]
+    B --&gt; C[Implement minimum code to pass test]
+    C --&gt; D[Run test]
+    D --&gt; E{Test passing?}
+    E --&gt;|No| F[Debug and fix implementation]
+    F --&gt; D
+    E --&gt;|Yes| G[Refactor if needed]
+    G --&gt; H[Commit changes]
+    H --&gt; I{More tests in epic?}
+    I --&gt;|Yes| A
+    I --&gt;|No| J[Epic complete!]
+</code></pre>
 <h3 id="epic-development-cycle">Epic Development Cycle<a class="headerlink" href="#epic-development-cycle" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Start Epic</strong> - Run all tests in epic directory (all should fail)</li>
@@ -1994,38 +1989,35 @@ npm<span class="w"> </span>run<span class="w"> </span>test:coverage
 </ol>
 <h2 id="understanding-test-categories">Understanding Test Categories<a class="headerlink" href="#understanding-test-categories" title="Permanent link">&para;</a></h2>
 <h3 id="authentication-tests-epic-1">Authentication Tests (Epic 1)<a class="headerlink" href="#authentication-tests-epic-1" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Example: 1.1.1-basic-login-authentication.cy.ts</span>
-<span class="c1">// WHAT IT TESTS: User can authenticate with valid credentials</span>
-<span class="c1">// WHEN TO IMPLEMENT: Week 1-2, when building login system</span>
-<span class="c1">// SUCCESS CRITERIA: User reaches dashboard after login</span>
+<pre><code class="language-typescript">// Example: 1.1.1-basic-login-authentication.cy.ts
+// WHAT IT TESTS: User can authenticate with valid credentials
+// WHEN TO IMPLEMENT: Week 1-2, when building login system
+// SUCCESS CRITERIA: User reaches dashboard after login
 
-<span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should authenticate users with valid credentials&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// Test expects login form, authentication API, and dashboard redirect</span>
-<span class="p">})</span>
-</code></pre></div>
-
+it('should authenticate users with valid credentials', () =&gt; {
+  // Test expects login form, authentication API, and dashboard redirect
+})
+</code></pre>
 <h3 id="document-management-tests-epic-2">Document Management Tests (Epic 2)<a class="headerlink" href="#document-management-tests-epic-2" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Example: 2.1.1-document-upload-class-isolation.cy.ts</span>
-<span class="c1">// WHAT IT TESTS: Documents are isolated by class membership</span>
-<span class="c1">// WHEN TO IMPLEMENT: Week 3-4, when building document system</span>
-<span class="c1">// SUCCESS CRITERIA: Users only see documents for their class</span>
+<pre><code class="language-typescript">// Example: 2.1.1-document-upload-class-isolation.cy.ts
+// WHAT IT TESTS: Documents are isolated by class membership
+// WHEN TO IMPLEMENT: Week 3-4, when building document system
+// SUCCESS CRITERIA: Users only see documents for their class
 
-<span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should isolate documents by class membership&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// Test expects class-based document filtering</span>
-<span class="p">})</span>
-</code></pre></div>
-
+it('should isolate documents by class membership', () =&gt; {
+  // Test expects class-based document filtering
+})
+</code></pre>
 <h3 id="financial-operations-tests-epic-3">Financial Operations Tests (Epic 3)<a class="headerlink" href="#financial-operations-tests-epic-3" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Example: 4.1.1-european-waterfall-model.cy.ts</span>
-<span class="c1">// WHAT IT TESTS: European waterfall calculation model</span>
-<span class="c1">// WHEN TO IMPLEMENT: Week 5-6, when building financial calculations</span>
-<span class="c1">// SUCCESS CRITERIA: Accurate waterfall distributions per class</span>
+<pre><code class="language-typescript">// Example: 4.1.1-european-waterfall-model.cy.ts
+// WHAT IT TESTS: European waterfall calculation model
+// WHEN TO IMPLEMENT: Week 5-6, when building financial calculations
+// SUCCESS CRITERIA: Accurate waterfall distributions per class
 
-<span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should calculate European waterfall distributions correctly&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// Test expects accurate financial calculations</span>
-<span class="p">})</span>
-</code></pre></div>
-
+it('should calculate European waterfall distributions correctly', () =&gt; {
+  // Test expects accurate financial calculations
+})
+</code></pre>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
 <h3 id="1-read-tests-before-coding">1. Read Tests Before Coding<a class="headerlink" href="#1-read-tests-before-coding" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2100,23 +2092,21 @@ npm<span class="w"> </span>run<span class="w"> </span>test:coverage
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
 <p><strong>Tests not running:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Check Cypress installation</span>
-npx<span class="w"> </span>cypress<span class="w"> </span>verify
+<pre><code class="language-bash"># Check Cypress installation
+npx cypress verify
 
-<span class="c1"># Install dependencies</span>
-npm<span class="w"> </span>install
-</code></pre></div>
-
+# Install dependencies
+npm install
+</code></pre>
 <p><strong>All tests failing:</strong>
 This is expected! Tests were written before implementation begins.</p>
 <p><strong>Test data issues:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Reset test database</span>
-npm<span class="w"> </span>run<span class="w"> </span>test:db:reset
+<pre><code class="language-bash"># Reset test database
+npm run test:db:reset
 
-<span class="c1"># Check test fixtures</span>
+# Check test fixtures
 cypress/fixtures/
-</code></pre></div>
-
+</code></pre>
 <p><strong>Authentication errors:</strong>
 Make sure test users exist in your database:
 - admin@dealsphere.com

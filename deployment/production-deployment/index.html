@@ -67,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -122,7 +122,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
@@ -132,7 +132,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#a9a9a9" data-md-color-accent="gray"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
@@ -2121,7 +2121,7 @@
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <h3 id="infrastructure-requirements">Infrastructure Requirements<a class="headerlink" href="#infrastructure-requirements" title="Permanent link">&para;</a></h3>
 <p><strong>Minimum Production Specifications:</strong></p>
-<div class="codehilite"><pre><span></span><code>Backend Service:
+<pre><code>Backend Service:
 - CPU: 2 vCPUs
 - RAM: 4GB
 - Storage: 50GB SSD
@@ -2140,10 +2140,9 @@ Monitoring Stack:
 - CPU: 2 vCPUs
 - RAM: 4GB
 - Storage: 100GB SSD
-</code></pre></div>
-
+</code></pre>
 <p><strong>Recommended Production Specifications:</strong></p>
-<div class="codehilite"><pre><span></span><code>Backend Service:
+<pre><code>Backend Service:
 - CPU: 4 vCPUs
 - RAM: 8GB
 - Storage: 100GB SSD
@@ -2162,8 +2161,7 @@ Monitoring Stack:
 - CPU: 4 vCPUs
 - RAM: 8GB
 - Storage: 200GB SSD
-</code></pre></div>
-
+</code></pre>
 <h3 id="software-requirements">Software Requirements<a class="headerlink" href="#software-requirements" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Docker</strong>: 24.0+</li>
@@ -2174,335 +2172,321 @@ Monitoring Stack:
 <h2 id="deployment-methods">Deployment Methods<a class="headerlink" href="#deployment-methods" title="Permanent link">&para;</a></h2>
 <h3 id="method-1-docker-compose-recommended-for-small-teams">Method 1: Docker Compose (Recommended for Small Teams)<a class="headerlink" href="#method-1-docker-compose-recommended-for-small-teams" title="Permanent link">&para;</a></h3>
 <h4 id="1-server-preparation">1. Server Preparation<a class="headerlink" href="#1-server-preparation" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Update system packages</span>
-sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+<pre><code class="language-bash"># Update system packages
+sudo apt update &amp;&amp; sudo apt upgrade -y
 
-<span class="c1"># Install Docker</span>
-curl<span class="w"> </span>-fsSL<span class="w"> </span>https://get.docker.com<span class="w"> </span>-o<span class="w"> </span>get-docker.sh
-sh<span class="w"> </span>get-docker.sh
-sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
+# Install Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+sudo usermod -aG docker $USER
 
-<span class="c1"># Install Docker Compose</span>
-sudo<span class="w"> </span>curl<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;https://github.com/docker/compose/releases/download/v2.20.0/docker-compose-</span><span class="k">$(</span>uname<span class="w"> </span>-s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>-o<span class="w"> </span>/usr/local/bin/docker-compose
-sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/docker-compose
+# Install Docker Compose
+sudo curl -L &quot;https://github.com/docker/compose/releases/download/v2.20.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
-<span class="c1"># Reboot to apply group changes</span>
-sudo<span class="w"> </span>reboot
-</code></pre></div>
-
+# Reboot to apply group changes
+sudo reboot
+</code></pre>
 <h4 id="2-application-deployment">2. Application Deployment<a class="headerlink" href="#2-application-deployment" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Clone the repository</span>
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-org/dealsphere-platform.git
-<span class="nb">cd</span><span class="w"> </span>dealsphere-platform
+<pre><code class="language-bash"># Clone the repository
+git clone https://github.com/your-org/dealsphere-platform.git
+cd dealsphere-platform
 
-<span class="c1"># Create production environment file</span>
-cp<span class="w"> </span>.env.production<span class="w"> </span>.env
+# Create production environment file
+cp .env.production .env
 
-<span class="c1"># Edit environment variables (see Environment Configuration section)</span>
-nano<span class="w"> </span>.env
+# Edit environment variables (see Environment Configuration section)
+nano .env
 
-<span class="c1"># Pull latest images</span>
-docker<span class="w"> </span>compose<span class="w"> </span>pull
+# Pull latest images
+docker compose pull
 
-<span class="c1"># Start the application stack</span>
-docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yml<span class="w"> </span>up<span class="w"> </span>-d
+# Start the application stack
+docker compose -f docker-compose.yml up -d
 
-<span class="c1"># Verify deployment</span>
-docker<span class="w"> </span>compose<span class="w"> </span>ps
-docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>backend
-</code></pre></div>
-
+# Verify deployment
+docker compose ps
+docker compose logs -f backend
+</code></pre>
 <h4 id="3-database-setup">3. Database Setup<a class="headerlink" href="#3-database-setup" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Check database initialization</span>
-docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>backend<span class="w"> </span>./gradlew<span class="w"> </span>flyway:info
+<pre><code class="language-bash"># Check database initialization
+docker compose exec backend ./gradlew flyway:info
 
-<span class="c1"># Run database migrations (if needed)</span>
-docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>backend<span class="w"> </span>./gradlew<span class="w"> </span>flyway:migrate
+# Run database migrations (if needed)
+docker compose exec backend ./gradlew flyway:migrate
 
-<span class="c1"># Verify database connection</span>
-docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>db<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span><span class="nv">$POSTGRES_USER</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">$POSTGRES_DB</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT version();&quot;</span>
-</code></pre></div>
-
+# Verify database connection
+docker compose exec db psql -U $POSTGRES_USER -d $POSTGRES_DB -c &quot;SELECT version();&quot;
+</code></pre>
 <h3 id="method-2-kubernetes-recommended-for-scalability">Method 2: Kubernetes (Recommended for Scalability)<a class="headerlink" href="#method-2-kubernetes-recommended-for-scalability" title="Permanent link">&para;</a></h3>
 <h4 id="1-kubernetes-manifests">1. Kubernetes Manifests<a class="headerlink" href="#1-kubernetes-manifests" title="Permanent link">&para;</a></h4>
 <p>Create Kubernetes deployment files:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># k8s/namespace.yaml</span>
-<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Namespace</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-prod</span>
-<span class="nn">---</span>
-<span class="c1"># k8s/backend-deployment.yaml</span>
-<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-backend</span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-prod</span>
-<span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-backend</span>
-<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-backend</span>
-<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
-<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">your-registry/dealsphere-backend:latest</span>
-<span class="w">        </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
-<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SPRING_PROFILES_ACTIVE</span>
-<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;production&quot;</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_URL</span>
-<span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span>
-<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database-secret</span>
-<span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">url</span>
-<span class="w">        </span><span class="nt">resources</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">requests</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2Gi&quot;</span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1000m&quot;</span>
-<span class="w">          </span><span class="nt">limits</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4Gi&quot;</span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2000m&quot;</span>
-<span class="w">        </span><span class="nt">readinessProbe</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">httpGet</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/actuator/health</span>
-<span class="w">            </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
-<span class="w">          </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
-<span class="w">          </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">        </span><span class="nt">livenessProbe</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">httpGet</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/actuator/health</span>
-<span class="w">            </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
-<span class="w">          </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60</span>
-<span class="w">          </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
-<span class="nn">---</span>
-<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-backend-service</span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-prod</span>
-<span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-backend</span>
-<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
-<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
-<span class="w">    </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
-<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterIP</span>
-</code></pre></div>
-
+<pre><code class="language-yaml"># k8s/namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dealsphere-prod
+---
+# k8s/backend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dealsphere-backend
+  namespace: dealsphere-prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dealsphere-backend
+  template:
+    metadata:
+      labels:
+        app: dealsphere-backend
+    spec:
+      containers:
+      - name: backend
+        image: your-registry/dealsphere-backend:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: &quot;production&quot;
+        - name: POSTGRES_URL
+          valueFrom:
+            secretKeyRef:
+              name: database-secret
+              key: url
+        resources:
+          requests:
+            memory: &quot;2Gi&quot;
+            cpu: &quot;1000m&quot;
+          limits:
+            memory: &quot;4Gi&quot;
+            cpu: &quot;2000m&quot;
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dealsphere-backend-service
+  namespace: dealsphere-prod
+spec:
+  selector:
+    app: dealsphere-backend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: ClusterIP
+</code></pre>
 <h4 id="2-deploy-to-kubernetes">2. Deploy to Kubernetes<a class="headerlink" href="#2-deploy-to-kubernetes" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Apply Kubernetes manifests</span>
-kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>k8s/
+<pre><code class="language-bash"># Apply Kubernetes manifests
+kubectl apply -f k8s/
 
-<span class="c1"># Check deployment status</span>
-kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>dealsphere-prod
-kubectl<span class="w"> </span>get<span class="w"> </span>services<span class="w"> </span>-n<span class="w"> </span>dealsphere-prod
+# Check deployment status
+kubectl get pods -n dealsphere-prod
+kubectl get services -n dealsphere-prod
 
-<span class="c1"># View logs</span>
-kubectl<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>deployment/dealsphere-backend<span class="w"> </span>-n<span class="w"> </span>dealsphere-prod
-</code></pre></div>
-
+# View logs
+kubectl logs -f deployment/dealsphere-backend -n dealsphere-prod
+</code></pre>
 <h2 id="environment-configuration">Environment Configuration<a class="headerlink" href="#environment-configuration" title="Permanent link">&para;</a></h2>
 <h3 id="production-environment-variables">Production Environment Variables<a class="headerlink" href="#production-environment-variables" title="Permanent link">&para;</a></h3>
 <p>Create <code>.env.production</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># === Database Configuration ===</span>
-<span class="nv">POSTGRES_DB</span><span class="o">=</span>dealsphere_prod
-<span class="nv">POSTGRES_USER</span><span class="o">=</span>dealsphere_prod
-<span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>your-secure-db-password
-<span class="nv">POSTGRES_HOST</span><span class="o">=</span>your-db-host.amazonaws.com
-<span class="nv">POSTGRES_PORT</span><span class="o">=</span><span class="m">5432</span>
+<pre><code class="language-bash"># === Database Configuration ===
+POSTGRES_DB=dealsphere_prod
+POSTGRES_USER=dealsphere_prod
+POSTGRES_PASSWORD=your-secure-db-password
+POSTGRES_HOST=your-db-host.amazonaws.com
+POSTGRES_PORT=5432
 
-<span class="c1"># === Application Configuration ===</span>
-<span class="nv">SPRING_PROFILES_ACTIVE</span><span class="o">=</span>production
-<span class="nv">SERVER_PORT</span><span class="o">=</span><span class="m">8080</span>
-<span class="nv">SPRING_JPA_HIBERNATE_DDL_AUTO</span><span class="o">=</span>validate
+# === Application Configuration ===
+SPRING_PROFILES_ACTIVE=production
+SERVER_PORT=8080
+SPRING_JPA_HIBERNATE_DDL_AUTO=validate
 
-<span class="c1"># === Security Configuration ===</span>
-<span class="nv">JWT_SECRET</span><span class="o">=</span>your-256-bit-jwt-secret-key-here
-<span class="nv">JWT_EXPIRATION_HOURS</span><span class="o">=</span><span class="m">24</span>
-<span class="nv">SSL_ENABLED</span><span class="o">=</span><span class="nb">true</span>
+# === Security Configuration ===
+JWT_SECRET=your-256-bit-jwt-secret-key-here
+JWT_EXPIRATION_HOURS=24
+SSL_ENABLED=true
 
-<span class="c1"># === Frontend Configuration ===</span>
-<span class="nv">VITE_API_URL</span><span class="o">=</span>https://api.yourdomain.com
-<span class="nv">VITE_GRAPHQL_URL</span><span class="o">=</span>https://api.yourdomain.com/graphql
-<span class="nv">VITE_ENV</span><span class="o">=</span>production
+# === Frontend Configuration ===
+VITE_API_URL=https://api.yourdomain.com
+VITE_GRAPHQL_URL=https://api.yourdomain.com/graphql
+VITE_ENV=production
 
-<span class="c1"># === CORS Configuration ===</span>
-<span class="nv">CORS_ALLOWED_ORIGINS</span><span class="o">=</span>https://yourdomain.com,https://www.yourdomain.com
-<span class="nv">CORS_ALLOWED_METHODS</span><span class="o">=</span>GET,POST,OPTIONS,PUT,DELETE
-<span class="nv">CORS_ALLOWED_HEADERS</span><span class="o">=</span>*
-<span class="nv">CORS_ALLOW_CREDENTIALS</span><span class="o">=</span><span class="nb">true</span>
+# === CORS Configuration ===
+CORS_ALLOWED_ORIGINS=https://yourdomain.com,https://www.yourdomain.com
+CORS_ALLOWED_METHODS=GET,POST,OPTIONS,PUT,DELETE
+CORS_ALLOWED_HEADERS=*
+CORS_ALLOW_CREDENTIALS=true
 
-<span class="c1"># === Logging Configuration ===</span>
-<span class="nv">LOGGING_LEVEL_ROOT</span><span class="o">=</span>WARN
-<span class="nv">LOGGING_LEVEL_COM_DEALSPHERE</span><span class="o">=</span>INFO
+# === Logging Configuration ===
+LOGGING_LEVEL_ROOT=WARN
+LOGGING_LEVEL_COM_DEALSPHERE=INFO
 
-<span class="c1"># === Monitoring Configuration ===</span>
-<span class="nv">MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE</span><span class="o">=</span>health,metrics,prometheus,info
-<span class="nv">MANAGEMENT_ENDPOINT_HEALTH_SHOW_DETAILS</span><span class="o">=</span>when-authorized
+# === Monitoring Configuration ===
+MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=health,metrics,prometheus,info
+MANAGEMENT_ENDPOINT_HEALTH_SHOW_DETAILS=when-authorized
 
-<span class="c1"># === Email Configuration (Optional) ===</span>
-<span class="nv">SPRING_MAIL_HOST</span><span class="o">=</span>smtp.yourdomain.com
-<span class="nv">SPRING_MAIL_PORT</span><span class="o">=</span><span class="m">587</span>
-<span class="nv">SPRING_MAIL_USERNAME</span><span class="o">=</span>noreply@yourdomain.com
-<span class="nv">SPRING_MAIL_PASSWORD</span><span class="o">=</span>your-email-password
-<span class="nv">SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH</span><span class="o">=</span><span class="nb">true</span>
-<span class="nv">SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE</span><span class="o">=</span><span class="nb">true</span>
-</code></pre></div>
-
+# === Email Configuration (Optional) ===
+SPRING_MAIL_HOST=smtp.yourdomain.com
+SPRING_MAIL_PORT=587
+SPRING_MAIL_USERNAME=noreply@yourdomain.com
+SPRING_MAIL_PASSWORD=your-email-password
+SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH=true
+SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE=true
+</code></pre>
 <h2 id="ssltls-configuration">SSL/TLS Configuration<a class="headerlink" href="#ssltls-configuration" title="Permanent link">&para;</a></h2>
 <h3 id="option-1-lets-encrypt-with-certbot">Option 1: Let's Encrypt with Certbot<a class="headerlink" href="#option-1-lets-encrypt-with-certbot" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Install Certbot</span>
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>certbot<span class="w"> </span>python3-certbot-nginx
+<pre><code class="language-bash"># Install Certbot
+sudo apt install certbot python3-certbot-nginx
 
-<span class="c1"># Obtain SSL certificate</span>
-sudo<span class="w"> </span>certbot<span class="w"> </span>--nginx<span class="w"> </span>-d<span class="w"> </span>yourdomain.com<span class="w"> </span>-d<span class="w"> </span>www.yourdomain.com
+# Obtain SSL certificate
+sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
 
-<span class="c1"># Verify auto-renewal</span>
-sudo<span class="w"> </span>certbot<span class="w"> </span>renew<span class="w"> </span>--dry-run
-</code></pre></div>
-
+# Verify auto-renewal
+sudo certbot renew --dry-run
+</code></pre>
 <h3 id="option-2-custom-ssl-certificate">Option 2: Custom SSL Certificate<a class="headerlink" href="#option-2-custom-ssl-certificate" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Create SSL directory</span>
-sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/ssl/dealsphere
+<pre><code class="language-bash"># Create SSL directory
+sudo mkdir -p /etc/ssl/dealsphere
 
-<span class="c1"># Copy your certificate files</span>
-sudo<span class="w"> </span>cp<span class="w"> </span>your-domain.crt<span class="w"> </span>/etc/ssl/dealsphere/
-sudo<span class="w"> </span>cp<span class="w"> </span>your-domain.key<span class="w"> </span>/etc/ssl/dealsphere/
-sudo<span class="w"> </span>cp<span class="w"> </span>ca-bundle.crt<span class="w"> </span>/etc/ssl/dealsphere/
+# Copy your certificate files
+sudo cp your-domain.crt /etc/ssl/dealsphere/
+sudo cp your-domain.key /etc/ssl/dealsphere/
+sudo cp ca-bundle.crt /etc/ssl/dealsphere/
 
-<span class="c1"># Set proper permissions</span>
-sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/etc/ssl/dealsphere/*.key
-sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>/etc/ssl/dealsphere/*.crt
-</code></pre></div>
-
+# Set proper permissions
+sudo chmod 600 /etc/ssl/dealsphere/*.key
+sudo chmod 644 /etc/ssl/dealsphere/*.crt
+</code></pre>
 <h3 id="nginx-ssl-configuration">Nginx SSL Configuration<a class="headerlink" href="#nginx-ssl-configuration" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># /etc/nginx/sites-available/dealsphere</span>
-<span class="k">server</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
-<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">yourdomain.com</span><span class="w"> </span><span class="s">www.yourdomain.com</span><span class="p">;</span>
-<span class="w">    </span><span class="kn">return</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="s">https://</span><span class="nv">$server_name$request_uri</span><span class="p">;</span>
-<span class="p">}</span>
+<pre><code class="language-nginx"># /etc/nginx/sites-available/dealsphere
+server {
+    listen 80;
+    server_name yourdomain.com www.yourdomain.com;
+    return 301 https://$server_name$request_uri;
+}
 
-<span class="k">server</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span>
-<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">yourdomain.com</span><span class="w"> </span><span class="s">www.yourdomain.com</span><span class="p">;</span>
+server {
+    listen 443 ssl http2;
+    server_name yourdomain.com www.yourdomain.com;
 
-<span class="w">    </span><span class="kn">ssl_certificate</span><span class="w"> </span><span class="s">/etc/ssl/dealsphere/your-domain.crt</span><span class="p">;</span>
-<span class="w">    </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">/etc/ssl/dealsphere/your-domain.key</span><span class="p">;</span>
+    ssl_certificate /etc/ssl/dealsphere/your-domain.crt;
+    ssl_certificate_key /etc/ssl/dealsphere/your-domain.key;
 
-<span class="w">    </span><span class="kn">ssl_protocols</span><span class="w"> </span><span class="s">TLSv1.2</span><span class="w"> </span><span class="s">TLSv1.3</span><span class="p">;</span>
-<span class="w">    </span><span class="kn">ssl_ciphers</span><span class="w"> </span><span class="s">ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512</span><span class="p">;</span>
-<span class="w">    </span><span class="kn">ssl_prefer_server_ciphers</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
-<span class="w">    </span><span class="kn">ssl_session_cache</span><span class="w"> </span><span class="s">shared:SSL:10m</span><span class="p">;</span>
-<span class="w">    </span><span class="kn">ssl_session_timeout</span><span class="w"> </span><span class="mi">10m</span><span class="p">;</span>
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512;
+    ssl_prefer_server_ciphers off;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
 
-<span class="w">    </span><span class="c1"># Security headers</span>
-<span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Strict-Transport-Security</span><span class="w"> </span><span class="s">&quot;max-age=63072000&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
-<span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-Content-Type-Options</span><span class="w"> </span><span class="s">&quot;nosniff&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
-<span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-Frame-Options</span><span class="w"> </span><span class="s">&quot;DENY&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
-<span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-XSS-Protection</span><span class="w"> </span><span class="s">&quot;1</span><span class="p">;</span><span class="w"> </span><span class="kn">mode=block&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+    # Security headers
+    add_header Strict-Transport-Security &quot;max-age=63072000&quot; always;
+    add_header X-Content-Type-Options &quot;nosniff&quot; always;
+    add_header X-Frame-Options &quot;DENY&quot; always;
+    add_header X-XSS-Protection &quot;1; mode=block&quot; always;
 
-<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://frontend:3000</span><span class="p">;</span>
-<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
-<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
-<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
-<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
+    location / {
+        proxy_pass http://frontend:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
 
-<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/api/</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://backend:8080/</span><span class="p">;</span>
-<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
-<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
-<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
-<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+    location /api/ {
+        proxy_pass http://backend:8080/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+</code></pre>
 <h2 id="database-management">Database Management<a class="headerlink" href="#database-management" title="Permanent link">&para;</a></h2>
 <h3 id="production-database-setup">Production Database Setup<a class="headerlink" href="#production-database-setup" title="Permanent link">&para;</a></h3>
 <h4 id="postgresql-production-configuration">PostgreSQL Production Configuration<a class="headerlink" href="#postgresql-production-configuration" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">-- Create production database and user</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">dealsphere_prod</span><span class="p">;</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">dealsphere_prod</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">ENCRYPTED</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;your-secure-password&#39;</span><span class="p">;</span>
-<span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">dealsphere_prod</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">dealsphere_prod</span><span class="p">;</span>
-<span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">dealsphere_prod</span><span class="p">;</span>
-</code></pre></div>
-
+<pre><code class="language-sql">-- Create production database and user
+CREATE DATABASE dealsphere_prod;
+CREATE USER dealsphere_prod WITH ENCRYPTED PASSWORD 'your-secure-password';
+GRANT ALL PRIVILEGES ON DATABASE dealsphere_prod TO dealsphere_prod;
+GRANT ALL ON SCHEMA public TO dealsphere_prod;
+</code></pre>
 <h4 id="database-migration-strategy">Database Migration Strategy<a class="headerlink" href="#database-migration-strategy" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 1. Backup current database (if updating)</span>
-pg_dump<span class="w"> </span>-h<span class="w"> </span>your-db-host<span class="w"> </span>-U<span class="w"> </span>dealsphere_prod<span class="w"> </span>dealsphere_prod<span class="w"> </span>&gt;<span class="w"> </span>backup_<span class="k">$(</span>date<span class="w"> </span>+%Y%m%d_%H%M%S<span class="k">)</span>.sql
+<pre><code class="language-bash"># 1. Backup current database (if updating)
+pg_dump -h your-db-host -U dealsphere_prod dealsphere_prod &gt; backup_$(date +%Y%m%d_%H%M%S).sql
 
-<span class="c1"># 2. Test migrations on staging first</span>
-docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.staging.yml<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>backend<span class="w"> </span>./gradlew<span class="w"> </span>flyway:info
-docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.staging.yml<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>backend<span class="w"> </span>./gradlew<span class="w"> </span>flyway:migrate
+# 2. Test migrations on staging first
+docker compose -f docker-compose.staging.yml exec backend ./gradlew flyway:info
+docker compose -f docker-compose.staging.yml exec backend ./gradlew flyway:migrate
 
-<span class="c1"># 3. Apply to production (during maintenance window)</span>
-docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>backend<span class="w"> </span>./gradlew<span class="w"> </span>flyway:migrate
+# 3. Apply to production (during maintenance window)
+docker compose exec backend ./gradlew flyway:migrate
 
-<span class="c1"># 4. Verify migration success</span>
-docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>backend<span class="w"> </span>./gradlew<span class="w"> </span>flyway:info
-</code></pre></div>
-
+# 4. Verify migration success
+docker compose exec backend ./gradlew flyway:info
+</code></pre>
 <h4 id="database-backup-strategy">Database Backup Strategy<a class="headerlink" href="#database-backup-strategy" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Create backup script</span>
-cat<span class="w"> </span>&gt;<span class="w"> </span>/scripts/backup-dealsphere.sh<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<span class="s">#!/bin/bash</span>
-<span class="s">BACKUP_DIR=&quot;/backups/dealsphere&quot;</span>
-<span class="s">TIMESTAMP=$(date +%Y%m%d_%H%M%S)</span>
-<span class="s">BACKUP_FILE=&quot;dealsphere_prod_backup_${TIMESTAMP}.sql&quot;</span>
+<pre><code class="language-bash"># Create backup script
+cat &gt; /scripts/backup-dealsphere.sh &lt;&lt; 'EOF'
+#!/bin/bash
+BACKUP_DIR=&quot;/backups/dealsphere&quot;
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+BACKUP_FILE=&quot;dealsphere_prod_backup_${TIMESTAMP}.sql&quot;
 
-<span class="s">mkdir -p $BACKUP_DIR</span>
+mkdir -p $BACKUP_DIR
 
-<span class="s"># Create backup</span>
-<span class="s">pg_dump -h your-db-host -U dealsphere_prod dealsphere_prod &gt; $BACKUP_DIR/$BACKUP_FILE</span>
+# Create backup
+pg_dump -h your-db-host -U dealsphere_prod dealsphere_prod &gt; $BACKUP_DIR/$BACKUP_FILE
 
-<span class="s"># Compress backup</span>
-<span class="s">gzip $BACKUP_DIR/$BACKUP_FILE</span>
+# Compress backup
+gzip $BACKUP_DIR/$BACKUP_FILE
 
-<span class="s"># Keep only last 30 days of backups</span>
-<span class="s">find $BACKUP_DIR -name &quot;*.sql.gz&quot; -mtime +30 -delete</span>
+# Keep only last 30 days of backups
+find $BACKUP_DIR -name &quot;*.sql.gz&quot; -mtime +30 -delete
 
-<span class="s">echo &quot;Backup completed: $BACKUP_FILE.gz&quot;</span>
-<span class="s">EOF</span>
+echo &quot;Backup completed: $BACKUP_FILE.gz&quot;
+EOF
 
-chmod<span class="w"> </span>+x<span class="w"> </span>/scripts/backup-dealsphere.sh
+chmod +x /scripts/backup-dealsphere.sh
 
-<span class="c1"># Schedule daily backups</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;0 2 * * * /scripts/backup-dealsphere.sh&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>crontab<span class="w"> </span>-
-</code></pre></div>
-
+# Schedule daily backups
+echo &quot;0 2 * * * /scripts/backup-dealsphere.sh&quot; | sudo crontab -
+</code></pre>
 <h2 id="health-checks-and-monitoring">Health Checks and Monitoring<a class="headerlink" href="#health-checks-and-monitoring" title="Permanent link">&para;</a></h2>
 <h3 id="application-health-endpoints">Application Health Endpoints<a class="headerlink" href="#application-health-endpoints" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Check application health</span>
-curl<span class="w"> </span>-f<span class="w"> </span>https://yourdomain.com/api/actuator/health
+<pre><code class="language-bash"># Check application health
+curl -f https://yourdomain.com/api/actuator/health
 
-<span class="c1"># Check detailed health information</span>
-curl<span class="w"> </span>-f<span class="w"> </span>https://yourdomain.com/api/actuator/health/db
-curl<span class="w"> </span>-f<span class="w"> </span>https://yourdomain.com/api/actuator/health/diskSpace
+# Check detailed health information
+curl -f https://yourdomain.com/api/actuator/health/db
+curl -f https://yourdomain.com/api/actuator/health/diskSpace
 
-<span class="c1"># Check metrics</span>
-curl<span class="w"> </span>-f<span class="w"> </span>https://yourdomain.com/api/actuator/metrics
-curl<span class="w"> </span>-f<span class="w"> </span>https://yourdomain.com/api/actuator/prometheus
-</code></pre></div>
-
+# Check metrics
+curl -f https://yourdomain.com/api/actuator/metrics
+curl -f https://yourdomain.com/api/actuator/prometheus
+</code></pre>
 <h3 id="production-monitoring-setup">Production Monitoring Setup<a class="headerlink" href="#production-monitoring-setup" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Start monitoring stack</span>
-<span class="nb">cd</span><span class="w"> </span>monitoring
-docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.monitoring.yml<span class="w"> </span>up<span class="w"> </span>-d
+<pre><code class="language-bash"># Start monitoring stack
+cd monitoring
+docker compose -f docker-compose.monitoring.yml up -d
 
-<span class="c1"># Configure alerts for production</span>
-<span class="c1"># See: observability-monitoring.md for detailed setup</span>
-</code></pre></div>
-
+# Configure alerts for production
+# See: observability-monitoring.md for detailed setup
+</code></pre>
 <h3 id="load-balancer-health-checks">Load Balancer Health Checks<a class="headerlink" href="#load-balancer-health-checks" title="Permanent link">&para;</a></h3>
 <p>Configure your load balancer health checks:
 - <strong>Health Check URL</strong>: <code>https://yourdomain.com/api/actuator/health</code>
@@ -2513,72 +2497,68 @@ docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> 
 <h2 id="scaling-and-performance">Scaling and Performance<a class="headerlink" href="#scaling-and-performance" title="Permanent link">&para;</a></h2>
 <h3 id="horizontal-scaling">Horizontal Scaling<a class="headerlink" href="#horizontal-scaling" title="Permanent link">&para;</a></h3>
 <h4 id="docker-compose-scaling">Docker Compose Scaling<a class="headerlink" href="#docker-compose-scaling" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Scale backend service</span>
-docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--scale<span class="w"> </span><span class="nv">backend</span><span class="o">=</span><span class="m">3</span>
+<pre><code class="language-bash"># Scale backend service
+docker compose up -d --scale backend=3
 
-<span class="c1"># Use nginx load balancing</span>
-<span class="c1"># Update nginx.conf:</span>
-upstream<span class="w"> </span>backend<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span>server<span class="w"> </span>backend_1:8080<span class="p">;</span>
-<span class="w">    </span>server<span class="w"> </span>backend_2:8080<span class="p">;</span>
-<span class="w">    </span>server<span class="w"> </span>backend_3:8080<span class="p">;</span>
-<span class="o">}</span>
-</code></pre></div>
-
+# Use nginx load balancing
+# Update nginx.conf:
+upstream backend {
+    server backend_1:8080;
+    server backend_2:8080;
+    server backend_3:8080;
+}
+</code></pre>
 <h4 id="kubernetes-scaling">Kubernetes Scaling<a class="headerlink" href="#kubernetes-scaling" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Scale deployment</span>
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>dealsphere-backend<span class="w"> </span>--replicas<span class="o">=</span><span class="m">5</span><span class="w"> </span>-n<span class="w"> </span>dealsphere-prod
+<pre><code class="language-bash"># Scale deployment
+kubectl scale deployment dealsphere-backend --replicas=5 -n dealsphere-prod
 
-<span class="c1"># Auto-scaling configuration</span>
-kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
-<span class="s">apiVersion: autoscaling/v2</span>
-<span class="s">kind: HorizontalPodAutoscaler</span>
-<span class="s">metadata:</span>
-<span class="s">  name: dealsphere-backend-hpa</span>
-<span class="s">  namespace: dealsphere-prod</span>
-<span class="s">spec:</span>
-<span class="s">  scaleTargetRef:</span>
-<span class="s">    apiVersion: apps/v1</span>
-<span class="s">    kind: Deployment</span>
-<span class="s">    name: dealsphere-backend</span>
-<span class="s">  minReplicas: 2</span>
-<span class="s">  maxReplicas: 10</span>
-<span class="s">  metrics:</span>
-<span class="s">  - type: Resource</span>
-<span class="s">    resource:</span>
-<span class="s">      name: cpu</span>
-<span class="s">      target:</span>
-<span class="s">        type: Utilization</span>
-<span class="s">        averageUtilization: 70</span>
-<span class="s">EOF</span>
-</code></pre></div>
-
+# Auto-scaling configuration
+kubectl apply -f - &lt;&lt;EOF
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: dealsphere-backend-hpa
+  namespace: dealsphere-prod
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: dealsphere-backend
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+EOF
+</code></pre>
 <h3 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h3>
 <h4 id="jvm-tuning">JVM Tuning<a class="headerlink" href="#jvm-tuning" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Production JVM settings</span>
-<span class="nv">JAVA_OPTS</span><span class="o">=</span><span class="s2">&quot;-Xms2g -Xmx4g \</span>
-<span class="s2">-XX:+UseG1GC \</span>
-<span class="s2">-XX:MaxGCPauseMillis=200 \</span>
-<span class="s2">-XX:+HeapDumpOnOutOfMemoryError \</span>
-<span class="s2">-XX:HeapDumpPath=/tmp/heapdump.hprof \</span>
-<span class="s2">-Djava.security.egd=file:/dev/./urandom&quot;</span>
-</code></pre></div>
-
+<pre><code class="language-bash"># Production JVM settings
+JAVA_OPTS=&quot;-Xms2g -Xmx4g \
+-XX:+UseG1GC \
+-XX:MaxGCPauseMillis=200 \
+-XX:+HeapDumpOnOutOfMemoryError \
+-XX:HeapDumpPath=/tmp/heapdump.hprof \
+-Djava.security.egd=file:/dev/./urandom&quot;
+</code></pre>
 <h4 id="database-performance">Database Performance<a class="headerlink" href="#database-performance" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">-- PostgreSQL performance tuning</span>
-<span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">shared_buffers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;256MB&#39;</span><span class="p">;</span>
-<span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">effective_cache_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;1GB&#39;</span><span class="p">;</span>
-<span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">maintenance_work_mem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;64MB&#39;</span><span class="p">;</span>
-<span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">checkpoint_completion_target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">;</span>
-<span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">wal_buffers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;16MB&#39;</span><span class="p">;</span>
-<span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">default_statistics_target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
-<span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">random_page_cost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">;</span>
-<span class="k">ALTER</span><span class="w"> </span><span class="k">SYSTEM</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">effective_io_concurrency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span>
+<pre><code class="language-sql">-- PostgreSQL performance tuning
+ALTER SYSTEM SET shared_buffers = '256MB';
+ALTER SYSTEM SET effective_cache_size = '1GB';
+ALTER SYSTEM SET maintenance_work_mem = '64MB';
+ALTER SYSTEM SET checkpoint_completion_target = 0.7;
+ALTER SYSTEM SET wal_buffers = '16MB';
+ALTER SYSTEM SET default_statistics_target = 100;
+ALTER SYSTEM SET random_page_cost = 1.1;
+ALTER SYSTEM SET effective_io_concurrency = 200;
 
-<span class="c1">-- Reload configuration</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">pg_reload_conf</span><span class="p">();</span>
-</code></pre></div>
-
+-- Reload configuration
+SELECT pg_reload_conf();
+</code></pre>
 <h2 id="disaster-recovery">Disaster Recovery<a class="headerlink" href="#disaster-recovery" title="Permanent link">&para;</a></h2>
 <h3 id="backup-strategy">Backup Strategy<a class="headerlink" href="#backup-strategy" title="Permanent link">&para;</a></h3>
 <p><strong>Automated Backups:</strong>
@@ -2591,61 +2571,58 @@ kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> <
 - <strong>Tertiary</strong>: Geographic backup location</p>
 <h3 id="recovery-procedures">Recovery Procedures<a class="headerlink" href="#recovery-procedures" title="Permanent link">&para;</a></h3>
 <h4 id="database-recovery">Database Recovery<a class="headerlink" href="#database-recovery" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Stop application</span>
-docker<span class="w"> </span>compose<span class="w"> </span>stop<span class="w"> </span>backend
+<pre><code class="language-bash"># Stop application
+docker compose stop backend
 
-<span class="c1"># Restore database from backup</span>
-gunzip<span class="w"> </span>-c<span class="w"> </span>/backups/dealsphere/dealsphere_prod_backup_20231215_020000.sql.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>psql<span class="w"> </span>-h<span class="w"> </span>your-db-host<span class="w"> </span>-U<span class="w"> </span>dealsphere_prod<span class="w"> </span>dealsphere_prod
+# Restore database from backup
+gunzip -c /backups/dealsphere/dealsphere_prod_backup_20231215_020000.sql.gz | \
+  psql -h your-db-host -U dealsphere_prod dealsphere_prod
 
-<span class="c1"># Restart application</span>
-docker<span class="w"> </span>compose<span class="w"> </span>start<span class="w"> </span>backend
+# Restart application
+docker compose start backend
 
-<span class="c1"># Verify recovery</span>
-curl<span class="w"> </span>-f<span class="w"> </span>https://yourdomain.com/api/actuator/health
-</code></pre></div>
-
+# Verify recovery
+curl -f https://yourdomain.com/api/actuator/health
+</code></pre>
 <h4 id="full-system-recovery">Full System Recovery<a class="headerlink" href="#full-system-recovery" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 1. Provision new infrastructure</span>
-<span class="c1"># 2. Restore application code</span>
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-org/dealsphere-platform.git
+<pre><code class="language-bash"># 1. Provision new infrastructure
+# 2. Restore application code
+git clone https://github.com/your-org/dealsphere-platform.git
 
-<span class="c1"># 3. Restore configuration</span>
-cp<span class="w"> </span>/backups/config/.env.production<span class="w"> </span>.env
+# 3. Restore configuration
+cp /backups/config/.env.production .env
 
-<span class="c1"># 4. Restore database</span>
-<span class="c1"># (See database recovery above)</span>
+# 4. Restore database
+# (See database recovery above)
 
-<span class="c1"># 5. Deploy application</span>
-docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.yml<span class="w"> </span>up<span class="w"> </span>-d
+# 5. Deploy application
+docker compose -f docker-compose.yml up -d
 
-<span class="c1"># 6. Verify all services</span>
+# 6. Verify all services
 ./scripts/health-check.sh
-</code></pre></div>
-
+</code></pre>
 <h2 id="security-hardening">Security Hardening<a class="headerlink" href="#security-hardening" title="Permanent link">&para;</a></h2>
 <h3 id="server-security">Server Security<a class="headerlink" href="#server-security" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Update system packages</span>
-sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+<pre><code class="language-bash"># Update system packages
+sudo apt update &amp;&amp; sudo apt upgrade -y
 
-<span class="c1"># Configure firewall</span>
-sudo<span class="w"> </span>ufw<span class="w"> </span>default<span class="w"> </span>deny<span class="w"> </span>incoming
-sudo<span class="w"> </span>ufw<span class="w"> </span>default<span class="w"> </span>allow<span class="w"> </span>outgoing
-sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span>ssh
-sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">80</span>/tcp
-sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">443</span>/tcp
-sudo<span class="w"> </span>ufw<span class="w"> </span>--force<span class="w"> </span><span class="nb">enable</span>
+# Configure firewall
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw --force enable
 
-<span class="c1"># Disable root login</span>
-sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/PermitRootLogin yes/PermitRootLogin no/&#39;</span><span class="w"> </span>/etc/ssh/sshd_config
-sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>sshd
+# Disable root login
+sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
+sudo systemctl reload sshd
 
-<span class="c1"># Install fail2ban</span>
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>fail2ban
-sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>fail2ban
-sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>fail2ban
-</code></pre></div>
-
+# Install fail2ban
+sudo apt install fail2ban
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban
+</code></pre>
 <h3 id="application-security">Application Security<a class="headerlink" href="#application-security" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Secrets Management</strong>: Use environment variables, never commit secrets</li>
@@ -2656,102 +2633,95 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w
 <li><strong>Security Headers</strong>: HSTS, X-Frame-Options, CSP implemented</li>
 </ul>
 <h3 id="network-security">Network Security<a class="headerlink" href="#network-security" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Docker network isolation</span>
-docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>--driver<span class="w"> </span>bridge<span class="w"> </span>dealsphere-network
+<pre><code class="language-bash"># Docker network isolation
+docker network create --driver bridge dealsphere-network
 
-<span class="c1"># Configure iptables rules (example)</span>
-sudo<span class="w"> </span>iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">8080</span><span class="w"> </span>-s<span class="w"> </span><span class="m">10</span>.0.0.0/8<span class="w"> </span>-j<span class="w"> </span>ACCEPT
-sudo<span class="w"> </span>iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">8080</span><span class="w"> </span>-j<span class="w"> </span>DROP
-</code></pre></div>
-
+# Configure iptables rules (example)
+sudo iptables -A INPUT -p tcp --dport 8080 -s 10.0.0.0/8 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
+</code></pre>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="common-production-issues">Common Production Issues<a class="headerlink" href="#common-production-issues" title="Permanent link">&para;</a></h3>
 <h4 id="application-wont-start">Application Won't Start<a class="headerlink" href="#application-wont-start" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Check container logs</span>
-docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>backend
-docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>frontend
-docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>db
+<pre><code class="language-bash"># Check container logs
+docker compose logs backend
+docker compose logs frontend
+docker compose logs db
 
-<span class="c1"># Check resource usage</span>
-docker<span class="w"> </span>stats
+# Check resource usage
+docker stats
 
-<span class="c1"># Check disk space</span>
-df<span class="w"> </span>-h
+# Check disk space
+df -h
 
-<span class="c1"># Check memory usage</span>
-free<span class="w"> </span>-h
+# Check memory usage
+free -h
 
-<span class="c1"># Check application health</span>
-curl<span class="w"> </span>-f<span class="w"> </span>https://yourdomain.com/api/actuator/health
-</code></pre></div>
-
+# Check application health
+curl -f https://yourdomain.com/api/actuator/health
+</code></pre>
 <h4 id="database-connection-issues">Database Connection Issues<a class="headerlink" href="#database-connection-issues" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Test database connectivity</span>
-docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>backend<span class="w"> </span>ping<span class="w"> </span>db
-docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>backend<span class="w"> </span>nc<span class="w"> </span>-zv<span class="w"> </span>db<span class="w"> </span><span class="m">5432</span>
+<pre><code class="language-bash"># Test database connectivity
+docker compose exec backend ping db
+docker compose exec backend nc -zv db 5432
 
-<span class="c1"># Check database logs</span>
-docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>db
+# Check database logs
+docker compose logs db
 
-<span class="c1"># Verify database credentials</span>
-docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>backend<span class="w"> </span>env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>POSTGRES
-</code></pre></div>
-
+# Verify database credentials
+docker compose exec backend env | grep POSTGRES
+</code></pre>
 <h4 id="high-memory-usage">High Memory Usage<a class="headerlink" href="#high-memory-usage" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Monitor JVM memory</span>
-curl<span class="w"> </span>-s<span class="w"> </span>https://yourdomain.com/api/actuator/metrics/jvm.memory.used<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
+<pre><code class="language-bash"># Monitor JVM memory
+curl -s https://yourdomain.com/api/actuator/metrics/jvm.memory.used | jq .
 
-<span class="c1"># Generate heap dump</span>
-docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>backend<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>-3<span class="w"> </span><span class="m">1</span>
+# Generate heap dump
+docker compose exec backend kill -3 1
 
-<span class="c1"># Analyze garbage collection</span>
-curl<span class="w"> </span>-s<span class="w"> </span>https://yourdomain.com/api/actuator/metrics/jvm.gc.pause<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
-</code></pre></div>
-
+# Analyze garbage collection
+curl -s https://yourdomain.com/api/actuator/metrics/jvm.gc.pause | jq .
+</code></pre>
 <h4 id="ssl-certificate-issues">SSL Certificate Issues<a class="headerlink" href="#ssl-certificate-issues" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Check certificate expiration</span>
-openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span>yourdomain.com:443<span class="w"> </span>-servername<span class="w"> </span>yourdomain.com<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-dates
+<pre><code class="language-bash"># Check certificate expiration
+openssl s_client -connect yourdomain.com:443 -servername yourdomain.com 2&gt;/dev/null | \
+  openssl x509 -noout -dates
 
-<span class="c1"># Renew Let&#39;s Encrypt certificate</span>
-sudo<span class="w"> </span>certbot<span class="w"> </span>renew<span class="w"> </span>--force-renewal
+# Renew Let's Encrypt certificate
+sudo certbot renew --force-renewal
 
-<span class="c1"># Test SSL configuration</span>
-curl<span class="w"> </span>-I<span class="w"> </span>https://yourdomain.com
-</code></pre></div>
-
+# Test SSL configuration
+curl -I https://yourdomain.com
+</code></pre>
 <h3 id="performance-issues">Performance Issues<a class="headerlink" href="#performance-issues" title="Permanent link">&para;</a></h3>
 <h4 id="high-cpu-usage">High CPU Usage<a class="headerlink" href="#high-cpu-usage" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Monitor CPU usage</span>
-docker<span class="w"> </span>stats
+<pre><code class="language-bash"># Monitor CPU usage
+docker stats
 
-<span class="c1"># Check for long-running queries</span>
-docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>db<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span><span class="nv">$POSTGRES_USER</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">$POSTGRES_DB</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
-<span class="s2">  SELECT pid, now() - pg_stat_activity.query_start AS duration, query</span>
-<span class="s2">  FROM pg_stat_activity</span>
-<span class="s2">  WHERE (now() - pg_stat_activity.query_start) &gt; interval &#39;5 minutes&#39;;</span>
-<span class="s2">&quot;</span>
+# Check for long-running queries
+docker compose exec db psql -U $POSTGRES_USER -d $POSTGRES_DB -c &quot;
+  SELECT pid, now() - pg_stat_activity.query_start AS duration, query
+  FROM pg_stat_activity
+  WHERE (now() - pg_stat_activity.query_start) &gt; interval '5 minutes';
+&quot;
 
-<span class="c1"># Profile application</span>
-curl<span class="w"> </span>-s<span class="w"> </span>https://yourdomain.com/api/actuator/metrics/process.cpu.usage<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
-</code></pre></div>
-
+# Profile application
+curl -s https://yourdomain.com/api/actuator/metrics/process.cpu.usage | jq .
+</code></pre>
 <h4 id="high-response-times">High Response Times<a class="headerlink" href="#high-response-times" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Check response times</span>
-curl<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;@curl-format.txt&quot;</span><span class="w"> </span>-o<span class="w"> </span>/dev/null<span class="w"> </span>-s<span class="w"> </span>https://yourdomain.com/api/health
+<pre><code class="language-bash"># Check response times
+curl -w &quot;@curl-format.txt&quot; -o /dev/null -s https://yourdomain.com/api/health
 
-<span class="c1"># Monitor database performance</span>
-docker<span class="w"> </span>compose<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>db<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span><span class="nv">$POSTGRES_USER</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">$POSTGRES_DB</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
-<span class="s2">  SELECT query, mean_time, calls</span>
-<span class="s2">  FROM pg_stat_statements</span>
-<span class="s2">  ORDER BY mean_time DESC</span>
-<span class="s2">  LIMIT 10;</span>
-<span class="s2">&quot;</span>
+# Monitor database performance
+docker compose exec db psql -U $POSTGRES_USER -d $POSTGRES_DB -c &quot;
+  SELECT query, mean_time, calls
+  FROM pg_stat_statements
+  ORDER BY mean_time DESC
+  LIMIT 10;
+&quot;
 
-<span class="c1"># Check for thread pool exhaustion</span>
-curl<span class="w"> </span>-s<span class="w"> </span>https://yourdomain.com/api/actuator/metrics/http.server.requests<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
-</code></pre></div>
-
+# Check for thread pool exhaustion
+curl -s https://yourdomain.com/api/actuator/metrics/http.server.requests | jq .
+</code></pre>
 <h2 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">&para;</a></h2>
 <h3 id="regular-maintenance-tasks">Regular Maintenance Tasks<a class="headerlink" href="#regular-maintenance-tasks" title="Permanent link">&para;</a></h3>
 <p><strong>Daily:</strong>
@@ -2770,46 +2740,45 @@ curl<span class="w"> </span>-s<span class="w"> </span>https://yourdomain.com/api
 - Performance optimization analysis
 - Security vulnerability scanning</p>
 <h3 id="maintenance-windows">Maintenance Windows<a class="headerlink" href="#maintenance-windows" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Create maintenance script</span>
-cat<span class="w"> </span>&gt;<span class="w"> </span>/scripts/maintenance.sh<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
-<span class="s">#!/bin/bash</span>
-<span class="s">echo &quot;Starting maintenance window...&quot;</span>
+<pre><code class="language-bash"># Create maintenance script
+cat &gt; /scripts/maintenance.sh &lt;&lt; 'EOF'
+#!/bin/bash
+echo &quot;Starting maintenance window...&quot;
 
-<span class="s"># 1. Enable maintenance mode</span>
-<span class="s">docker compose exec nginx cp /etc/nginx/maintenance.html /usr/share/nginx/html/index.html</span>
+# 1. Enable maintenance mode
+docker compose exec nginx cp /etc/nginx/maintenance.html /usr/share/nginx/html/index.html
 
-<span class="s"># 2. Graceful shutdown</span>
-<span class="s">docker compose stop backend</span>
-<span class="s">sleep 30</span>
+# 2. Graceful shutdown
+docker compose stop backend
+sleep 30
 
-<span class="s"># 3. Backup database</span>
-<span class="s">/scripts/backup-dealsphere.sh</span>
+# 3. Backup database
+/scripts/backup-dealsphere.sh
 
-<span class="s"># 4. Update application</span>
-<span class="s">git pull origin main</span>
-<span class="s">docker compose pull</span>
+# 4. Update application
+git pull origin main
+docker compose pull
 
-<span class="s"># 5. Database migrations</span>
-<span class="s">docker compose up -d db</span>
-<span class="s">sleep 30</span>
-<span class="s">docker compose run --rm backend ./gradlew flyway:migrate</span>
+# 5. Database migrations
+docker compose up -d db
+sleep 30
+docker compose run --rm backend ./gradlew flyway:migrate
 
-<span class="s"># 6. Start application</span>
-<span class="s">docker compose up -d</span>
+# 6. Start application
+docker compose up -d
 
-<span class="s"># 7. Health checks</span>
-<span class="s">sleep 60</span>
-<span class="s">curl -f https://yourdomain.com/api/actuator/health || exit 1</span>
+# 7. Health checks
+sleep 60
+curl -f https://yourdomain.com/api/actuator/health || exit 1
 
-<span class="s"># 8. Disable maintenance mode</span>
-<span class="s">docker compose exec nginx cp /etc/nginx/index.html /usr/share/nginx/html/index.html</span>
+# 8. Disable maintenance mode
+docker compose exec nginx cp /etc/nginx/index.html /usr/share/nginx/html/index.html
 
-<span class="s">echo &quot;Maintenance window completed successfully&quot;</span>
-<span class="s">EOF</span>
+echo &quot;Maintenance window completed successfully&quot;
+EOF
 
-chmod<span class="w"> </span>+x<span class="w"> </span>/scripts/maintenance.sh
-</code></pre></div>
-
+chmod +x /scripts/maintenance.sh
+</code></pre>
 <h2 id="related-documentation">Related Documentation<a class="headerlink" href="#related-documentation" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../cloud-infrastructure/">Cloud Infrastructure Setup</a></li>

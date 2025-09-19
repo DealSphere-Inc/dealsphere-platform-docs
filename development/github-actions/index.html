@@ -67,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -122,7 +122,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
@@ -132,7 +132,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#a9a9a9" data-md-color-accent="gray"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
@@ -1961,26 +1961,25 @@
 <p>This document provides comprehensive coverage of the GitHub Actions workflows used in the DealSphere platform, including configuration, customization, and troubleshooting.</p>
 <h2 id="pipeline-overview">Pipeline Overview<a class="headerlink" href="#pipeline-overview" title="Permanent link">&para;</a></h2>
 <p>The DealSphere platform uses multiple GitHub Actions workflows for comprehensive CI/CD:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">graph</span><span class="w"> </span><span class="n">TD</span>
-<span class="w">    </span><span class="n">A</span><span class="p">[</span><span class="n">Push</span><span class="o">/</span><span class="n">PR</span><span class="p">]</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">Backend</span><span class="w"> </span><span class="n">Tests</span><span class="p">]</span>
-<span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">C</span><span class="p">[</span><span class="n">Frontend</span><span class="w"> </span><span class="n">Tests</span><span class="p">]</span>
-<span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="n">Code</span><span class="w"> </span><span class="n">Quality</span><span class="p">]</span>
+<pre><code class="language-mermaid">graph TD
+    A[Push/PR] --&gt; B[Backend Tests]
+    A --&gt; C[Frontend Tests]
+    A --&gt; D[Code Quality]
 
-<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">E</span><span class="p">[</span><span class="n">Docker</span><span class="w"> </span><span class="n">Build</span><span class="w"> </span><span class="n">Test</span><span class="p">]</span>
-<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">E</span>
-<span class="w">    </span><span class="n">D</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">E</span>
+    B --&gt; E[Docker Build Test]
+    C --&gt; E
+    D --&gt; E
 
-<span class="w">    </span><span class="n">E</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">F</span><span class="p">[</span><span class="n">E2E</span><span class="w"> </span><span class="n">Tests</span><span class="p">]</span>
-<span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">G</span><span class="p">[</span><span class="n">Integration</span><span class="w"> </span><span class="n">Tests</span><span class="p">]</span>
+    E --&gt; F[E2E Tests]
+    F --&gt; G[Integration Tests]
 
-<span class="w">    </span><span class="n">G</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">H</span><span class="p">{</span><span class="n">Environment</span><span class="p">}</span>
-<span class="w">    </span><span class="n">H</span><span class="w"> </span><span class="o">--&gt;|</span><span class="n">Development</span><span class="o">|</span><span class="w"> </span><span class="n">I</span><span class="p">[</span><span class="n">Notify</span><span class="w"> </span><span class="n">Success</span><span class="o">/</span><span class="n">Failure</span><span class="p">]</span>
-<span class="w">    </span><span class="n">H</span><span class="w"> </span><span class="o">--&gt;|</span><span class="n">Main</span><span class="w"> </span><span class="n">Branch</span><span class="o">|</span><span class="w"> </span><span class="n">J</span><span class="p">[</span><span class="n">Deploy</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">Staging</span><span class="p">]</span>
+    G --&gt; H{Environment}
+    H --&gt;|Development| I[Notify Success/Failure]
+    H --&gt;|Main Branch| J[Deploy to Staging]
 
-<span class="w">    </span><span class="n">J</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">K</span><span class="p">[</span><span class="n">E2E</span><span class="w"> </span><span class="n">Tests</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Staging</span><span class="p">]</span>
-<span class="w">    </span><span class="n">K</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">L</span><span class="p">[</span><span class="n">Deploy</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">Production</span><span class="p">]</span>
-</code></pre></div>
-
+    J --&gt; K[E2E Tests - Staging]
+    K --&gt; L[Deploy to Production]
+</code></pre>
 <h2 id="workflow-files">Workflow Files<a class="headerlink" href="#workflow-files" title="Permanent link">&para;</a></h2>
 <h3 id="main-ci-pipeline">Main CI Pipeline<a class="headerlink" href="#main-ci-pipeline" title="Permanent link">&para;</a></h3>
 <p><strong>File:</strong> <code>.github/workflows/ci.yml</code></p>
@@ -2007,130 +2006,127 @@
 - Scheduled health checks</p>
 <h2 id="detailed-job-configuration">Detailed Job Configuration<a class="headerlink" href="#detailed-job-configuration" title="Permanent link">&para;</a></h2>
 <h3 id="backend-tests">Backend Tests<a class="headerlink" href="#backend-tests" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="nt">backend-test</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Backend Tests</span>
-<span class="w">  </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<pre><code class="language-yaml">backend-test:
+  name: Backend Tests
+  runs-on: ubuntu-latest
 
-<span class="w">  </span><span class="nt">services</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">postgres</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:16-alpine</span>
-<span class="w">      </span><span class="nt">env</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere_test</span>
-<span class="w">        </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_user</span>
-<span class="w">        </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_password</span>
-<span class="w">      </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432:5432</span>
-<span class="w">      </span><span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">        </span><span class="no">--health-cmd pg_isready</span>
-<span class="w">        </span><span class="no">--health-interval 10s</span>
-<span class="w">        </span><span class="no">--health-timeout 5s</span>
-<span class="w">        </span><span class="no">--health-retries 5</span>
+  services:
+    postgres:
+      image: postgres:16-alpine
+      env:
+        POSTGRES_DB: dealsphere_test
+        POSTGRES_USER: test_user
+        POSTGRES_PASSWORD: test_password
+      ports:
+        - 5432:5432
+      options: &gt;-
+        --health-cmd pg_isready
+        --health-interval 10s
+        --health-timeout 5s
+        --health-retries 5
 
-<span class="w">  </span><span class="nt">steps</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout code</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up JDK 17</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-java@v4</span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">java-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;17&#39;</span>
-<span class="w">        </span><span class="nt">distribution</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;temurin&#39;</span>
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cache Gradle packages</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v4</span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">          </span><span class="no">~/.gradle/caches</span>
-<span class="w">          </span><span class="no">~/.gradle/wrapper</span>
-<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-gradle-${{ hashFiles(&#39;**/*.gradle*&#39;) }}</span>
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run backend tests</span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./gradlew test</span>
-<span class="w">      </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./backend</span>
-<span class="w">      </span><span class="nt">env</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">SPRING_DATASOURCE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:postgresql://localhost:5432/dealsphere_test</span>
-<span class="w">        </span><span class="nt">SPRING_DATASOURCE_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_user</span>
-<span class="w">        </span><span class="nt">SPRING_DATASOURCE_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test_password</span>
-<span class="w">        </span><span class="nt">JWT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test-secret-key-for-ci-cd-pipeline-minimum-256-bits-long</span>
-</code></pre></div>
-
+    - name: Run backend tests
+      run: ./gradlew test
+      working-directory: ./backend
+      env:
+        SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/dealsphere_test
+        SPRING_DATASOURCE_USERNAME: test_user
+        SPRING_DATASOURCE_PASSWORD: test_password
+        JWT_SECRET: test-secret-key-for-ci-cd-pipeline-minimum-256-bits-long
+</code></pre>
 <p><strong>Key Features:</strong>
 - <strong>PostgreSQL Service</strong> - Real database for integration tests
 - <strong>Gradle Caching</strong> - Speeds up dependency resolution
 - <strong>Test Reports</strong> - JUnit XML output for GitHub
 - <strong>Environment Variables</strong> - Test-specific configuration</p>
 <h3 id="frontend-tests">Frontend Tests<a class="headerlink" href="#frontend-tests" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="nt">frontend-test</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Frontend Tests</span>
-<span class="w">  </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<pre><code class="language-yaml">frontend-test:
+  name: Frontend Tests
+  runs-on: ubuntu-latest
 
-<span class="w">  </span><span class="nt">steps</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Node.js 20</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;20&#39;</span>
+  steps:
+    - name: Set up Node.js 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install pnpm</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pnpm/action-setup@v3</span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
+    - name: Install pnpm
+      uses: pnpm/action-setup@v3
+      with:
+        version: 8
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pnpm install</span>
-<span class="w">      </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./frontend</span>
+    - name: Install dependencies
+      run: pnpm install
+      working-directory: ./frontend
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run linter</span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pnpm run lint</span>
-<span class="w">      </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./frontend</span>
+    - name: Run linter
+      run: pnpm run lint
+      working-directory: ./frontend
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run frontend tests</span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pnpm run test</span>
-<span class="w">      </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./frontend</span>
+    - name: Run frontend tests
+      run: pnpm run test
+      working-directory: ./frontend
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build frontend</span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pnpm run build</span>
-<span class="w">      </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./frontend</span>
-</code></pre></div>
-
+    - name: Build frontend
+      run: pnpm run build
+      working-directory: ./frontend
+</code></pre>
 <p><strong>Key Features:</strong>
 - <strong>pnpm Package Manager</strong> - Faster, more efficient installs
 - <strong>Multi-step Validation</strong> - Linting, testing, building
 - <strong>Build Artifact Verification</strong> - Ensures production readiness</p>
 <h3 id="e2e-tests-with-cypress">E2E Tests with Cypress<a class="headerlink" href="#e2e-tests-with-cypress" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="nt">e2e-test</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">E2E Tests (Cypress)</span>
-<span class="w">  </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<span class="w">  </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">docker-build-test</span><span class="p p-Indicator">]</span>
+<pre><code class="language-yaml">e2e-test:
+  name: E2E Tests (Cypress)
+  runs-on: ubuntu-latest
+  needs: [docker-build-test]
 
-<span class="w">  </span><span class="nt">steps</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Start application stack</span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">        </span><span class="no">cp .env.development .env</span>
-<span class="w">        </span><span class="no">docker compose up -d --build</span>
+  steps:
+    - name: Start application stack
+      run: |
+        cp .env.development .env
+        docker compose up -d --build
 
-<span class="w">        </span><span class="no"># Wait for backend health check</span>
-<span class="w">        </span><span class="no">timeout 180 bash -c &#39;until curl -f http://localhost/actuator/health &gt; /dev/null 2&gt;&amp;1; do sleep 5; done&#39;</span>
+        # Wait for backend health check
+        timeout 180 bash -c 'until curl -f http://localhost/actuator/health &gt; /dev/null 2&gt;&amp;1; do sleep 5; done'
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Cypress E2E tests</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cypress-io/github-action@v6</span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend</span>
-<span class="w">        </span><span class="nt">install</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">        </span><span class="nt">wait-on</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;http://localhost&#39;</span>
-<span class="w">        </span><span class="nt">wait-on-timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">120</span>
-<span class="w">        </span><span class="nt">config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baseUrl=http://localhost,video=true</span>
-<span class="w">      </span><span class="nt">env</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">CYPRESS_BASE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost</span>
+    - name: Run Cypress E2E tests
+      uses: cypress-io/github-action@v6
+      with:
+        working-directory: frontend
+        install: false
+        wait-on: 'http://localhost'
+        wait-on-timeout: 120
+        config: baseUrl=http://localhost,video=true
+      env:
+        CYPRESS_BASE_URL: http://localhost
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload artifacts on failure</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
-<span class="w">      </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">failure()</span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cypress-videos-${{ github.run_number }}</span>
-<span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend/cypress/videos</span>
-<span class="w">        </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
-</code></pre></div>
-
+    - name: Upload artifacts on failure
+      uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+        name: cypress-videos-${{ github.run_number }}
+        path: frontend/cypress/videos
+        retention-days: 7
+</code></pre>
 <p><strong>Key Features:</strong>
 - <strong>Full Stack Testing</strong> - Real application environment
 - <strong>Service Health Checks</strong> - Ensures readiness before testing
@@ -2139,334 +2135,307 @@
 <h2 id="environment-variables-and-secrets">Environment Variables and Secrets<a class="headerlink" href="#environment-variables-and-secrets" title="Permanent link">&para;</a></h2>
 <h3 id="repository-secrets">Repository Secrets<a class="headerlink" href="#repository-secrets" title="Permanent link">&para;</a></h3>
 <p>Configure these in GitHub repository settings:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Required Secrets</span>
-<span class="nv">SONAR_TOKEN</span><span class="o">=</span>&lt;sonarcloud-token&gt;
-<span class="nv">SLACK_WEBHOOK_URL</span><span class="o">=</span>&lt;slack-webhook-url&gt;
+<pre><code class="language-bash"># Required Secrets
+SONAR_TOKEN=&lt;sonarcloud-token&gt;
+SLACK_WEBHOOK_URL=&lt;slack-webhook-url&gt;
 
-<span class="c1"># Optional Secrets</span>
-<span class="nv">CYPRESS_RECORD_KEY</span><span class="o">=</span>&lt;cypress-dashboard-key&gt;
-<span class="nv">DOCKER_REGISTRY_TOKEN</span><span class="o">=</span>&lt;docker-registry-token&gt;
-</code></pre></div>
-
+# Optional Secrets
+CYPRESS_RECORD_KEY=&lt;cypress-dashboard-key&gt;
+DOCKER_REGISTRY_TOKEN=&lt;docker-registry-token&gt;
+</code></pre>
 <h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
 <p><strong>Development:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="nt">env</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">NODE_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;20&#39;</span>
-<span class="w">  </span><span class="nt">JAVA_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;17&#39;</span>
-<span class="w">  </span><span class="nt">POSTGRES_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;16&#39;</span>
-</code></pre></div>
-
+<pre><code class="language-yaml">env:
+  NODE_VERSION: '20'
+  JAVA_VERSION: '17'
+  POSTGRES_VERSION: '16'
+</code></pre>
 <p><strong>Test-specific:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="nt">env</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">SPRING_PROFILES_ACTIVE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
-<span class="w">  </span><span class="nt">JWT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test-secret-key-for-ci-cd-pipeline-minimum-256-bits-long</span>
-<span class="w">  </span><span class="nt">CYPRESS_BASE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost</span>
-</code></pre></div>
-
+<pre><code class="language-yaml">env:
+  SPRING_PROFILES_ACTIVE: test
+  JWT_SECRET: test-secret-key-for-ci-cd-pipeline-minimum-256-bits-long
+  CYPRESS_BASE_URL: http://localhost
+</code></pre>
 <h2 id="caching-strategy">Caching Strategy<a class="headerlink" href="#caching-strategy" title="Permanent link">&para;</a></h2>
 <h3 id="gradle-cache">Gradle Cache<a class="headerlink" href="#gradle-cache" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cache Gradle packages</span>
-<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v4</span>
-<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">      </span><span class="no">~/.gradle/caches</span>
-<span class="w">      </span><span class="no">~/.gradle/wrapper</span>
-<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-gradle-${{ hashFiles(&#39;**/*.gradle*&#39;, &#39;**/gradle-wrapper.properties&#39;) }}</span>
-<span class="w">    </span><span class="nt">restore-keys</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">      </span><span class="no">${{ runner.os }}-gradle-</span>
-</code></pre></div>
-
+<pre><code class="language-yaml">- name: Cache Gradle packages
+  uses: actions/cache@v4
+  with:
+    path: |
+      ~/.gradle/caches
+      ~/.gradle/wrapper
+    key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+    restore-keys: |
+      ${{ runner.os }}-gradle-
+</code></pre>
 <h3 id="pnpm-cache">pnpm Cache<a class="headerlink" href="#pnpm-cache" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Get pnpm store directory</span>
-<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">echo &quot;STORE_PATH=$(pnpm store path --silent)&quot; &gt;&gt; $GITHUB_ENV</span>
+<pre><code class="language-yaml">- name: Get pnpm store directory
+  shell: bash
+  run: |
+    echo &quot;STORE_PATH=$(pnpm store path --silent)&quot; &gt;&gt; $GITHUB_ENV
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup pnpm cache</span>
-<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/cache@v4</span>
-<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.STORE_PATH }}</span>
-<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ runner.os }}-pnpm-store-${{ hashFiles(&#39;**/pnpm-lock.yaml&#39;) }}</span>
-<span class="w">    </span><span class="nt">restore-keys</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">      </span><span class="no">${{ runner.os }}-pnpm-store-</span>
-</code></pre></div>
-
+- name: Setup pnpm cache
+  uses: actions/cache@v4
+  with:
+    path: ${{ env.STORE_PATH }}
+    key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+    restore-keys: |
+      ${{ runner.os }}-pnpm-store-
+</code></pre>
 <h3 id="docker-layer-cache">Docker Layer Cache<a class="headerlink" href="#docker-layer-cache" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Docker Buildx</span>
-<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/setup-buildx-action@v3</span>
-<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">driver-opts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">image=moby/buildkit:master</span>
+<pre><code class="language-yaml">- name: Set up Docker Buildx
+  uses: docker/setup-buildx-action@v3
+  with:
+    driver-opts: image=moby/buildkit:master
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build with cache</span>
-<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/build-push-action@v5</span>
-<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
-<span class="w">    </span><span class="nt">cache-from</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type=gha</span>
-<span class="w">    </span><span class="nt">cache-to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type=gha,mode=max</span>
-</code></pre></div>
-
+- name: Build with cache
+  uses: docker/build-push-action@v5
+  with:
+    context: .
+    cache-from: type=gha
+    cache-to: type=gha,mode=max
+</code></pre>
 <h2 id="parallelization-and-optimization">Parallelization and Optimization<a class="headerlink" href="#parallelization-and-optimization" title="Permanent link">&para;</a></h2>
 <h3 id="job-dependencies">Job Dependencies<a class="headerlink" href="#job-dependencies" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="nt">jobs</span><span class="p">:</span>
-<span class="w">  </span><span class="c1"># Independent jobs (run in parallel)</span>
-<span class="w">  </span><span class="nt">backend-test</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">frontend-test</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">code-quality</span><span class="p">:</span>
+<pre><code class="language-yaml">jobs:
+  # Independent jobs (run in parallel)
+  backend-test:
+  frontend-test:
+  code-quality:
 
-<span class="w">  </span><span class="c1"># Dependent jobs (run after dependencies complete)</span>
-<span class="w">  </span><span class="nt">docker-build-test</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">backend-test</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">frontend-test</span><span class="p p-Indicator">]</span>
+  # Dependent jobs (run after dependencies complete)
+  docker-build-test:
+    needs: [backend-test, frontend-test]
 
-<span class="w">  </span><span class="nt">e2e-test</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">docker-build-test</span><span class="p p-Indicator">]</span>
-</code></pre></div>
-
+  e2e-test:
+    needs: [docker-build-test]
+</code></pre>
 <h3 id="matrix-builds">Matrix Builds<a class="headerlink" href="#matrix-builds" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="nt">strategy</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">os</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ubuntu-latest</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">windows-latest</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">macos-latest</span><span class="p p-Indicator">]</span>
-<span class="w">    </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">18</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">20</span><span class="p p-Indicator">]</span>
-<span class="w">    </span><span class="nt">exclude</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">os</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">windows-latest</span>
-<span class="w">        </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18</span>
-</code></pre></div>
-
+<pre><code class="language-yaml">strategy:
+  matrix:
+    os: [ubuntu-latest, windows-latest, macos-latest]
+    node-version: [18, 20]
+    exclude:
+      - os: windows-latest
+        node-version: 18
+</code></pre>
 <h3 id="conditional-execution">Conditional Execution<a class="headerlink" href="#conditional-execution" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Only run on main branch</span>
-<span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;refs/heads/main&#39;</span>
+<pre><code class="language-yaml"># Only run on main branch
+if: github.ref == 'refs/heads/main'
 
-<span class="c1"># Only run on pull requests</span>
-<span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;pull_request&#39;</span>
+# Only run on pull requests
+if: github.event_name == 'pull_request'
 
-<span class="c1"># Skip on draft PRs</span>
-<span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event.pull_request.draft == false</span>
+# Skip on draft PRs
+if: github.event.pull_request.draft == false
 
-<span class="c1"># Run on schedule</span>
-<span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;schedule&#39;</span>
-</code></pre></div>
-
+# Run on schedule
+if: github.event_name == 'schedule'
+</code></pre>
 <h2 id="security-and-best-practices">Security and Best Practices<a class="headerlink" href="#security-and-best-practices" title="Permanent link">&para;</a></h2>
 <h3 id="secret-management">Secret Management<a class="headerlink" href="#secret-management" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># ✅ Good - Use repository secrets</span>
-<span class="nt">env</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">JWT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.JWT_SECRET }}</span>
+<pre><code class="language-yaml"># ✅ Good - Use repository secrets
+env:
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
-<span class="c1"># ❌ Bad - Hardcoded secrets</span>
-<span class="nt">env</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">JWT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-secret-key</span>
-</code></pre></div>
-
+# ❌ Bad - Hardcoded secrets
+env:
+  JWT_SECRET: my-secret-key
+</code></pre>
 <h3 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="nt">permissions</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
-<span class="w">  </span><span class="nt">security-events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">write</span>
-<span class="w">  </span><span class="nt">actions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
-<span class="w">  </span><span class="nt">id-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">write</span>
-</code></pre></div>
-
+<pre><code class="language-yaml">permissions:
+  contents: read
+  security-events: write
+  actions: read
+  id-token: write
+</code></pre>
 <h3 id="supply-chain-security">Supply Chain Security<a class="headerlink" href="#supply-chain-security" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Trivy vulnerability scanner</span>
-<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aquasecurity/trivy-action@master</span>
-<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">scan-type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;fs&#39;</span>
-<span class="w">    </span><span class="nt">scan-ref</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;.&#39;</span>
-<span class="w">    </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;sarif&#39;</span>
-<span class="w">    </span><span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;trivy-results.sarif&#39;</span>
+<pre><code class="language-yaml">- name: Run Trivy vulnerability scanner
+  uses: aquasecurity/trivy-action@master
+  with:
+    scan-type: 'fs'
+    scan-ref: '.'
+    format: 'sarif'
+    output: 'trivy-results.sarif'
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload to GitHub Security tab</span>
-<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github/codeql-action/upload-sarif@v3</span>
-<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">sarif_file</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;trivy-results.sarif&#39;</span>
-</code></pre></div>
-
+- name: Upload to GitHub Security tab
+  uses: github/codeql-action/upload-sarif@v3
+  with:
+    sarif_file: 'trivy-results.sarif'
+</code></pre>
 <h2 id="monitoring-and-notifications">Monitoring and Notifications<a class="headerlink" href="#monitoring-and-notifications" title="Permanent link">&para;</a></h2>
 <h3 id="slack-integration">Slack Integration<a class="headerlink" href="#slack-integration" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Slack notification on success</span>
-<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8398a7/action-slack@v3</span>
-<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">success</span>
-<span class="w">    </span><span class="nt">channel</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;#ci-cd&#39;</span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">      </span><span class="no">✅ CI Pipeline passed for commit ${{ github.sha }}</span>
-<span class="w">      </span><span class="no">Branch: ${{ github.ref_name }}</span>
-<span class="w">      </span><span class="no">Author: ${{ github.actor }}</span>
-<span class="w">  </span><span class="nt">env</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">SLACK_WEBHOOK_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.SLACK_WEBHOOK_URL }}</span>
-</code></pre></div>
-
+<pre><code class="language-yaml">- name: Slack notification on success
+  uses: 8398a7/action-slack@v3
+  with:
+    status: success
+    channel: '#ci-cd'
+    text: |
+      ✅ CI Pipeline passed for commit ${{ github.sha }}
+      Branch: ${{ github.ref_name }}
+      Author: ${{ github.actor }}
+  env:
+    SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+</code></pre>
 <h3 id="failure-handling">Failure Handling<a class="headerlink" href="#failure-handling" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Show Docker logs on failure</span>
-<span class="w">  </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">failure()</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">echo &quot;=== Docker Compose Services ===&quot;</span>
-<span class="w">    </span><span class="no">docker compose ps</span>
-<span class="w">    </span><span class="no">echo &quot;=== Backend Logs ===&quot;</span>
-<span class="w">    </span><span class="no">docker compose logs backend --tail=100</span>
-</code></pre></div>
-
+<pre><code class="language-yaml">- name: Show Docker logs on failure
+  if: failure()
+  run: |
+    echo &quot;=== Docker Compose Services ===&quot;
+    docker compose ps
+    echo &quot;=== Backend Logs ===&quot;
+    docker compose logs backend --tail=100
+</code></pre>
 <h2 id="workflow-customization">Workflow Customization<a class="headerlink" href="#workflow-customization" title="Permanent link">&para;</a></h2>
 <h3 id="adding-new-tests">Adding New Tests<a class="headerlink" href="#adding-new-tests" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Create test job:</strong></li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="nt">new-test-type</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">New Test Type</span>
-<span class="w">  </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<span class="w">  </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">existing-job</span><span class="p p-Indicator">]</span>
+<pre><code class="language-yaml">new-test-type:
+  name: New Test Type
+  runs-on: ubuntu-latest
+  needs: [existing-job]
 
-<span class="w">  </span><span class="nt">steps</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run new tests</span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">        </span><span class="no"># Your test commands</span>
-</code></pre></div>
-
+  steps:
+    - name: Run new tests
+      run: |
+        # Your test commands
+</code></pre>
 <ol>
 <li><strong>Update dependencies:</strong></li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="nt">notify-success</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">backend-test</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">frontend-test</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">new-test-type</span><span class="p p-Indicator">]</span>
-</code></pre></div>
-
+<pre><code class="language-yaml">notify-success:
+  needs: [backend-test, frontend-test, new-test-type]
+</code></pre>
 <h3 id="environment-specific-workflows">Environment-Specific Workflows<a class="headerlink" href="#environment-specific-workflows" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># .github/workflows/staging-deploy.yml</span>
-<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to Staging</span>
+<pre><code class="language-yaml"># .github/workflows/staging-deploy.yml
+name: Deploy to Staging
 
-<span class="nt">on</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">develop</span><span class="p p-Indicator">]</span>
+on:
+  push:
+    branches: [develop]
 
-<span class="nt">jobs</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">deploy-staging</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">staging</span>
-<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+jobs:
+  deploy-staging:
+    environment: staging
+    runs-on: ubuntu-latest
 
-<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<span class="w">      </span><span class="c1"># Deployment steps</span>
-</code></pre></div>
-
+    steps:
+      # Deployment steps
+</code></pre>
 <h3 id="custom-actions">Custom Actions<a class="headerlink" href="#custom-actions" title="Permanent link">&para;</a></h3>
 <p>Create reusable actions:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># .github/actions/setup-app/action.yml</span>
-<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Setup</span><span class="nv"> </span><span class="s">Application&#39;</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Setup</span><span class="nv"> </span><span class="s">Node.js,</span><span class="nv"> </span><span class="s">pnpm,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">dependencies&#39;</span>
+<pre><code class="language-yaml"># .github/actions/setup-app/action.yml
+name: 'Setup Application'
+description: 'Setup Node.js, pnpm, and dependencies'
 
-<span class="nt">inputs</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">node-version</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Node.js</span><span class="nv"> </span><span class="s">version&#39;</span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;20&#39;</span>
+inputs:
+  node-version:
+    description: 'Node.js version'
+    required: false
+    default: '20'
 
-<span class="nt">runs</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">using</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;composite&#39;</span>
-<span class="w">  </span><span class="nt">steps</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup Node.js</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ inputs.node-version }}</span>
-</code></pre></div>
-
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+</code></pre>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
 <h4 id="1-test-timeouts">1. Test Timeouts<a class="headerlink" href="#1-test-timeouts" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Increase timeouts</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests with extended timeout</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pnpm test</span>
-<span class="w">  </span><span class="nt">timeout-minutes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span>
-</code></pre></div>
-
+<pre><code class="language-yaml"># Increase timeouts
+- name: Run tests with extended timeout
+  run: pnpm test
+  timeout-minutes: 15
+</code></pre>
 <h4 id="2-service-health-checks">2. Service Health Checks<a class="headerlink" href="#2-service-health-checks" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Add better health checks</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Wait for services</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">timeout 300 bash -c &#39;until docker compose ps | grep -q &quot;healthy&quot;; do sleep 10; done&#39;</span>
-</code></pre></div>
-
+<pre><code class="language-yaml"># Add better health checks
+- name: Wait for services
+  run: |
+    timeout 300 bash -c 'until docker compose ps | grep -q &quot;healthy&quot;; do sleep 10; done'
+</code></pre>
 <h4 id="3-cache-issues">3. Cache Issues<a class="headerlink" href="#3-cache-issues" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Clear cache on failures</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Clear cache</span>
-<span class="w">  </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">failure()</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">rm -rf ~/.gradle/caches</span>
-<span class="w">    </span><span class="no">rm -rf ~/.pnpm-store</span>
-</code></pre></div>
-
+<pre><code class="language-yaml"># Clear cache on failures
+- name: Clear cache
+  if: failure()
+  run: |
+    rm -rf ~/.gradle/caches
+    rm -rf ~/.pnpm-store
+</code></pre>
 <h3 id="debug-mode">Debug Mode<a class="headerlink" href="#debug-mode" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Enable debug logging</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Enable debug</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;ACTIONS_STEP_DEBUG=true&quot; &gt;&gt; $GITHUB_ENV</span>
+<pre><code class="language-yaml"># Enable debug logging
+- name: Enable debug
+  run: echo &quot;ACTIONS_STEP_DEBUG=true&quot; &gt;&gt; $GITHUB_ENV
 
-<span class="c1"># Add debug information</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Debug information</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">echo &quot;Runner OS: ${{ runner.os }}&quot;</span>
-<span class="w">    </span><span class="no">echo &quot;GitHub workspace: ${{ github.workspace }}&quot;</span>
-<span class="w">    </span><span class="no">docker version</span>
-<span class="w">    </span><span class="no">docker compose version</span>
-</code></pre></div>
-
+# Add debug information
+- name: Debug information
+  run: |
+    echo &quot;Runner OS: ${{ runner.os }}&quot;
+    echo &quot;GitHub workspace: ${{ github.workspace }}&quot;
+    docker version
+    docker compose version
+</code></pre>
 <h3 id="performance-issues">Performance Issues<a class="headerlink" href="#performance-issues" title="Permanent link">&para;</a></h3>
 <h4 id="optimize-job-execution">Optimize Job Execution<a class="headerlink" href="#optimize-job-execution" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Use faster runners for critical paths</span>
-<span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest-4-cores</span>
+<pre><code class="language-yaml"># Use faster runners for critical paths
+runs-on: ubuntu-latest-4-cores
 
-<span class="c1"># Optimize Docker builds</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build with BuildKit</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">export DOCKER_BUILDKIT=1</span>
-<span class="w">    </span><span class="no">export COMPOSE_DOCKER_CLI_BUILD=1</span>
-<span class="w">    </span><span class="no">docker compose build</span>
-</code></pre></div>
-
+# Optimize Docker builds
+- name: Build with BuildKit
+  run: |
+    export DOCKER_BUILDKIT=1
+    export COMPOSE_DOCKER_CLI_BUILD=1
+    docker compose build
+</code></pre>
 <h4 id="reduce-test-execution-time">Reduce Test Execution Time<a class="headerlink" href="#reduce-test-execution-time" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Run tests in parallel</span>
-<span class="nt">strategy</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">test-group</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">unit</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">integration</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">e2e</span><span class="p p-Indicator">]</span>
+<pre><code class="language-yaml"># Run tests in parallel
+strategy:
+  matrix:
+    test-group: [unit, integration, e2e]
 
-<span class="c1"># Skip unnecessary steps</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Skip build on docs changes</span>
-<span class="w">  </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contains(github.event.head_commit.message, &#39;[skip ci]&#39;)</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;Skipping CI&quot;</span>
-</code></pre></div>
-
+# Skip unnecessary steps
+- name: Skip build on docs changes
+  if: contains(github.event.head_commit.message, '[skip ci]')
+  run: echo &quot;Skipping CI&quot;
+</code></pre>
 <h2 id="advanced-features">Advanced Features<a class="headerlink" href="#advanced-features" title="Permanent link">&para;</a></h2>
 <h3 id="workflow-artifacts">Workflow Artifacts<a class="headerlink" href="#workflow-artifacts" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload test results</span>
-<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
-<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test-results-${{ github.run_number }}</span>
-<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">      </span><span class="no">backend/core/build/test-results/</span>
-<span class="w">      </span><span class="no">frontend/coverage/</span>
-<span class="w">    </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
-</code></pre></div>
-
+<pre><code class="language-yaml">- name: Upload test results
+  uses: actions/upload-artifact@v4
+  with:
+    name: test-results-${{ github.run_number }}
+    path: |
+      backend/core/build/test-results/
+      frontend/coverage/
+    retention-days: 30
+</code></pre>
 <h3 id="dynamic-configuration">Dynamic Configuration<a class="headerlink" href="#dynamic-configuration" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set environment variables</span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">    </span><span class="no">if [[ &quot;${{ github.ref }}&quot; == &quot;refs/heads/main&quot; ]]; then</span>
-<span class="w">      </span><span class="no">echo &quot;ENVIRONMENT=production&quot; &gt;&gt; $GITHUB_ENV</span>
-<span class="w">    </span><span class="no">else</span>
-<span class="w">      </span><span class="no">echo &quot;ENVIRONMENT=development&quot; &gt;&gt; $GITHUB_ENV</span>
-<span class="w">    </span><span class="no">fi</span>
-</code></pre></div>
-
+<pre><code class="language-yaml">- name: Set environment variables
+  run: |
+    if [[ &quot;${{ github.ref }}&quot; == &quot;refs/heads/main&quot; ]]; then
+      echo &quot;ENVIRONMENT=production&quot; &gt;&gt; $GITHUB_ENV
+    else
+      echo &quot;ENVIRONMENT=development&quot; &gt;&gt; $GITHUB_ENV
+    fi
+</code></pre>
 <h3 id="workflow-templates">Workflow Templates<a class="headerlink" href="#workflow-templates" title="Permanent link">&para;</a></h3>
 <p>Create organization-wide templates:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># .github/workflow-templates/ci-template.yml</span>
-<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI Template</span>
+<pre><code class="language-yaml"># .github/workflow-templates/ci-template.yml
+name: CI Template
 
-<span class="nt">on</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">$default-branch</span><span class="w"> </span><span class="p p-Indicator">]</span>
+on:
+  push:
+    branches: [ $default-branch ]
 
-<span class="nt">jobs</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ci</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<span class="w">      </span><span class="c1"># Template steps</span>
-</code></pre></div>
-
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      # Template steps
+</code></pre>
 <h2 id="related-documentation">Related Documentation<a class="headerlink" href="#related-documentation" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../local-cicd-setup/">Local CI/CD Setup</a></li>

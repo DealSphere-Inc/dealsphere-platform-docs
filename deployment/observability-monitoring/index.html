@@ -67,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -122,7 +122,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
@@ -132,7 +132,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#a9a9a9" data-md-color-accent="gray"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
@@ -1943,10 +1943,9 @@
 </ul>
 <h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
 <h3 id="1-start-the-monitoring-stack">1. Start the Monitoring Stack<a class="headerlink" href="#1-start-the-monitoring-stack" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>monitoring
-docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.monitoring.yml<span class="w"> </span>up<span class="w"> </span>-d
-</code></pre></div>
-
+<pre><code class="language-bash">cd monitoring
+docker compose -f docker-compose.monitoring.yml up -d
+</code></pre>
 <h3 id="2-access-dashboards">2. Access Dashboards<a class="headerlink" href="#2-access-dashboards" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1980,14 +1979,13 @@ docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> 
 </tbody>
 </table>
 <h3 id="3-verify-metrics-collection">3. Verify Metrics Collection<a class="headerlink" href="#3-verify-metrics-collection" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Check backend metrics</span>
-curl<span class="w"> </span>http://localhost:8080/actuator/prometheus
-curl<span class="w"> </span>http://localhost:8080/actuator/health
+<pre><code class="language-bash"># Check backend metrics
+curl http://localhost:8080/actuator/prometheus
+curl http://localhost:8080/actuator/health
 
-<span class="c1"># Check monitoring stack health</span>
-docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.monitoring.yml<span class="w"> </span>ps
-</code></pre></div>
-
+# Check monitoring stack health
+docker compose -f docker-compose.monitoring.yml ps
+</code></pre>
 <h2 id="monitoring-stack-architecture">Monitoring Stack Architecture<a class="headerlink" href="#monitoring-stack-architecture" title="Permanent link">&para;</a></h2>
 <h3 id="service-overview">Service Overview<a class="headerlink" href="#service-overview" title="Permanent link">&para;</a></h3>
 <table>
@@ -2057,70 +2055,68 @@ docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> 
 </tbody>
 </table>
 <h3 id="network-architecture">Network Architecture<a class="headerlink" href="#network-architecture" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">graph</span><span class="w"> </span><span class="n">TB</span>
-<span class="w">    </span><span class="n">subgraph</span><span class="w"> </span><span class="s">&quot;Application Layer&quot;</span>
-<span class="w">        </span><span class="n">BE</span><span class="p">[</span><span class="n">Backend</span><span class="w"> </span><span class="n">App</span><span class="o">:</span><span class="mi">8080</span><span class="p">]</span>
-<span class="w">        </span><span class="n">FE</span><span class="p">[</span><span class="n">Frontend</span><span class="w"> </span><span class="n">App</span><span class="o">:</span><span class="mi">3000</span><span class="p">]</span>
-<span class="w">    </span><span class="n">end</span>
+<pre><code class="language-mermaid">graph TB
+    subgraph &quot;Application Layer&quot;
+        BE[Backend App:8080]
+        FE[Frontend App:3000]
+    end
 
-<span class="w">    </span><span class="n">subgraph</span><span class="w"> </span><span class="s">&quot;Collection Layer&quot;</span>
-<span class="w">        </span><span class="n">OC</span><span class="p">[</span><span class="n">OTEL</span><span class="w"> </span><span class="n">Collector</span><span class="o">:</span><span class="mi">4317</span><span class="o">/</span><span class="mi">4318</span><span class="p">]</span>
-<span class="w">        </span><span class="n">PT</span><span class="p">[</span><span class="n">Promtail</span><span class="p">]</span>
-<span class="w">        </span><span class="n">NE</span><span class="p">[</span><span class="n">Node</span><span class="w"> </span><span class="n">Exporter</span><span class="o">:</span><span class="mi">9100</span><span class="p">]</span>
-<span class="w">        </span><span class="n">CA</span><span class="p">[</span><span class="n">cAdvisor</span><span class="o">:</span><span class="mi">8080</span><span class="p">]</span>
-<span class="w">    </span><span class="n">end</span>
+    subgraph &quot;Collection Layer&quot;
+        OC[OTEL Collector:4317/4318]
+        PT[Promtail]
+        NE[Node Exporter:9100]
+        CA[cAdvisor:8080]
+    end
 
-<span class="w">    </span><span class="n">subgraph</span><span class="w"> </span><span class="s">&quot;Storage Layer&quot;</span>
-<span class="w">        </span><span class="n">PR</span><span class="p">[</span><span class="n">Prometheus</span><span class="o">:</span><span class="mi">9090</span><span class="p">]</span>
-<span class="w">        </span><span class="n">LK</span><span class="p">[</span><span class="n">Loki</span><span class="o">:</span><span class="mi">3100</span><span class="p">]</span>
-<span class="w">        </span><span class="n">JG</span><span class="p">[</span><span class="n">Jaeger</span><span class="o">:</span><span class="mi">16686</span><span class="p">]</span>
-<span class="w">    </span><span class="n">end</span>
+    subgraph &quot;Storage Layer&quot;
+        PR[Prometheus:9090]
+        LK[Loki:3100]
+        JG[Jaeger:16686]
+    end
 
-<span class="w">    </span><span class="n">subgraph</span><span class="w"> </span><span class="s">&quot;Visualization Layer&quot;</span>
-<span class="w">        </span><span class="n">GR</span><span class="p">[</span><span class="n">Grafana</span><span class="o">:</span><span class="mi">3000</span><span class="p">]</span>
-<span class="w">        </span><span class="n">AM</span><span class="p">[</span><span class="n">AlertManager</span><span class="o">:</span><span class="mi">9093</span><span class="p">]</span>
-<span class="w">    </span><span class="n">end</span>
+    subgraph &quot;Visualization Layer&quot;
+        GR[Grafana:3000]
+        AM[AlertManager:9093]
+    end
 
-<span class="w">    </span><span class="n">BE</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">OC</span>
-<span class="w">    </span><span class="n">FE</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">OC</span>
-<span class="w">    </span><span class="n">BE</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">PT</span>
-<span class="w">    </span><span class="n">FE</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">PT</span>
+    BE --&gt; OC
+    FE --&gt; OC
+    BE --&gt; PT
+    FE --&gt; PT
 
-<span class="w">    </span><span class="n">OC</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">PR</span>
-<span class="w">    </span><span class="n">OC</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">JG</span>
-<span class="w">    </span><span class="n">PT</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">LK</span>
-<span class="w">    </span><span class="n">NE</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">PR</span>
-<span class="w">    </span><span class="n">CA</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">PR</span>
+    OC --&gt; PR
+    OC --&gt; JG
+    PT --&gt; LK
+    NE --&gt; PR
+    CA --&gt; PR
 
-<span class="w">    </span><span class="n">PR</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">GR</span>
-<span class="w">    </span><span class="n">LK</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">GR</span>
-<span class="w">    </span><span class="n">JG</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">GR</span>
-<span class="w">    </span><span class="n">PR</span><span class="w"> </span><span class="o">--&gt;</span><span class="w"> </span><span class="n">AM</span>
-</code></pre></div>
-
+    PR --&gt; GR
+    LK --&gt; GR
+    JG --&gt; GR
+    PR --&gt; AM
+</code></pre>
 <h2 id="metrics-collection">Metrics Collection<a class="headerlink" href="#metrics-collection" title="Permanent link">&para;</a></h2>
 <h3 id="backend-metrics-spring-boot-micrometer">Backend Metrics (Spring Boot + Micrometer)<a class="headerlink" href="#backend-metrics-spring-boot-micrometer" title="Permanent link">&para;</a></h3>
 <p>The backend automatically exposes comprehensive metrics via Spring Boot Actuator:</p>
 <h4 id="available-endpoints">Available Endpoints<a class="headerlink" href="#available-endpoints" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Health status with detailed checks</span>
-GET<span class="w"> </span>/actuator/health
+<pre><code class="language-bash"># Health status with detailed checks
+GET /actuator/health
 
-<span class="c1"># All available metrics</span>
-GET<span class="w"> </span>/actuator/metrics
+# All available metrics
+GET /actuator/metrics
 
-<span class="c1"># Prometheus-formatted metrics</span>
-GET<span class="w"> </span>/actuator/prometheus
+# Prometheus-formatted metrics
+GET /actuator/prometheus
 
-<span class="c1"># Application info</span>
-GET<span class="w"> </span>/actuator/info
+# Application info
+GET /actuator/info
 
-<span class="c1"># Environment variables</span>
-GET<span class="w"> </span>/actuator/env
+# Environment variables
+GET /actuator/env
 
-<span class="c1"># Configuration properties</span>
-GET<span class="w"> </span>/actuator/configprops
-</code></pre></div>
-
+# Configuration properties
+GET /actuator/configprops
+</code></pre>
 <h4 id="key-metrics-categories">Key Metrics Categories<a class="headerlink" href="#key-metrics-categories" title="Permanent link">&para;</a></h4>
 <p><strong>HTTP Request Metrics</strong>
 - <code>http_server_requests_seconds</code> - Request duration percentiles
@@ -2140,654 +2136,643 @@ GET<span class="w"> </span>/actuator/configprops
 - <code>graphql_error_total</code> - GraphQL errors by type
 - <code>graphql_request_total</code> - GraphQL requests by operation</p>
 <p><strong>Custom Business Metrics</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="nd">@Component</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BusinessMetrics</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MeterRegistry</span><span class="w"> </span><span class="n">meterRegistry</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="n">userLoginAttempts</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Timer</span><span class="w"> </span><span class="n">orderProcessingTime</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Gauge</span><span class="w"> </span><span class="n">activeUserSessions</span><span class="p">;</span>
+<pre><code class="language-java">@Component
+public class BusinessMetrics {
+    private final MeterRegistry meterRegistry;
+    private final Counter userLoginAttempts;
+    private final Timer orderProcessingTime;
+    private final Gauge activeUserSessions;
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">BusinessMetrics</span><span class="p">(</span><span class="n">MeterRegistry</span><span class="w"> </span><span class="n">meterRegistry</span><span class="p">,</span><span class="w"> </span><span class="n">SessionService</span><span class="w"> </span><span class="n">sessionService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">meterRegistry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">meterRegistry</span><span class="p">;</span>
+    public BusinessMetrics(MeterRegistry meterRegistry, SessionService sessionService) {
+        this.meterRegistry = meterRegistry;
 
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">userLoginAttempts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Counter</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;user.login.attempts&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Total user login attempts&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">tag</span><span class="p">(</span><span class="s">&quot;status&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;success&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">meterRegistry</span><span class="p">);</span>
+        this.userLoginAttempts = Counter.builder(&quot;user.login.attempts&quot;)
+            .description(&quot;Total user login attempts&quot;)
+            .tag(&quot;status&quot;, &quot;success&quot;)
+            .register(meterRegistry);
 
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">orderProcessingTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Timer</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;order.processing.time&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Time taken to process orders&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">meterRegistry</span><span class="p">);</span>
+        this.orderProcessingTime = Timer.builder(&quot;order.processing.time&quot;)
+            .description(&quot;Time taken to process orders&quot;)
+            .register(meterRegistry);
 
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">activeUserSessions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gauge</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;user.sessions.active&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Number of active user sessions&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">meterRegistry</span><span class="p">,</span><span class="w"> </span><span class="n">sessionService</span><span class="p">,</span><span class="w"> </span><span class="n">SessionService</span><span class="p">::</span><span class="n">getActiveCount</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+        this.activeUserSessions = Gauge.builder(&quot;user.sessions.active&quot;)
+            .description(&quot;Number of active user sessions&quot;)
+            .register(meterRegistry, sessionService, SessionService::getActiveCount);
+    }
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recordLoginAttempt</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">success</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">userLoginAttempts</span><span class="p">.</span><span class="na">increment</span><span class="p">(</span><span class="n">Tags</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;status&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;success&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;failure&quot;</span><span class="p">));</span>
-<span class="w">    </span><span class="p">}</span>
+    public void recordLoginAttempt(boolean success) {
+        userLoginAttempts.increment(Tags.of(&quot;status&quot;, success ? &quot;success&quot; : &quot;failure&quot;));
+    }
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recordOrderProcessing</span><span class="p">(</span><span class="n">Duration</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">orderProcessingTime</span><span class="p">.</span><span class="na">record</span><span class="p">(</span><span class="n">duration</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+    public void recordOrderProcessing(Duration duration) {
+        orderProcessingTime.record(duration);
+    }
+}
+</code></pre>
 <h3 id="frontend-metrics-opentelemetry-web">Frontend Metrics (OpenTelemetry Web)<a class="headerlink" href="#frontend-metrics-opentelemetry-web" title="Permanent link">&para;</a></h3>
 <p>Frontend telemetry captures user experience and performance metrics:</p>
 <h4 id="web-vitals-tracking">Web Vitals Tracking<a class="headerlink" href="#web-vitals-tracking" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// src/utils/telemetry.js</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getWebVitals</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;web-vitals&#39;</span><span class="p">;</span>
+<pre><code class="language-javascript">// src/utils/telemetry.js
+import { getWebVitals } from 'web-vitals';
 
-<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MetricsCollector</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+export class MetricsCollector {
+    constructor() {
+        this.init();
+    }
 
-<span class="w">    </span><span class="nx">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Initialize OpenTelemetry Web SDK</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">setupWebVitals</span><span class="p">();</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">setupUserInteractions</span><span class="p">();</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">setupAPITracking</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    init() {
+        // Initialize OpenTelemetry Web SDK
+        this.setupWebVitals();
+        this.setupUserInteractions();
+        this.setupAPITracking();
+    }
 
-<span class="w">    </span><span class="nx">setupWebVitals</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">getWebVitals</span><span class="p">(({</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">rating</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">recordMetric</span><span class="p">(</span><span class="sb">`web_vital_</span><span class="si">${</span><span class="nx">name</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="nx">rating</span><span class="p">,</span>
-<span class="w">                </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span>
-<span class="w">            </span><span class="p">});</span>
-<span class="w">        </span><span class="p">});</span>
-<span class="w">    </span><span class="p">}</span>
+    setupWebVitals() {
+        getWebVitals(({ name, value, rating }) =&gt; {
+            this.recordMetric(`web_vital_${name.toLowerCase()}`, value, {
+                rating,
+                timestamp: Date.now()
+            });
+        });
+    }
 
-<span class="w">    </span><span class="nx">trackUserInteraction</span><span class="p">(</span><span class="nx">action</span><span class="p">,</span><span class="w"> </span><span class="nx">element</span><span class="p">,</span><span class="w"> </span><span class="nx">metadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{})</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">recordMetric</span><span class="p">(</span><span class="s1">&#39;user_interaction&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">action</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">element</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">page</span><span class="o">:</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span><span class="p">,</span>
-<span class="w">            </span><span class="p">...</span><span class="nx">metadata</span>
-<span class="w">        </span><span class="p">});</span>
-<span class="w">    </span><span class="p">}</span>
+    trackUserInteraction(action, element, metadata = {}) {
+        this.recordMetric('user_interaction', 1, {
+            action,
+            element,
+            page: window.location.pathname,
+            ...metadata
+        });
+    }
 
-<span class="w">    </span><span class="nx">trackAPICall</span><span class="p">(</span><span class="nx">endpoint</span><span class="p">,</span><span class="w"> </span><span class="nx">method</span><span class="p">,</span><span class="w"> </span><span class="nx">duration</span><span class="p">,</span><span class="w"> </span><span class="nx">statusCode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">recordMetric</span><span class="p">(</span><span class="s1">&#39;api_call_duration&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">duration</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">endpoint</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">method</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">status_code</span><span class="o">:</span><span class="w"> </span><span class="nx">statusCode</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="nx">statusCode</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">400</span>
-<span class="w">        </span><span class="p">});</span>
-<span class="w">    </span><span class="p">}</span>
+    trackAPICall(endpoint, method, duration, statusCode) {
+        this.recordMetric('api_call_duration', duration, {
+            endpoint,
+            method,
+            status_code: statusCode,
+            success: statusCode &lt; 400
+        });
+    }
 
-<span class="w">    </span><span class="nx">trackPageView</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">loadTime</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">recordMetric</span><span class="p">(</span><span class="s1">&#39;page_view&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">path</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">load_time</span><span class="o">:</span><span class="w"> </span><span class="nx">loadTime</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span>
-<span class="w">        </span><span class="p">});</span>
-<span class="w">    </span><span class="p">}</span>
+    trackPageView(path, loadTime) {
+        this.recordMetric('page_view', 1, {
+            path,
+            load_time: loadTime,
+            timestamp: Date.now()
+        });
+    }
 
-<span class="w">    </span><span class="nx">recordMetric</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{})</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Send to OpenTelemetry Collector</span>
-<span class="w">        </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/api/metrics&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">            </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">labels</span><span class="p">,</span><span class="w"> </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="p">})</span>
-<span class="w">        </span><span class="p">});</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+    recordMetric(name, value, labels = {}) {
+        // Send to OpenTelemetry Collector
+        fetch('/api/metrics', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, value, labels, timestamp: Date.now() })
+        });
+    }
+}
 
-<span class="c1">// Usage in components</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">metricsCollector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MetricsCollector</span><span class="p">();</span>
+// Usage in components
+const metricsCollector = new MetricsCollector();
 
-<span class="c1">// Track button clicks</span>
-<span class="nx">metricsCollector</span><span class="p">.</span><span class="nx">trackUserInteraction</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;search_button&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">search_term</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;electronics&#39;</span>
-<span class="p">});</span>
+// Track button clicks
+metricsCollector.trackUserInteraction('click', 'search_button', {
+    search_term: 'electronics'
+});
 
-<span class="c1">// Track API performance</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">startTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">performance</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">api</span><span class="p">.</span><span class="nx">fetchProducts</span><span class="p">();</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">performance</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">startTime</span><span class="p">;</span>
-<span class="nx">metricsCollector</span><span class="p">.</span><span class="nx">trackAPICall</span><span class="p">(</span><span class="s1">&#39;/api/products&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">duration</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">);</span>
-</code></pre></div>
-
+// Track API performance
+const startTime = performance.now();
+const result = await api.fetchProducts();
+const duration = performance.now() - startTime;
+metricsCollector.trackAPICall('/api/products', 'GET', duration, 200);
+</code></pre>
 <h2 id="logging-strategy">Logging Strategy<a class="headerlink" href="#logging-strategy" title="Permanent link">&para;</a></h2>
 <h3 id="structured-logging-configuration">Structured Logging Configuration<a class="headerlink" href="#structured-logging-configuration" title="Permanent link">&para;</a></h3>
 <h4 id="backend-logging-logback">Backend Logging (Logback)<a class="headerlink" href="#backend-logging-logback" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="cm">&lt;!-- src/main/resources/logback-spring.xml --&gt;</span>
-<span class="nt">&lt;configuration&gt;</span>
-<span class="w">    </span><span class="nt">&lt;springProfile</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;!local&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;appender</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;STDOUT&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.ConsoleAppender&quot;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;encoder</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;net.logstash.logback.encoder.LogstashEncoder&quot;</span><span class="nt">&gt;</span>
-<span class="w">                </span><span class="nt">&lt;customFields&gt;</span>{&quot;service&quot;:&quot;dealsphere-backend&quot;,&quot;version&quot;:&quot;${app.version:-unknown}&quot;}<span class="nt">&lt;/customFields&gt;</span>
-<span class="w">                </span><span class="nt">&lt;fieldNames&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;timestamp&gt;</span>@timestamp<span class="nt">&lt;/timestamp&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;message&gt;</span>message<span class="nt">&lt;/message&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;level&gt;</span>level<span class="nt">&lt;/level&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;thread&gt;</span>thread<span class="nt">&lt;/thread&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;logger&gt;</span>logger<span class="nt">&lt;/logger&gt;</span>
-<span class="w">                </span><span class="nt">&lt;/fieldNames&gt;</span>
-<span class="w">                </span><span class="nt">&lt;includeContext&gt;</span>true<span class="nt">&lt;/includeContext&gt;</span>
-<span class="w">                </span><span class="nt">&lt;includeMdc&gt;</span>true<span class="nt">&lt;/includeMdc&gt;</span>
-<span class="w">            </span><span class="nt">&lt;/encoder&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/appender&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/springProfile&gt;</span>
+<pre><code class="language-xml">&lt;!-- src/main/resources/logback-spring.xml --&gt;
+&lt;configuration&gt;
+    &lt;springProfile name=&quot;!local&quot;&gt;
+        &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
+            &lt;encoder class=&quot;net.logstash.logback.encoder.LogstashEncoder&quot;&gt;
+                &lt;customFields&gt;{&quot;service&quot;:&quot;dealsphere-backend&quot;,&quot;version&quot;:&quot;${app.version:-unknown}&quot;}&lt;/customFields&gt;
+                &lt;fieldNames&gt;
+                    &lt;timestamp&gt;@timestamp&lt;/timestamp&gt;
+                    &lt;message&gt;message&lt;/message&gt;
+                    &lt;level&gt;level&lt;/level&gt;
+                    &lt;thread&gt;thread&lt;/thread&gt;
+                    &lt;logger&gt;logger&lt;/logger&gt;
+                &lt;/fieldNames&gt;
+                &lt;includeContext&gt;true&lt;/includeContext&gt;
+                &lt;includeMdc&gt;true&lt;/includeMdc&gt;
+            &lt;/encoder&gt;
+        &lt;/appender&gt;
+    &lt;/springProfile&gt;
 
-<span class="w">    </span><span class="nt">&lt;springProfile</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;local&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;appender</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;STDOUT&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.ConsoleAppender&quot;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;encoder&gt;</span>
-<span class="w">                </span><span class="nt">&lt;pattern&gt;</span>%d{yyyy-MM-dd<span class="w"> </span>HH:mm:ss.SSS}<span class="w"> </span>[%thread]<span class="w"> </span>%-5level<span class="w"> </span>[%X{traceId:-},%X{spanId:-}]<span class="w"> </span>%logger{36}<span class="w"> </span>-<span class="w"> </span>%msg%n<span class="nt">&lt;/pattern&gt;</span>
-<span class="w">            </span><span class="nt">&lt;/encoder&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/appender&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/springProfile&gt;</span>
+    &lt;springProfile name=&quot;local&quot;&gt;
+        &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
+            &lt;encoder&gt;
+                &lt;pattern&gt;%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%X{traceId:-},%X{spanId:-}] %logger{36} - %msg%n&lt;/pattern&gt;
+            &lt;/encoder&gt;
+        &lt;/appender&gt;
+    &lt;/springProfile&gt;
 
-<span class="w">    </span><span class="nt">&lt;appender</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;FILE&quot;</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;file&gt;</span>/var/log/dealsphere/application.log<span class="nt">&lt;/file&gt;</span>
-<span class="w">        </span><span class="nt">&lt;rollingPolicy</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;fileNamePattern&gt;</span>/var/log/dealsphere/application.%d{yyyy-MM-dd}.%i.log<span class="nt">&lt;/fileNamePattern&gt;</span>
-<span class="w">            </span><span class="nt">&lt;maxFileSize&gt;</span>100MB<span class="nt">&lt;/maxFileSize&gt;</span>
-<span class="w">            </span><span class="nt">&lt;maxHistory&gt;</span>30<span class="nt">&lt;/maxHistory&gt;</span>
-<span class="w">            </span><span class="nt">&lt;totalSizeCap&gt;</span>3GB<span class="nt">&lt;/totalSizeCap&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/rollingPolicy&gt;</span>
-<span class="w">        </span><span class="nt">&lt;encoder</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;net.logstash.logback.encoder.LogstashEncoder&quot;</span><span class="nt">&gt;</span>
-<span class="w">            </span><span class="nt">&lt;customFields&gt;</span>{&quot;service&quot;:&quot;dealsphere-backend&quot;}<span class="nt">&lt;/customFields&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/encoder&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/appender&gt;</span>
+    &lt;appender name=&quot;FILE&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;
+        &lt;file&gt;/var/log/dealsphere/application.log&lt;/file&gt;
+        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;
+            &lt;fileNamePattern&gt;/var/log/dealsphere/application.%d{yyyy-MM-dd}.%i.log&lt;/fileNamePattern&gt;
+            &lt;maxFileSize&gt;100MB&lt;/maxFileSize&gt;
+            &lt;maxHistory&gt;30&lt;/maxHistory&gt;
+            &lt;totalSizeCap&gt;3GB&lt;/totalSizeCap&gt;
+        &lt;/rollingPolicy&gt;
+        &lt;encoder class=&quot;net.logstash.logback.encoder.LogstashEncoder&quot;&gt;
+            &lt;customFields&gt;{&quot;service&quot;:&quot;dealsphere-backend&quot;}&lt;/customFields&gt;
+        &lt;/encoder&gt;
+    &lt;/appender&gt;
 
-<span class="w">    </span><span class="nt">&lt;logger</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;com.dealsphere&quot;</span><span class="w"> </span><span class="na">level=</span><span class="s">&quot;INFO&quot;</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;logger</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;org.springframework.security&quot;</span><span class="w"> </span><span class="na">level=</span><span class="s">&quot;WARN&quot;</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;logger</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;org.hibernate.SQL&quot;</span><span class="w"> </span><span class="na">level=</span><span class="s">&quot;DEBUG&quot;</span><span class="nt">/&gt;</span>
+    &lt;logger name=&quot;com.dealsphere&quot; level=&quot;INFO&quot;/&gt;
+    &lt;logger name=&quot;org.springframework.security&quot; level=&quot;WARN&quot;/&gt;
+    &lt;logger name=&quot;org.hibernate.SQL&quot; level=&quot;DEBUG&quot;/&gt;
 
-<span class="w">    </span><span class="nt">&lt;root</span><span class="w"> </span><span class="na">level=</span><span class="s">&quot;INFO&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;appender-ref</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;STDOUT&quot;</span><span class="nt">/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;appender-ref</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;FILE&quot;</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/root&gt;</span>
-<span class="nt">&lt;/configuration&gt;</span>
-</code></pre></div>
-
+    &lt;root level=&quot;INFO&quot;&gt;
+        &lt;appender-ref ref=&quot;STDOUT&quot;/&gt;
+        &lt;appender-ref ref=&quot;FILE&quot;/&gt;
+    &lt;/root&gt;
+&lt;/configuration&gt;
+</code></pre>
 <h4 id="structured-logging-examples">Structured Logging Examples<a class="headerlink" href="#structured-logging-examples" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Using structured logging with MDC</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">org.slf4j.MDC</span><span class="p">;</span>
+<pre><code class="language-java">// Using structured logging with MDC
+import org.slf4j.MDC;
 
-<span class="nd">@Service</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserService</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">UserService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+@Service
+public class UserService {
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="nf">createUser</span><span class="p">(</span><span class="n">CreateUserRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">MDC</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;operation&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;create_user&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="n">MDC</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;user_email&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="na">getEmail</span><span class="p">());</span>
+    public User createUser(CreateUserRequest request) {
+        MDC.put(&quot;operation&quot;, &quot;create_user&quot;);
+        MDC.put(&quot;user_email&quot;, request.getEmail());
 
-<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Creating new user account&quot;</span><span class="p">);</span>
+        try {
+            logger.info(&quot;Creating new user account&quot;);
 
-<span class="w">            </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">(</span><span class="n">request</span><span class="p">));</span>
+            User user = userRepository.save(new User(request));
 
-<span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;User account created successfully&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="n">kv</span><span class="p">(</span><span class="s">&quot;user_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">getId</span><span class="p">()),</span>
-<span class="w">                </span><span class="n">kv</span><span class="p">(</span><span class="s">&quot;organization_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">getOrganizationId</span><span class="p">()));</span>
+            logger.info(&quot;User account created successfully&quot;,
+                kv(&quot;user_id&quot;, user.getId()),
+                kv(&quot;organization_id&quot;, user.getOrganizationId()));
 
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">user</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;Failed to create user account&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="n">kv</span><span class="p">(</span><span class="s">&quot;error&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">()),</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
-<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="n">e</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">MDC</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+            return user;
+        } catch (Exception e) {
+            logger.error(&quot;Failed to create user account&quot;,
+                kv(&quot;error&quot;, e.getMessage()), e);
+            throw e;
+        } finally {
+            MDC.clear();
+        }
+    }
+}
+</code></pre>
 <h3 id="log-aggregation-with-loki">Log Aggregation with Loki<a class="headerlink" href="#log-aggregation-with-loki" title="Permanent link">&para;</a></h3>
 <h4 id="promtail-configuration">Promtail Configuration<a class="headerlink" href="#promtail-configuration" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># promtail/promtail-config.yml</span>
-<span class="nt">server</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">http_listen_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9080</span>
-<span class="w">  </span><span class="nt">grpc_listen_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<pre><code class="language-yaml"># promtail/promtail-config.yml
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
 
-<span class="nt">positions</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/positions.yaml</span>
+positions:
+  filename: /tmp/positions.yaml
 
-<span class="nt">clients</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://loki:3100/loki/api/v1/push</span>
+clients:
+  - url: http://loki:3100/loki/api/v1/push
 
-<span class="nt">scrape_configs</span><span class="p">:</span>
-<span class="w">  </span><span class="c1"># Application logs</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-backend</span>
-<span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-backend</span>
-<span class="w">          </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
-<span class="w">          </span><span class="nt">environment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${ENVIRONMENT:-development}</span>
-<span class="w">          </span><span class="nt">__path__</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log/dealsphere/application*.log</span>
+scrape_configs:
+  # Application logs
+  - job_name: dealsphere-backend
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: dealsphere-backend
+          service: backend
+          environment: ${ENVIRONMENT:-development}
+          __path__: /var/log/dealsphere/application*.log
 
-<span class="w">  </span><span class="c1"># Docker container logs</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">containers</span>
-<span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">containerlogs</span>
-<span class="w">          </span><span class="nt">__path__</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/docker/containers/*/*log</span>
+  # Docker container logs
+  - job_name: containers
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: containerlogs
+          __path__: /var/lib/docker/containers/*/*log
 
-<span class="w">    </span><span class="nt">pipeline_stages</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">json</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">expressions</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<span class="w">            </span><span class="nt">stream</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stream</span>
-<span class="w">            </span><span class="nt">attrs</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">json</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attrs</span>
-<span class="w">          </span><span class="nt">expressions</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">tag</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">regex</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tag</span>
-<span class="w">          </span><span class="nt">expression</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(?P&lt;service_name&gt;(?:[^|]*))\|</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">service_name</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">stream</span><span class="p">:</span>
+    pipeline_stages:
+      - json:
+          expressions:
+            output: log
+            stream: stream
+            attrs:
+      - json:
+          source: attrs
+          expressions:
+            tag:
+      - regex:
+          source: tag
+          expression: (?P&lt;service_name&gt;(?:[^|]*))\|
+      - labels:
+          service_name:
+          stream:
 
-<span class="w">  </span><span class="c1"># System logs</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">syslog</span>
-<span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">syslog</span>
-<span class="w">          </span><span class="nt">__path__</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log/syslog</span>
+  # System logs
+  - job_name: syslog
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: syslog
+          __path__: /var/log/syslog
 
-<span class="w">  </span><span class="c1"># Nginx access logs</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
-<span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
-<span class="w">          </span><span class="nt">__path__</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log/nginx/*log</span>
+  # Nginx access logs
+  - job_name: nginx
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: nginx
+          __path__: /var/log/nginx/*log
 
-<span class="w">    </span><span class="nt">pipeline_stages</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">regex</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">expression</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;(?P&lt;remote_addr&gt;\S+)</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">(?P&lt;remote_user&gt;\S+)</span><span class="nv"> </span><span class="s">\[(?P&lt;time_local&gt;[^\]]+)\]</span><span class="nv"> </span><span class="s">&quot;(?P&lt;method&gt;\S+)</span><span class="nv"> </span><span class="s">(?P&lt;request_uri&gt;\S+)</span><span class="nv"> </span><span class="s">(?P&lt;protocol&gt;\S+)&quot;</span><span class="nv"> </span><span class="s">(?P&lt;status&gt;\d+)</span><span class="nv"> </span><span class="s">(?P&lt;body_bytes_sent&gt;\d+)</span><span class="nv"> </span><span class="s">&quot;(?P&lt;http_referer&gt;[^&quot;]*)&quot;</span><span class="nv"> </span><span class="s">&quot;(?P&lt;http_user_agent&gt;[^&quot;]*)&quot;&#39;</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">method</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">status</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">remote_addr</span><span class="p">:</span>
-</code></pre></div>
-
+    pipeline_stages:
+      - regex:
+          expression: '(?P&lt;remote_addr&gt;\S+) - (?P&lt;remote_user&gt;\S+) \[(?P&lt;time_local&gt;[^\]]+)\] &quot;(?P&lt;method&gt;\S+) (?P&lt;request_uri&gt;\S+) (?P&lt;protocol&gt;\S+)&quot; (?P&lt;status&gt;\d+) (?P&lt;body_bytes_sent&gt;\d+) &quot;(?P&lt;http_referer&gt;[^&quot;]*)&quot; &quot;(?P&lt;http_user_agent&gt;[^&quot;]*)&quot;'
+      - labels:
+          method:
+          status:
+          remote_addr:
+</code></pre>
 <h2 id="distributed-tracing">Distributed Tracing<a class="headerlink" href="#distributed-tracing" title="Permanent link">&para;</a></h2>
 <h3 id="opentelemetry-configuration">OpenTelemetry Configuration<a class="headerlink" href="#opentelemetry-configuration" title="Permanent link">&para;</a></h3>
 <h4 id="backend-tracing-setup">Backend Tracing Setup<a class="headerlink" href="#backend-tracing-setup" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Automatic instrumentation via Java agent</span>
-<span class="c1">// Add to Dockerfile:</span>
-<span class="c1">// COPY opentelemetry-javaagent.jar /app/</span>
-<span class="c1">// ENV JAVA_TOOL_OPTIONS=&quot;-javaagent:/app/opentelemetry-javaagent.jar&quot;</span>
+<pre><code class="language-java">// Automatic instrumentation via Java agent
+// Add to Dockerfile:
+// COPY opentelemetry-javaagent.jar /app/
+// ENV JAVA_TOOL_OPTIONS=&quot;-javaagent:/app/opentelemetry-javaagent.jar&quot;
 
-<span class="c1">// Manual instrumentation for custom spans</span>
-<span class="nd">@Service</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderService</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Tracer</span><span class="w"> </span><span class="n">tracer</span><span class="p">;</span>
+// Manual instrumentation for custom spans
+@Service
+public class OrderService {
+    private final Tracer tracer;
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">OrderService</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">tracer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GlobalOpenTelemetry</span><span class="p">.</span><span class="na">getTracer</span><span class="p">(</span><span class="s">&quot;dealsphere-backend&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+    public OrderService() {
+        this.tracer = GlobalOpenTelemetry.getTracer(&quot;dealsphere-backend&quot;);
+    }
 
-<span class="w">    </span><span class="nd">@NewSpan</span><span class="p">(</span><span class="s">&quot;process_order&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Order</span><span class="w"> </span><span class="nf">processOrder</span><span class="p">(</span><span class="nd">@SpanAttribute</span><span class="p">(</span><span class="s">&quot;order_id&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">orderId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Span</span><span class="w"> </span><span class="n">span</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tracer</span><span class="p">.</span><span class="na">spanBuilder</span><span class="p">(</span><span class="s">&quot;order.validation&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">setSpanKind</span><span class="p">(</span><span class="n">SpanKind</span><span class="p">.</span><span class="na">INTERNAL</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">startSpan</span><span class="p">();</span>
+    @NewSpan(&quot;process_order&quot;)
+    public Order processOrder(@SpanAttribute(&quot;order_id&quot;) String orderId) {
+        Span span = tracer.spanBuilder(&quot;order.validation&quot;)
+            .setSpanKind(SpanKind.INTERNAL)
+            .startSpan();
 
-<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">Scope</span><span class="w"> </span><span class="n">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">span</span><span class="p">.</span><span class="na">makeCurrent</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">span</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="n">StatusCode</span><span class="p">.</span><span class="na">OK</span><span class="p">);</span>
-<span class="w">            </span><span class="n">span</span><span class="p">.</span><span class="na">addEvent</span><span class="p">(</span><span class="s">&quot;Order validation started&quot;</span><span class="p">);</span>
+        try (Scope scope = span.makeCurrent()) {
+            span.setStatus(StatusCode.OK);
+            span.addEvent(&quot;Order validation started&quot;);
 
-<span class="w">            </span><span class="c1">// Business logic here</span>
-<span class="w">            </span><span class="n">validateOrder</span><span class="p">(</span><span class="n">orderId</span><span class="p">);</span>
+            // Business logic here
+            validateOrder(orderId);
 
-<span class="w">            </span><span class="n">span</span><span class="p">.</span><span class="na">addEvent</span><span class="p">(</span><span class="s">&quot;Order validation completed&quot;</span><span class="p">);</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">processPayment</span><span class="p">(</span><span class="n">orderId</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">span</span><span class="p">.</span><span class="na">setStatus</span><span class="p">(</span><span class="n">StatusCode</span><span class="p">.</span><span class="na">ERROR</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
-<span class="w">            </span><span class="n">span</span><span class="p">.</span><span class="na">recordException</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
-<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="n">e</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">span</span><span class="p">.</span><span class="na">end</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+            span.addEvent(&quot;Order validation completed&quot;);
+            return processPayment(orderId);
+        } catch (Exception e) {
+            span.setStatus(StatusCode.ERROR, e.getMessage());
+            span.recordException(e);
+            throw e;
+        } finally {
+            span.end();
+        }
+    }
+}
+</code></pre>
 <h4 id="frontend-tracing-setup">Frontend Tracing Setup<a class="headerlink" href="#frontend-tracing-setup" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// src/utils/tracing.js</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">WebTracerProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@opentelemetry/sdk-trace-web&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Resource</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@opentelemetry/resources&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">SemanticResourceAttributes</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@opentelemetry/semantic-conventions&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BatchSpanProcessor</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@opentelemetry/sdk-trace-base&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">OTLPTraceExporter</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@opentelemetry/exporter-otlp-http&#39;</span><span class="p">;</span>
+<pre><code class="language-javascript">// src/utils/tracing.js
+import { WebTracerProvider } from '@opentelemetry/sdk-trace-web';
+import { Resource } from '@opentelemetry/resources';
+import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
+import { BatchSpanProcessor } from '@opentelemetry/sdk-trace-base';
+import { OTLPTraceExporter } from '@opentelemetry/exporter-otlp-http';
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">WebTracerProvider</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">resource</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Resource</span><span class="p">({</span>
-<span class="w">    </span><span class="p">[</span><span class="nx">SemanticResourceAttributes</span><span class="p">.</span><span class="nx">SERVICE_NAME</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dealsphere-frontend&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="p">[</span><span class="nx">SemanticResourceAttributes</span><span class="p">.</span><span class="nx">SERVICE_VERSION</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="p">}),</span>
-<span class="p">});</span>
+const provider = new WebTracerProvider({
+  resource: new Resource({
+    [SemanticResourceAttributes.SERVICE_NAME]: 'dealsphere-frontend',
+    [SemanticResourceAttributes.SERVICE_VERSION]: '1.0.0',
+  }),
+});
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">exporter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">OTLPTraceExporter</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://localhost:4318/v1/traces&#39;</span><span class="p">,</span>
-<span class="p">});</span>
+const exporter = new OTLPTraceExporter({
+  url: 'http://localhost:4318/v1/traces',
+});
 
-<span class="nx">provider</span><span class="p">.</span><span class="nx">addSpanProcessor</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">BatchSpanProcessor</span><span class="p">(</span><span class="nx">exporter</span><span class="p">));</span>
-<span class="nx">provider</span><span class="p">.</span><span class="nx">register</span><span class="p">();</span>
+provider.addSpanProcessor(new BatchSpanProcessor(exporter));
+provider.register();
 
-<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">tracer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">provider</span><span class="p">.</span><span class="nx">getTracer</span><span class="p">(</span><span class="s1">&#39;dealsphere-frontend&#39;</span><span class="p">);</span>
+export const tracer = provider.getTracer('dealsphere-frontend');
 
-<span class="c1">// Usage in React components</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">withTracing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">WrappedComponent</span><span class="p">,</span><span class="w"> </span><span class="nx">spanName</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">span</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tracer</span><span class="p">.</span><span class="nx">startSpan</span><span class="p">(</span><span class="nx">spanName</span><span class="p">);</span>
-<span class="w">      </span><span class="nx">span</span><span class="p">.</span><span class="nx">setAttributes</span><span class="p">({</span>
-<span class="w">        </span><span class="s1">&#39;component.name&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">WrappedComponent</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;user.id&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">getCurrentUserId</span><span class="p">(),</span>
-<span class="w">      </span><span class="p">});</span>
+// Usage in React components
+export const withTracing = (WrappedComponent, spanName) =&gt; {
+  return (props) =&gt; {
+    useEffect(() =&gt; {
+      const span = tracer.startSpan(spanName);
+      span.setAttributes({
+        'component.name': WrappedComponent.name,
+        'user.id': getCurrentUserId(),
+      });
 
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">span</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
-<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">[]);</span>
+      return () =&gt; span.end();
+    }, []);
 
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">WrappedComponent</span><span class="w"> </span><span class="p">{...</span><span class="nx">props</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">;</span>
-<span class="w">  </span><span class="p">};</span>
-<span class="p">};</span>
+    return &lt;WrappedComponent {...props} /&gt;;
+  };
+};
 
-<span class="c1">// Track user interactions</span>
-<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">trackUserAction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">action</span><span class="p">,</span><span class="w"> </span><span class="nx">metadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">span</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tracer</span><span class="p">.</span><span class="nx">startSpan</span><span class="p">(</span><span class="sb">`user.</span><span class="si">${</span><span class="nx">action</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">span</span><span class="p">.</span><span class="nx">setAttributes</span><span class="p">({</span>
-<span class="w">    </span><span class="s1">&#39;user.action&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">action</span><span class="p">,</span>
-<span class="w">    </span><span class="s1">&#39;page.url&#39;</span><span class="o">:</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">,</span>
-<span class="w">    </span><span class="p">...</span><span class="nx">metadata</span>
-<span class="w">  </span><span class="p">});</span>
-<span class="w">  </span><span class="nx">span</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
-<span class="p">};</span>
-</code></pre></div>
-
+// Track user interactions
+export const trackUserAction = (action, metadata = {}) =&gt; {
+  const span = tracer.startSpan(`user.${action}`);
+  span.setAttributes({
+    'user.action': action,
+    'page.url': window.location.href,
+    ...metadata
+  });
+  span.end();
+};
+</code></pre>
 <h3 id="opentelemetry-collector-configuration">OpenTelemetry Collector Configuration<a class="headerlink" href="#opentelemetry-collector-configuration" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># otel/otel-collector-config.yml</span>
-<span class="nt">receivers</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">otlp</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">protocols</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">grpc</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:4317</span>
-<span class="w">      </span><span class="nt">http</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0:4318</span>
+<pre><code class="language-yaml"># otel/otel-collector-config.yml
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
 
-<span class="nt">processors</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">batch</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">resource</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">attributes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">environment</span>
-<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${ENVIRONMENT}</span>
-<span class="w">        </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">insert</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service.version</span>
-<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SERVICE_VERSION}</span>
-<span class="w">        </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">insert</span>
+processors:
+  batch:
+  resource:
+    attributes:
+      - key: environment
+        value: ${ENVIRONMENT}
+        action: insert
+      - key: service.version
+        value: ${SERVICE_VERSION}
+        action: insert
 
-<span class="nt">exporters</span><span class="p">:</span>
-<span class="w">  </span><span class="c1"># Traces to Jaeger</span>
-<span class="w">  </span><span class="nt">jaeger</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jaeger:14250</span>
-<span class="w">    </span><span class="nt">tls</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">insecure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+exporters:
+  # Traces to Jaeger
+  jaeger:
+    endpoint: jaeger:14250
+    tls:
+      insecure: true
 
-<span class="w">  </span><span class="c1"># Metrics to Prometheus</span>
-<span class="w">  </span><span class="nt">prometheus</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.0.0.0:8889&quot;</span>
+  # Metrics to Prometheus
+  prometheus:
+    endpoint: &quot;0.0.0.0:8889&quot;
 
-<span class="w">  </span><span class="c1"># Logs to Loki</span>
-<span class="w">  </span><span class="nt">loki</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://loki:3100/loki/api/v1/push</span>
+  # Logs to Loki
+  loki:
+    endpoint: http://loki:3100/loki/api/v1/push
 
-<span class="nt">service</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">pipelines</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">traces</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">receivers</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">otlp</span><span class="p p-Indicator">]</span>
-<span class="w">      </span><span class="nt">processors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">resource</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">batch</span><span class="p p-Indicator">]</span>
-<span class="w">      </span><span class="nt">exporters</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">jaeger</span><span class="p p-Indicator">]</span>
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [resource, batch]
+      exporters: [jaeger]
 
-<span class="w">    </span><span class="nt">metrics</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">receivers</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">otlp</span><span class="p p-Indicator">]</span>
-<span class="w">      </span><span class="nt">processors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">resource</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">batch</span><span class="p p-Indicator">]</span>
-<span class="w">      </span><span class="nt">exporters</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">prometheus</span><span class="p p-Indicator">]</span>
+    metrics:
+      receivers: [otlp]
+      processors: [resource, batch]
+      exporters: [prometheus]
 
-<span class="w">    </span><span class="nt">logs</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">receivers</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">otlp</span><span class="p p-Indicator">]</span>
-<span class="w">      </span><span class="nt">processors</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">resource</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">batch</span><span class="p p-Indicator">]</span>
-<span class="w">      </span><span class="nt">exporters</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">loki</span><span class="p p-Indicator">]</span>
-</code></pre></div>
-
+    logs:
+      receivers: [otlp]
+      processors: [resource, batch]
+      exporters: [loki]
+</code></pre>
 <h2 id="alerting-configuration">Alerting Configuration<a class="headerlink" href="#alerting-configuration" title="Permanent link">&para;</a></h2>
 <h3 id="prometheus-alert-rules">Prometheus Alert Rules<a class="headerlink" href="#prometheus-alert-rules" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># prometheus/alert_rules.yml</span>
-<span class="nt">groups</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere.rules</span>
-<span class="w">    </span><span class="nt">rules</span><span class="p">:</span>
-<span class="w">      </span><span class="c1"># Application alerts</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ApplicationDown</span>
-<span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">up{job=&quot;dealsphere-backend&quot;} == 0</span>
-<span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1m</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">critical</span>
-<span class="w">        </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DealSphere</span><span class="nv"> </span><span class="s">application</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">down&quot;</span>
-<span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Application</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$labels.instance</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">has</span><span class="nv"> </span><span class="s">been</span><span class="nv"> </span><span class="s">down</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">more</span><span class="nv"> </span><span class="s">than</span><span class="nv"> </span><span class="s">1</span><span class="nv"> </span><span class="s">minute&quot;</span>
+<pre><code class="language-yaml"># prometheus/alert_rules.yml
+groups:
+  - name: dealsphere.rules
+    rules:
+      # Application alerts
+      - alert: ApplicationDown
+        expr: up{job=&quot;dealsphere-backend&quot;} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: &quot;DealSphere application is down&quot;
+          description: &quot;Application {{ $labels.instance }} has been down for more than 1 minute&quot;
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HighErrorRate</span>
-<span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate(http_server_requests_total{status=~&quot;5..&quot;}[5m]) / rate(http_server_requests_total[5m]) &gt; 0.1</span>
-<span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5m</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">critical</span>
-<span class="w">        </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;High</span><span class="nv"> </span><span class="s">error</span><span class="nv"> </span><span class="s">rate</span><span class="nv"> </span><span class="s">detected&quot;</span>
-<span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Error</span><span class="nv"> </span><span class="s">rate</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$value</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">humanizePercentage</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$labels.instance</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      - alert: HighErrorRate
+        expr: rate(http_server_requests_total{status=~&quot;5..&quot;}[5m]) / rate(http_server_requests_total[5m]) &gt; 0.1
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: &quot;High error rate detected&quot;
+          description: &quot;Error rate is {{ $value | humanizePercentage }} for {{ $labels.instance }}&quot;
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HighResponseTime</span>
-<span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">histogram_quantile(0.95, rate(http_server_requests_seconds_bucket[5m])) &gt; 2</span>
-<span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10m</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">warning</span>
-<span class="w">        </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;High</span><span class="nv"> </span><span class="s">response</span><span class="nv"> </span><span class="s">time&quot;</span>
-<span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;95th</span><span class="nv"> </span><span class="s">percentile</span><span class="nv"> </span><span class="s">response</span><span class="nv"> </span><span class="s">time</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$value</span><span class="nv"> </span><span class="s">}}s</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$labels.instance</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      - alert: HighResponseTime
+        expr: histogram_quantile(0.95, rate(http_server_requests_seconds_bucket[5m])) &gt; 2
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: &quot;High response time&quot;
+          description: &quot;95th percentile response time is {{ $value }}s for {{ $labels.instance }}&quot;
 
-<span class="w">      </span><span class="c1"># Infrastructure alerts</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HighCPUUsage</span>
-<span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100 - (avg by(instance) (irate(node_cpu_seconds_total{mode=&quot;idle&quot;}[5m])) * 100) &gt; 80</span>
-<span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10m</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">warning</span>
-<span class="w">        </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;High</span><span class="nv"> </span><span class="s">CPU</span><span class="nv"> </span><span class="s">usage&quot;</span>
-<span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;CPU</span><span class="nv"> </span><span class="s">usage</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$value</span><span class="nv"> </span><span class="s">}}%</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$labels.instance</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      # Infrastructure alerts
+      - alert: HighCPUUsage
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{mode=&quot;idle&quot;}[5m])) * 100) &gt; 80
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: &quot;High CPU usage&quot;
+          description: &quot;CPU usage is {{ $value }}% on {{ $labels.instance }}&quot;
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HighMemoryUsage</span>
-<span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 &gt; 90</span>
-<span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5m</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">critical</span>
-<span class="w">        </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;High</span><span class="nv"> </span><span class="s">memory</span><span class="nv"> </span><span class="s">usage&quot;</span>
-<span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Memory</span><span class="nv"> </span><span class="s">usage</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$value</span><span class="nv"> </span><span class="s">}}%</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$labels.instance</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      - alert: HighMemoryUsage
+        expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 &gt; 90
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: &quot;High memory usage&quot;
+          description: &quot;Memory usage is {{ $value }}% on {{ $labels.instance }}&quot;
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LowDiskSpace</span>
-<span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(1 - (node_filesystem_avail_bytes{fstype!=&quot;tmpfs&quot;} / node_filesystem_size_bytes)) * 100 &gt; 90</span>
-<span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5m</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">critical</span>
-<span class="w">        </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Low</span><span class="nv"> </span><span class="s">disk</span><span class="nv"> </span><span class="s">space&quot;</span>
-<span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Disk</span><span class="nv"> </span><span class="s">usage</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$value</span><span class="nv"> </span><span class="s">}}%</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$labels.instance</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      - alert: LowDiskSpace
+        expr: (1 - (node_filesystem_avail_bytes{fstype!=&quot;tmpfs&quot;} / node_filesystem_size_bytes)) * 100 &gt; 90
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: &quot;Low disk space&quot;
+          description: &quot;Disk usage is {{ $value }}% on {{ $labels.instance }}&quot;
 
-<span class="w">      </span><span class="c1"># Database alerts</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DatabaseConnectionsHigh</span>
-<span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hikaricp_connections_active / hikaricp_connections_max &gt; 0.8</span>
-<span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5m</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">warning</span>
-<span class="w">        </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;High</span><span class="nv"> </span><span class="s">database</span><span class="nv"> </span><span class="s">connection</span><span class="nv"> </span><span class="s">usage&quot;</span>
-<span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Database</span><span class="nv"> </span><span class="s">connection</span><span class="nv"> </span><span class="s">pool</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$value</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">humanizePercentage</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">full&quot;</span>
+      # Database alerts
+      - alert: DatabaseConnectionsHigh
+        expr: hikaricp_connections_active / hikaricp_connections_max &gt; 0.8
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: &quot;High database connection usage&quot;
+          description: &quot;Database connection pool is {{ $value | humanizePercentage }} full&quot;
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DatabaseSlowQueries</span>
-<span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate(hikaricp_connections_timeout_total[5m]) &gt; 0.1</span>
-<span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5m</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">warning</span>
-<span class="w">        </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Database</span><span class="nv"> </span><span class="s">connection</span><span class="nv"> </span><span class="s">timeouts&quot;</span>
-<span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Database</span><span class="nv"> </span><span class="s">connection</span><span class="nv"> </span><span class="s">timeout</span><span class="nv"> </span><span class="s">rate:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$value</span><span class="nv"> </span><span class="s">}}/s&quot;</span>
+      - alert: DatabaseSlowQueries
+        expr: rate(hikaricp_connections_timeout_total[5m]) &gt; 0.1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: &quot;Database connection timeouts&quot;
+          description: &quot;Database connection timeout rate: {{ $value }}/s&quot;
 
-<span class="w">      </span><span class="c1"># Business metrics alerts</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LowUserActivity</span>
-<span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate(user_login_attempts_total[1h]) &lt; 10</span>
-<span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30m</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">warning</span>
-<span class="w">        </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Low</span><span class="nv"> </span><span class="s">user</span><span class="nv"> </span><span class="s">activity&quot;</span>
-<span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;User</span><span class="nv"> </span><span class="s">login</span><span class="nv"> </span><span class="s">rate</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$value</span><span class="nv"> </span><span class="s">}}/hour&quot;</span>
-</code></pre></div>
-
+      # Business metrics alerts
+      - alert: LowUserActivity
+        expr: rate(user_login_attempts_total[1h]) &lt; 10
+        for: 30m
+        labels:
+          severity: warning
+        annotations:
+          summary: &quot;Low user activity&quot;
+          description: &quot;User login rate is {{ $value }}/hour&quot;
+</code></pre>
 <h3 id="alertmanager-configuration">AlertManager Configuration<a class="headerlink" href="#alertmanager-configuration" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># alertmanager/alertmanager.yml</span>
-<span class="nt">global</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">smtp_smarthost</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;${SMTP_HOST}:587&#39;</span>
-<span class="w">  </span><span class="nt">smtp_from</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;alerts@dealsphere.com&#39;</span>
-<span class="w">  </span><span class="nt">smtp_auth_username</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;${SMTP_USERNAME}&#39;</span>
-<span class="w">  </span><span class="nt">smtp_auth_password</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;${SMTP_PASSWORD}&#39;</span>
+<pre><code class="language-yaml"># alertmanager/alertmanager.yml
+global:
+  smtp_smarthost: '${SMTP_HOST}:587'
+  smtp_from: 'alerts@dealsphere.com'
+  smtp_auth_username: '${SMTP_USERNAME}'
+  smtp_auth_password: '${SMTP_PASSWORD}'
 
-<span class="nt">route</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">group_by</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;alertname&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;cluster&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;service&#39;</span><span class="p p-Indicator">]</span>
-<span class="w">  </span><span class="nt">group_wait</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
-<span class="w">  </span><span class="nt">group_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
-<span class="w">  </span><span class="nt">repeat_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1h</span>
-<span class="w">  </span><span class="nt">receiver</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;default&#39;</span>
-<span class="w">  </span><span class="nt">routes</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">critical</span>
-<span class="w">      </span><span class="nt">receiver</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;critical-alerts&#39;</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">warning</span>
-<span class="w">      </span><span class="nt">receiver</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;warning-alerts&#39;</span>
+route:
+  group_by: ['alertname', 'cluster', 'service']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 1h
+  receiver: 'default'
+  routes:
+    - match:
+        severity: critical
+      receiver: 'critical-alerts'
+    - match:
+        severity: warning
+      receiver: 'warning-alerts'
 
-<span class="nt">receivers</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;default&#39;</span>
-<span class="w">    </span><span class="nt">email_configs</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;devops@dealsphere.com&#39;</span>
-<span class="w">        </span><span class="nt">subject</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;DealSphere</span><span class="nv"> </span><span class="s">Alert:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">.GroupLabels.alertname</span><span class="nv"> </span><span class="s">}}&#39;</span>
-<span class="w">        </span><span class="nt">body</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">          </span><span class="no">{{ range .Alerts }}</span>
-<span class="w">          </span><span class="no">Alert: {{ .Annotations.summary }}</span>
-<span class="w">          </span><span class="no">Description: {{ .Annotations.description }}</span>
-<span class="w">          </span><span class="no">Instance: {{ .Labels.instance }}</span>
-<span class="w">          </span><span class="no">Severity: {{ .Labels.severity }}</span>
-<span class="w">          </span><span class="no">{{ end }}</span>
+receivers:
+  - name: 'default'
+    email_configs:
+      - to: 'devops@dealsphere.com'
+        subject: 'DealSphere Alert: {{ .GroupLabels.alertname }}'
+        body: |
+          {{ range .Alerts }}
+          Alert: {{ .Annotations.summary }}
+          Description: {{ .Annotations.description }}
+          Instance: {{ .Labels.instance }}
+          Severity: {{ .Labels.severity }}
+          {{ end }}
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;critical-alerts&#39;</span>
-<span class="w">    </span><span class="nt">email_configs</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;oncall@dealsphere.com&#39;</span>
-<span class="w">        </span><span class="nt">subject</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;🚨</span><span class="nv"> </span><span class="s">CRITICAL:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">.GroupLabels.alertname</span><span class="nv"> </span><span class="s">}}&#39;</span>
-<span class="w">    </span><span class="nt">slack_configs</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;${SLACK_WEBHOOK_URL}&#39;</span>
-<span class="w">        </span><span class="nt">channel</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;#alerts-critical&#39;</span>
-<span class="w">        </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;🚨</span><span class="nv"> </span><span class="s">Critical</span><span class="nv"> </span><span class="s">Alert&#39;</span>
-<span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">          </span><span class="no">{{ range .Alerts }}</span>
-<span class="w">          </span><span class="no">*{{ .Annotations.summary }}*</span>
-<span class="w">          </span><span class="no">{{ .Annotations.description }}</span>
-<span class="w">          </span><span class="no">{{ end }}</span>
+  - name: 'critical-alerts'
+    email_configs:
+      - to: 'oncall@dealsphere.com'
+        subject: '🚨 CRITICAL: {{ .GroupLabels.alertname }}'
+    slack_configs:
+      - api_url: '${SLACK_WEBHOOK_URL}'
+        channel: '#alerts-critical'
+        title: '🚨 Critical Alert'
+        text: |
+          {{ range .Alerts }}
+          *{{ .Annotations.summary }}*
+          {{ .Annotations.description }}
+          {{ end }}
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;warning-alerts&#39;</span>
-<span class="w">    </span><span class="nt">email_configs</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;devops@dealsphere.com&#39;</span>
-<span class="w">        </span><span class="nt">subject</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;⚠️</span><span class="nv"> </span><span class="s">WARNING:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">.GroupLabels.alertname</span><span class="nv"> </span><span class="s">}}&#39;</span>
-<span class="w">    </span><span class="nt">slack_configs</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;${SLACK_WEBHOOK_URL}&#39;</span>
-<span class="w">        </span><span class="nt">channel</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;#alerts-warning&#39;</span>
-<span class="w">        </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;⚠️</span><span class="nv"> </span><span class="s">Warning</span><span class="nv"> </span><span class="s">Alert&#39;</span>
-<span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">          </span><span class="no">{{ range .Alerts }}</span>
-<span class="w">          </span><span class="no">*{{ .Annotations.summary }}*</span>
-<span class="w">          </span><span class="no">{{ .Annotations.description }}</span>
-<span class="w">          </span><span class="no">{{ end }}</span>
+  - name: 'warning-alerts'
+    email_configs:
+      - to: 'devops@dealsphere.com'
+        subject: '⚠️ WARNING: {{ .GroupLabels.alertname }}'
+    slack_configs:
+      - api_url: '${SLACK_WEBHOOK_URL}'
+        channel: '#alerts-warning'
+        title: '⚠️ Warning Alert'
+        text: |
+          {{ range .Alerts }}
+          *{{ .Annotations.summary }}*
+          {{ .Annotations.description }}
+          {{ end }}
 
-<span class="nt">inhibit_rules</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">source_match</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;critical&#39;</span>
-<span class="w">    </span><span class="nt">target_match</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;warning&#39;</span>
-<span class="w">    </span><span class="nt">equal</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;alertname&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;instance&#39;</span><span class="p p-Indicator">]</span>
-</code></pre></div>
-
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'instance']
+</code></pre>
 <h2 id="grafana-dashboards">Grafana Dashboards<a class="headerlink" href="#grafana-dashboards" title="Permanent link">&para;</a></h2>
 <h3 id="application-dashboard-configuration">Application Dashboard Configuration<a class="headerlink" href="#application-dashboard-configuration" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;dashboard&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DealSphere Application Overview&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;dealsphere&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;application&quot;</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;timezone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;browser&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;panels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Request Rate&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;graph&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;expr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rate(http_server_requests_total[5m])&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;legendFormat&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ instance }} - {{ method }} {{ uri }}&quot;</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">]</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Response Time (95th percentile)&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;graph&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;expr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;histogram_quantile(0.95, rate(http_server_requests_seconds_bucket[5m]))&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;legendFormat&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ instance }}&quot;</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">]</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error Rate&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;graph&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;expr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rate(http_server_requests_total{status=~\&quot;5..\&quot;}[5m]) / rate(http_server_requests_total[5m])&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;legendFormat&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ instance }}&quot;</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">]</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Active Database Connections&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;graph&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;expr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hikaricp_connections_active&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;legendFormat&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Active Connections&quot;</span>
-<span class="w">          </span><span class="p">},</span>
-<span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;expr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hikaricp_connections_max&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;legendFormat&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Max Connections&quot;</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">]</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;dashboard&quot;: {
+    &quot;id&quot;: null,
+    &quot;title&quot;: &quot;DealSphere Application Overview&quot;,
+    &quot;tags&quot;: [&quot;dealsphere&quot;, &quot;application&quot;],
+    &quot;timezone&quot;: &quot;browser&quot;,
+    &quot;panels&quot;: [
+      {
+        &quot;title&quot;: &quot;Request Rate&quot;,
+        &quot;type&quot;: &quot;graph&quot;,
+        &quot;targets&quot;: [
+          {
+            &quot;expr&quot;: &quot;rate(http_server_requests_total[5m])&quot;,
+            &quot;legendFormat&quot;: &quot;{{ instance }} - {{ method }} {{ uri }}&quot;
+          }
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;Response Time (95th percentile)&quot;,
+        &quot;type&quot;: &quot;graph&quot;,
+        &quot;targets&quot;: [
+          {
+            &quot;expr&quot;: &quot;histogram_quantile(0.95, rate(http_server_requests_seconds_bucket[5m]))&quot;,
+            &quot;legendFormat&quot;: &quot;{{ instance }}&quot;
+          }
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;Error Rate&quot;,
+        &quot;type&quot;: &quot;graph&quot;,
+        &quot;targets&quot;: [
+          {
+            &quot;expr&quot;: &quot;rate(http_server_requests_total{status=~\&quot;5..\&quot;}[5m]) / rate(http_server_requests_total[5m])&quot;,
+            &quot;legendFormat&quot;: &quot;{{ instance }}&quot;
+          }
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;Active Database Connections&quot;,
+        &quot;type&quot;: &quot;graph&quot;,
+        &quot;targets&quot;: [
+          {
+            &quot;expr&quot;: &quot;hikaricp_connections_active&quot;,
+            &quot;legendFormat&quot;: &quot;Active Connections&quot;
+          },
+          {
+            &quot;expr&quot;: &quot;hikaricp_connections_max&quot;,
+            &quot;legendFormat&quot;: &quot;Max Connections&quot;
+          }
+        ]
+      }
+    ]
+  }
+}
+</code></pre>
 <h3 id="infrastructure-dashboard">Infrastructure Dashboard<a class="headerlink" href="#infrastructure-dashboard" title="Permanent link">&para;</a></h3>
 <p>Key panels for infrastructure monitoring:</p>
 <ul>
@@ -2799,114 +2784,107 @@ GET<span class="w"> </span>/actuator/configprops
 </ul>
 <h2 id="performance-monitoring">Performance Monitoring<a class="headerlink" href="#performance-monitoring" title="Permanent link">&para;</a></h2>
 <h3 id="slaslo-tracking">SLA/SLO Tracking<a class="headerlink" href="#slaslo-tracking" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Service Level Objectives</span>
-<span class="nt">slos</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">availability</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">99.9%</span>
-<span class="w">    </span><span class="nt">measurement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">up{job=&quot;dealsphere-backend&quot;}</span>
+<pre><code class="language-yaml"># Service Level Objectives
+slos:
+  availability:
+    target: 99.9%
+    measurement: up{job=&quot;dealsphere-backend&quot;}
 
-<span class="w">  </span><span class="nt">response_time</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">95% &lt; 2s</span>
-<span class="w">    </span><span class="nt">measurement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">histogram_quantile(0.95, rate(http_server_requests_seconds_bucket[5m]))</span>
+  response_time:
+    target: 95% &lt; 2s
+    measurement: histogram_quantile(0.95, rate(http_server_requests_seconds_bucket[5m]))
 
-<span class="w">  </span><span class="nt">error_rate</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt; 1%</span>
-<span class="w">    </span><span class="nt">measurement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate(http_server_requests_total{status=~&quot;5..&quot;}[5m]) / rate(http_server_requests_total[5m])</span>
-</code></pre></div>
-
+  error_rate:
+    target: &lt; 1%
+    measurement: rate(http_server_requests_total{status=~&quot;5..&quot;}[5m]) / rate(http_server_requests_total[5m])
+</code></pre>
 <h3 id="capacity-planning-queries">Capacity Planning Queries<a class="headerlink" href="#capacity-planning-queries" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># CPU utilization trend</span>
-<span class="kr">avg_over_time</span><span class="o">(</span><span class="mi">100</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">(</span><span class="k">avg</span><span class="w"> </span><span class="k">by</span><span class="o">(</span><span class="nv">instance</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="kr">irate</span><span class="o">(</span><span class="nv">node_cpu_seconds_total</span><span class="p">{</span><span class="nl">mode</span><span class="o">=</span><span class="p">&quot;</span><span class="s">idle</span><span class="p">&quot;}[</span><span class="s">5m</span><span class="p">]</span><span class="o">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="o">)</span><span class="p">[</span><span class="s">7d</span><span class="err">:</span><span class="s">1h</span><span class="p">]</span><span class="o">)</span>
+<pre><code class="language-promql"># CPU utilization trend
+avg_over_time(100 - (avg by(instance) (irate(node_cpu_seconds_total{mode=&quot;idle&quot;}[5m])) * 100)[7d:1h])
 
-<span class="c1"># Memory usage growth</span>
-<span class="kr">increase</span><span class="o">(</span><span class="nv">node_memory_MemTotal_bytes</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">node_memory_MemAvailable_bytes</span><span class="p">[</span><span class="s">7d</span><span class="p">]</span><span class="o">)</span>
+# Memory usage growth
+increase(node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes[7d])
 
-<span class="c1"># Request volume projection</span>
-<span class="kr">predict_linear</span><span class="o">(</span><span class="kr">rate</span><span class="o">(</span><span class="nv">http_server_requests_total</span><span class="p">[</span><span class="s">1h</span><span class="p">]</span><span class="o">)</span><span class="p">[</span><span class="s">7d</span><span class="err">:</span><span class="s">1h</span><span class="p">],</span><span class="w"> </span><span class="mi">7</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mi">3600</span><span class="o">)</span>
+# Request volume projection
+predict_linear(rate(http_server_requests_total[1h])[7d:1h], 7*24*3600)
 
-<span class="c1"># Database connection pool utilization</span>
-<span class="kr">avg_over_time</span><span class="o">((</span><span class="nv">hikaricp_connections_active</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nv">hikaricp_connections_max</span><span class="o">)</span><span class="p">[</span><span class="s">7d</span><span class="err">:</span><span class="s">1h</span><span class="p">]</span><span class="o">)</span>
-</code></pre></div>
-
+# Database connection pool utilization
+avg_over_time((hikaricp_connections_active / hikaricp_connections_max)[7d:1h])
+</code></pre>
 <h2 id="security-monitoring">Security Monitoring<a class="headerlink" href="#security-monitoring" title="Permanent link">&para;</a></h2>
 <h3 id="security-metrics">Security Metrics<a class="headerlink" href="#security-metrics" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Track security events</span>
-<span class="nd">@Component</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SecurityMetrics</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="n">failedLogins</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="n">suspiciousActivity</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Timer</span><span class="w"> </span><span class="n">authenticationTime</span><span class="p">;</span>
+<pre><code class="language-java">// Track security events
+@Component
+public class SecurityMetrics {
+    private final Counter failedLogins;
+    private final Counter suspiciousActivity;
+    private final Timer authenticationTime;
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">SecurityMetrics</span><span class="p">(</span><span class="n">MeterRegistry</span><span class="w"> </span><span class="n">registry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">failedLogins</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Counter</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;security.login.failed&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Failed login attempts&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">tag</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;authentication&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">registry</span><span class="p">);</span>
+    public SecurityMetrics(MeterRegistry registry) {
+        this.failedLogins = Counter.builder(&quot;security.login.failed&quot;)
+            .description(&quot;Failed login attempts&quot;)
+            .tag(&quot;type&quot;, &quot;authentication&quot;)
+            .register(registry);
 
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">suspiciousActivity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Counter</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;security.suspicious.activity&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Suspicious user activity detected&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">registry</span><span class="p">);</span>
+        this.suspiciousActivity = Counter.builder(&quot;security.suspicious.activity&quot;)
+            .description(&quot;Suspicious user activity detected&quot;)
+            .register(registry);
 
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">authenticationTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Timer</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="s">&quot;security.authentication.time&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Time taken for authentication&quot;</span><span class="p">)</span>
-<span class="w">            </span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">registry</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+        this.authenticationTime = Timer.builder(&quot;security.authentication.time&quot;)
+            .description(&quot;Time taken for authentication&quot;)
+            .register(registry);
+    }
+}
+</code></pre>
 <h3 id="security-alerts">Security Alerts<a class="headerlink" href="#security-alerts" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Security-focused alert rules</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HighFailedLoginRate</span>
-<span class="w">  </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate(security_login_failed_total[5m]) &gt; 10</span>
-<span class="w">  </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2m</span>
-<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">warning</span>
-<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;High</span><span class="nv"> </span><span class="s">failed</span><span class="nv"> </span><span class="s">login</span><span class="nv"> </span><span class="s">rate</span><span class="nv"> </span><span class="s">detected&quot;</span>
+<pre><code class="language-yaml"># Security-focused alert rules
+- alert: HighFailedLoginRate
+  expr: rate(security_login_failed_total[5m]) &gt; 10
+  for: 2m
+  labels:
+    severity: warning
+  annotations:
+    summary: &quot;High failed login rate detected&quot;
 
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SuspiciousActivity</span>
-<span class="w">  </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">increase(security_suspicious_activity_total[5m]) &gt; 5</span>
-<span class="w">  </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1m</span>
-<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">critical</span>
-<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Suspicious</span><span class="nv"> </span><span class="s">user</span><span class="nv"> </span><span class="s">activity</span><span class="nv"> </span><span class="s">detected&quot;</span>
-</code></pre></div>
-
+- alert: SuspiciousActivity
+  expr: increase(security_suspicious_activity_total[5m]) &gt; 5
+  for: 1m
+  labels:
+    severity: critical
+  annotations:
+    summary: &quot;Suspicious user activity detected&quot;
+</code></pre>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
 <p><strong>No Metrics Appearing</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Check application health</span>
-curl<span class="w"> </span>http://localhost:8080/actuator/health
+<pre><code class="language-bash"># Check application health
+curl http://localhost:8080/actuator/health
 
-<span class="c1"># Verify Prometheus targets</span>
-curl<span class="w"> </span>http://localhost:9090/api/v1/targets
+# Verify Prometheus targets
+curl http://localhost:9090/api/v1/targets
 
-<span class="c1"># Check network connectivity</span>
-docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.monitoring.yml<span class="w"> </span>logs<span class="w"> </span>prometheus
-</code></pre></div>
-
+# Check network connectivity
+docker compose -f docker-compose.monitoring.yml logs prometheus
+</code></pre>
 <p><strong>Missing Traces</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Verify OpenTelemetry configuration</span>
-curl<span class="w"> </span>http://localhost:4318/v1/traces
+<pre><code class="language-bash"># Verify OpenTelemetry configuration
+curl http://localhost:4318/v1/traces
 
-<span class="c1"># Check sampling configuration</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;OTEL_TRACES_SAMPLER=always_on&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.env
+# Check sampling configuration
+echo &quot;OTEL_TRACES_SAMPLER=always_on&quot; &gt;&gt; .env
 
-<span class="c1"># Inspect Jaeger</span>
-curl<span class="w"> </span>http://localhost:16686/api/services
-</code></pre></div>
-
+# Inspect Jaeger
+curl http://localhost:16686/api/services
+</code></pre>
 <p><strong>High Resource Usage</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Adjust retention policies</span>
-<span class="c1"># Edit prometheus/prometheus.yml</span>
-retention.time:<span class="w"> </span>15d
-retention.size:<span class="w"> </span>5GB
+<pre><code class="language-bash"># Adjust retention policies
+# Edit prometheus/prometheus.yml
+retention.time: 15d
+retention.size: 5GB
 
-<span class="c1"># Reduce scrape intervals</span>
-scrape_interval:<span class="w"> </span>30s
-</code></pre></div>
-
+# Reduce scrape intervals
+scrape_interval: 30s
+</code></pre>
 <p>This comprehensive observability setup provides enterprise-grade monitoring capabilities, enabling proactive issue detection and performance optimization for the DealSphere platform.</p>
 
 

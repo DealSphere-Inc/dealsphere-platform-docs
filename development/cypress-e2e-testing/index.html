@@ -67,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -122,7 +122,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
@@ -132,7 +132,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#a9a9a9" data-md-color-accent="gray"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
@@ -2105,504 +2105,471 @@
 </ul>
 <h2 id="test-architecture">Test Architecture<a class="headerlink" href="#test-architecture" title="Permanent link">&para;</a></h2>
 <h3 id="directory-structure">Directory Structure<a class="headerlink" href="#directory-structure" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="nv">frontend</span><span class="o">/</span><span class="nv">cypress</span><span class="o">/</span>
-├──<span class="w"> </span><span class="nv">e2e</span><span class="o">/</span><span class="w">                          </span>#<span class="w"> </span><span class="k">End</span><span class="o">-</span><span class="nv">to</span><span class="o">-</span><span class="k">end</span><span class="w"> </span><span class="nv">test</span><span class="w"> </span><span class="nv">specs</span>
-│<span class="w">   </span>└──<span class="w"> </span><span class="nv">auth</span><span class="o">/</span>
-│<span class="w">       </span>├──<span class="w"> </span><span class="nv">login</span><span class="o">-</span><span class="nv">flow</span>.<span class="nv">cy</span>.<span class="nv">ts</span><span class="w">      </span>#<span class="w"> </span><span class="nv">Complete</span><span class="w"> </span><span class="nv">login</span><span class="w"> </span><span class="nv">workflow</span>
-│<span class="w">       </span>├──<span class="w"> </span><span class="nv">jwt</span><span class="o">-</span><span class="nv">storage</span>.<span class="nv">cy</span>.<span class="nv">ts</span><span class="w">     </span>#<span class="w"> </span><span class="nv">Token</span><span class="w"> </span><span class="nv">storage</span><span class="w"> </span><span class="nv">verification</span>
-│<span class="w">       </span>└──<span class="w"> </span><span class="nv">basic</span><span class="o">-</span><span class="nv">login</span>.<span class="nv">cy</span>.<span class="nv">ts</span><span class="w">     </span>#<span class="w"> </span><span class="nv">Basic</span><span class="w"> </span><span class="nv">functionality</span><span class="w"> </span><span class="nv">tests</span>
-├──<span class="w"> </span><span class="nv">support</span><span class="o">/</span><span class="w">                      </span>#<span class="w"> </span><span class="nv">Cypress</span><span class="w"> </span><span class="nv">support</span><span class="w"> </span><span class="nv">files</span>
-│<span class="w">   </span>├──<span class="w"> </span><span class="nv">commands</span>.<span class="nv">ts</span><span class="w">               </span>#<span class="w"> </span><span class="nv">Custom</span><span class="w"> </span><span class="nv">commands</span>
-│<span class="w">   </span>└──<span class="w"> </span><span class="nv">e2e</span>.<span class="nv">ts</span><span class="w">                   </span>#<span class="w"> </span><span class="nv">Global</span><span class="w"> </span><span class="nv">configuration</span>
-├──<span class="w"> </span><span class="nv">fixtures</span><span class="o">/</span><span class="w">                     </span>#<span class="w"> </span><span class="nv">Test</span><span class="w"> </span><span class="nv">data</span>
-│<span class="w">   </span>└──<span class="w"> </span><span class="nv">users</span>.<span class="nv">json</span><span class="w">               </span>#<span class="w"> </span><span class="nv">User</span><span class="w"> </span><span class="nv">credentials</span>
-├──<span class="w"> </span><span class="nv">videos</span><span class="o">/</span><span class="w">                       </span>#<span class="w"> </span><span class="nv">Test</span><span class="w"> </span><span class="nv">recordings</span><span class="w"> </span><span class="ss">(</span><span class="nv">CI</span><span class="ss">)</span>
-├──<span class="w"> </span><span class="nv">screenshots</span><span class="o">/</span><span class="w">                  </span>#<span class="w"> </span><span class="nv">Failure</span><span class="w"> </span><span class="nv">screenshots</span>
-└──<span class="w"> </span><span class="nv">cypress</span>.<span class="nv">config</span>.<span class="nv">ts</span><span class="w">            </span>#<span class="w"> </span><span class="nv">Cypress</span><span class="w"> </span><span class="nv">configuration</span>
-</code></pre></div>
-
+<pre><code>frontend/cypress/
+├── e2e/                          # End-to-end test specs
+│   └── auth/
+│       ├── login-flow.cy.ts      # Complete login workflow
+│       ├── jwt-storage.cy.ts     # Token storage verification
+│       └── basic-login.cy.ts     # Basic functionality tests
+├── support/                      # Cypress support files
+│   ├── commands.ts               # Custom commands
+│   └── e2e.ts                   # Global configuration
+├── fixtures/                     # Test data
+│   └── users.json               # User credentials
+├── videos/                       # Test recordings (CI)
+├── screenshots/                  # Failure screenshots
+└── cypress.config.ts            # Cypress configuration
+</code></pre>
 <h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
 <p><strong>cypress.config.ts:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">defineConfig</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;cypress&#39;</span>
+<pre><code class="language-typescript">import { defineConfig } from 'cypress'
 
-<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">defineConfig</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">e2e</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">baseUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://localhost&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">viewportWidth</span><span class="o">:</span><span class="w"> </span><span class="kt">1280</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">viewportHeight</span><span class="o">:</span><span class="w"> </span><span class="kt">720</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">video</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">screenshotOnRunFailure</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">defaultCommandTimeout</span><span class="o">:</span><span class="w"> </span><span class="kt">10000</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">requestTimeout</span><span class="o">:</span><span class="w"> </span><span class="kt">10000</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">responseTimeout</span><span class="o">:</span><span class="w"> </span><span class="kt">10000</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">pageLoadTimeout</span><span class="o">:</span><span class="w"> </span><span class="kt">30000</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">supportFile</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cypress/support/e2e.ts&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">specPattern</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cypress/e2e/**/*.cy.{js,jsx,ts,tsx}&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nx">env</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">VITE_API_URL</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://localhost/api&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">VITE_GRAPHQL_URL</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://localhost/api/graphql&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">})</span>
-</code></pre></div>
-
+export default defineConfig({
+  e2e: {
+    baseUrl: 'http://localhost',
+    viewportWidth: 1280,
+    viewportHeight: 720,
+    video: true,
+    screenshotOnRunFailure: true,
+    defaultCommandTimeout: 10000,
+    requestTimeout: 10000,
+    responseTimeout: 10000,
+    pageLoadTimeout: 30000,
+    supportFile: 'cypress/support/e2e.ts',
+    specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
+  },
+  env: {
+    VITE_API_URL: 'http://localhost/api',
+    VITE_GRAPHQL_URL: 'http://localhost/api/graphql',
+  }
+})
+</code></pre>
 <h2 id="test-categories">Test Categories<a class="headerlink" href="#test-categories" title="Permanent link">&para;</a></h2>
 <h3 id="1-authentication-flow-tests">1. Authentication Flow Tests<a class="headerlink" href="#1-authentication-flow-tests" title="Permanent link">&para;</a></h3>
 <p><strong>File:</strong> <code>cypress/e2e/auth/login-flow.cy.ts</code></p>
 <p>Tests the complete authentication workflow including:</p>
 <h4 id="login-form-validation">Login Form Validation<a class="headerlink" href="#login-form-validation" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should display login form correctly&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">)</span>
+<pre><code class="language-typescript">it('should display login form correctly', () =&gt; {
+  cy.visit('/login')
 
-<span class="w">  </span><span class="c1">// Verify form elements</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;input[name=&quot;email&quot;]&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;be.visible&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;input[name=&quot;password&quot;]&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;be.visible&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;button[type=&quot;submit&quot;]&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;contain.text&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Sign In&#39;</span><span class="p">)</span>
-<span class="p">})</span>
-</code></pre></div>
-
+  // Verify form elements
+  cy.get('input[name=&quot;email&quot;]').should('be.visible')
+  cy.get('input[name=&quot;password&quot;]').should('be.visible')
+  cy.get('button[type=&quot;submit&quot;]').should('contain.text', 'Sign In')
+})
+</code></pre>
 <h4 id="redux-saga-integration">Redux Saga Integration<a class="headerlink" href="#redux-saga-integration" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should successfully login and store JWT token&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// Intercept GraphQL login mutation</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">intercept</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/api/graphql&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;mutation Login&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">req</span><span class="p">.</span><span class="nx">alias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;loginMutation&#39;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">})</span>
+<pre><code class="language-typescript">it('should successfully login and store JWT token', () =&gt; {
+  // Intercept GraphQL login mutation
+  cy.intercept('POST', '/api/graphql', (req) =&gt; {
+    if (req.body.query.includes('mutation Login')) {
+      req.alias = 'loginMutation'
+    }
+  })
 
-<span class="w">  </span><span class="c1">// Perform login</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;input[name=&quot;email&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;admin@dealsphere.com&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;input[name=&quot;password&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;password123&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;button[type=&quot;submit&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">()</span>
+  // Perform login
+  cy.get('input[name=&quot;email&quot;]').type('admin@dealsphere.com')
+  cy.get('input[name=&quot;password&quot;]').type('password123')
+  cy.get('button[type=&quot;submit&quot;]').click()
 
-<span class="w">  </span><span class="c1">// Verify API call and response</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">wait</span><span class="p">(</span><span class="s1">&#39;@loginMutation&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">interception</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">interception</span><span class="p">.</span><span class="nx">response</span><span class="o">?</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">eq</span><span class="p">(</span><span class="mf">200</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">interception</span><span class="p">.</span><span class="nx">response</span><span class="o">?</span><span class="p">.</span><span class="nx">body</span><span class="o">?</span><span class="p">.</span><span class="nx">data</span><span class="o">?</span><span class="p">.</span><span class="nx">login</span><span class="p">.</span><span class="nx">token</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">exist</span>
-<span class="w">  </span><span class="p">})</span>
-<span class="p">})</span>
-</code></pre></div>
-
+  // Verify API call and response
+  cy.wait('@loginMutation').then((interception) =&gt; {
+    expect(interception.response?.statusCode).to.eq(200)
+    expect(interception.response?.body?.data?.login.token).to.exist
+  })
+})
+</code></pre>
 <h4 id="state-persistence">State Persistence<a class="headerlink" href="#state-persistence" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should persist auth state on page refresh&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// Login first</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span><span class="s1">&#39;admin@dealsphere.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;password123&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">url</span><span class="p">().</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;include&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/dashboard&#39;</span><span class="p">)</span>
+<pre><code class="language-typescript">it('should persist auth state on page refresh', () =&gt; {
+  // Login first
+  cy.login('admin@dealsphere.com', 'password123')
+  cy.url().should('include', '/dashboard')
 
-<span class="w">  </span><span class="c1">// Refresh page</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">reload</span><span class="p">()</span>
+  // Refresh page
+  cy.reload()
 
-<span class="w">  </span><span class="c1">// Should still be authenticated</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">url</span><span class="p">().</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;include&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/dashboard&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nb">window</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">win</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">win</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;authToken&#39;</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">exist</span>
-<span class="w">  </span><span class="p">})</span>
-<span class="p">})</span>
-</code></pre></div>
-
+  // Should still be authenticated
+  cy.url().should('include', '/dashboard')
+  cy.window().then((win) =&gt; {
+    expect(win.localStorage.getItem('authToken')).to.exist
+  })
+})
+</code></pre>
 <h3 id="2-jwt-storage-tests">2. JWT Storage Tests<a class="headerlink" href="#2-jwt-storage-tests" title="Permanent link">&para;</a></h3>
 <p><strong>File:</strong> <code>cypress/e2e/auth/jwt-storage.cy.ts</code></p>
 <p>Focuses specifically on token management:</p>
 <h4 id="localstorage-verification">LocalStorage Verification<a class="headerlink" href="#localstorage-verification" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should store JWT token with correct key&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span><span class="s1">&#39;admin@dealsphere.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;password123&#39;</span><span class="p">)</span>
+<pre><code class="language-typescript">it('should store JWT token with correct key', () =&gt; {
+  cy.login('admin@dealsphere.com', 'password123')
 
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nb">window</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">win</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">win</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;authToken&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">userData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">win</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;userData&#39;</span><span class="p">)</span>
+  cy.window().then((win) =&gt; {
+    const token = win.localStorage.getItem('authToken')
+    const userData = win.localStorage.getItem('userData')
 
-<span class="w">    </span><span class="c1">// Verify token format (JWT structure)</span>
-<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">token</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^eyJ[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*$/</span><span class="p">)</span>
+    // Verify token format (JWT structure)
+    expect(token).to.match(/^eyJ[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*$/)
 
-<span class="w">    </span><span class="c1">// Verify user data structure</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">userData</span><span class="o">!</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">user</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">have</span><span class="p">.</span><span class="nx">property</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">user</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">have</span><span class="p">.</span><span class="nx">property</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;admin@dealsphere.com&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">})</span>
-<span class="p">})</span>
-</code></pre></div>
-
+    // Verify user data structure
+    const user = JSON.parse(userData!)
+    expect(user).to.have.property('id')
+    expect(user).to.have.property('email', 'admin@dealsphere.com')
+  })
+})
+</code></pre>
 <h4 id="token-cleanup">Token Cleanup<a class="headerlink" href="#token-cleanup" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should clear tokens on logout&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span><span class="s1">&#39;admin@dealsphere.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;password123&#39;</span><span class="p">)</span>
+<pre><code class="language-typescript">it('should clear tokens on logout', () =&gt; {
+  cy.login('admin@dealsphere.com', 'password123')
 
-<span class="w">  </span><span class="c1">// Verify tokens exist</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nb">window</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">win</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">win</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;authToken&#39;</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">exist</span>
-<span class="w">  </span><span class="p">})</span>
+  // Verify tokens exist
+  cy.window().then((win) =&gt; {
+    expect(win.localStorage.getItem('authToken')).to.exist
+  })
 
-<span class="w">  </span><span class="c1">// Logout</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;logout-button&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">()</span>
+  // Logout
+  cy.get('[data-testid=&quot;logout-button&quot;]').click()
 
-<span class="w">  </span><span class="c1">// Verify tokens are cleared</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nb">window</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">win</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">win</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;authToken&#39;</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="kc">null</span>
-<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">win</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;userData&#39;</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">be</span><span class="p">.</span><span class="kc">null</span>
-<span class="w">  </span><span class="p">})</span>
-<span class="p">})</span>
-</code></pre></div>
-
+  // Verify tokens are cleared
+  cy.window().then((win) =&gt; {
+    expect(win.localStorage.getItem('authToken')).to.be.null
+    expect(win.localStorage.getItem('userData')).to.be.null
+  })
+})
+</code></pre>
 <h3 id="3-basic-functionality-tests">3. Basic Functionality Tests<a class="headerlink" href="#3-basic-functionality-tests" title="Permanent link">&para;</a></h3>
 <p><strong>File:</strong> <code>cypress/e2e/auth/basic-login.cy.ts</code></p>
 <p>Simplified tests for quick verification:</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should test actual login with real backend&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">)</span>
+<pre><code class="language-typescript">it('should test actual login with real backend', () =&gt; {
+  cy.visit('/login')
 
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;input[name=&quot;email&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;admin@dealsphere.com&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;input[name=&quot;password&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;password123&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;button[type=&quot;submit&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">()</span>
+  cy.get('input[name=&quot;email&quot;]').type('admin@dealsphere.com')
+  cy.get('input[name=&quot;password&quot;]').type('password123')
+  cy.get('button[type=&quot;submit&quot;]').click()
 
-<span class="w">  </span><span class="c1">// Wait for processing</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">wait</span><span class="p">(</span><span class="mf">3000</span><span class="p">)</span>
+  // Wait for processing
+  cy.wait(3000)
 
-<span class="w">  </span><span class="c1">// Check success indicators</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nb">window</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">win</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">win</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;authToken&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">token</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">expect</span><span class="p">(</span><span class="nx">token</span><span class="p">).</span><span class="nx">to</span><span class="p">.</span><span class="nx">exist</span>
-<span class="w">      </span><span class="nx">cy</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;✅ Login successful - Token stored&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">})</span>
-<span class="p">})</span>
-</code></pre></div>
-
+  // Check success indicators
+  cy.window().then((win) =&gt; {
+    const token = win.localStorage.getItem('authToken')
+    if (token) {
+      expect(token).to.exist
+      cy.log('✅ Login successful - Token stored')
+    }
+  })
+})
+</code></pre>
 <h2 id="custom-commands">Custom Commands<a class="headerlink" href="#custom-commands" title="Permanent link">&para;</a></h2>
 <h3 id="authentication-commands">Authentication Commands<a class="headerlink" href="#authentication-commands" title="Permanent link">&para;</a></h3>
 <p><strong>File:</strong> <code>cypress/support/commands.ts</code></p>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Login command for reusable authentication</span>
-<span class="nx">Cypress</span><span class="p">.</span><span class="nx">Commands</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">)</span>
+<pre><code class="language-typescript">// Login command for reusable authentication
+Cypress.Commands.add('login', (email: string, password: string) =&gt; {
+  cy.visit('/login')
 
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;input[name=&quot;email&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="nx">email</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;input[name=&quot;password&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="nx">password</span><span class="p">)</span>
+  cy.get('input[name=&quot;email&quot;]').type(email)
+  cy.get('input[name=&quot;password&quot;]').type(password)
 
-<span class="w">  </span><span class="c1">// Intercept login mutation</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">intercept</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/api/graphql&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;mutation Login&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">req</span><span class="p">.</span><span class="nx">alias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;loginMutation&#39;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">})</span>
+  // Intercept login mutation
+  cy.intercept('POST', '/api/graphql', (req) =&gt; {
+    if (req.body.query.includes('mutation Login')) {
+      req.alias = 'loginMutation'
+    }
+  })
 
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;button[type=&quot;submit&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">()</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">wait</span><span class="p">(</span><span class="s1">&#39;@loginMutation&#39;</span><span class="p">)</span>
-<span class="p">})</span>
+  cy.get('button[type=&quot;submit&quot;]').click()
+  cy.wait('@loginMutation')
+})
 
-<span class="c1">// Clear authentication state</span>
-<span class="nx">Cypress</span><span class="p">.</span><span class="nx">Commands</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;clearAuth&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nb">window</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">win</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">win</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s1">&#39;authToken&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">win</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s1">&#39;userData&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">})</span>
-<span class="p">})</span>
-</code></pre></div>
-
+// Clear authentication state
+Cypress.Commands.add('clearAuth', () =&gt; {
+  cy.window().then((win) =&gt; {
+    win.localStorage.removeItem('authToken')
+    win.localStorage.removeItem('userData')
+  })
+})
+</code></pre>
 <h3 id="state-management-commands">State Management Commands<a class="headerlink" href="#state-management-commands" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Access Redux store (if exposed)</span>
-<span class="nx">Cypress</span><span class="p">.</span><span class="nx">Commands</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;getReduxState&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nb">window</span><span class="p">().</span><span class="nx">its</span><span class="p">(</span><span class="s1">&#39;store&#39;</span><span class="p">).</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;getState&#39;</span><span class="p">)</span>
-<span class="p">})</span>
+<pre><code class="language-typescript">// Access Redux store (if exposed)
+Cypress.Commands.add('getReduxState', () =&gt; {
+  cy.window().its('store').invoke('getState')
+})
 
-<span class="c1">// Wait for specific Redux actions</span>
-<span class="nx">Cypress</span><span class="p">.</span><span class="nx">Commands</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;waitForAction&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">actionType</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nb">window</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">win</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Cypress</span><span class="p">.</span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">store</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">win</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">any</span><span class="p">).</span><span class="nx">store</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">store</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">unsubscribe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="kd">const</span><span class="w"> </span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">()</span>
-<span class="w">          </span><span class="nx">unsubscribe</span><span class="p">()</span>
-<span class="w">          </span><span class="nx">resolve</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span>
-<span class="w">        </span><span class="p">})</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">})</span>
-<span class="w">  </span><span class="p">})</span>
-<span class="p">})</span>
-</code></pre></div>
-
+// Wait for specific Redux actions
+Cypress.Commands.add('waitForAction', (actionType: string) =&gt; {
+  cy.window().then((win) =&gt; {
+    return new Cypress.Promise((resolve) =&gt; {
+      const store = (win as any).store
+      if (store) {
+        const unsubscribe = store.subscribe(() =&gt; {
+          const state = store.getState()
+          unsubscribe()
+          resolve(state)
+        })
+      }
+    })
+  })
+})
+</code></pre>
 <h2 id="test-data-management">Test Data Management<a class="headerlink" href="#test-data-management" title="Permanent link">&para;</a></h2>
 <h3 id="user-fixtures">User Fixtures<a class="headerlink" href="#user-fixtures" title="Permanent link">&para;</a></h3>
 <p><strong>File:</strong> <code>cypress/fixtures/users.json</code></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;admin&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin@dealsphere.com&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password123&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;expectedData&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;firstName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Admin&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;lastName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;User&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;roles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ADMIN&quot;</span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;testUser&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test@dealsphere.com&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;testpass123&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;expectedData&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;firstName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;lastName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;User&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;roles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;USER&quot;</span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;admin&quot;: {
+    &quot;email&quot;: &quot;admin@dealsphere.com&quot;,
+    &quot;password&quot;: &quot;password123&quot;,
+    &quot;expectedData&quot;: {
+      &quot;firstName&quot;: &quot;Admin&quot;,
+      &quot;lastName&quot;: &quot;User&quot;,
+      &quot;roles&quot;: [&quot;ADMIN&quot;]
+    }
+  },
+  &quot;testUser&quot;: {
+    &quot;email&quot;: &quot;test@dealsphere.com&quot;,
+    &quot;password&quot;: &quot;testpass123&quot;,
+    &quot;expectedData&quot;: {
+      &quot;firstName&quot;: &quot;Test&quot;,
+      &quot;lastName&quot;: &quot;User&quot;,
+      &quot;roles&quot;: [&quot;USER&quot;]
+    }
+  }
+}
+</code></pre>
 <h3 id="dynamic-test-data">Dynamic Test Data<a class="headerlink" href="#dynamic-test-data" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Load fixtures in tests</span>
-<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;User Management&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">users</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span>
+<pre><code class="language-typescript">// Load fixtures in tests
+describe('User Management', () =&gt; {
+  let users: any
 
-<span class="w">  </span><span class="nx">before</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">fixture</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">userData</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">userData</span>
-<span class="w">    </span><span class="p">})</span>
-<span class="w">  </span><span class="p">})</span>
+  before(() =&gt; {
+    cy.fixture('users').then((userData) =&gt; {
+      users = userData
+    })
+  })
 
-<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should login with admin user&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">cy</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span><span class="nx">users</span><span class="p">.</span><span class="nx">admin</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">users</span><span class="p">.</span><span class="nx">admin</span><span class="p">.</span><span class="nx">password</span><span class="p">)</span>
-<span class="w">    </span><span class="c1">// Test continues...</span>
-<span class="w">  </span><span class="p">})</span>
-<span class="p">})</span>
-</code></pre></div>
-
+  it('should login with admin user', () =&gt; {
+    cy.login(users.admin.email, users.admin.password)
+    // Test continues...
+  })
+})
+</code></pre>
 <h2 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h2>
 <h3 id="local-development">Local Development<a class="headerlink" href="#local-development" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Interactive mode (Cypress Test Runner)</span>
-<span class="nb">cd</span><span class="w"> </span>frontend
-pnpm<span class="w"> </span>cy:open
+<pre><code class="language-bash"># Interactive mode (Cypress Test Runner)
+cd frontend
+pnpm cy:open
 
-<span class="c1"># Headless mode</span>
-pnpm<span class="w"> </span>cy:run
+# Headless mode
+pnpm cy:run
 
-<span class="c1"># Specific test file</span>
-pnpm<span class="w"> </span>cy:run<span class="w"> </span>--spec<span class="w"> </span><span class="s2">&quot;cypress/e2e/auth/login-flow.cy.ts&quot;</span>
+# Specific test file
+pnpm cy:run --spec &quot;cypress/e2e/auth/login-flow.cy.ts&quot;
 
-<span class="c1"># With specific browser</span>
-pnpm<span class="w"> </span>cy:run<span class="w"> </span>--browser<span class="w"> </span>chrome
+# With specific browser
+pnpm cy:run --browser chrome
 
-<span class="c1"># With environment variables</span>
-<span class="nv">CYPRESS_BASE_URL</span><span class="o">=</span>http://localhost:3000<span class="w"> </span>pnpm<span class="w"> </span>cy:run
-</code></pre></div>
-
+# With environment variables
+CYPRESS_BASE_URL=http://localhost:3000 pnpm cy:run
+</code></pre>
 <h3 id="cicd-environment">CI/CD Environment<a class="headerlink" href="#cicd-environment" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Headless with artifacts</span>
-pnpm<span class="w"> </span>cy:run<span class="w"> </span>--config<span class="w"> </span><span class="nv">video</span><span class="o">=</span>true,screenshotOnRunFailure<span class="o">=</span><span class="nb">true</span>
+<pre><code class="language-bash"># Headless with artifacts
+pnpm cy:run --config video=true,screenshotOnRunFailure=true
 
-<span class="c1"># Multiple browsers (parallel)</span>
-pnpm<span class="w"> </span>cy:run<span class="w"> </span>--browser<span class="w"> </span>chrome<span class="w"> </span><span class="p">&amp;</span>
-pnpm<span class="w"> </span>cy:run<span class="w"> </span>--browser<span class="w"> </span>firefox<span class="w"> </span><span class="p">&amp;</span>
-<span class="nb">wait</span>
+# Multiple browsers (parallel)
+pnpm cy:run --browser chrome &amp;
+pnpm cy:run --browser firefox &amp;
+wait
 
-<span class="c1"># Record to Cypress Dashboard</span>
-pnpm<span class="w"> </span>cy:run<span class="w"> </span>--record<span class="w"> </span>--key<span class="w"> </span>&lt;cypress-record-key&gt;
-</code></pre></div>
-
+# Record to Cypress Dashboard
+pnpm cy:run --record --key &lt;cypress-record-key&gt;
+</code></pre>
 <h2 id="environment-configuration">Environment Configuration<a class="headerlink" href="#environment-configuration" title="Permanent link">&para;</a></h2>
 <h3 id="development-environment">Development Environment<a class="headerlink" href="#development-environment" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># .env.development</span>
-<span class="nv">CYPRESS_BASE_URL</span><span class="o">=</span>http://localhost
-<span class="nv">CYPRESS_VIDEO</span><span class="o">=</span><span class="nb">true</span>
-<span class="nv">CYPRESS_SCREENSHOTS</span><span class="o">=</span><span class="nb">true</span>
-</code></pre></div>
-
+<pre><code class="language-bash"># .env.development
+CYPRESS_BASE_URL=http://localhost
+CYPRESS_VIDEO=true
+CYPRESS_SCREENSHOTS=true
+</code></pre>
 <h3 id="staging-environment">Staging Environment<a class="headerlink" href="#staging-environment" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># .env.staging</span>
-<span class="nv">CYPRESS_BASE_URL</span><span class="o">=</span>https://staging.dealsphere.com
-<span class="nv">CYPRESS_VIDEO</span><span class="o">=</span><span class="nb">true</span>
-<span class="nv">CYPRESS_SCREENSHOTS</span><span class="o">=</span><span class="nb">true</span>
-<span class="nv">CYPRESS_VIDEO_COMPRESSION</span><span class="o">=</span><span class="m">32</span>
-</code></pre></div>
-
+<pre><code class="language-bash"># .env.staging
+CYPRESS_BASE_URL=https://staging.dealsphere.com
+CYPRESS_VIDEO=true
+CYPRESS_SCREENSHOTS=true
+CYPRESS_VIDEO_COMPRESSION=32
+</code></pre>
 <h3 id="production-environment">Production Environment<a class="headerlink" href="#production-environment" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># .env.production</span>
-<span class="nv">CYPRESS_BASE_URL</span><span class="o">=</span>https://dealsphere.com
-<span class="nv">CYPRESS_VIDEO</span><span class="o">=</span><span class="nb">false</span>
-<span class="nv">CYPRESS_SCREENSHOTS</span><span class="o">=</span><span class="nb">false</span>
-</code></pre></div>
-
+<pre><code class="language-bash"># .env.production
+CYPRESS_BASE_URL=https://dealsphere.com
+CYPRESS_VIDEO=false
+CYPRESS_SCREENSHOTS=false
+</code></pre>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
 <h3 id="1-test-design-principles">1. Test Design Principles<a class="headerlink" href="#1-test-design-principles" title="Permanent link">&para;</a></h3>
 <h4 id="atomic-tests">Atomic Tests<a class="headerlink" href="#atomic-tests" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// ✅ Good - Single responsibility</span>
-<span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should store JWT token in localStorage&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">login</span><span class="p">(</span><span class="s1">&#39;admin@dealsphere.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;password123&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nb">window</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">win</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">win</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;authToken&#39;</span><span class="p">)).</span><span class="nx">to</span><span class="p">.</span><span class="nx">exist</span>
-<span class="w">  </span><span class="p">})</span>
-<span class="p">})</span>
+<pre><code class="language-typescript">// ✅ Good - Single responsibility
+it('should store JWT token in localStorage', () =&gt; {
+  cy.login('admin@dealsphere.com', 'password123')
+  cy.window().then((win) =&gt; {
+    expect(win.localStorage.getItem('authToken')).to.exist
+  })
+})
 
-<span class="c1">// ❌ Bad - Multiple responsibilities</span>
-<span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should login and navigate and check profile&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// Too many assertions in one test</span>
-<span class="p">})</span>
-</code></pre></div>
-
+// ❌ Bad - Multiple responsibilities
+it('should login and navigate and check profile', () =&gt; {
+  // Too many assertions in one test
+})
+</code></pre>
 <h4 id="reliable-selectors">Reliable Selectors<a class="headerlink" href="#reliable-selectors" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// ✅ Good - Data attributes</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;login-button&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">()</span>
+<pre><code class="language-typescript">// ✅ Good - Data attributes
+cy.get('[data-testid=&quot;login-button&quot;]').click()
 
-<span class="c1">// ✅ Good - Semantic selectors</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;button[type=&quot;submit&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">()</span>
+// ✅ Good - Semantic selectors
+cy.get('button[type=&quot;submit&quot;]').click()
 
-<span class="c1">// ❌ Bad - Fragile selectors</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;.css-1234567&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">()</span>
-</code></pre></div>
-
+// ❌ Bad - Fragile selectors
+cy.get('.css-1234567').click()
+</code></pre>
 <h3 id="2-network-management">2. Network Management<a class="headerlink" href="#2-network-management" title="Permanent link">&para;</a></h3>
 <h4 id="graphql-interception">GraphQL Interception<a class="headerlink" href="#graphql-interception" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Intercept specific GraphQL operations</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">intercept</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/api/graphql&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;mutation Login&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">alias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;loginMutation&#39;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;query GetUser&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">alias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;getUserQuery&#39;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">})</span>
-</code></pre></div>
-
+<pre><code class="language-typescript">// Intercept specific GraphQL operations
+cy.intercept('POST', '/api/graphql', (req) =&gt; {
+  if (req.body.query.includes('mutation Login')) {
+    req.alias = 'loginMutation'
+  }
+  if (req.body.query.includes('query GetUser')) {
+    req.alias = 'getUserQuery'
+  }
+})
+</code></pre>
 <h4 id="mock-responses">Mock Responses<a class="headerlink" href="#mock-responses" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Mock failed login</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">intercept</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/api/graphql&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">statusCode</span><span class="o">:</span><span class="w"> </span><span class="kt">200</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">errors</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Invalid credentials&#39;</span><span class="w"> </span><span class="p">}]</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}).</span><span class="kr">as</span><span class="p">(</span><span class="s1">&#39;failedLogin&#39;</span><span class="p">)</span>
-</code></pre></div>
-
+<pre><code class="language-typescript">// Mock failed login
+cy.intercept('POST', '/api/graphql', {
+  statusCode: 200,
+  body: {
+    errors: [{ message: 'Invalid credentials' }]
+  }
+}).as('failedLogin')
+</code></pre>
 <h3 id="3-wait-strategies">3. Wait Strategies<a class="headerlink" href="#3-wait-strategies" title="Permanent link">&para;</a></h3>
 <h4 id="explicit-waits">Explicit Waits<a class="headerlink" href="#explicit-waits" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Wait for API calls</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">wait</span><span class="p">(</span><span class="s1">&#39;@loginMutation&#39;</span><span class="p">)</span>
+<pre><code class="language-typescript">// Wait for API calls
+cy.wait('@loginMutation')
 
-<span class="c1">// Wait for elements</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;dashboard&quot;]&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">timeout</span><span class="o">:</span><span class="w"> </span><span class="kt">10000</span><span class="w"> </span><span class="p">})</span>
+// Wait for elements
+cy.get('[data-testid=&quot;dashboard&quot;]', { timeout: 10000 })
 
-<span class="c1">// Wait for conditions</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nb">window</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">win</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">waitUntil</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">win</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;authToken&#39;</span><span class="p">))</span>
-<span class="p">})</span>
-</code></pre></div>
-
+// Wait for conditions
+cy.window().then((win) =&gt; {
+  cy.waitUntil(() =&gt; win.localStorage.getItem('authToken'))
+})
+</code></pre>
 <h4 id="custom-wait-commands">Custom Wait Commands<a class="headerlink" href="#custom-wait-commands" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Wait for application to be ready</span>
-<span class="nx">Cypress</span><span class="p">.</span><span class="nx">Commands</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;waitForApp&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;app-loaded&quot;]&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;exist&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nb">window</span><span class="p">().</span><span class="nx">its</span><span class="p">(</span><span class="s1">&#39;store&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;exist&#39;</span><span class="p">)</span>
-<span class="p">})</span>
-</code></pre></div>
-
+<pre><code class="language-typescript">// Wait for application to be ready
+Cypress.Commands.add('waitForApp', () =&gt; {
+  cy.visit('/')
+  cy.get('[data-testid=&quot;app-loaded&quot;]').should('exist')
+  cy.window().its('store').should('exist')
+})
+</code></pre>
 <h3 id="4-error-handling">4. Error Handling<a class="headerlink" href="#4-error-handling" title="Permanent link">&para;</a></h3>
 <h4 id="graceful-failures">Graceful Failures<a class="headerlink" href="#graceful-failures" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;should handle network errors gracefully&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// Simulate network failure</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">intercept</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/api/graphql&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">forceNetworkError</span><span class="o">:</span><span class="w"> </span><span class="kt">true</span><span class="w"> </span><span class="p">})</span>
+<pre><code class="language-typescript">it('should handle network errors gracefully', () =&gt; {
+  // Simulate network failure
+  cy.intercept('POST', '/api/graphql', { forceNetworkError: true })
 
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;input[name=&quot;email&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;admin@dealsphere.com&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;input[name=&quot;password&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;password123&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;button[type=&quot;submit&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">()</span>
+  cy.get('input[name=&quot;email&quot;]').type('admin@dealsphere.com')
+  cy.get('input[name=&quot;password&quot;]').type('password123')
+  cy.get('button[type=&quot;submit&quot;]').click()
 
-<span class="w">  </span><span class="c1">// Should show error message</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;.error-message&#39;</span><span class="p">).</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;be.visible&#39;</span><span class="p">)</span>
-<span class="p">})</span>
-</code></pre></div>
-
+  // Should show error message
+  cy.get('.error-message').should('be.visible')
+})
+</code></pre>
 <h2 id="debugging-and-troubleshooting">Debugging and Troubleshooting<a class="headerlink" href="#debugging-and-troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="debug-mode">Debug Mode<a class="headerlink" href="#debug-mode" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Run with debug output</span>
-<span class="nv">DEBUG</span><span class="o">=</span>cypress:*<span class="w"> </span>pnpm<span class="w"> </span>cy:run
+<pre><code class="language-bash"># Run with debug output
+DEBUG=cypress:* pnpm cy:run
 
-<span class="c1"># Specific debug channels</span>
-<span class="nv">DEBUG</span><span class="o">=</span>cypress:server:*<span class="w"> </span>pnpm<span class="w"> </span>cy:run
-</code></pre></div>
-
+# Specific debug channels
+DEBUG=cypress:server:* pnpm cy:run
+</code></pre>
 <h3 id="test-debugging">Test Debugging<a class="headerlink" href="#test-debugging" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Add debug breakpoints</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">debug</span><span class="p">()</span>
+<pre><code class="language-typescript">// Add debug breakpoints
+cy.debug()
 
-<span class="c1">// Log values</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;input[name=&quot;email&quot;]&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">$el</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Email input value:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">$el</span><span class="p">.</span><span class="nx">val</span><span class="p">())</span>
-<span class="p">})</span>
+// Log values
+cy.get('input[name=&quot;email&quot;]').then(($el) =&gt; {
+  cy.log('Email input value:', $el.val())
+})
 
-<span class="c1">// Pause test execution</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">pause</span><span class="p">()</span>
-</code></pre></div>
-
+// Pause test execution
+cy.pause()
+</code></pre>
 <h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
 <h4 id="1-element-not-found">1. Element Not Found<a class="headerlink" href="#1-element-not-found" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Solution: Use proper waits</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;element&quot;]&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">timeout</span><span class="o">:</span><span class="w"> </span><span class="kt">10000</span><span class="w"> </span><span class="p">})</span>
-<span class="w">  </span><span class="p">.</span><span class="nx">should</span><span class="p">(</span><span class="s1">&#39;be.visible&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="nx">click</span><span class="p">()</span>
-</code></pre></div>
-
+<pre><code class="language-typescript">// Solution: Use proper waits
+cy.get('[data-testid=&quot;element&quot;]', { timeout: 10000 })
+  .should('be.visible')
+  .click()
+</code></pre>
 <h4 id="2-race-conditions">2. Race Conditions<a class="headerlink" href="#2-race-conditions" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Solution: Wait for API calls</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">intercept</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/api/graphql&#39;</span><span class="p">).</span><span class="kr">as</span><span class="p">(</span><span class="s1">&#39;apiCall&#39;</span><span class="p">)</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">()</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">wait</span><span class="p">(</span><span class="s1">&#39;@apiCall&#39;</span><span class="p">)</span>
-</code></pre></div>
-
+<pre><code class="language-typescript">// Solution: Wait for API calls
+cy.intercept('POST', '/api/graphql').as('apiCall')
+cy.get('button').click()
+cy.wait('@apiCall')
+</code></pre>
 <h4 id="3-state-management-issues">3. State Management Issues<a class="headerlink" href="#3-state-management-issues" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Solution: Clear state between tests</span>
-<span class="nx">beforeEach</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">clearAuth</span><span class="p">()</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nb">window</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">win</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">win</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">clear</span><span class="p">()</span>
-<span class="w">    </span><span class="nx">win</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">clear</span><span class="p">()</span>
-<span class="w">  </span><span class="p">})</span>
-<span class="p">})</span>
-</code></pre></div>
-
+<pre><code class="language-typescript">// Solution: Clear state between tests
+beforeEach(() =&gt; {
+  cy.clearAuth()
+  cy.window().then((win) =&gt; {
+    win.localStorage.clear()
+    win.sessionStorage.clear()
+  })
+})
+</code></pre>
 <h2 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h2>
 <h3 id="test-execution-speed">Test Execution Speed<a class="headerlink" href="#test-execution-speed" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Minimize DOM queries</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;form&quot;]&#39;</span><span class="p">).</span><span class="nx">within</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;input[name=&quot;email&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;test@example.com&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;input[name=&quot;password&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;button[type=&quot;submit&quot;]&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">()</span>
-<span class="p">})</span>
+<pre><code class="language-typescript">// Minimize DOM queries
+cy.get('[data-testid=&quot;form&quot;]').within(() =&gt; {
+  cy.get('input[name=&quot;email&quot;]').type('test@example.com')
+  cy.get('input[name=&quot;password&quot;]').type('password')
+  cy.get('button[type=&quot;submit&quot;]').click()
+})
 
-<span class="c1">// Use aliases for reused elements</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;login-form&quot;]&#39;</span><span class="p">).</span><span class="kr">as</span><span class="p">(</span><span class="s1">&#39;loginForm&#39;</span><span class="p">)</span>
-<span class="nx">cy</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;@loginForm&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;input[name=&quot;email&quot;]&#39;</span><span class="p">).</span><span class="kr">type</span><span class="p">(</span><span class="s1">&#39;test@example.com&#39;</span><span class="p">)</span>
-</code></pre></div>
-
+// Use aliases for reused elements
+cy.get('[data-testid=&quot;login-form&quot;]').as('loginForm')
+cy.get('@loginForm').find('input[name=&quot;email&quot;]').type('test@example.com')
+</code></pre>
 <h3 id="parallel-execution">Parallel Execution<a class="headerlink" href="#parallel-execution" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># GitHub Actions parallel execution</span>
--<span class="w"> </span>name:<span class="w"> </span>Run<span class="w"> </span>Cypress<span class="w"> </span>tests
-<span class="w">  </span>uses:<span class="w"> </span>cypress-io/github-action@v6
-<span class="w">  </span>with:
-<span class="w">    </span>record:<span class="w"> </span><span class="nb">true</span>
-<span class="w">    </span>parallel:<span class="w"> </span><span class="nb">true</span>
-<span class="w">    </span>group:<span class="w"> </span><span class="s1">&#39;UI - Chrome&#39;</span>
-</code></pre></div>
-
+<pre><code class="language-bash"># GitHub Actions parallel execution
+- name: Run Cypress tests
+  uses: cypress-io/github-action@v6
+  with:
+    record: true
+    parallel: true
+    group: 'UI - Chrome'
+</code></pre>
 <h2 id="integration-with-cicd">Integration with CI/CD<a class="headerlink" href="#integration-with-cicd" title="Permanent link">&para;</a></h2>
 <h3 id="github-actions">GitHub Actions<a class="headerlink" href="#github-actions" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Cypress E2E tests</span>
-<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cypress-io/github-action@v6</span>
-<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">working-directory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend</span>
-<span class="w">    </span><span class="nt">install</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;Services already running&quot;</span>
-<span class="w">    </span><span class="nt">wait-on</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;http://localhost&#39;</span>
-<span class="w">    </span><span class="nt">wait-on-timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">120</span>
-<span class="w">    </span><span class="nt">config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baseUrl=http://localhost,video=true</span>
-<span class="w">  </span><span class="nt">env</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">CYPRESS_BASE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost</span>
-</code></pre></div>
-
+<pre><code class="language-yaml">- name: Run Cypress E2E tests
+  uses: cypress-io/github-action@v6
+  with:
+    working-directory: frontend
+    install: false
+    start: echo &quot;Services already running&quot;
+    wait-on: 'http://localhost'
+    wait-on-timeout: 120
+    config: baseUrl=http://localhost,video=true
+  env:
+    CYPRESS_BASE_URL: http://localhost
+</code></pre>
 <h3 id="artifact-collection">Artifact Collection<a class="headerlink" href="#artifact-collection" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload Cypress videos</span>
-<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
-<span class="w">  </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">failure()</span>
-<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cypress-videos-${{ github.run_number }}</span>
-<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend/cypress/videos</span>
-<span class="w">    </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
-</code></pre></div>
-
+<pre><code class="language-yaml">- name: Upload Cypress videos
+  uses: actions/upload-artifact@v4
+  if: failure()
+  with:
+    name: cypress-videos-${{ github.run_number }}
+    path: frontend/cypress/videos
+    retention-days: 7
+</code></pre>
 <h2 id="monitoring-and-reporting">Monitoring and Reporting<a class="headerlink" href="#monitoring-and-reporting" title="Permanent link">&para;</a></h2>
 <h3 id="test-results-dashboard">Test Results Dashboard<a class="headerlink" href="#test-results-dashboard" title="Permanent link">&para;</a></h3>
 <ul>

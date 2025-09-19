@@ -63,7 +63,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -118,7 +118,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
@@ -128,7 +128,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#a9a9a9" data-md-color-accent="gray"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
@@ -1448,9 +1448,8 @@
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
 <h3 id="jwt-token-based-authentication">JWT Token-Based Authentication<a class="headerlink" href="#jwt-token-based-authentication" title="Permanent link">&para;</a></h3>
 <p>All API requests (except login and public queries) require a valid JWT token in the Authorization header:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Authorization: Bearer &lt;jwt_token&gt;</span>
-</code></pre></div>
-
+<pre><code class="language-http">Authorization: Bearer &lt;jwt_token&gt;
+</code></pre>
 <h3 id="token-lifecycle">Token Lifecycle<a class="headerlink" href="#token-lifecycle" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Obtain Token</strong>: Use <code>login</code> mutation with valid credentials</li>
@@ -1460,454 +1459,427 @@
 </ol>
 <h2 id="schema-definition">Schema Definition<a class="headerlink" href="#schema-definition" title="Permanent link">&para;</a></h2>
 <h3 id="core-types">Core Types<a class="headerlink" href="#core-types" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c"># User Profile</span>
-<span class="k">type</span><span class="w"> </span><span class="err">UserProfile</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">ID</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">email</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">firstName</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">lastName</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">organization</span><span class="p">:</span><span class="w"> </span><span class="n">Organization</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">roles</span><span class="p">:</span><span class="w"> </span><span class="err">[</span><span class="n">Role</span><span class="err">!]!</span>
-<span class="w">  </span><span class="nl">isActive</span><span class="p">:</span><span class="w"> </span><span class="n">Boolean</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">createdAt</span><span class="p">:</span><span class="w"> </span><span class="n">DateTime</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">updatedAt</span><span class="p">:</span><span class="w"> </span><span class="n">DateTime</span><span class="err">!</span>
-<span class="p">}</span>
+<pre><code class="language-graphql"># User Profile
+type UserProfile {
+  id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  organization: Organization!
+  roles: [Role!]!
+  isActive: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
 
-<span class="c"># Organization</span>
-<span class="k">type</span><span class="w"> </span><span class="err">Organization</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">ID</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">name</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">description</span><span class="p">:</span><span class="w"> </span><span class="n">String</span>
-<span class="w">  </span><span class="nl">isActive</span><span class="p">:</span><span class="w"> </span><span class="n">Boolean</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">createdAt</span><span class="p">:</span><span class="w"> </span><span class="n">DateTime</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">updatedAt</span><span class="p">:</span><span class="w"> </span><span class="n">DateTime</span><span class="err">!</span>
-<span class="p">}</span>
+# Organization
+type Organization {
+  id: ID!
+  name: String!
+  description: String
+  isActive: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
 
-<span class="c"># Role</span>
-<span class="k">type</span><span class="w"> </span><span class="err">Role</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nl">id</span><span class="p">:</span><span class="w"> </span><span class="n">ID</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">name</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">description</span><span class="p">:</span><span class="w"> </span><span class="n">String</span>
-<span class="w">  </span><span class="nl">organization</span><span class="p">:</span><span class="w"> </span><span class="n">Organization</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">permissions</span><span class="p">:</span><span class="w"> </span><span class="err">[</span><span class="n">String</span><span class="err">!]!</span>
-<span class="w">  </span><span class="nl">isActive</span><span class="p">:</span><span class="w"> </span><span class="n">Boolean</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">createdAt</span><span class="p">:</span><span class="w"> </span><span class="n">DateTime</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">updatedAt</span><span class="p">:</span><span class="w"> </span><span class="n">DateTime</span><span class="err">!</span>
-<span class="p">}</span>
+# Role
+type Role {
+  id: ID!
+  name: String!
+  description: String
+  organization: Organization!
+  permissions: [String!]!
+  isActive: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
 
-<span class="c"># Authentication Payload</span>
-<span class="k">type</span><span class="w"> </span><span class="err">AuthPayload</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nl">token</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">user</span><span class="p">:</span><span class="w"> </span><span class="n">UserProfile</span><span class="err">!</span>
-<span class="p">}</span>
+# Authentication Payload
+type AuthPayload {
+  token: String!
+  user: UserProfile!
+}
 
-<span class="c"># Invitation Payload</span>
-<span class="k">type</span><span class="w"> </span><span class="err">InvitationPayload</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nl">success</span><span class="p">:</span><span class="w"> </span><span class="n">Boolean</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">message</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">invitationId</span><span class="p">:</span><span class="w"> </span><span class="n">String</span>
-<span class="p">}</span>
+# Invitation Payload
+type InvitationPayload {
+  success: Boolean!
+  message: String!
+  invitationId: String
+}
 
-<span class="c"># Password Reset Payload</span>
-<span class="k">type</span><span class="w"> </span><span class="err">PasswordResetPayload</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nl">success</span><span class="p">:</span><span class="w"> </span><span class="n">Boolean</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">message</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="p">}</span>
-</code></pre></div>
-
+# Password Reset Payload
+type PasswordResetPayload {
+  success: Boolean!
+  message: String!
+}
+</code></pre>
 <h3 id="input-types">Input Types<a class="headerlink" href="#input-types" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c"># Login Input</span>
-<span class="k">input</span><span class="w"> </span><span class="err">LoginInput</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nl">email</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">password</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="p">}</span>
+<pre><code class="language-graphql"># Login Input
+input LoginInput {
+  email: String!
+  password: String!
+}
 
-<span class="c"># User Invitation Input</span>
-<span class="k">input</span><span class="w"> </span><span class="err">InviteUserInput</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nl">email</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">firstName</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">lastName</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">organizationId</span><span class="p">:</span><span class="w"> </span><span class="n">ID</span><span class="err">!</span>
-<span class="p">}</span>
+# User Invitation Input
+input InviteUserInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  organizationId: ID!
+}
 
-<span class="c"># Registration Completion Input</span>
-<span class="k">input</span><span class="w"> </span><span class="err">CompleteRegistrationInput</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nl">invitationToken</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">password</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="p">}</span>
+# Registration Completion Input
+input CompleteRegistrationInput {
+  invitationToken: String!
+  password: String!
+}
 
-<span class="c"># Password Reset Request Input</span>
-<span class="k">input</span><span class="w"> </span><span class="err">PasswordResetRequestInput</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nl">email</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="p">}</span>
+# Password Reset Request Input
+input PasswordResetRequestInput {
+  email: String!
+}
 
-<span class="c"># Password Reset Confirmation Input</span>
-<span class="k">input</span><span class="w"> </span><span class="err">PasswordResetConfirmInput</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nl">resetToken</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="w">  </span><span class="nl">newPassword</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="err">!</span>
-<span class="p">}</span>
+# Password Reset Confirmation Input
+input PasswordResetConfirmInput {
+  resetToken: String!
+  newPassword: String!
+}
 
-<span class="c"># User Update Input</span>
-<span class="k">input</span><span class="w"> </span><span class="err">UserUpdateInput</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nl">firstName</span><span class="p">:</span><span class="w"> </span><span class="n">String</span>
-<span class="w">  </span><span class="nl">lastName</span><span class="p">:</span><span class="w"> </span><span class="n">String</span>
-<span class="w">  </span><span class="nl">isActive</span><span class="p">:</span><span class="w"> </span><span class="n">Boolean</span>
-<span class="p">}</span>
-</code></pre></div>
-
+# User Update Input
+input UserUpdateInput {
+  firstName: String
+  lastName: String
+  isActive: Boolean
+}
+</code></pre>
 <h2 id="mutations">Mutations<a class="headerlink" href="#mutations" title="Permanent link">&para;</a></h2>
 <h3 id="authentication-mutations">Authentication Mutations<a class="headerlink" href="#authentication-mutations" title="Permanent link">&para;</a></h3>
 <h4 id="login">Login<a class="headerlink" href="#login" title="Permanent link">&para;</a></h4>
 <p>Authenticate user with email and password.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="nf">Login</span><span class="p">(</span><span class="nv">$input</span><span class="p">:</span><span class="w"> </span><span class="nc">LoginInput</span><span class="p">!)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">login</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="nv">$input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">token</span>
-<span class="w">    </span><span class="n">user</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">id</span>
-<span class="w">      </span><span class="n">email</span>
-<span class="w">      </span><span class="n">firstName</span>
-<span class="w">      </span><span class="n">lastName</span>
-<span class="w">      </span><span class="n">organization</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">id</span>
-<span class="w">        </span><span class="n">name</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">      </span><span class="n">roles</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">id</span>
-<span class="w">        </span><span class="n">name</span>
-<span class="w">        </span><span class="n">permissions</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">mutation Login($input: LoginInput!) {
+  login(input: $input) {
+    token
+    user {
+      id
+      email
+      firstName
+      lastName
+      organization {
+        id
+        name
+      }
+      roles {
+        id
+        name
+        permissions
+      }
+    }
+  }
+}
+</code></pre>
 <p><strong>Variables:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user@example.com&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password123&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;input&quot;: {
+    &quot;email&quot;: &quot;user@example.com&quot;,
+    &quot;password&quot;: &quot;password123&quot;
+  }
+}
+</code></pre>
 <p><strong>Response:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;login&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user-123&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user@example.com&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;firstName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;lastName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;organization&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;org-456&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Acme Corp&quot;</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="nt">&quot;roles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">          </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;role-789&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USER&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;permissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;READ_PROFILE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;UPDATE_PROFILE&quot;</span><span class="p">]</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">]</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;login&quot;: {
+      &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...&quot;,
+      &quot;user&quot;: {
+        &quot;id&quot;: &quot;user-123&quot;,
+        &quot;email&quot;: &quot;user@example.com&quot;,
+        &quot;firstName&quot;: &quot;John&quot;,
+        &quot;lastName&quot;: &quot;Doe&quot;,
+        &quot;organization&quot;: {
+          &quot;id&quot;: &quot;org-456&quot;,
+          &quot;name&quot;: &quot;Acme Corp&quot;
+        },
+        &quot;roles&quot;: [
+          {
+            &quot;id&quot;: &quot;role-789&quot;,
+            &quot;name&quot;: &quot;USER&quot;,
+            &quot;permissions&quot;: [&quot;READ_PROFILE&quot;, &quot;UPDATE_PROFILE&quot;]
+          }
+        ]
+      }
+    }
+  }
+}
+</code></pre>
 <p><strong>Error Responses:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid email or password&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AUTHENTICATION_ERROR&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;message&quot;: &quot;Invalid email or password&quot;,
+      &quot;extensions&quot;: {
+        &quot;code&quot;: &quot;AUTHENTICATION_ERROR&quot;
+      }
+    }
+  ]
+}
+</code></pre>
 <h4 id="refresh-token">Refresh Token<a class="headerlink" href="#refresh-token" title="Permanent link">&para;</a></h4>
 <p>Refresh an existing JWT token.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="nf">RefreshToken</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">refreshToken</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">token</span>
-<span class="w">    </span><span class="n">user</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">id</span>
-<span class="w">      </span><span class="n">email</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">mutation RefreshToken {
+  refreshToken {
+    token
+    user {
+      id
+      email
+    }
+  }
+}
+</code></pre>
 <p><strong>Headers:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="err">Authorization: Bearer &lt;current_jwt_token&gt;</span>
-</code></pre></div>
-
+<pre><code class="language-http">Authorization: Bearer &lt;current_jwt_token&gt;
+</code></pre>
 <h4 id="logout">Logout<a class="headerlink" href="#logout" title="Permanent link">&para;</a></h4>
 <p>Invalidate current session (client-side token removal).</p>
-<div class="codehilite"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="nf">Logout</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">logout</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">mutation Logout {
+  logout
+}
+</code></pre>
 <h3 id="user-management-mutations">User Management Mutations<a class="headerlink" href="#user-management-mutations" title="Permanent link">&para;</a></h3>
 <h4 id="invite-user">Invite User<a class="headerlink" href="#invite-user" title="Permanent link">&para;</a></h4>
 <p>Send invitation email to new user (Admin only).</p>
-<div class="codehilite"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="nf">InviteUser</span><span class="p">(</span><span class="nv">$input</span><span class="p">:</span><span class="w"> </span><span class="nc">InviteUserInput</span><span class="p">!)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">inviteUser</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="nv">$input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">success</span>
-<span class="w">    </span><span class="n">message</span>
-<span class="w">    </span><span class="n">invitationId</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">mutation InviteUser($input: InviteUserInput!) {
+  inviteUser(input: $input) {
+    success
+    message
+    invitationId
+  }
+}
+</code></pre>
 <p><strong>Variables:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;newuser@example.com&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;firstName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jane&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;lastName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Smith&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;org-456&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;input&quot;: {
+    &quot;email&quot;: &quot;newuser@example.com&quot;,
+    &quot;firstName&quot;: &quot;Jane&quot;,
+    &quot;lastName&quot;: &quot;Smith&quot;,
+    &quot;organizationId&quot;: &quot;org-456&quot;
+  }
+}
+</code></pre>
 <p><strong>Response:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;inviteUser&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invitation sent successfully&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;invitationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inv-789&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;inviteUser&quot;: {
+      &quot;success&quot;: true,
+      &quot;message&quot;: &quot;Invitation sent successfully&quot;,
+      &quot;invitationId&quot;: &quot;inv-789&quot;
+    }
+  }
+}
+</code></pre>
 <h4 id="complete-registration">Complete Registration<a class="headerlink" href="#complete-registration" title="Permanent link">&para;</a></h4>
 <p>Complete user registration from invitation.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="nf">CompleteRegistration</span><span class="p">(</span><span class="nv">$input</span><span class="p">:</span><span class="w"> </span><span class="nc">CompleteRegistrationInput</span><span class="p">!)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">completeRegistration</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="nv">$input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">token</span>
-<span class="w">    </span><span class="n">user</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">id</span>
-<span class="w">      </span><span class="n">email</span>
-<span class="w">      </span><span class="n">firstName</span>
-<span class="w">      </span><span class="n">lastName</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">mutation CompleteRegistration($input: CompleteRegistrationInput!) {
+  completeRegistration(input: $input) {
+    token
+    user {
+      id
+      email
+      firstName
+      lastName
+    }
+  }
+}
+</code></pre>
 <p><strong>Variables:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;invitationToken&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inv-token-123&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;newpassword123&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;input&quot;: {
+    &quot;invitationToken&quot;: &quot;inv-token-123&quot;,
+    &quot;password&quot;: &quot;newpassword123&quot;
+  }
+}
+</code></pre>
 <h4 id="update-user-profile">Update User Profile<a class="headerlink" href="#update-user-profile" title="Permanent link">&para;</a></h4>
 <p>Update user profile information.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="nf">UpdateUserProfile</span><span class="p">(</span><span class="nv">$id</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">!,</span><span class="w"> </span><span class="nv">$input</span><span class="p">:</span><span class="w"> </span><span class="nc">UserUpdateInput</span><span class="p">!)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">updateUserProfile</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="nv">$id</span><span class="p">,</span><span class="w"> </span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="nv">$input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">id</span>
-<span class="w">    </span><span class="n">firstName</span>
-<span class="w">    </span><span class="n">lastName</span>
-<span class="w">    </span><span class="n">isActive</span>
-<span class="w">    </span><span class="n">updatedAt</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">mutation UpdateUserProfile($id: ID!, $input: UserUpdateInput!) {
+  updateUserProfile(id: $id, input: $input) {
+    id
+    firstName
+    lastName
+    isActive
+    updatedAt
+  }
+}
+</code></pre>
 <h3 id="password-management-mutations">Password Management Mutations<a class="headerlink" href="#password-management-mutations" title="Permanent link">&para;</a></h3>
 <h4 id="request-password-reset">Request Password Reset<a class="headerlink" href="#request-password-reset" title="Permanent link">&para;</a></h4>
 <p>Send password reset email.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="nf">RequestPasswordReset</span><span class="p">(</span><span class="nv">$input</span><span class="p">:</span><span class="w"> </span><span class="nc">PasswordResetRequestInput</span><span class="p">!)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">requestPasswordReset</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="nv">$input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">success</span>
-<span class="w">    </span><span class="n">message</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">mutation RequestPasswordReset($input: PasswordResetRequestInput!) {
+  requestPasswordReset(input: $input) {
+    success
+    message
+  }
+}
+</code></pre>
 <p><strong>Variables:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user@example.com&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;input&quot;: {
+    &quot;email&quot;: &quot;user@example.com&quot;
+  }
+}
+</code></pre>
 <h4 id="confirm-password-reset">Confirm Password Reset<a class="headerlink" href="#confirm-password-reset" title="Permanent link">&para;</a></h4>
 <p>Complete password reset with token.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="nf">ConfirmPasswordReset</span><span class="p">(</span><span class="nv">$input</span><span class="p">:</span><span class="w"> </span><span class="nc">PasswordResetConfirmInput</span><span class="p">!)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">confirmPasswordReset</span><span class="p">(</span><span class="n">input</span><span class="p">:</span><span class="w"> </span><span class="nv">$input</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">mutation ConfirmPasswordReset($input: PasswordResetConfirmInput!) {
+  confirmPasswordReset(input: $input)
+}
+</code></pre>
 <p><strong>Variables:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;resetToken&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;reset-token-123&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;newPassword&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;newpassword123&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;input&quot;: {
+    &quot;resetToken&quot;: &quot;reset-token-123&quot;,
+    &quot;newPassword&quot;: &quot;newpassword123&quot;
+  }
+}
+</code></pre>
 <h4 id="validate-password-reset-token">Validate Password Reset Token<a class="headerlink" href="#validate-password-reset-token" title="Permanent link">&para;</a></h4>
 <p>Check if password reset token is valid.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="nf">ValidatePasswordResetToken</span><span class="p">(</span><span class="nv">$resetToken</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">validatePasswordResetToken</span><span class="p">(</span><span class="n">resetToken</span><span class="p">:</span><span class="w"> </span><span class="nv">$resetToken</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">mutation ValidatePasswordResetToken($resetToken: String!) {
+  validatePasswordResetToken(resetToken: $resetToken)
+}
+</code></pre>
 <h2 id="queries">Queries<a class="headerlink" href="#queries" title="Permanent link">&para;</a></h2>
 <h3 id="user-queries">User Queries<a class="headerlink" href="#user-queries" title="Permanent link">&para;</a></h3>
 <h4 id="get-current-user">Get Current User<a class="headerlink" href="#get-current-user" title="Permanent link">&para;</a></h4>
 <p>Get current authenticated user profile.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">query</span><span class="w"> </span><span class="nf">GetCurrentUser</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">me</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">id</span>
-<span class="w">    </span><span class="n">email</span>
-<span class="w">    </span><span class="n">firstName</span>
-<span class="w">    </span><span class="n">lastName</span>
-<span class="w">    </span><span class="n">organization</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">id</span>
-<span class="w">      </span><span class="n">name</span>
-<span class="w">      </span><span class="n">description</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">roles</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">id</span>
-<span class="w">      </span><span class="n">name</span>
-<span class="w">      </span><span class="n">description</span>
-<span class="w">      </span><span class="n">permissions</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">isActive</span>
-<span class="w">    </span><span class="n">createdAt</span>
-<span class="w">    </span><span class="n">updatedAt</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">query GetCurrentUser {
+  me {
+    id
+    email
+    firstName
+    lastName
+    organization {
+      id
+      name
+      description
+    }
+    roles {
+      id
+      name
+      description
+      permissions
+    }
+    isActive
+    createdAt
+    updatedAt
+  }
+}
+</code></pre>
 <h4 id="get-user-by-id">Get User by ID<a class="headerlink" href="#get-user-by-id" title="Permanent link">&para;</a></h4>
 <p>Get specific user by ID (Admin only).</p>
-<div class="codehilite"><pre><span></span><code><span class="k">query</span><span class="w"> </span><span class="nf">GetUser</span><span class="p">(</span><span class="nv">$id</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">!)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">user</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="nv">$id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">id</span>
-<span class="w">    </span><span class="n">email</span>
-<span class="w">    </span><span class="n">firstName</span>
-<span class="w">    </span><span class="n">lastName</span>
-<span class="w">    </span><span class="n">organization</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">id</span>
-<span class="w">      </span><span class="n">name</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">roles</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">id</span>
-<span class="w">      </span><span class="n">name</span>
-<span class="w">      </span><span class="n">permissions</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">isActive</span>
-<span class="w">    </span><span class="n">createdAt</span>
-<span class="w">    </span><span class="n">updatedAt</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">query GetUser($id: ID!) {
+  user(id: $id) {
+    id
+    email
+    firstName
+    lastName
+    organization {
+      id
+      name
+    }
+    roles {
+      id
+      name
+      permissions
+    }
+    isActive
+    createdAt
+    updatedAt
+  }
+}
+</code></pre>
 <h4 id="list-users">List Users<a class="headerlink" href="#list-users" title="Permanent link">&para;</a></h4>
 <p>Get paginated list of users (Admin only).</p>
-<div class="codehilite"><pre><span></span><code><span class="k">query</span><span class="w"> </span><span class="nf">ListUsers</span><span class="p">(</span><span class="nv">$first</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="nv">$after</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nv">$organizationId</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">users</span><span class="p">(</span><span class="n">first</span><span class="p">:</span><span class="w"> </span><span class="nv">$first</span><span class="p">,</span><span class="w"> </span><span class="n">after</span><span class="p">:</span><span class="w"> </span><span class="nv">$after</span><span class="p">,</span><span class="w"> </span><span class="n">organizationId</span><span class="p">:</span><span class="w"> </span><span class="nv">$organizationId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">edges</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">node</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">id</span>
-<span class="w">        </span><span class="n">email</span>
-<span class="w">        </span><span class="n">firstName</span>
-<span class="w">        </span><span class="n">lastName</span>
-<span class="w">        </span><span class="n">isActive</span>
-<span class="w">        </span><span class="n">createdAt</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">      </span><span class="n">cursor</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">pageInfo</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">hasNextPage</span>
-<span class="w">      </span><span class="n">hasPreviousPage</span>
-<span class="w">      </span><span class="n">startCursor</span>
-<span class="w">      </span><span class="n">endCursor</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">totalCount</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">query ListUsers($first: Int, $after: String, $organizationId: ID) {
+  users(first: $first, after: $after, organizationId: $organizationId) {
+    edges {
+      node {
+        id
+        email
+        firstName
+        lastName
+        isActive
+        createdAt
+      }
+      cursor
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    totalCount
+  }
+}
+</code></pre>
 <h3 id="organization-queries">Organization Queries<a class="headerlink" href="#organization-queries" title="Permanent link">&para;</a></h3>
 <h4 id="get-organization">Get Organization<a class="headerlink" href="#get-organization" title="Permanent link">&para;</a></h4>
 <p>Get organization details.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">query</span><span class="w"> </span><span class="nf">GetOrganization</span><span class="p">(</span><span class="nv">$id</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">!)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">organization</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="nv">$id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">id</span>
-<span class="w">    </span><span class="n">name</span>
-<span class="w">    </span><span class="n">description</span>
-<span class="w">    </span><span class="n">isActive</span>
-<span class="w">    </span><span class="n">createdAt</span>
-<span class="w">    </span><span class="n">updatedAt</span>
-<span class="w">    </span><span class="n">userCount</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">query GetOrganization($id: ID!) {
+  organization(id: $id) {
+    id
+    name
+    description
+    isActive
+    createdAt
+    updatedAt
+    userCount
+  }
+}
+</code></pre>
 <h4 id="list-organizations">List Organizations<a class="headerlink" href="#list-organizations" title="Permanent link">&para;</a></h4>
 <p>Get all organizations (Super Admin only).</p>
-<div class="codehilite"><pre><span></span><code><span class="k">query</span><span class="w"> </span><span class="nf">ListOrganizations</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">organizations</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">id</span>
-<span class="w">    </span><span class="n">name</span>
-<span class="w">    </span><span class="n">description</span>
-<span class="w">    </span><span class="n">isActive</span>
-<span class="w">    </span><span class="n">userCount</span>
-<span class="w">    </span><span class="n">createdAt</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">query ListOrganizations {
+  organizations {
+    id
+    name
+    description
+    isActive
+    userCount
+    createdAt
+  }
+}
+</code></pre>
 <h3 id="role-queries">Role Queries<a class="headerlink" href="#role-queries" title="Permanent link">&para;</a></h3>
 <h4 id="list-roles">List Roles<a class="headerlink" href="#list-roles" title="Permanent link">&para;</a></h4>
 <p>Get available roles for organization.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">query</span><span class="w"> </span><span class="nf">ListRoles</span><span class="p">(</span><span class="nv">$organizationId</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">!)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">roles</span><span class="p">(</span><span class="n">organizationId</span><span class="p">:</span><span class="w"> </span><span class="nv">$organizationId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">id</span>
-<span class="w">    </span><span class="n">name</span>
-<span class="w">    </span><span class="n">description</span>
-<span class="w">    </span><span class="n">permissions</span>
-<span class="w">    </span><span class="n">isActive</span>
-<span class="w">    </span><span class="n">createdAt</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">query ListRoles($organizationId: ID!) {
+  roles(organizationId: $organizationId) {
+    id
+    name
+    description
+    permissions
+    isActive
+    createdAt
+  }
+}
+</code></pre>
 <h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
 <h3 id="error-types">Error Types<a class="headerlink" href="#error-types" title="Permanent link">&para;</a></h3>
 <p>The API uses standardized error codes and messages:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">GraphQLError</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">locations?</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="p">{</span>
-<span class="w">    </span><span class="nx">line</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
-<span class="w">    </span><span class="nx">column</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">path?</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">number</span><span class="o">&gt;</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">extensions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">code</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
-<span class="w">    </span><span class="nx">details?</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">;</span>
-<span class="w">  </span><span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-typescript">interface GraphQLError {
+  message: string;
+  locations?: Array&lt;{
+    line: number;
+    column: number;
+  }&gt;;
+  path?: Array&lt;string | number&gt;;
+  extensions: {
+    code: string;
+    details?: any;
+  };
+}
+</code></pre>
 <h3 id="common-error-codes">Common Error Codes<a class="headerlink" href="#common-error-codes" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1952,143 +1924,137 @@
 </table>
 <h3 id="error-examples">Error Examples<a class="headerlink" href="#error-examples" title="Permanent link">&para;</a></h3>
 <h4 id="authentication-error">Authentication Error<a class="headerlink" href="#authentication-error" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid email or password&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AUTHENTICATION_ERROR&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;message&quot;: &quot;Invalid email or password&quot;,
+      &quot;extensions&quot;: {
+        &quot;code&quot;: &quot;AUTHENTICATION_ERROR&quot;
+      }
+    }
+  ]
+}
+</code></pre>
 <h4 id="validation-error">Validation Error<a class="headerlink" href="#validation-error" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Validation failed&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VALIDATION_ERROR&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid email format&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Password must be at least 8 characters&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;message&quot;: &quot;Validation failed&quot;,
+      &quot;extensions&quot;: {
+        &quot;code&quot;: &quot;VALIDATION_ERROR&quot;,
+        &quot;details&quot;: {
+          &quot;email&quot;: &quot;Invalid email format&quot;,
+          &quot;password&quot;: &quot;Password must be at least 8 characters&quot;
+        }
+      }
+    }
+  ]
+}
+</code></pre>
 <h4 id="rate-limiting-error">Rate Limiting Error<a class="headerlink" href="#rate-limiting-error" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Too many requests&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RATE_LIMITED&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;retryAfter&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;window&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;15m&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;message&quot;: &quot;Too many requests&quot;,
+      &quot;extensions&quot;: {
+        &quot;code&quot;: &quot;RATE_LIMITED&quot;,
+        &quot;details&quot;: {
+          &quot;retryAfter&quot;: 300,
+          &quot;limit&quot;: 5,
+          &quot;window&quot;: &quot;15m&quot;
+        }
+      }
+    }
+  ]
+}
+</code></pre>
 <h2 id="client-integration">Client Integration<a class="headerlink" href="#client-integration" title="Permanent link">&para;</a></h2>
 <h3 id="javascripttypescript">JavaScript/TypeScript<a class="headerlink" href="#javascripttypescript" title="Permanent link">&para;</a></h3>
 <p>Using Apollo Client:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ApolloClient</span><span class="p">,</span><span class="w"> </span><span class="nx">InMemoryCache</span><span class="p">,</span><span class="w"> </span><span class="nx">createHttpLink</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@apollo/client&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setContext</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@apollo/client/link/context&#39;</span><span class="p">;</span>
+<pre><code class="language-typescript">import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 
-<span class="c1">// HTTP link</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">httpLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createHttpLink</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">uri</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://api.dealsphere.com/graphql&#39;</span><span class="p">,</span>
-<span class="p">});</span>
+// HTTP link
+const httpLink = createHttpLink({
+  uri: 'https://api.dealsphere.com/graphql',
+});
 
-<span class="c1">// Auth link</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">authLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setContext</span><span class="p">((</span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">headers</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;auth_token&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="p">...</span><span class="nx">headers</span><span class="p">,</span>
-<span class="w">      </span><span class="nx">authorization</span><span class="o">:</span><span class="w"> </span><span class="kt">token</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="sb">`Bearer </span><span class="si">${</span><span class="nx">token</span><span class="si">}</span><span class="sb">`</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">};</span>
-<span class="p">});</span>
+// Auth link
+const authLink = setContext((_, { headers }) =&gt; {
+  const token = localStorage.getItem('auth_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    }
+  };
+});
 
-<span class="c1">// Apollo Client</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ApolloClient</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">link</span><span class="o">:</span><span class="w"> </span><span class="kt">authLink.concat</span><span class="p">(</span><span class="nx">httpLink</span><span class="p">),</span>
-<span class="w">  </span><span class="nx">cache</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nx">InMemoryCache</span><span class="p">(),</span>
-<span class="p">});</span>
+// Apollo Client
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
-<span class="c1">// Usage example</span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">gql</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@apollo/client&#39;</span><span class="p">;</span>
+// Usage example
+import { gql } from '@apollo/client';
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">LOGIN_MUTATION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">gql</span><span class="sb">`</span>
-<span class="sb">  mutation Login($input: LoginInput!) {</span>
-<span class="sb">    login(input: $input) {</span>
-<span class="sb">      token</span>
-<span class="sb">      user {</span>
-<span class="sb">        id</span>
-<span class="sb">        email</span>
-<span class="sb">        firstName</span>
-<span class="sb">        lastName</span>
-<span class="sb">      }</span>
-<span class="sb">    }</span>
-<span class="sb">  }</span>
-<span class="sb">`</span><span class="p">;</span>
+const LOGIN_MUTATION = gql`
+  mutation Login($input: LoginInput!) {
+    login(input: $input) {
+      token
+      user {
+        id
+        email
+        firstName
+        lastName
+      }
+    }
+  }
+`;
 
-<span class="c1">// Execute mutation</span>
-<span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">login</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useMutation</span><span class="p">(</span><span class="nx">LOGIN_MUTATION</span><span class="p">);</span>
+// Execute mutation
+const [login] = useMutation(LOGIN_MUTATION);
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">handleLogin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">login</span><span class="p">({</span>
-<span class="w">      </span><span class="nx">variables</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
-<span class="w">    </span><span class="p">});</span>
+const handleLogin = async (email: string, password: string) =&gt; {
+  try {
+    const result = await login({
+      variables: { input: { email, password } }
+    });
 
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">token</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">login</span><span class="p">;</span>
-<span class="w">    </span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;auth_token&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">token</span><span class="p">);</span>
+    const { token, user } = result.data.login;
+    localStorage.setItem('auth_token', token);
 
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Login successful:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Login failed:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">};</span>
-</code></pre></div>
-
+    console.log('Login successful:', user);
+  } catch (error) {
+    console.error('Login failed:', error);
+  }
+};
+</code></pre>
 <h3 id="curl-examples">cURL Examples<a class="headerlink" href="#curl-examples" title="Permanent link">&para;</a></h3>
 <h4 id="login_1">Login<a class="headerlink" href="#login_1" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>https://api.dealsphere.com/graphql<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;query&quot;: &quot;mutation Login($input: LoginInput!) { login(input: $input) { token user { id email } } }&quot;,</span>
-<span class="s1">    &quot;variables&quot;: {</span>
-<span class="s1">      &quot;input&quot;: {</span>
-<span class="s1">        &quot;email&quot;: &quot;user@example.com&quot;,</span>
-<span class="s1">        &quot;password&quot;: &quot;password123&quot;</span>
-<span class="s1">      }</span>
-<span class="s1">    }</span>
-<span class="s1">  }&#39;</span>
-</code></pre></div>
-
+<pre><code class="language-bash">curl -X POST \
+  https://api.dealsphere.com/graphql \
+  -H 'Content-Type: application/json' \
+  -d '{
+    &quot;query&quot;: &quot;mutation Login($input: LoginInput!) { login(input: $input) { token user { id email } } }&quot;,
+    &quot;variables&quot;: {
+      &quot;input&quot;: {
+        &quot;email&quot;: &quot;user@example.com&quot;,
+        &quot;password&quot;: &quot;password123&quot;
+      }
+    }
+  }'
+</code></pre>
 <h4 id="authenticated-request">Authenticated Request<a class="headerlink" href="#authenticated-request" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>https://api.dealsphere.com/graphql<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;query&quot;: &quot;query GetCurrentUser { me { id email firstName lastName } }&quot;</span>
-<span class="s1">  }&#39;</span>
-</code></pre></div>
-
+<pre><code class="language-bash">curl -X POST \
+  https://api.dealsphere.com/graphql \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' \
+  -d '{
+    &quot;query&quot;: &quot;query GetCurrentUser { me { id email firstName lastName } }&quot;
+  }'
+</code></pre>
 <h2 id="rate-limiting">Rate Limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h2>
 <h3 id="limits-by-endpoint">Limits by Endpoint<a class="headerlink" href="#limits-by-endpoint" title="Permanent link">&para;</a></h3>
 <table>
@@ -2123,25 +2089,23 @@
 </tbody>
 </table>
 <h3 id="rate-limit-headers">Rate Limit Headers<a class="headerlink" href="#rate-limit-headers" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="err">X-RateLimit-Limit: 100</span>
-<span class="err">X-RateLimit-Remaining: 95</span>
-<span class="err">X-RateLimit-Reset: 1640995200</span>
-<span class="err">Retry-After: 3600</span>
-</code></pre></div>
-
+<pre><code class="language-http">X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 95
+X-RateLimit-Reset: 1640995200
+Retry-After: 3600
+</code></pre>
 <h3 id="handling-rate-limits">Handling Rate Limits<a class="headerlink" href="#handling-rate-limits" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">handleRateLimit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="kt">ApolloError</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">graphQLErrors</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">extensions</span><span class="p">.</span><span class="nx">code</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;RATE_LIMITED&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">retryAfter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">graphQLErrors</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">extensions</span><span class="p">.</span><span class="nx">details</span><span class="p">.</span><span class="nx">retryAfter</span><span class="p">;</span>
+<pre><code class="language-typescript">const handleRateLimit = (error: ApolloError) =&gt; {
+  if (error.graphQLErrors.some(e =&gt; e.extensions.code === 'RATE_LIMITED')) {
+    const retryAfter = error.graphQLErrors[0].extensions.details.retryAfter;
 
-<span class="w">    </span><span class="c1">// Wait and retry</span>
-<span class="w">    </span><span class="nx">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="c1">// Retry the request</span>
-<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="nx">retryAfter</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1000</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">};</span>
-</code></pre></div>
-
+    // Wait and retry
+    setTimeout(() =&gt; {
+      // Retry the request
+    }, retryAfter * 1000);
+  }
+};
+</code></pre>
 <h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
 <h3 id="input-validation">Input Validation<a class="headerlink" href="#input-validation" title="Permanent link">&para;</a></h3>
 <p>All inputs are validated on the server side:</p>
@@ -2152,49 +2116,45 @@
 <li><strong>Format Validation</strong>: Email, phone, URL format validation</li>
 </ul>
 <h3 id="cors-policy">CORS Policy<a class="headerlink" href="#cors-policy" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="err">Access-Control-Allow-Origin: https://app.dealsphere.com, https://admin.dealsphere.com</span>
-<span class="err">Access-Control-Allow-Methods: GET, POST, OPTIONS</span>
-<span class="err">Access-Control-Allow-Headers: Content-Type, Authorization</span>
-<span class="err">Access-Control-Allow-Credentials: true</span>
-</code></pre></div>
-
+<pre><code class="language-http">Access-Control-Allow-Origin: https://app.dealsphere.com, https://admin.dealsphere.com
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Access-Control-Allow-Headers: Content-Type, Authorization
+Access-Control-Allow-Credentials: true
+</code></pre>
 <h3 id="https-only">HTTPS Only<a class="headerlink" href="#https-only" title="Permanent link">&para;</a></h3>
 <p>All API endpoints require HTTPS in production. HTTP requests are automatically redirected to HTTPS.</p>
 <h2 id="websocket-subscriptions">WebSocket Subscriptions<a class="headerlink" href="#websocket-subscriptions" title="Permanent link">&para;</a></h2>
 <h3 id="real-time-user-status">Real-time User Status<a class="headerlink" href="#real-time-user-status" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="k">subscription</span><span class="w"> </span><span class="nf">UserStatusUpdates</span><span class="p">(</span><span class="nv">$organizationId</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">!)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">userStatusUpdates</span><span class="p">(</span><span class="n">organizationId</span><span class="p">:</span><span class="w"> </span><span class="nv">$organizationId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">user</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">id</span>
-<span class="w">      </span><span class="n">email</span>
-<span class="w">      </span><span class="n">isActive</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">status</span>
-<span class="w">    </span><span class="n">timestamp</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">subscription UserStatusUpdates($organizationId: ID!) {
+  userStatusUpdates(organizationId: $organizationId) {
+    user {
+      id
+      email
+      isActive
+    }
+    status
+    timestamp
+  }
+}
+</code></pre>
 <h3 id="security-events">Security Events<a class="headerlink" href="#security-events" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="k">subscription</span><span class="w"> </span><span class="nf">SecurityEvents</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">securityEvents</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">eventType</span>
-<span class="w">    </span><span class="n">severity</span>
-<span class="w">    </span><span class="n">message</span>
-<span class="w">    </span><span class="n">timestamp</span>
-<span class="w">    </span><span class="n">userAgent</span>
-<span class="w">    </span><span class="n">ipAddress</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">subscription SecurityEvents {
+  securityEvents {
+    eventType
+    severity
+    message
+    timestamp
+    userAgent
+    ipAddress
+  }
+}
+</code></pre>
 <h2 id="api-versioning">API Versioning<a class="headerlink" href="#api-versioning" title="Permanent link">&para;</a></h2>
 <h3 id="current-version-v1">Current Version: v1<a class="headerlink" href="#current-version-v1" title="Permanent link">&para;</a></h3>
 <p>The API follows semantic versioning. Breaking changes will result in a new major version.</p>
 <h3 id="version-headers">Version Headers<a class="headerlink" href="#version-headers" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="err">API-Version: v1</span>
-</code></pre></div>
-
+<pre><code class="language-http">API-Version: v1
+</code></pre>
 <h3 id="deprecation-policy">Deprecation Policy<a class="headerlink" href="#deprecation-policy" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Deprecation Notice</strong>: 6 months before removal</li>
@@ -2207,42 +2167,40 @@
 - Development: <code>http://localhost:8080/graphql-playground</code>
 - Staging: <code>https://staging-api.dealsphere.com/graphql-playground</code></p>
 <h3 id="schema-introspection">Schema Introspection<a class="headerlink" href="#schema-introspection" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="k">query</span><span class="w"> </span><span class="nf">IntrospectionQuery</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">__schema</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">queryType</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">name</span>
-<span class="w">      </span><span class="n">fields</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">name</span>
-<span class="w">        </span><span class="n">type</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="n">name</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">mutationType</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">name</span>
-<span class="w">      </span><span class="n">fields</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">name</span>
-<span class="w">        </span><span class="n">args</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="n">name</span>
-<span class="w">          </span><span class="n">type</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">name</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
+<pre><code class="language-graphql">query IntrospectionQuery {
+  __schema {
+    queryType {
+      name
+      fields {
+        name
+        type {
+          name
+        }
+      }
+    }
+    mutationType {
+      name
+      fields {
+        name
+        args {
+          name
+          type {
+            name
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre>
 <h3 id="mock-data">Mock Data<a class="headerlink" href="#mock-data" title="Permanent link">&para;</a></h3>
 <p>For development and testing, mock data is available:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Start with mock data</span>
-docker-compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.dev.yml<span class="w"> </span>up<span class="w"> </span>-d
+<pre><code class="language-bash"># Start with mock data
+docker-compose -f docker-compose.dev.yml up -d
 
-<span class="c1"># Import test data</span>
-npm<span class="w"> </span>run<span class="w"> </span>db:seed
-</code></pre></div>
-
+# Import test data
+npm run db:seed
+</code></pre>
 <p>This comprehensive API documentation provides all the information needed to integrate with the DealSphere platform's authentication and user management system.</p>
 
 

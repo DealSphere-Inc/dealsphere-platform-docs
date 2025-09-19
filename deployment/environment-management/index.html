@@ -67,7 +67,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -122,7 +122,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#f5f5f5" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
@@ -132,7 +132,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#a9a9a9" data-md-color-accent="gray"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
@@ -1813,747 +1813,732 @@
 <h2 id="environment-configuration">Environment Configuration<a class="headerlink" href="#environment-configuration" title="Permanent link">&para;</a></h2>
 <h3 id="environment-variables-structure">Environment Variables Structure<a class="headerlink" href="#environment-variables-structure" title="Permanent link">&para;</a></h3>
 <p>Each environment uses specific configuration files:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">environments</span><span class="o">/</span>
-<span class="err">├──</span><span class="w"> </span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">development</span><span class="w">      </span><span class="c1"># Local development</span>
-<span class="err">├──</span><span class="w"> </span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">staging</span><span class="w">         </span><span class="c1"># Staging environment</span>
-<span class="err">├──</span><span class="w"> </span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">production</span><span class="w">      </span><span class="c1"># Production environment</span>
-<span class="err">└──</span><span class="w"> </span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">example</span><span class="w">         </span><span class="c1"># Template with all variables</span>
-</code></pre></div>
-
+<pre><code>environments/
+├── .env.development      # Local development
+├── .env.staging         # Staging environment
+├── .env.production      # Production environment
+└── .env.example         # Template with all variables
+</code></pre>
 <h3 id="core-environment-variables">Core Environment Variables<a class="headerlink" href="#core-environment-variables" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Application Configuration</span>
-<span class="nv">APP_ENV</span><span class="o">=</span>production
-<span class="nv">APP_NAME</span><span class="o">=</span>dealsphere
-<span class="nv">APP_VERSION</span><span class="o">=</span><span class="m">1</span>.0.0
-<span class="nv">APP_URL</span><span class="o">=</span>https://dealsphere.com
-<span class="nv">APP_PORT</span><span class="o">=</span><span class="m">8080</span>
+<pre><code class="language-bash"># Application Configuration
+APP_ENV=production
+APP_NAME=dealsphere
+APP_VERSION=1.0.0
+APP_URL=https://dealsphere.com
+APP_PORT=8080
 
-<span class="c1"># Database Configuration</span>
-<span class="nv">DB_HOST</span><span class="o">=</span>dealsphere-db-cluster
-<span class="nv">DB_PORT</span><span class="o">=</span><span class="m">5432</span>
-<span class="nv">DB_NAME</span><span class="o">=</span>dealsphere_prod
-<span class="nv">DB_USERNAME</span><span class="o">=</span>dealsphere_user
-<span class="nv">DB_PASSWORD</span><span class="o">=</span><span class="si">${</span><span class="nv">DB_PASSWORD_SECRET</span><span class="si">}</span>
-<span class="nv">DB_SSL_MODE</span><span class="o">=</span>require
-<span class="nv">DB_POOL_SIZE</span><span class="o">=</span><span class="m">20</span>
+# Database Configuration
+DB_HOST=dealsphere-db-cluster
+DB_PORT=5432
+DB_NAME=dealsphere_prod
+DB_USERNAME=dealsphere_user
+DB_PASSWORD=${DB_PASSWORD_SECRET}
+DB_SSL_MODE=require
+DB_POOL_SIZE=20
 
-<span class="c1"># Redis Configuration</span>
-<span class="nv">REDIS_HOST</span><span class="o">=</span>dealsphere-redis-cluster
-<span class="nv">REDIS_PORT</span><span class="o">=</span><span class="m">6379</span>
-<span class="nv">REDIS_PASSWORD</span><span class="o">=</span><span class="si">${</span><span class="nv">REDIS_PASSWORD_SECRET</span><span class="si">}</span>
-<span class="nv">REDIS_DATABASE</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">REDIS_SSL</span><span class="o">=</span><span class="nb">true</span>
+# Redis Configuration
+REDIS_HOST=dealsphere-redis-cluster
+REDIS_PORT=6379
+REDIS_PASSWORD=${REDIS_PASSWORD_SECRET}
+REDIS_DATABASE=0
+REDIS_SSL=true
 
-<span class="c1"># JWT Configuration</span>
-<span class="nv">JWT_SECRET</span><span class="o">=</span><span class="si">${</span><span class="nv">JWT_SECRET_KEY</span><span class="si">}</span>
-<span class="nv">JWT_EXPIRATION</span><span class="o">=</span><span class="m">7200</span>
-<span class="nv">JWT_REFRESH_EXPIRATION</span><span class="o">=</span><span class="m">604800</span>
+# JWT Configuration
+JWT_SECRET=${JWT_SECRET_KEY}
+JWT_EXPIRATION=7200
+JWT_REFRESH_EXPIRATION=604800
 
-<span class="c1"># GraphQL Configuration</span>
-<span class="nv">GRAPHQL_PLAYGROUND_ENABLED</span><span class="o">=</span><span class="nb">false</span>
-<span class="nv">GRAPHQL_INTROSPECTION_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+# GraphQL Configuration
+GRAPHQL_PLAYGROUND_ENABLED=false
+GRAPHQL_INTROSPECTION_ENABLED=false
 
-<span class="c1"># Logging Configuration</span>
-<span class="nv">LOG_LEVEL</span><span class="o">=</span>INFO
-<span class="nv">LOG_FORMAT</span><span class="o">=</span>JSON
-<span class="nv">LOG_FILE_ENABLED</span><span class="o">=</span><span class="nb">true</span>
-<span class="nv">LOG_FILE_PATH</span><span class="o">=</span>/var/log/dealsphere/app.log
+# Logging Configuration
+LOG_LEVEL=INFO
+LOG_FORMAT=JSON
+LOG_FILE_ENABLED=true
+LOG_FILE_PATH=/var/log/dealsphere/app.log
 
-<span class="c1"># Monitoring Configuration</span>
-<span class="nv">METRICS_ENABLED</span><span class="o">=</span><span class="nb">true</span>
-<span class="nv">METRICS_PORT</span><span class="o">=</span><span class="m">9090</span>
-<span class="nv">HEALTH_CHECK_ENABLED</span><span class="o">=</span><span class="nb">true</span>
+# Monitoring Configuration
+METRICS_ENABLED=true
+METRICS_PORT=9090
+HEALTH_CHECK_ENABLED=true
 
-<span class="c1"># Email Configuration</span>
-<span class="nv">SMTP_HOST</span><span class="o">=</span><span class="si">${</span><span class="nv">SMTP_HOST</span><span class="si">}</span>
-<span class="nv">SMTP_PORT</span><span class="o">=</span><span class="m">587</span>
-<span class="nv">SMTP_USERNAME</span><span class="o">=</span><span class="si">${</span><span class="nv">SMTP_USERNAME</span><span class="si">}</span>
-<span class="nv">SMTP_PASSWORD</span><span class="o">=</span><span class="si">${</span><span class="nv">SMTP_PASSWORD</span><span class="si">}</span>
-<span class="nv">SMTP_FROM</span><span class="o">=</span>noreply@dealsphere.com
+# Email Configuration
+SMTP_HOST=${SMTP_HOST}
+SMTP_PORT=587
+SMTP_USERNAME=${SMTP_USERNAME}
+SMTP_PASSWORD=${SMTP_PASSWORD}
+SMTP_FROM=noreply@dealsphere.com
 
-<span class="c1"># File Storage Configuration</span>
-<span class="nv">STORAGE_PROVIDER</span><span class="o">=</span>aws-s3
-<span class="nv">STORAGE_BUCKET</span><span class="o">=</span>dealsphere-files-prod
-<span class="nv">AWS_REGION</span><span class="o">=</span>us-west-2
-<span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="si">${</span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="si">}</span>
-<span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="si">${</span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="si">}</span>
+# File Storage Configuration
+STORAGE_PROVIDER=aws-s3
+STORAGE_BUCKET=dealsphere-files-prod
+AWS_REGION=us-west-2
+AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
 
-<span class="c1"># Feature Flags</span>
-<span class="nv">FEATURE_ADVANCED_ANALYTICS</span><span class="o">=</span><span class="nb">true</span>
-<span class="nv">FEATURE_REAL_TIME_NOTIFICATIONS</span><span class="o">=</span><span class="nb">true</span>
-<span class="nv">FEATURE_AUDIT_LOGGING</span><span class="o">=</span><span class="nb">true</span>
-</code></pre></div>
-
+# Feature Flags
+FEATURE_ADVANCED_ANALYTICS=true
+FEATURE_REAL_TIME_NOTIFICATIONS=true
+FEATURE_AUDIT_LOGGING=true
+</code></pre>
 <h3 id="environment-specific-configurations">Environment-Specific Configurations<a class="headerlink" href="#environment-specific-configurations" title="Permanent link">&para;</a></h3>
 <h4 id="development-environment">Development Environment<a class="headerlink" href="#development-environment" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># .env.development</span>
-<span class="nv">APP_ENV</span><span class="o">=</span>development
-<span class="nv">APP_URL</span><span class="o">=</span>http://localhost:3000
-<span class="nv">DB_HOST</span><span class="o">=</span>localhost
-<span class="nv">DB_SSL_MODE</span><span class="o">=</span>disable
-<span class="nv">GRAPHQL_PLAYGROUND_ENABLED</span><span class="o">=</span><span class="nb">true</span>
-<span class="nv">GRAPHQL_INTROSPECTION_ENABLED</span><span class="o">=</span><span class="nb">true</span>
-<span class="nv">LOG_LEVEL</span><span class="o">=</span>DEBUG
-<span class="nv">METRICS_ENABLED</span><span class="o">=</span><span class="nb">false</span>
-</code></pre></div>
-
+<pre><code class="language-bash"># .env.development
+APP_ENV=development
+APP_URL=http://localhost:3000
+DB_HOST=localhost
+DB_SSL_MODE=disable
+GRAPHQL_PLAYGROUND_ENABLED=true
+GRAPHQL_INTROSPECTION_ENABLED=true
+LOG_LEVEL=DEBUG
+METRICS_ENABLED=false
+</code></pre>
 <h4 id="staging-environment">Staging Environment<a class="headerlink" href="#staging-environment" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># .env.staging</span>
-<span class="nv">APP_ENV</span><span class="o">=</span>staging
-<span class="nv">APP_URL</span><span class="o">=</span>https://staging.dealsphere.com
-<span class="nv">DB_HOST</span><span class="o">=</span>staging-db.dealsphere.internal
-<span class="nv">DB_SSL_MODE</span><span class="o">=</span>require
-<span class="nv">GRAPHQL_PLAYGROUND_ENABLED</span><span class="o">=</span><span class="nb">true</span>
-<span class="nv">GRAPHQL_INTROSPECTION_ENABLED</span><span class="o">=</span><span class="nb">false</span>
-<span class="nv">LOG_LEVEL</span><span class="o">=</span>INFO
-<span class="nv">METRICS_ENABLED</span><span class="o">=</span><span class="nb">true</span>
-</code></pre></div>
-
+<pre><code class="language-bash"># .env.staging
+APP_ENV=staging
+APP_URL=https://staging.dealsphere.com
+DB_HOST=staging-db.dealsphere.internal
+DB_SSL_MODE=require
+GRAPHQL_PLAYGROUND_ENABLED=true
+GRAPHQL_INTROSPECTION_ENABLED=false
+LOG_LEVEL=INFO
+METRICS_ENABLED=true
+</code></pre>
 <h4 id="production-environment">Production Environment<a class="headerlink" href="#production-environment" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># .env.production</span>
-<span class="nv">APP_ENV</span><span class="o">=</span>production
-<span class="nv">APP_URL</span><span class="o">=</span>https://dealsphere.com
-<span class="nv">DB_HOST</span><span class="o">=</span>prod-db-cluster.dealsphere.internal
-<span class="nv">DB_SSL_MODE</span><span class="o">=</span>require
-<span class="nv">GRAPHQL_PLAYGROUND_ENABLED</span><span class="o">=</span><span class="nb">false</span>
-<span class="nv">GRAPHQL_INTROSPECTION_ENABLED</span><span class="o">=</span><span class="nb">false</span>
-<span class="nv">LOG_LEVEL</span><span class="o">=</span>WARN
-<span class="nv">METRICS_ENABLED</span><span class="o">=</span><span class="nb">true</span>
-</code></pre></div>
-
+<pre><code class="language-bash"># .env.production
+APP_ENV=production
+APP_URL=https://dealsphere.com
+DB_HOST=prod-db-cluster.dealsphere.internal
+DB_SSL_MODE=require
+GRAPHQL_PLAYGROUND_ENABLED=false
+GRAPHQL_INTROSPECTION_ENABLED=false
+LOG_LEVEL=WARN
+METRICS_ENABLED=true
+</code></pre>
 <h2 id="secrets-management">Secrets Management<a class="headerlink" href="#secrets-management" title="Permanent link">&para;</a></h2>
 <h3 id="local-development">Local Development<a class="headerlink" href="#local-development" title="Permanent link">&para;</a></h3>
 <p>For local development, use a <code>.env</code> file:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Copy template</span>
-cp<span class="w"> </span>.env.example<span class="w"> </span>.env.development
+<pre><code class="language-bash"># Copy template
+cp .env.example .env.development
 
-<span class="c1"># Edit with your local values</span>
-vim<span class="w"> </span>.env.development
-</code></pre></div>
-
+# Edit with your local values
+vim .env.development
+</code></pre>
 <h3 id="cloud-environments">Cloud Environments<a class="headerlink" href="#cloud-environments" title="Permanent link">&para;</a></h3>
 <h4 id="aws-secrets-manager">AWS Secrets Manager<a class="headerlink" href="#aws-secrets-manager" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Store database credentials</span>
-aws<span class="w"> </span>secretsmanager<span class="w"> </span>create-secret<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--name<span class="w"> </span><span class="s2">&quot;dealsphere/prod/database&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--description<span class="w"> </span><span class="s2">&quot;Production database credentials&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--secret-string<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">        &quot;username&quot;: &quot;dealsphere_user&quot;,</span>
-<span class="s1">        &quot;password&quot;: &quot;secure-db-password&quot;,</span>
-<span class="s1">        &quot;host&quot;: &quot;prod-db-cluster.amazonaws.com&quot;,</span>
-<span class="s1">        &quot;port&quot;: 5432,</span>
-<span class="s1">        &quot;database&quot;: &quot;dealsphere_prod&quot;</span>
-<span class="s1">    }&#39;</span>
+<pre><code class="language-bash"># Store database credentials
+aws secretsmanager create-secret \
+    --name &quot;dealsphere/prod/database&quot; \
+    --description &quot;Production database credentials&quot; \
+    --secret-string '{
+        &quot;username&quot;: &quot;dealsphere_user&quot;,
+        &quot;password&quot;: &quot;secure-db-password&quot;,
+        &quot;host&quot;: &quot;prod-db-cluster.amazonaws.com&quot;,
+        &quot;port&quot;: 5432,
+        &quot;database&quot;: &quot;dealsphere_prod&quot;
+    }'
 
-<span class="c1"># Store JWT secret</span>
-aws<span class="w"> </span>secretsmanager<span class="w"> </span>create-secret<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--name<span class="w"> </span><span class="s2">&quot;dealsphere/prod/jwt-secret&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--description<span class="w"> </span><span class="s2">&quot;JWT signing secret&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--secret-string<span class="w"> </span><span class="s2">&quot;your-super-secure-jwt-secret-key&quot;</span>
+# Store JWT secret
+aws secretsmanager create-secret \
+    --name &quot;dealsphere/prod/jwt-secret&quot; \
+    --description &quot;JWT signing secret&quot; \
+    --secret-string &quot;your-super-secure-jwt-secret-key&quot;
 
-<span class="c1"># Store Redis password</span>
-aws<span class="w"> </span>secretsmanager<span class="w"> </span>create-secret<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--name<span class="w"> </span><span class="s2">&quot;dealsphere/prod/redis-password&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--description<span class="w"> </span><span class="s2">&quot;Redis authentication password&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--secret-string<span class="w"> </span><span class="s2">&quot;secure-redis-password&quot;</span>
-</code></pre></div>
-
+# Store Redis password
+aws secretsmanager create-secret \
+    --name &quot;dealsphere/prod/redis-password&quot; \
+    --description &quot;Redis authentication password&quot; \
+    --secret-string &quot;secure-redis-password&quot;
+</code></pre>
 <h4 id="kubernetes-secrets">Kubernetes Secrets<a class="headerlink" href="#kubernetes-secrets" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># secrets.yaml</span>
-<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-secrets</span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-prod</span>
-<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
-<span class="nt">data</span><span class="p">:</span>
-<span class="w">  </span><span class="c1"># Base64 encoded values</span>
-<span class="w">  </span><span class="nt">DB_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">c2VjdXJlLWRiLXBhc3N3b3Jk</span>
-<span class="w">  </span><span class="nt">JWT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eW91ci1zdXBlci1zZWN1cmUtand0LXNlY3JldC1rZXk=</span>
-<span class="w">  </span><span class="nt">REDIS_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">c2VjdXJlLXJlZGlzLXBhc3N3b3Jk</span>
-<span class="w">  </span><span class="nt">SMTP_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">c210cC1wYXNzd29yZA==</span>
-<span class="w">  </span><span class="nt">AWS_SECRET_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YXdzLXNlY3JldC1hY2Nlc3Mta2V5</span>
-<span class="nn">---</span>
-<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-config</span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-prod</span>
-<span class="nt">data</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">APP_ENV</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;production&quot;</span>
-<span class="w">  </span><span class="nt">DB_HOST</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prod-db-cluster.dealsphere.internal&quot;</span>
-<span class="w">  </span><span class="nt">DB_PORT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5432&quot;</span>
-<span class="w">  </span><span class="nt">DB_NAME</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dealsphere_prod&quot;</span>
-<span class="w">  </span><span class="nt">DB_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dealsphere_user&quot;</span>
-<span class="w">  </span><span class="nt">REDIS_HOST</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prod-redis-cluster.dealsphere.internal&quot;</span>
-<span class="w">  </span><span class="nt">REDIS_PORT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;6379&quot;</span>
-<span class="w">  </span><span class="nt">LOG_LEVEL</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;INFO&quot;</span>
-<span class="w">  </span><span class="nt">METRICS_ENABLED</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
-</code></pre></div>
-
+<pre><code class="language-yaml"># secrets.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dealsphere-secrets
+  namespace: dealsphere-prod
+type: Opaque
+data:
+  # Base64 encoded values
+  DB_PASSWORD: c2VjdXJlLWRiLXBhc3N3b3Jk
+  JWT_SECRET: eW91ci1zdXBlci1zZWN1cmUtand0LXNlY3JldC1rZXk=
+  REDIS_PASSWORD: c2VjdXJlLXJlZGlzLXBhc3N3b3Jk
+  SMTP_PASSWORD: c210cC1wYXNzd29yZA==
+  AWS_SECRET_ACCESS_KEY: YXdzLXNlY3JldC1hY2Nlc3Mta2V5
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dealsphere-config
+  namespace: dealsphere-prod
+data:
+  APP_ENV: &quot;production&quot;
+  DB_HOST: &quot;prod-db-cluster.dealsphere.internal&quot;
+  DB_PORT: &quot;5432&quot;
+  DB_NAME: &quot;dealsphere_prod&quot;
+  DB_USERNAME: &quot;dealsphere_user&quot;
+  REDIS_HOST: &quot;prod-redis-cluster.dealsphere.internal&quot;
+  REDIS_PORT: &quot;6379&quot;
+  LOG_LEVEL: &quot;INFO&quot;
+  METRICS_ENABLED: &quot;true&quot;
+</code></pre>
 <h4 id="docker-swarm-secrets">Docker Swarm Secrets<a class="headerlink" href="#docker-swarm-secrets" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Create secrets</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;secure-db-password&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>secret<span class="w"> </span>create<span class="w"> </span>db_password<span class="w"> </span>-
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;your-jwt-secret-key&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>secret<span class="w"> </span>create<span class="w"> </span>jwt_secret<span class="w"> </span>-
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;secure-redis-password&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>secret<span class="w"> </span>create<span class="w"> </span>redis_password<span class="w"> </span>-
+<pre><code class="language-bash"># Create secrets
+echo &quot;secure-db-password&quot; | docker secret create db_password -
+echo &quot;your-jwt-secret-key&quot; | docker secret create jwt_secret -
+echo &quot;secure-redis-password&quot; | docker secret create redis_password -
 
-<span class="c1"># Use in docker-compose.yml</span>
-version:<span class="w"> </span><span class="s1">&#39;3.8&#39;</span>
+# Use in docker-compose.yml
+version: '3.8'
 services:
-<span class="w">  </span>backend:
-<span class="w">    </span>image:<span class="w"> </span>dealsphere/backend:latest
-<span class="w">    </span>secrets:
-<span class="w">      </span>-<span class="w"> </span>db_password
-<span class="w">      </span>-<span class="w"> </span>jwt_secret
-<span class="w">      </span>-<span class="w"> </span>redis_password
-<span class="w">    </span>environment:
-<span class="w">      </span>-<span class="w"> </span><span class="nv">DB_PASSWORD_FILE</span><span class="o">=</span>/run/secrets/db_password
-<span class="w">      </span>-<span class="w"> </span><span class="nv">JWT_SECRET_FILE</span><span class="o">=</span>/run/secrets/jwt_secret
-<span class="w">      </span>-<span class="w"> </span><span class="nv">REDIS_PASSWORD_FILE</span><span class="o">=</span>/run/secrets/redis_password
+  backend:
+    image: dealsphere/backend:latest
+    secrets:
+      - db_password
+      - jwt_secret
+      - redis_password
+    environment:
+      - DB_PASSWORD_FILE=/run/secrets/db_password
+      - JWT_SECRET_FILE=/run/secrets/jwt_secret
+      - REDIS_PASSWORD_FILE=/run/secrets/redis_password
 
 secrets:
-<span class="w">  </span>db_password:
-<span class="w">    </span>external:<span class="w"> </span><span class="nb">true</span>
-<span class="w">  </span>jwt_secret:
-<span class="w">    </span>external:<span class="w"> </span><span class="nb">true</span>
-<span class="w">  </span>redis_password:
-<span class="w">    </span>external:<span class="w"> </span><span class="nb">true</span>
-</code></pre></div>
-
+  db_password:
+    external: true
+  jwt_secret:
+    external: true
+  redis_password:
+    external: true
+</code></pre>
 <h2 id="configuration-management">Configuration Management<a class="headerlink" href="#configuration-management" title="Permanent link">&para;</a></h2>
 <h3 id="application-properties-template">Application Properties Template<a class="headerlink" href="#application-properties-template" title="Permanent link">&para;</a></h3>
 <p>Create <code>application-template.yml</code> for environment-specific overrides:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># application-template.yml</span>
-<span class="nt">server</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${APP_PORT:8080}</span>
-<span class="w">  </span><span class="nt">servlet</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">context-path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/api</span>
+<pre><code class="language-yaml"># application-template.yml
+server:
+  port: ${APP_PORT:8080}
+  servlet:
+    context-path: /api
 
-<span class="nt">spring</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">application</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${APP_NAME:dealsphere}</span>
-<span class="w">  </span><span class="nt">profiles</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${APP_ENV:development}</span>
+spring:
+  application:
+    name: ${APP_NAME:dealsphere}
+  profiles:
+    active: ${APP_ENV:development}
 
-<span class="w">  </span><span class="nt">datasource</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:dealsphere}</span>
-<span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DB_USERNAME:dealsphere}</span>
-<span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DB_PASSWORD:password}</span>
-<span class="w">    </span><span class="nt">driver-class-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">org.postgresql.Driver</span>
-<span class="w">    </span><span class="nt">hikari</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">maximum-pool-size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DB_POOL_SIZE:10}</span>
-<span class="w">      </span><span class="nt">minimum-idle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">      </span><span class="nt">connection-timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30000</span>
-<span class="w">      </span><span class="nt">idle-timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600000</span>
-<span class="w">      </span><span class="nt">max-lifetime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1800000</span>
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:dealsphere}
+    username: ${DB_USERNAME:dealsphere}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: ${DB_POOL_SIZE:10}
+      minimum-idle: 2
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
 
-<span class="w">  </span><span class="nt">redis</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${REDIS_HOST:localhost}</span>
-<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${REDIS_PORT:6379}</span>
-<span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${REDIS_PASSWORD:}</span>
-<span class="w">    </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${REDIS_DATABASE:0}</span>
-<span class="w">    </span><span class="nt">ssl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${REDIS_SSL:false}</span>
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    database: ${REDIS_DATABASE:0}
+    ssl: ${REDIS_SSL:false}
 
-<span class="w">  </span><span class="nt">jpa</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">hibernate</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">ddl-auto</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${HIBERNATE_DDL_AUTO:validate}</span>
-<span class="w">    </span><span class="nt">show-sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${JPA_SHOW_SQL:false}</span>
-<span class="w">    </span><span class="nt">properties</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">hibernate</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">dialect</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">org.hibernate.dialect.PostgreSQLDialect</span>
-<span class="w">        </span><span class="nt">format_sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+  jpa:
+    hibernate:
+      ddl-auto: ${HIBERNATE_DDL_AUTO:validate}
+    show-sql: ${JPA_SHOW_SQL:false}
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
 
-<span class="nt">logging</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">level</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">com.dealsphere</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${LOG_LEVEL:INFO}</span>
-<span class="w">    </span><span class="nt">org.springframework.security</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SECURITY_LOG_LEVEL:WARN}</span>
-<span class="w">  </span><span class="nt">pattern</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">console</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;%d{yyyy-MM-dd</span><span class="nv"> </span><span class="s">HH:mm:ss}</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%msg%n&quot;</span>
-<span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;%d{yyyy-MM-dd</span><span class="nv"> </span><span class="s">HH:mm:ss}</span><span class="nv"> </span><span class="s">[%thread]</span><span class="nv"> </span><span class="s">%-5level</span><span class="nv"> </span><span class="s">%logger{36}</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%msg%n&quot;</span>
-<span class="w">  </span><span class="nt">file</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${LOG_FILE_PATH:/var/log/dealsphere/app.log}</span>
+logging:
+  level:
+    com.dealsphere: ${LOG_LEVEL:INFO}
+    org.springframework.security: ${SECURITY_LOG_LEVEL:WARN}
+  pattern:
+    console: &quot;%d{yyyy-MM-dd HH:mm:ss} - %msg%n&quot;
+    file: &quot;%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n&quot;
+  file:
+    name: ${LOG_FILE_PATH:/var/log/dealsphere/app.log}
 
-<span class="nt">management</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">endpoints</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">web</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">exposure</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">health,metrics,prometheus</span>
-<span class="w">  </span><span class="nt">endpoint</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">health</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${HEALTH_CHECK_ENABLED:true}</span>
-<span class="w">      </span><span class="nt">show-details</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">when-authorized</span>
-<span class="w">  </span><span class="nt">metrics</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">export</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">prometheus</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${METRICS_ENABLED:false}</span>
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+  endpoint:
+    health:
+      enabled: ${HEALTH_CHECK_ENABLED:true}
+      show-details: when-authorized
+  metrics:
+    export:
+      prometheus:
+        enabled: ${METRICS_ENABLED:false}
 
-<span class="nt">jwt</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${JWT_SECRET:default-dev-secret}</span>
-<span class="w">  </span><span class="nt">expiration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${JWT_EXPIRATION:3600}</span>
-<span class="w">  </span><span class="nt">refresh-expiration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${JWT_REFRESH_EXPIRATION:604800}</span>
+jwt:
+  secret: ${JWT_SECRET:default-dev-secret}
+  expiration: ${JWT_EXPIRATION:3600}
+  refresh-expiration: ${JWT_REFRESH_EXPIRATION:604800}
 
-<span class="nt">graphql</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">playground</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${GRAPHQL_PLAYGROUND_ENABLED:false}</span>
-<span class="w">  </span><span class="nt">introspection</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${GRAPHQL_INTROSPECTION_ENABLED:false}</span>
-</code></pre></div>
-
+graphql:
+  playground:
+    enabled: ${GRAPHQL_PLAYGROUND_ENABLED:false}
+  introspection:
+    enabled: ${GRAPHQL_INTROSPECTION_ENABLED:false}
+</code></pre>
 <h3 id="environment-validation">Environment Validation<a class="headerlink" href="#environment-validation" title="Permanent link">&para;</a></h3>
 <p>Create environment validation script:</p>
-<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1"># validate-environment.sh</span>
+<pre><code class="language-bash">#!/bin/bash
+# validate-environment.sh
 
-<span class="nb">set</span><span class="w"> </span>-e
+set -e
 
-<span class="nv">REQUIRED_VARS</span><span class="o">=(</span>
-<span class="w">    </span><span class="s2">&quot;APP_ENV&quot;</span>
-<span class="w">    </span><span class="s2">&quot;DB_HOST&quot;</span><span class="w"> </span><span class="s2">&quot;DB_USERNAME&quot;</span><span class="w"> </span><span class="s2">&quot;DB_PASSWORD&quot;</span>
-<span class="w">    </span><span class="s2">&quot;REDIS_HOST&quot;</span>
-<span class="w">    </span><span class="s2">&quot;JWT_SECRET&quot;</span>
-<span class="o">)</span>
+REQUIRED_VARS=(
+    &quot;APP_ENV&quot;
+    &quot;DB_HOST&quot; &quot;DB_USERNAME&quot; &quot;DB_PASSWORD&quot;
+    &quot;REDIS_HOST&quot;
+    &quot;JWT_SECRET&quot;
+)
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🔍 Validating environment configuration...&quot;</span>
+echo &quot;🔍 Validating environment configuration...&quot;
 
-<span class="nv">missing_vars</span><span class="o">=()</span>
+missing_vars=()
 
-<span class="k">for</span><span class="w"> </span>var<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">REQUIRED_VARS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="p">!var</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nv">missing_vars</span><span class="o">+=(</span><span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span><span class="o">)</span>
-<span class="w">    </span><span class="k">fi</span>
-<span class="k">done</span>
+for var in &quot;${REQUIRED_VARS[@]}&quot;; do
+    if [[ -z &quot;${!var}&quot; ]]; then
+        missing_vars+=(&quot;$var&quot;)
+    fi
+done
 
-<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="si">${#</span><span class="nv">missing_vars</span><span class="p">[@]</span><span class="si">}</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Missing required environment variables:&quot;</span>
-<span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;  - %s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">missing_vars</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="k">fi</span>
+if [[ ${#missing_vars[@]} -ne 0 ]]; then
+    echo &quot;❌ Missing required environment variables:&quot;
+    printf '  - %s\n' &quot;${missing_vars[@]}&quot;
+    exit 1
+fi
 
-<span class="c1"># Environment-specific validations</span>
-<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$APP_ENV</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;production&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nv">PROD_REQUIRED_VARS</span><span class="o">=(</span>
-<span class="w">        </span><span class="s2">&quot;DB_SSL_MODE&quot;</span>
-<span class="w">        </span><span class="s2">&quot;REDIS_SSL&quot;</span>
-<span class="w">        </span><span class="s2">&quot;SMTP_HOST&quot;</span><span class="w"> </span><span class="s2">&quot;SMTP_USERNAME&quot;</span><span class="w"> </span><span class="s2">&quot;SMTP_PASSWORD&quot;</span>
-<span class="w">        </span><span class="s2">&quot;AWS_ACCESS_KEY_ID&quot;</span><span class="w"> </span><span class="s2">&quot;AWS_SECRET_ACCESS_KEY&quot;</span>
-<span class="w">    </span><span class="o">)</span>
+# Environment-specific validations
+if [[ &quot;$APP_ENV&quot; == &quot;production&quot; ]]; then
+    PROD_REQUIRED_VARS=(
+        &quot;DB_SSL_MODE&quot;
+        &quot;REDIS_SSL&quot;
+        &quot;SMTP_HOST&quot; &quot;SMTP_USERNAME&quot; &quot;SMTP_PASSWORD&quot;
+        &quot;AWS_ACCESS_KEY_ID&quot; &quot;AWS_SECRET_ACCESS_KEY&quot;
+    )
 
-<span class="w">    </span><span class="nv">prod_missing</span><span class="o">=()</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span>var<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PROD_REQUIRED_VARS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="p">!var</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span><span class="nv">prod_missing</span><span class="o">+=(</span><span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span><span class="o">)</span>
-<span class="w">        </span><span class="k">fi</span>
-<span class="w">    </span><span class="k">done</span>
+    prod_missing=()
+    for var in &quot;${PROD_REQUIRED_VARS[@]}&quot;; do
+        if [[ -z &quot;${!var}&quot; ]]; then
+            prod_missing+=(&quot;$var&quot;)
+        fi
+    done
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="si">${#</span><span class="nv">prod_missing</span><span class="p">[@]</span><span class="si">}</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Missing production-specific variables:&quot;</span>
-<span class="w">        </span><span class="nb">printf</span><span class="w"> </span><span class="s1">&#39;  - %s\n&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">prod_missing</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="w">    </span><span class="k">fi</span>
+    if [[ ${#prod_missing[@]} -ne 0 ]]; then
+        echo &quot;❌ Missing production-specific variables:&quot;
+        printf '  - %s\n' &quot;${prod_missing[@]}&quot;
+        exit 1
+    fi
 
-<span class="w">    </span><span class="c1"># Security checks</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$JWT_SECRET</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;default-dev-secret&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Production environment cannot use default JWT secret&quot;</span>
-<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="w">    </span><span class="k">fi</span>
+    # Security checks
+    if [[ &quot;$JWT_SECRET&quot; == &quot;default-dev-secret&quot; ]]; then
+        echo &quot;❌ Production environment cannot use default JWT secret&quot;
+        exit 1
+    fi
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DB_SSL_MODE</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;require&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⚠️  Warning: Database SSL should be &#39;require&#39; in production&quot;</span>
-<span class="w">    </span><span class="k">fi</span>
-<span class="k">fi</span>
+    if [[ &quot;$DB_SSL_MODE&quot; != &quot;require&quot; ]]; then
+        echo &quot;⚠️  Warning: Database SSL should be 'require' in production&quot;
+    fi
+fi
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Environment validation passed&quot;</span>
+echo &quot;✅ Environment validation passed&quot;
 
-<span class="c1"># Test database connection</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🔍 Testing database connection...&quot;</span>
-<span class="k">if</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>psql<span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">PGPASSWORD</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$DB_PASSWORD</span><span class="s2">&quot;</span><span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DB_HOST</span><span class="s2">&quot;</span><span class="w"> </span>-U<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DB_USERNAME</span><span class="s2">&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DB_NAME</span><span class="s2">&quot;</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT 1&quot;</span><span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Database connection successful&quot;</span>
-<span class="w">    </span><span class="k">else</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Database connection failed&quot;</span>
-<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="w">    </span><span class="k">fi</span>
-<span class="k">else</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⚠️  psql not found, skipping database connection test&quot;</span>
-<span class="k">fi</span>
+# Test database connection
+echo &quot;🔍 Testing database connection...&quot;
+if command -v psql &gt;/dev/null; then
+    if PGPASSWORD=&quot;$DB_PASSWORD&quot; psql -h &quot;$DB_HOST&quot; -U &quot;$DB_USERNAME&quot; -d &quot;$DB_NAME&quot; -c &quot;SELECT 1&quot; &gt;/dev/null 2&gt;&amp;1; then
+        echo &quot;✅ Database connection successful&quot;
+    else
+        echo &quot;❌ Database connection failed&quot;
+        exit 1
+    fi
+else
+    echo &quot;⚠️  psql not found, skipping database connection test&quot;
+fi
 
-<span class="c1"># Test Redis connection</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🔍 Testing Redis connection...&quot;</span>
-<span class="k">if</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>redis-cli<span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span>redis-cli<span class="w"> </span>-h<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REDIS_HOST</span><span class="s2">&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REDIS_PORT</span><span class="s2">&quot;</span><span class="w"> </span><span class="si">${</span><span class="nv">REDIS_PASSWORD</span><span class="p">:+-a </span><span class="s2">&quot;</span><span class="nv">$REDIS_PASSWORD</span><span class="s2">&quot;</span><span class="si">}</span><span class="w"> </span>ping<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Redis connection successful&quot;</span>
-<span class="w">    </span><span class="k">else</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Redis connection failed&quot;</span>
-<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="w">    </span><span class="k">fi</span>
-<span class="k">else</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⚠️  redis-cli not found, skipping Redis connection test&quot;</span>
-<span class="k">fi</span>
+# Test Redis connection
+echo &quot;🔍 Testing Redis connection...&quot;
+if command -v redis-cli &gt;/dev/null; then
+    if redis-cli -h &quot;$REDIS_HOST&quot; -p &quot;$REDIS_PORT&quot; ${REDIS_PASSWORD:+-a &quot;$REDIS_PASSWORD&quot;} ping &gt;/dev/null 2&gt;&amp;1; then
+        echo &quot;✅ Redis connection successful&quot;
+    else
+        echo &quot;❌ Redis connection failed&quot;
+        exit 1
+    fi
+else
+    echo &quot;⚠️  redis-cli not found, skipping Redis connection test&quot;
+fi
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🎉 All environment checks passed!&quot;</span>
-</code></pre></div>
-
+echo &quot;🎉 All environment checks passed!&quot;
+</code></pre>
 <h2 id="deployment-pipelines">Deployment Pipelines<a class="headerlink" href="#deployment-pipelines" title="Permanent link">&para;</a></h2>
 <h3 id="cicd-configuration">CI/CD Configuration<a class="headerlink" href="#cicd-configuration" title="Permanent link">&para;</a></h3>
 <h4 id="github-actions-workflow">GitHub Actions Workflow<a class="headerlink" href="#github-actions-workflow" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># .github/workflows/deploy.yml</span>
-<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy DealSphere</span>
+<pre><code class="language-yaml"># .github/workflows/deploy.yml
+name: Deploy DealSphere
 
-<span class="nt">on</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">staging</span><span class="p p-Indicator">]</span>
-<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main]
 
-<span class="nt">env</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">REGISTRY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io</span>
-<span class="w">  </span><span class="nt">IMAGE_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere-inc/dealsphere-platform</span>
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: dealsphere-inc/dealsphere-platform
 
-<span class="nt">jobs</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">test</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<span class="w">    </span><span class="nt">services</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">postgres</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:15</span>
-<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
-<span class="w">          </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere_test</span>
-<span class="w">        </span><span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">          </span><span class="no">--health-cmd pg_isready</span>
-<span class="w">          </span><span class="no">--health-interval 10s</span>
-<span class="w">          </span><span class="no">--health-timeout 5s</span>
-<span class="w">          </span><span class="no">--health-retries 5</span>
-<span class="w">      </span><span class="nt">redis</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis:7</span>
-<span class="w">        </span><span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<span class="w">          </span><span class="no">--health-cmd &quot;redis-cli ping&quot;</span>
-<span class="w">          </span><span class="no">--health-interval 10s</span>
-<span class="w">          </span><span class="no">--health-timeout 5s</span>
-<span class="w">          </span><span class="no">--health-retries 5</span>
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: dealsphere_test
+        options: &gt;-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis:7
+        options: &gt;-
+          --health-cmd &quot;redis-cli ping&quot;
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
-<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+    steps:
+    - uses: actions/checkout@v4
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up JDK 17</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-java@v3</span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">java-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;17&#39;</span>
-<span class="w">        </span><span class="nt">distribution</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;temurin&#39;</span>
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Node.js</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;18&#39;</span>
-<span class="w">        </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;npm&#39;</span>
-<span class="w">        </span><span class="nt">cache-dependency-path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend/package-lock.json</span>
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: frontend/package-lock.json
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Validate Environment</span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">        </span><span class="no">cp .env.example .env.test</span>
-<span class="w">        </span><span class="no">chmod +x scripts/validate-environment.sh</span>
-<span class="w">        </span><span class="no">./scripts/validate-environment.sh</span>
+    - name: Validate Environment
+      run: |
+        cp .env.example .env.test
+        chmod +x scripts/validate-environment.sh
+        ./scripts/validate-environment.sh
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Backend Tests</span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">        </span><span class="no">cd backend</span>
-<span class="w">        </span><span class="no">./gradlew test jacocoTestReport</span>
-<span class="w">      </span><span class="nt">env</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">DB_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
-<span class="w">        </span><span class="nt">DB_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-<span class="w">        </span><span class="nt">DB_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
-<span class="w">        </span><span class="nt">DB_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dealsphere_test</span>
-<span class="w">        </span><span class="nt">REDIS_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
-<span class="w">        </span><span class="nt">JWT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test-jwt-secret</span>
+    - name: Run Backend Tests
+      run: |
+        cd backend
+        ./gradlew test jacocoTestReport
+      env:
+        DB_HOST: localhost
+        DB_USERNAME: postgres
+        DB_PASSWORD: test
+        DB_NAME: dealsphere_test
+        REDIS_HOST: localhost
+        JWT_SECRET: test-jwt-secret
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run Frontend Tests</span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">        </span><span class="no">cd frontend</span>
-<span class="w">        </span><span class="no">npm ci</span>
-<span class="w">        </span><span class="no">npm run test:coverage</span>
+    - name: Run Frontend Tests
+      run: |
+        cd frontend
+        npm ci
+        npm run test:coverage
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload Coverage</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codecov/codecov-action@v3</span>
+    - name: Upload Coverage
+      uses: codecov/codecov-action@v3
 
-<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
-<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;push&#39;</span>
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
 
-<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+    steps:
+    - uses: actions/checkout@v4
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Log in to Container Registry</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/login-action@v2</span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">registry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.REGISTRY }}</span>
-<span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.actor }}</span>
-<span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+    - name: Log in to Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Extract metadata</span>
-<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/metadata-action@v4</span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">images</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}</span>
-<span class="w">        </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">          </span><span class="no">type=ref,event=branch</span>
-<span class="w">          </span><span class="no">type=sha,prefix={{branch}}-</span>
-<span class="w">          </span><span class="no">type=raw,value=latest,enable={{is_default_branch}}</span>
+    - name: Extract metadata
+      id: meta
+      uses: docker/metadata-action@v4
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        tags: |
+          type=ref,event=branch
+          type=sha,prefix={{branch}}-
+          type=raw,value=latest,enable={{is_default_branch}}
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and Push Backend</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/build-push-action@v4</span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./backend</span>
-<span class="w">        </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./backend/Dockerfile</span>
-<span class="w">        </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">        </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.meta.outputs.tags }}-backend</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.meta.outputs.labels }}</span>
+    - name: Build and Push Backend
+      uses: docker/build-push-action@v4
+      with:
+        context: ./backend
+        file: ./backend/Dockerfile
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}-backend
+        labels: ${{ steps.meta.outputs.labels }}
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and Push Frontend</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/build-push-action@v4</span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./frontend</span>
-<span class="w">        </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./frontend/Dockerfile</span>
-<span class="w">        </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">        </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.meta.outputs.tags }}-frontend</span>
-<span class="w">        </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.meta.outputs.labels }}</span>
+    - name: Build and Push Frontend
+      uses: docker/build-push-action@v4
+      with:
+        context: ./frontend
+        file: ./frontend/Dockerfile
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}-frontend
+        labels: ${{ steps.meta.outputs.labels }}
 
-<span class="w">  </span><span class="nt">deploy-staging</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
-<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;refs/heads/staging&#39;</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">staging</span>
+  deploy-staging:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/staging'
+    environment: staging
 
-<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+    steps:
+    - uses: actions/checkout@v4
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to Staging</span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">        </span><span class="no">echo &quot;Deploying to staging environment...&quot;</span>
-<span class="w">        </span><span class="no"># Add staging deployment commands</span>
-<span class="w">      </span><span class="nt">env</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">STAGING_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.STAGING_HOST }}</span>
-<span class="w">        </span><span class="nt">STAGING_SSH_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.STAGING_SSH_KEY }}</span>
+    - name: Deploy to Staging
+      run: |
+        echo &quot;Deploying to staging environment...&quot;
+        # Add staging deployment commands
+      env:
+        STAGING_HOST: ${{ secrets.STAGING_HOST }}
+        STAGING_SSH_KEY: ${{ secrets.STAGING_SSH_KEY }}
 
-<span class="w">  </span><span class="nt">deploy-production</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
-<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;refs/heads/main&#39;</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
+  deploy-production:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    environment: production
 
-<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+    steps:
+    - uses: actions/checkout@v4
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to Production</span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">        </span><span class="no">echo &quot;Deploying to production environment...&quot;</span>
-<span class="w">        </span><span class="no"># Add production deployment commands</span>
-<span class="w">      </span><span class="nt">env</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">PRODUCTION_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PRODUCTION_HOST }}</span>
-<span class="w">        </span><span class="nt">PRODUCTION_SSH_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PRODUCTION_SSH_KEY }}</span>
-<span class="w">        </span><span class="nt">AWS_ACCESS_KEY_ID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_ACCESS_KEY_ID }}</span>
-<span class="w">        </span><span class="nt">AWS_SECRET_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_SECRET_ACCESS_KEY }}</span>
-</code></pre></div>
-
+    - name: Deploy to Production
+      run: |
+        echo &quot;Deploying to production environment...&quot;
+        # Add production deployment commands
+      env:
+        PRODUCTION_HOST: ${{ secrets.PRODUCTION_HOST }}
+        PRODUCTION_SSH_KEY: ${{ secrets.PRODUCTION_SSH_KEY }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+</code></pre>
 <h3 id="deployment-scripts">Deployment Scripts<a class="headerlink" href="#deployment-scripts" title="Permanent link">&para;</a></h3>
 <h4 id="rolling-deployment-script">Rolling Deployment Script<a class="headerlink" href="#rolling-deployment-script" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1"># scripts/deploy.sh</span>
+<pre><code class="language-bash">#!/bin/bash
+# scripts/deploy.sh
 
-<span class="nb">set</span><span class="w"> </span>-e
+set -e
 
-<span class="nv">ENVIRONMENT</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="nv">staging</span><span class="si">}</span>
-<span class="nv">VERSION</span><span class="o">=</span><span class="si">${</span><span class="nv">2</span><span class="k">:-</span><span class="nv">latest</span><span class="si">}</span>
-<span class="nv">HEALTH_CHECK_TIMEOUT</span><span class="o">=</span><span class="m">300</span>
-<span class="nv">ROLLBACK_ON_FAILURE</span><span class="o">=</span><span class="nb">true</span>
+ENVIRONMENT=${1:-staging}
+VERSION=${2:-latest}
+HEALTH_CHECK_TIMEOUT=300
+ROLLBACK_ON_FAILURE=true
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🚀 Starting deployment to </span><span class="nv">$ENVIRONMENT</span><span class="s2"> (version: </span><span class="nv">$VERSION</span><span class="s2">)&quot;</span>
+echo &quot;🚀 Starting deployment to $ENVIRONMENT (version: $VERSION)&quot;
 
-<span class="c1"># Load environment-specific configuration</span>
-<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;.env.</span><span class="nv">$ENVIRONMENT</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">source</span><span class="w"> </span><span class="s2">&quot;.env.</span><span class="nv">$ENVIRONMENT</span><span class="s2">&quot;</span>
-<span class="k">else</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Environment file .env.</span><span class="nv">$ENVIRONMENT</span><span class="s2"> not found&quot;</span>
-<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="k">fi</span>
+# Load environment-specific configuration
+if [[ -f &quot;.env.$ENVIRONMENT&quot; ]]; then
+    source &quot;.env.$ENVIRONMENT&quot;
+else
+    echo &quot;❌ Environment file .env.$ENVIRONMENT not found&quot;
+    exit 1
+fi
 
-<span class="c1"># Validate environment</span>
+# Validate environment
 ./scripts/validate-environment.sh
 
-<span class="c1"># Pre-deployment health check</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🏥 Pre-deployment health check...&quot;</span>
-<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>curl<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$APP_URL</span><span class="s2">/actuator/health&quot;</span><span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⚠️  Application not responding, proceeding with deployment&quot;</span>
-<span class="k">fi</span>
+# Pre-deployment health check
+echo &quot;🏥 Pre-deployment health check...&quot;
+if ! curl -f &quot;$APP_URL/actuator/health&quot; &gt;/dev/null 2&gt;&amp;1; then
+    echo &quot;⚠️  Application not responding, proceeding with deployment&quot;
+fi
 
-<span class="c1"># Database migrations (if needed)</span>
-<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$RUN_MIGRATIONS</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;📊 Running database migrations...&quot;</span>
-<span class="w">    </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--network<span class="w"> </span>dealsphere-network<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>-e<span class="w"> </span><span class="nv">DB_HOST</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$DB_HOST</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>-e<span class="w"> </span><span class="nv">DB_USERNAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$DB_USERNAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>-e<span class="w"> </span><span class="nv">DB_PASSWORD</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$DB_PASSWORD</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>-e<span class="w"> </span><span class="nv">DB_NAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$DB_NAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>ghcr.io/dealsphere-inc/dealsphere-platform:<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>-backend<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>java<span class="w"> </span>-jar<span class="w"> </span>app.jar<span class="w"> </span>--spring.profiles.active<span class="o">=</span>migration
-<span class="k">fi</span>
+# Database migrations (if needed)
+if [[ &quot;$RUN_MIGRATIONS&quot; == &quot;true&quot; ]]; then
+    echo &quot;📊 Running database migrations...&quot;
+    docker run --rm \
+        --network dealsphere-network \
+        -e DB_HOST=&quot;$DB_HOST&quot; \
+        -e DB_USERNAME=&quot;$DB_USERNAME&quot; \
+        -e DB_PASSWORD=&quot;$DB_PASSWORD&quot; \
+        -e DB_NAME=&quot;$DB_NAME&quot; \
+        ghcr.io/dealsphere-inc/dealsphere-platform:${VERSION}-backend \
+        java -jar app.jar --spring.profiles.active=migration
+fi
 
-<span class="c1"># Rolling deployment</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🔄 Performing rolling deployment...&quot;</span>
+# Rolling deployment
+echo &quot;🔄 Performing rolling deployment...&quot;
 
-<span class="k">if</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>docker-compose<span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1"># Docker Compose deployment</span>
-<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">IMAGE_TAG</span><span class="o">=</span><span class="nv">$VERSION</span>
-<span class="w">    </span>docker-compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.prod.yml<span class="w"> </span>pull
-<span class="w">    </span>docker-compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.prod.yml<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--remove-orphans
+if command -v docker-compose &gt;/dev/null; then
+    # Docker Compose deployment
+    export IMAGE_TAG=$VERSION
+    docker-compose -f docker-compose.prod.yml pull
+    docker-compose -f docker-compose.prod.yml up -d --remove-orphans
 
-<span class="k">elif</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>kubectl<span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="c1"># Kubernetes deployment</span>
-<span class="w">    </span>kubectl<span class="w"> </span><span class="nb">set</span><span class="w"> </span>image<span class="w"> </span>deployment/dealsphere-backend<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span><span class="nv">backend</span><span class="o">=</span>ghcr.io/dealsphere-inc/dealsphere-platform:<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>-backend
-<span class="w">    </span>kubectl<span class="w"> </span><span class="nb">set</span><span class="w"> </span>image<span class="w"> </span>deployment/dealsphere-frontend<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span><span class="nv">frontend</span><span class="o">=</span>ghcr.io/dealsphere-inc/dealsphere-platform:<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>-frontend
+elif command -v kubectl &gt;/dev/null; then
+    # Kubernetes deployment
+    kubectl set image deployment/dealsphere-backend \
+        backend=ghcr.io/dealsphere-inc/dealsphere-platform:${VERSION}-backend
+    kubectl set image deployment/dealsphere-frontend \
+        frontend=ghcr.io/dealsphere-inc/dealsphere-platform:${VERSION}-frontend
 
-<span class="w">    </span>kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>deployment/dealsphere-backend<span class="w"> </span>--timeout<span class="o">=</span>300s
-<span class="w">    </span>kubectl<span class="w"> </span>rollout<span class="w"> </span>status<span class="w"> </span>deployment/dealsphere-frontend<span class="w"> </span>--timeout<span class="o">=</span>300s
-<span class="k">else</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ No supported orchestration tool found&quot;</span>
-<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="k">fi</span>
+    kubectl rollout status deployment/dealsphere-backend --timeout=300s
+    kubectl rollout status deployment/dealsphere-frontend --timeout=300s
+else
+    echo &quot;❌ No supported orchestration tool found&quot;
+    exit 1
+fi
 
-<span class="c1"># Health check with retry</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🏥 Post-deployment health check...&quot;</span>
-<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..30<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span>curl<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$APP_URL</span><span class="s2">/actuator/health&quot;</span><span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Application is healthy&quot;</span>
-<span class="w">        </span><span class="k">break</span>
-<span class="w">    </span><span class="k">fi</span>
+# Health check with retry
+echo &quot;🏥 Post-deployment health check...&quot;
+for i in {1..30}; do
+    if curl -f &quot;$APP_URL/actuator/health&quot; &gt;/dev/null 2&gt;&amp;1; then
+        echo &quot;✅ Application is healthy&quot;
+        break
+    fi
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$i</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Health check failed after 30 attempts&quot;</span>
+    if [[ $i -eq 30 ]]; then
+        echo &quot;❌ Health check failed after 30 attempts&quot;
 
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ROLLBACK_ON_FAILURE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🔄 Rolling back deployment...&quot;</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>kubectl<span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">                </span>kubectl<span class="w"> </span>rollout<span class="w"> </span>undo<span class="w"> </span>deployment/dealsphere-backend
-<span class="w">                </span>kubectl<span class="w"> </span>rollout<span class="w"> </span>undo<span class="w"> </span>deployment/dealsphere-frontend
-<span class="w">            </span><span class="k">else</span>
-<span class="w">                </span>docker-compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.prod.yml<span class="w"> </span>down
-<span class="w">                </span><span class="c1"># Restore previous version logic here</span>
-<span class="w">            </span><span class="k">fi</span>
-<span class="w">        </span><span class="k">fi</span>
-<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="w">    </span><span class="k">fi</span>
+        if [[ &quot;$ROLLBACK_ON_FAILURE&quot; == &quot;true&quot; ]]; then
+            echo &quot;🔄 Rolling back deployment...&quot;
+            if command -v kubectl &gt;/dev/null; then
+                kubectl rollout undo deployment/dealsphere-backend
+                kubectl rollout undo deployment/dealsphere-frontend
+            else
+                docker-compose -f docker-compose.prod.yml down
+                # Restore previous version logic here
+            fi
+        fi
+        exit 1
+    fi
 
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⏳ Waiting for application to become healthy (attempt </span><span class="nv">$i</span><span class="s2">/30)...&quot;</span>
-<span class="w">    </span>sleep<span class="w"> </span><span class="m">10</span>
-<span class="k">done</span>
+    echo &quot;⏳ Waiting for application to become healthy (attempt $i/30)...&quot;
+    sleep 10
+done
 
-<span class="c1"># Smoke tests</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🧪 Running smoke tests...&quot;</span>
-./scripts/smoke-tests.sh<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$APP_URL</span><span class="s2">&quot;</span>
+# Smoke tests
+echo &quot;🧪 Running smoke tests...&quot;
+./scripts/smoke-tests.sh &quot;$APP_URL&quot;
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🎉 Deployment completed successfully!&quot;</span>
+echo &quot;🎉 Deployment completed successfully!&quot;
 
-<span class="c1"># Post-deployment notifications</span>
-<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SLACK_WEBHOOK_URL</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--data<span class="w"> </span><span class="s2">&quot;{\&quot;text\&quot;:\&quot;✅ DealSphere </span><span class="nv">$ENVIRONMENT</span><span class="s2"> deployment completed (version: </span><span class="nv">$VERSION</span><span class="s2">)\&quot;}&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span><span class="s2">&quot;</span><span class="nv">$SLACK_WEBHOOK_URL</span><span class="s2">&quot;</span>
-<span class="k">fi</span>
-</code></pre></div>
-
+# Post-deployment notifications
+if [[ -n &quot;$SLACK_WEBHOOK_URL&quot; ]]; then
+    curl -X POST -H 'Content-type: application/json' \
+        --data &quot;{\&quot;text\&quot;:\&quot;✅ DealSphere $ENVIRONMENT deployment completed (version: $VERSION)\&quot;}&quot; \
+        &quot;$SLACK_WEBHOOK_URL&quot;
+fi
+</code></pre>
 <h4 id="smoke-tests-script">Smoke Tests Script<a class="headerlink" href="#smoke-tests-script" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1"># scripts/smoke-tests.sh</span>
+<pre><code class="language-bash">#!/bin/bash
+# scripts/smoke-tests.sh
 
-<span class="nb">set</span><span class="w"> </span>-e
+set -e
 
-<span class="nv">BASE_URL</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="nv">http</span><span class="p">://localhost:</span><span class="nv">8080</span><span class="si">}</span>
-<span class="nv">TIMEOUT</span><span class="o">=</span><span class="m">30</span>
+BASE_URL=${1:-http://localhost:8080}
+TIMEOUT=30
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🧪 Running smoke tests against </span><span class="nv">$BASE_URL</span><span class="s2">&quot;</span>
+echo &quot;🧪 Running smoke tests against $BASE_URL&quot;
 
-<span class="c1"># Test health endpoint</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Testing health endpoint...&quot;</span>
-<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>curl<span class="w"> </span>-f<span class="w"> </span>--max-time<span class="w"> </span><span class="nv">$TIMEOUT</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$BASE_URL</span><span class="s2">/actuator/health&quot;</span><span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Health check failed&quot;</span>
-<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="k">fi</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Health check passed&quot;</span>
+# Test health endpoint
+echo &quot;Testing health endpoint...&quot;
+if ! curl -f --max-time $TIMEOUT &quot;$BASE_URL/actuator/health&quot; &gt;/dev/null; then
+    echo &quot;❌ Health check failed&quot;
+    exit 1
+fi
+echo &quot;✅ Health check passed&quot;
 
-<span class="c1"># Test metrics endpoint</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Testing metrics endpoint...&quot;</span>
-<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>curl<span class="w"> </span>-f<span class="w"> </span>--max-time<span class="w"> </span><span class="nv">$TIMEOUT</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$BASE_URL</span><span class="s2">/actuator/prometheus&quot;</span><span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ Metrics endpoint failed&quot;</span>
-<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="k">fi</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Metrics endpoint passed&quot;</span>
+# Test metrics endpoint
+echo &quot;Testing metrics endpoint...&quot;
+if ! curl -f --max-time $TIMEOUT &quot;$BASE_URL/actuator/prometheus&quot; &gt;/dev/null; then
+    echo &quot;❌ Metrics endpoint failed&quot;
+    exit 1
+fi
+echo &quot;✅ Metrics endpoint passed&quot;
 
-<span class="c1"># Test GraphQL endpoint</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Testing GraphQL endpoint...&quot;</span>
-<span class="nv">GRAPHQL_QUERY</span><span class="o">=</span><span class="s1">&#39;{&quot;query&quot;:&quot;query { __schema { queryType { name } } }&quot;}&#39;</span>
-<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>curl<span class="w"> </span>-f<span class="w"> </span>--max-time<span class="w"> </span><span class="nv">$TIMEOUT</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$GRAPHQL_QUERY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="s2">&quot;</span><span class="nv">$BASE_URL</span><span class="s2">/graphql&quot;</span><span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;❌ GraphQL endpoint failed&quot;</span>
-<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="k">fi</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ GraphQL endpoint passed&quot;</span>
+# Test GraphQL endpoint
+echo &quot;Testing GraphQL endpoint...&quot;
+GRAPHQL_QUERY='{&quot;query&quot;:&quot;query { __schema { queryType { name } } }&quot;}'
+if ! curl -f --max-time $TIMEOUT \
+    -H &quot;Content-Type: application/json&quot; \
+    -d &quot;$GRAPHQL_QUERY&quot; \
+    &quot;$BASE_URL/graphql&quot; &gt;/dev/null; then
+    echo &quot;❌ GraphQL endpoint failed&quot;
+    exit 1
+fi
+echo &quot;✅ GraphQL endpoint passed&quot;
 
-<span class="c1"># Test database connectivity (through app)</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Testing database connectivity...&quot;</span>
-<span class="nv">DB_QUERY</span><span class="o">=</span><span class="s1">&#39;{&quot;query&quot;:&quot;query { organizations { id name } }&quot;}&#39;</span>
-<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>curl<span class="w"> </span>-f<span class="w"> </span>--max-time<span class="w"> </span><span class="nv">$TIMEOUT</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer test-token&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DB_QUERY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="s2">&quot;</span><span class="nv">$BASE_URL</span><span class="s2">/graphql&quot;</span><span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;⚠️  Database connectivity test skipped (requires auth)&quot;</span>
-<span class="k">else</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;✅ Database connectivity passed&quot;</span>
-<span class="k">fi</span>
+# Test database connectivity (through app)
+echo &quot;Testing database connectivity...&quot;
+DB_QUERY='{&quot;query&quot;:&quot;query { organizations { id name } }&quot;}'
+if ! curl -f --max-time $TIMEOUT \
+    -H &quot;Content-Type: application/json&quot; \
+    -H &quot;Authorization: Bearer test-token&quot; \
+    -d &quot;$DB_QUERY&quot; \
+    &quot;$BASE_URL/graphql&quot; &gt;/dev/null 2&gt;&amp;1; then
+    echo &quot;⚠️  Database connectivity test skipped (requires auth)&quot;
+else
+    echo &quot;✅ Database connectivity passed&quot;
+fi
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;🎉 All smoke tests passed!&quot;</span>
-</code></pre></div>
-
+echo &quot;🎉 All smoke tests passed!&quot;
+</code></pre>
 <h2 id="environment-monitoring">Environment Monitoring<a class="headerlink" href="#environment-monitoring" title="Permanent link">&para;</a></h2>
 <h3 id="health-checks-configuration">Health Checks Configuration<a class="headerlink" href="#health-checks-configuration" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># health-checks.yml</span>
-<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">backend</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;curl&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;-f&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;http://localhost:8080/actuator/health&quot;</span><span class="p p-Indicator">]</span>
-<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30s</span>
-<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
-<span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-<span class="w">      </span><span class="nt">start_period</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60s</span>
+<pre><code class="language-yaml"># health-checks.yml
+version: '3.8'
+services:
+  backend:
+    healthcheck:
+      test: [&quot;CMD&quot;, &quot;curl&quot;, &quot;-f&quot;, &quot;http://localhost:8080/actuator/health&quot;]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
 
-<span class="w">  </span><span class="nt">frontend</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;curl&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;-f&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;http://localhost:3000/health&quot;</span><span class="p p-Indicator">]</span>
-<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30s</span>
-<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
-<span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-<span class="w">      </span><span class="nt">start_period</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30s</span>
+  frontend:
+    healthcheck:
+      test: [&quot;CMD&quot;, &quot;curl&quot;, &quot;-f&quot;, &quot;http://localhost:3000/health&quot;]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
 
-<span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD-SHELL&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;pg_isready</span><span class="nv"> </span><span class="s">-U</span><span class="nv"> </span><span class="s">${DB_USERNAME}</span><span class="nv"> </span><span class="s">-d</span><span class="nv"> </span><span class="s">${DB_NAME}&quot;</span><span class="p p-Indicator">]</span>
-<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30s</span>
-<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span>
-<span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+  postgres:
+    healthcheck:
+      test: [&quot;CMD-SHELL&quot;, &quot;pg_isready -U ${DB_USERNAME} -d ${DB_NAME}&quot;]
+      interval: 30s
+      timeout: 5s
+      retries: 5
 
-<span class="w">  </span><span class="nt">redis</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;redis-cli&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;ping&quot;</span><span class="p p-Indicator">]</span>
-<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30s</span>
-<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span>
-<span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-</code></pre></div>
-
+  redis:
+    healthcheck:
+      test: [&quot;CMD&quot;, &quot;redis-cli&quot;, &quot;ping&quot;]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+</code></pre>
 <h3 id="monitoring-integration">Monitoring Integration<a class="headerlink" href="#monitoring-integration" title="Permanent link">&para;</a></h3>
 <p>Environment monitoring is integrated with the observability stack. Each environment reports to centralized monitoring:</p>
 <ul>
@@ -2573,42 +2558,39 @@ secrets:
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="common-environment-issues">Common Environment Issues<a class="headerlink" href="#common-environment-issues" title="Permanent link">&para;</a></h3>
 <p><strong>Environment Variables Not Loading</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Check environment file exists and has correct permissions</span>
-ls<span class="w"> </span>-la<span class="w"> </span>.env.*
-chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>.env.production
+<pre><code class="language-bash"># Check environment file exists and has correct permissions
+ls -la .env.*
+chmod 644 .env.production
 
-<span class="c1"># Verify variables are exported</span>
-env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;^(DB_|REDIS_|JWT_)&#39;</span>
+# Verify variables are exported
+env | grep -E '^(DB_|REDIS_|JWT_)'
 
-<span class="c1"># Test with explicit source</span>
-<span class="nb">source</span><span class="w"> </span>.env.production<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./scripts/validate-environment.sh
-</code></pre></div>
-
+# Test with explicit source
+source .env.production &amp;&amp; ./scripts/validate-environment.sh
+</code></pre>
 <p><strong>Database Connection Issues</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Test direct connection</span>
-<span class="nv">PGPASSWORD</span><span class="o">=</span><span class="nv">$DB_PASSWORD</span><span class="w"> </span>psql<span class="w"> </span>-h<span class="w"> </span><span class="nv">$DB_HOST</span><span class="w"> </span>-U<span class="w"> </span><span class="nv">$DB_USERNAME</span><span class="w"> </span>-d<span class="w"> </span><span class="nv">$DB_NAME</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT version();&quot;</span>
+<pre><code class="language-bash"># Test direct connection
+PGPASSWORD=$DB_PASSWORD psql -h $DB_HOST -U $DB_USERNAME -d $DB_NAME -c &quot;SELECT version();&quot;
 
-<span class="c1"># Check network connectivity</span>
-nslookup<span class="w"> </span><span class="nv">$DB_HOST</span>
-telnet<span class="w"> </span><span class="nv">$DB_HOST</span><span class="w"> </span><span class="nv">$DB_PORT</span>
+# Check network connectivity
+nslookup $DB_HOST
+telnet $DB_HOST $DB_PORT
 
-<span class="c1"># Verify SSL configuration</span>
-psql<span class="w"> </span><span class="s2">&quot;postgresql://</span><span class="nv">$DB_USERNAME</span><span class="s2">:</span><span class="nv">$DB_PASSWORD</span><span class="s2">@</span><span class="nv">$DB_HOST</span><span class="s2">:</span><span class="nv">$DB_PORT</span><span class="s2">/</span><span class="nv">$DB_NAME</span><span class="s2">?sslmode=</span><span class="nv">$DB_SSL_MODE</span><span class="s2">&quot;</span>
-</code></pre></div>
-
+# Verify SSL configuration
+psql &quot;postgresql://$DB_USERNAME:$DB_PASSWORD@$DB_HOST:$DB_PORT/$DB_NAME?sslmode=$DB_SSL_MODE&quot;
+</code></pre>
 <p><strong>Secrets Access Issues</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># AWS Secrets Manager</span>
-aws<span class="w"> </span>secretsmanager<span class="w"> </span>get-secret-value<span class="w"> </span>--secret-id<span class="w"> </span><span class="s2">&quot;dealsphere/prod/database&quot;</span>
+<pre><code class="language-bash"># AWS Secrets Manager
+aws secretsmanager get-secret-value --secret-id &quot;dealsphere/prod/database&quot;
 
-<span class="c1"># Kubernetes secrets</span>
-kubectl<span class="w"> </span>get<span class="w"> </span>secrets<span class="w"> </span>-n<span class="w"> </span>dealsphere-prod
-kubectl<span class="w"> </span>describe<span class="w"> </span>secret<span class="w"> </span>dealsphere-secrets<span class="w"> </span>-n<span class="w"> </span>dealsphere-prod
+# Kubernetes secrets
+kubectl get secrets -n dealsphere-prod
+kubectl describe secret dealsphere-secrets -n dealsphere-prod
 
-<span class="c1"># Docker secrets</span>
-docker<span class="w"> </span>secret<span class="w"> </span>ls
-docker<span class="w"> </span>secret<span class="w"> </span>inspect<span class="w"> </span>jwt_secret
-</code></pre></div>
-
+# Docker secrets
+docker secret ls
+docker secret inspect jwt_secret
+</code></pre>
 <p>This comprehensive environment management guide ensures consistent, secure, and reliable deployments across all DealSphere environments.</p>
 
 
