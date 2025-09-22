@@ -1,16 +1,11 @@
 # Phase 1 Functional Test Cases
-
 ## Overview
-
 This document outlines the functional test cases for DealSphere Phase 1 (MVP) based on the requirements defined in Phase1_PRD.md. These test cases cover all core functional areas with class-specific multi-tenant functionality.
-
 **Related Documents:**
 - [Phase1_PRD.md](product/Phase1_PRD.md)
 
 ---
-
 ## 1. Platform & Security
-
 ### 1.1 Role-Based Access Control (RBAC)
 - **Test Case 1.1.1**: Verify Admin users can access all fund classes and system configurations
 - **Test Case 1.1.2**: Verify GP users can access all fund operations within their assigned funds
@@ -33,9 +28,7 @@ This document outlines the functional test cases for DealSphere Phase 1 (MVP) ba
 - **Test Case 1.3.3**: Verify ledger integrity and audit trail functionality
 
 ---
-
 ## 2. Document Management
-
 ### 2.1 Document Storage & Metadata
 - **Test Case 2.1.1**: Verify documents are stored with encrypted off-ledger storage
 - **Test Case 2.1.2**: Verify on-ledger metadata is correctly maintained for all documents
@@ -52,11 +45,19 @@ This document outlines the functional test cases for DealSphere Phase 1 (MVP) ba
 - **Test Case 2.3.1**: Verify smart search returns relevant documents based on class permissions
 - **Test Case 2.3.2**: Verify OCR-based document classification works accurately
 - **Test Case 2.3.3**: Verify AI classification respects class-based document segregation
+- **Test Case 2.3.4**: Verify bulk upload integrity checks with class tags and hashes (see 2.4)
+
+### 2.4 Bulk Upload Integrity (New)
+- **Test Case 2.4.1**: Verify bulk upload enforces per-file class tagging (A/B) before acceptance
+- **Test Case 2.4.2**: Verify batch-level hash manifest validates all file checksums; reject on mismatch
+- **Test Case 2.4.3**: Verify partial failure handling: successful files commit; failed files rollback with report
+- **Test Case 2.4.4**: Verify duplicate detection prevents re-upload across classes while preserving class boundaries
+- **Test Case 2.4.5**: Verify access control on bulk results: users only see outcomes for their classes
+- **Test Case 2.4.6**: Verify resumable uploads preserve integrity and class tags after network interruption
+- Example: Upload 100 PDFs mixed Class A/B with a manifest; tamper 3 files to expect 97 success, 3 rejected with reasons
 
 ---
-
 ## 3. Capital Calls
-
 ### 3.1 Class-Specific Capital Call Rules
 - **Test Case 3.1.1**: Verify capital call rules can be configured separately for each class
 - **Test Case 3.1.2**: Verify capital call percentages are applied correctly per class
@@ -74,10 +75,18 @@ This document outlines the functional test cases for DealSphere Phase 1 (MVP) ba
 - **Test Case 3.3.2**: Verify enforcement mechanisms work per class rules
 - **Test Case 3.3.3**: Verify escalation procedures follow class-specific SLAs
 
+### 3.4 Capital Call Edge Scenarios (New)
+- **Test Case 3.4.1**: Verify rounding rules at per-LP and per-class level (e.g., bankers’ rounding)
+- **Test Case 3.4.2**: Verify min/max call thresholds: skip micro-amounts and cap per-period draws
+- **Test Case 3.4.3**: Verify mid-period class switch for an LP: split call pre/post switch with audit trail
+- **Test Case 3.4.4**: Verify FX handling for non-USD LPs: lock FX date per class policy; reconcile variances
+- **Test Case 3.4.5**: Verify overpayment allocation: surplus assigned to next call only within same class
+- **Test Case 3.4.6**: Verify delinquency grace period: Class A 5 days vs Class B 10 days per config
+- **Test Case 3.4.7**: Verify call cancellation/ammendment: versioned notices; prior call superseded
+- Example: Class A 2.75% on $100M with 37 LPs; verify totals, rounding, and ledger ties to cents
+
 ---
-
 ## 4. Waterfall Calculations
-
 ### 4.1 Multi-Class European Waterfall
 - **Test Case 4.1.1**: Verify European waterfall calculates whole-of-fund distributions correctly
 - **Test Case 4.1.2**: Verify class-specific preferred returns are applied accurately
@@ -98,9 +107,7 @@ This document outlines the functional test cases for DealSphere Phase 1 (MVP) ba
 - **Test Case 4.3.4**: Verify waterfall calculations can be validated against test vectors
 
 ---
-
 ## 5. Workflow Automation
-
 ### 5.1 Class-Specific Approval Workflows
 - **Test Case 5.1.1**: Verify approval workflows for capital calls work per class
 - **Test Case 5.1.2**: Verify distribution approval workflows respect class boundaries
@@ -118,10 +125,17 @@ This document outlines the functional test cases for DealSphere Phase 1 (MVP) ba
 - **Test Case 5.3.2**: Verify AI routing respects class-based permissions
 - **Test Case 5.3.3**: Verify intelligent workflow optimization works across classes
 
+### 5.4 AI Workflow Failure Recovery (New)
+- **Test Case 5.4.1**: Verify graceful degradation: fall back to rules-based routing when AI model fails
+- **Test Case 5.4.2**: Verify retry strategy with exponential backoff and idempotent job tokens
+- **Test Case 5.4.3**: Verify partial pipeline failure isolation; unaffected class tasks proceed
+- **Test Case 5.4.4**: Verify human-in-the-loop escalation on repeated AI errors with audit entries
+- **Test Case 5.4.5**: Verify drift detection disables AI for a class when confidence < threshold
+- **Test Case 5.4.6**: Verify observability emits per-class error metrics and alerts to the right on-call
+- Example: Simulate LLM timeout; ensure Class A approvals route via deterministic path; Class B remains AI-enabled
+
 ---
-
 ## 6. Basic Analytics
-
 ### 6.1 Class-Level Capital Analytics
 - **Test Case 6.1.1**: Verify committed vs. deployed capital is tracked separately by class
 - **Test Case 6.1.2**: Verify capital utilization reports are class-specific
@@ -139,9 +153,7 @@ This document outlines the functional test cases for DealSphere Phase 1 (MVP) ba
 - **Test Case 6.3.4**: Verify exported data maintains class-based security restrictions
 
 ---
-
 ## 7. AI Integration
-
 ### 7.1 Class-Filtered Queries
 - **Test Case 7.1.1**: Verify AI queries respect class-based data access restrictions
 - **Test Case 7.1.2**: Verify class-specific queries return accurate filtered results (e.g., "Show returns for Class B LPs")
@@ -158,9 +170,7 @@ This document outlines the functional test cases for DealSphere Phase 1 (MVP) ba
 - **Test Case 7.3.3**: Verify automated classification assigns appropriate class tags
 
 ---
-
 ## 8. Architecture Design
-
 ### 8.1 Scalability & Performance
 - **Test Case 8.1.1**: Verify Corda node topology supports expected transaction volume
 - **Test Case 8.1.2**: Verify API gateway handles concurrent multi-class requests
@@ -172,9 +182,7 @@ This document outlines the functional test cases for DealSphere Phase 1 (MVP) ba
 - **Test Case 8.2.3**: Verify audit capabilities work across the distributed architecture
 
 ---
-
 ## 9. Fund Accounting
-
 ### 9.1 Multi-Class General Ledger
 - **Test Case 9.1.1**: Verify general ledger maintains separate accounting for each class
 - **Test Case 9.1.2**: Verify cross-class transactions are properly recorded
@@ -187,9 +195,7 @@ This document outlines the functional test cases for DealSphere Phase 1 (MVP) ba
 - **Test Case 9.2.4**: Verify consolidated P&L reports are accurate
 
 ---
-
 ## 10. Portfolio Tracking
-
 ### 10.1 Class-Based Investment Tracking
 - **Test Case 10.1.1**: Verify company profiles show investment history split by class
 - **Test Case 10.1.2**: Verify class-specific contributions are tracked accurately
@@ -202,9 +208,7 @@ This document outlines the functional test cases for DealSphere Phase 1 (MVP) ba
 - **Test Case 10.2.4**: Verify portfolio tracking data respects class-based access controls
 
 ---
-
 ## Test Execution Notes
-
 ### Prerequisites
 - Multi-class test fund setup with Class A and Class B LPs
 - Test users configured for each role (Admin, GP, LP Class A, LP Class B, Auditor, AI Assistant)
@@ -226,7 +230,6 @@ This document outlines the functional test cases for DealSphere Phase 1 (MVP) ba
 - Sample documents with class-specific access requirements
 
 ---
-
 *Last Updated: August 23, 2025*
 *Version: 1.0*
 *Related: Phase1_PRD.md*
